@@ -80,9 +80,23 @@ export function BookCover({ onOpen, isOpening }: BookCoverProps) {
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           />
           
+          {/* Warm glow behind the book */}
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'radial-gradient(ellipse 70% 80% at 50% 50%, hsl(30 60% 25% / 0.4) 0%, hsl(25 50% 15% / 0.2) 40%, transparent 70%)',
+              filter: 'blur(40px)',
+            }}
+            animate={shouldAnimate && !isOpening ? {
+              opacity: [0.6, 0.9, 0.6],
+              scale: [1, 1.05, 1],
+            } : undefined}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
+
           {/* Main book image */}
           <motion.div
-            className="relative"
+            className="relative z-10"
             animate={isOpening ? {
               scale: 3,
               rotateX: 0,
@@ -95,46 +109,13 @@ export function BookCover({ onOpen, isOpening }: BookCoverProps) {
               transformStyle: 'preserve-3d',
             }}
           >
-            {/* Book image with edge blending mask */}
-            <div
-              className="relative"
+            <img
+              src={leatherBook}
+              alt="ਸਿਰਰ ਤਵੀ - Surinder Seerat"
+              className="w-[320px] md:w-[400px] lg:w-[480px] h-auto"
               style={{
-                filter: 'drop-shadow(0 50px 80px rgba(0,0,0,0.8)) drop-shadow(0 25px 40px rgba(0,0,0,0.7))',
-              }}
-            >
-              <img
-                src={leatherBook}
-                alt="ਸਿਰਰ ਤਵੀ - Surinder Seerat"
-                className="w-[320px] md:w-[400px] lg:w-[480px] h-auto"
-                style={{
-                  transform: 'translateZ(20px)',
-                  maskImage: 'radial-gradient(ellipse 85% 90% at 50% 50%, black 60%, transparent 100%)',
-                  WebkitMaskImage: 'radial-gradient(ellipse 85% 90% at 50% 50%, black 60%, transparent 100%)',
-                }}
-              />
-              
-              {/* Additional edge fade overlay */}
-              <div 
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background: 'radial-gradient(ellipse 100% 100% at 50% 50%, transparent 50%, hsl(20 10% 4%) 100%)',
-                }}
-              />
-            </div>
-            
-             {/* Leather texture highlight overlay */}
-            <div 
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                 background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 40%, rgba(0,0,0,0.15) 100%)',
-               }}
-             />
-             
-             {/* Edge lighting for depth */}
-             <div 
-               className="absolute inset-0 pointer-events-none"
-               style={{
-                 boxShadow: 'inset 2px 2px 8px rgba(255,255,255,0.05), inset -2px -2px 8px rgba(0,0,0,0.2)',
+                transform: 'translateZ(20px)',
+                filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.9)) drop-shadow(0 15px 30px rgba(0,0,0,0.8))',
               }}
             />
 
