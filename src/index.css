@@ -2,95 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* 
+  THE LANTERN ROOM — Design System for Surinder Seerat
+  A cinematic, intimate, timeless poetry experience
+  Inspired by ink wash paintings, warm paper, and the rhythm of Gurmukhi calligraphy
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Paper & Ink Color Palette */
+    --background: 40 33% 96%;           /* Warm cream paper */
+    --foreground: 30 10% 15%;           /* Deep ink black */
+    
+    --card: 38 30% 94%;                 /* Slightly warmer card */
+    --card-foreground: 30 10% 15%;
+    
+    --popover: 40 33% 96%;
+    --popover-foreground: 30 10% 15%;
+    
+    --primary: 30 10% 15%;              /* Ink for text and CTAs */
+    --primary-foreground: 40 33% 96%;
+    
+    --secondary: 35 20% 90%;            /* Aged paper tone */
+    --secondary-foreground: 30 10% 25%;
+    
+    --muted: 35 15% 88%;
+    --muted-foreground: 30 8% 45%;
+    
+    --accent: 25 70% 35%;               /* Warm terracotta accent */
+    --accent-foreground: 40 33% 96%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 35 20% 85%;
+    --input: 35 20% 88%;
+    --ring: 25 70% 35%;
+    
+    --radius: 0.25rem;
+    
+    /* Extended Lantern Room Palette */
+    --ink: 30 10% 15%;
+    --ink-light: 30 8% 35%;
+    --paper: 40 33% 96%;
+    --paper-warm: 38 35% 92%;
+    --paper-aged: 35 25% 88%;
+    --terracotta: 25 70% 35%;
+    --terracotta-light: 25 60% 50%;
+    --gold: 40 80% 50%;
+    --sepia: 30 30% 40%;
+    
+    /* Typography Scale */
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Cormorant Garamond', Georgia, serif;
+    --font-ui: 'Inter', system-ui, sans-serif;
+    
+    /* Spacing Scale */
+    --space-reading: clamp(1rem, 5vw, 3rem);
+    --max-reading: 65ch;
+    --max-content: 1200px;
+    
+    /* Motion Tokens */
+    --duration-slow: 1.2s;
+    --duration-medium: 0.6s;
+    --duration-fast: 0.3s;
+    --ease-gentle: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --ease-dramatic: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  /* Motion reduction preference */
+  .motion-reduced,
+  .motion-reduced * {
+    --duration-slow: 0.01ms !important;
+    --duration-medium: 0.01ms !important;
+    --duration-fast: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
@@ -98,8 +88,238 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .motion-reduced html {
+    scroll-behavior: auto;
+  }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+    font-feature-settings: "liga" 1, "kern" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.7;
+  }
+  
+  /* Skip Link for Accessibility */
+  .skip-link {
+    @apply fixed left-4 bg-primary text-primary-foreground px-4 py-2 z-50 font-ui text-sm;
+    top: -100%;
+    transition: top var(--duration-fast) var(--ease-gentle);
+  }
+  
+  .skip-link:focus {
+    top: 1rem;
+    outline: 2px solid hsl(var(--accent));
+    outline-offset: 2px;
+  }
+  
+  /* Focus Styles for Accessibility */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--accent));
+    outline-offset: 2px;
+  }
+  
+  /* Typography Styles */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  
+  h1 { @apply text-5xl md:text-6xl lg:text-7xl; }
+  h2 { @apply text-3xl md:text-4xl lg:text-5xl; }
+  h3 { @apply text-2xl md:text-3xl; }
+  h4 { @apply text-xl md:text-2xl; }
+  
+  .font-display {
+    font-family: var(--font-display);
+  }
+  
+  .font-ui {
+    font-family: var(--font-ui);
+  }
+  
+  /* Prose Styling */
+  .prose-lantern {
+    @apply max-w-prose mx-auto;
+    font-size: clamp(1.0625rem, 1vw + 0.875rem, 1.25rem);
+    line-height: 1.8;
+  }
+  
+  .prose-lantern p {
+    @apply mb-6;
+  }
+  
+  /* Gurmukhi-inspired decorative divider */
+  .divider-ornament {
+    @apply relative flex items-center justify-center py-8;
+  }
+  
+  .divider-ornament::before {
+    content: '੧';
+    @apply text-3xl opacity-20;
+    font-family: 'Noto Sans Gurmukhi', sans-serif;
+  }
+}
+
+@layer components {
+  /* Hero Variant Button */
+  .btn-hero {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4;
+    @apply bg-primary text-primary-foreground;
+    @apply font-ui text-sm tracking-widest uppercase;
+    @apply border border-primary;
+    @apply transition-all;
+    transition-duration: var(--duration-medium);
+    transition-timing-function: var(--ease-gentle);
+  }
+  
+  .btn-hero:hover {
+    @apply bg-transparent text-primary;
+  }
+  
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3;
+    @apply bg-transparent text-primary;
+    @apply font-ui text-sm tracking-widest uppercase;
+    @apply border border-primary/30;
+    @apply transition-all;
+    transition-duration: var(--duration-medium);
+  }
+  
+  .btn-ghost:hover {
+    @apply border-primary bg-primary/5;
+  }
+  
+  /* Cinematic Section */
+  .section-cinematic {
+    @apply min-h-screen flex flex-col items-center justify-center;
+    @apply px-6 py-20 md:py-32;
+  }
+  
+  .section-editorial {
+    @apply py-20 md:py-32 px-6;
+  }
+  
+  /* Card Styles */
+  .card-book {
+    @apply bg-card border-0 overflow-hidden;
+    @apply transition-all;
+    transition-duration: var(--duration-medium);
+    box-shadow: 0 4px 20px -8px hsl(var(--ink) / 0.1);
+  }
+  
+  .card-book:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px -12px hsl(var(--ink) / 0.2);
+  }
+  
+  /* Quote Block */
+  .quote-block {
+    @apply relative pl-8 border-l-2;
+    border-color: hsl(var(--terracotta));
+  }
+  
+  .quote-block::before {
+    content: '"';
+    @apply absolute -left-4 -top-4 text-6xl opacity-10 font-display;
+  }
+  
+  /* Navigation */
+  .nav-link {
+    @apply font-ui text-sm tracking-widest uppercase;
+    @apply text-muted-foreground hover:text-foreground;
+    @apply transition-colors;
+    transition-duration: var(--duration-fast);
+    position: relative;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 -bottom-1 w-0 h-px bg-foreground;
+    @apply transition-all;
+    transition-duration: var(--duration-medium);
+  }
+  
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  /* Animation Utilities */
+  .animate-fade-in {
+    animation: fadeIn var(--duration-slow) var(--ease-gentle) forwards;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp var(--duration-slow) var(--ease-dramatic) forwards;
+  }
+  
+  .animate-blur-in {
+    animation: blurIn var(--duration-medium) var(--ease-gentle) forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fadeInUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(30px);
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes blurIn {
+    from { 
+      opacity: 0; 
+      filter: blur(10px);
+    }
+    to { 
+      opacity: 1; 
+      filter: blur(0);
+    }
+  }
+  
+  /* Texture Overlays */
+  .texture-paper {
+    position: relative;
+  }
+  
+  .texture-paper::before {
+    content: '';
+    @apply absolute inset-0 pointer-events-none opacity-30;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+  
+  /* Gradient Utilities */
+  .gradient-fade-bottom {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      hsl(var(--background)) 100%
+    );
+  }
+  
+  .gradient-vignette {
+    background: radial-gradient(
+      ellipse at center,
+      transparent 0%,
+      hsl(var(--ink) / 0.3) 100%
+    );
   }
 }
