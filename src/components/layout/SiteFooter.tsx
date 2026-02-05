@@ -23,7 +23,7 @@ export function SiteFooter() {
               Explore
             </h4>
             <ul className="space-y-3">
-              {['Books', 'About', 'Media', 'Contact'].map((item) => (
+               {['Books', 'Store', 'Course', 'About', 'Media'].map((item) => (
                 <li key={item}>
                   <Link
                     to={`/${item.toLowerCase()}`}
@@ -50,7 +50,19 @@ export function SiteFooter() {
           <p className="text-sm text-muted-foreground">
             © {currentYear} Surinder Seerat
           </p>
-          <div className="flex gap-8">
+           <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+             <Link
+               to="/policies"
+               className="font-ui text-xs tracking-wider uppercase text-muted-foreground hover:text-gold transition-colors duration-300"
+             >
+               Policies
+             </Link>
+             <Link
+               to="/contact"
+               className="font-ui text-xs tracking-wider uppercase text-muted-foreground hover:text-gold transition-colors duration-300"
+             >
+               Contact
+             </Link>
             <a 
               href="https://www.youtube.com/@SurinderSeerat" 
               target="_blank" 
