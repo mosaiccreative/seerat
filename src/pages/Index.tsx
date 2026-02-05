@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence, type Easing } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
@@ -17,19 +17,9 @@ const Index = () => {
   const [showContent, setShowContent] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
 
-  // Check if user has visited before
-  useEffect(() => {
-    const hasVisited = sessionStorage.getItem('book-opened');
-    if (hasVisited) {
-      setBookOpened(true);
-      setShowContent(true);
-    }
-  }, []);
-
   const handleOpenBook = () => {
     setIsOpening(true);
-    sessionStorage.setItem('book-opened', 'true');
-    
+
     setTimeout(() => {
       setBookOpened(true);
       setTimeout(() => setShowContent(true), 100);
