@@ -9,13 +9,13 @@ export default {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1200px",
+        "2xl": "1400px",
       },
     },
     extend: {
       fontFamily: {
-        display: ['Cormorant Garamond', 'Georgia', 'serif'],
-        body: ['Cormorant Garamond', 'Georgia', 'serif'],
+        display: ['Playfair Display', 'Georgia', 'serif'],
+        body: ['Crimson Pro', 'Georgia', 'serif'],
         ui: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
@@ -52,42 +52,15 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Lantern Room Extended Palette
-        ink: {
-          DEFAULT: "hsl(var(--ink))",
-          light: "hsl(var(--ink-light))",
-        },
-        paper: {
-          DEFAULT: "hsl(var(--paper))",
-          warm: "hsl(var(--paper-warm))",
-          aged: "hsl(var(--paper-aged))",
-        },
-        terracotta: {
-          DEFAULT: "hsl(var(--terracotta))",
-          light: "hsl(var(--terracotta-light))",
-        },
+        ink: "hsl(var(--ink))",
+        cream: "hsl(var(--cream))",
         gold: "hsl(var(--gold))",
-        sepia: "hsl(var(--sepia))",
+        burgundy: "hsl(var(--burgundy))",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-      },
-      spacing: {
-        'reading': 'var(--space-reading)',
-      },
-      maxWidth: {
-        'reading': 'var(--max-reading)',
-        'content': 'var(--max-content)',
-      },
-      transitionDuration: {
-        'slow': '1200ms',
-        'medium': '600ms',
-      },
-      transitionTimingFunction: {
-        'gentle': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
-        'dramatic': 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
       keyframes: {
         "accordion-down": {
@@ -98,25 +71,25 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "fade-in": {
-          from: { opacity: "0" },
-          to: { opacity: "1" },
+        "float": {
+          "0%, 100%": { transform: "translateY(0) rotateX(5deg) rotateY(-8deg)" },
+          "50%": { transform: "translateY(-20px) rotateX(5deg) rotateY(-8deg)" },
         },
-        "fade-in-up": {
-          from: { opacity: "0", transform: "translateY(30px)" },
+        "fade-up": {
+          from: { opacity: "0", transform: "translateY(40px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
-        "blur-in": {
-          from: { opacity: "0", filter: "blur(10px)" },
-          to: { opacity: "1", filter: "blur(0)" },
+        "glow": {
+          "0%, 100%": { opacity: "0.5" },
+          "50%": { opacity: "1" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in": "fade-in 1.2s cubic-bezier(0.25, 0.1, 0.25, 1) forwards",
-        "fade-in-up": "fade-in-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "blur-in": "blur-in 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards",
+        "float": "float 6s ease-in-out infinite",
+        "fade-up": "fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "glow": "glow 3s ease-in-out infinite",
       },
     },
   },
