@@ -1,107 +1,214 @@
 
-# Plan: Homepage Book Experience & Color Fixes
+# Plan: Complete Master Prompt Implementation
 
 ## Overview
-Make the 3D floating book always appear when visiting the homepage, enhance the book-opening transition, and fix the washed-out color issues throughout the site.
+This plan addresses all remaining items from the ONE MASTER PROMPT to achieve full compliance. The work is organized into logical phases for efficient implementation.
 
 ---
 
-## Changes
+## Current Status Summary
 
-### 1. Always Show Book on Homepage Visit
-**File: `src/pages/Index.tsx`**
+### Completed
+- 3D floating book homepage with opening animation (plays every visit)
+- Design system ("The Lantern Room" aesthetic)
+- Typography (Playfair Display + Crimson Pro)
+- Color palette (Ink/Cream/Gold with CSS variables)
+- Motion Off toggle with full accessibility support
+- Skip link and keyboard navigation
+- 8 books extracted with data model
+- Press/Media taxonomy with editorial filtering
+- Pages: Home, Books, About, Media, Contact
+- About text preserved exactly
 
-Remove the `sessionStorage` check that skips the book animation for returning visitors. The book intro will play every time someone visits the homepage (`/`).
-
-- Remove the `useEffect` that checks for `book-opened` in sessionStorage (lines 21-27)
-- Remove the `sessionStorage.setItem` call in `handleOpenBook` (line 31)
-- Initialize `bookOpened` and `showContent` to `false` so the book always shows first
-
----
-
-### 2. Improve Book Opening Transition
-**File: `src/components/BookCover.tsx`**
-
-Enhance the book opening animation to feel more like pages spreading open:
-
-- Add a "page spread" effect where the book scales up and fades to white/cream before revealing content
-- Increase the opening animation duration for a more cinematic feel
-- Add a subtle page-turning visual effect
+### Missing (To Be Built)
 
 ---
 
-### 3. Fix Header Color Issues
-**File: `src/components/layout/SiteHeader.tsx`**
+## Phase 1: Book Detail Pages
 
-The `mix-blend-difference` is causing inverted/washed-out colors:
+**New file: `src/pages/BookDetail.tsx`**
 
-- Remove `mix-blend-difference` from the header
-- Use a semi-transparent dark background with backdrop blur for better legibility
-- Ensure the header is hidden during the book cover phase (only show after book opens)
+Create individual book detail pages with:
+- Dynamic routing `/books/:id`
+- Hero section with large cover image
+- Full description, year, type, foreword credits
+- Award badge if applicable
+- "Back to All Works" navigation
+- Related books section
 
----
-
-### 4. Fix BookCover Background Colors
-**File: `src/components/BookCover.tsx`**
-
-Replace hardcoded HSL values with CSS variables for consistency:
-
-- Change the radial gradient background to use `var(--ink)` and proper dark tones
-- Update the ambient glow to use `var(--gold)` variable
-- Ensure the "cream" text color uses the CSS variable
+**Update: `src/App.tsx`**
+- Add route: `<Route path="/books/:id" element={<BookDetail />} />`
 
 ---
 
-### 5. Adjust Site Header Visibility During Book Phase
-**File: `src/pages/Index.tsx`**
+## Phase 2: Store + Course (Coming Soon)
 
-Move the `PageLayout` (which includes `SiteHeader`) so it only renders after the book has opened:
+**New file: `src/pages/Store.tsx`**
+- "Coming Soon" placeholder with cinematic styling
+- Email capture for launch notification
+- Product preview cards (physical books, ebooks, bundles)
+- Trust messaging placeholder
 
-- The header should not be visible while the book cover is displayed
-- This prevents the header from bleeding through the book animation
+**New file: `src/pages/Course.tsx`**
+- "Coming Soon" placeholder for poetry course
+- Course overview section
+- Tier descriptions (self-paced + cohort waitlist)
+- Email capture for waitlist
+
+**Update: `src/App.tsx`**
+- Add routes: `/store` and `/course`
+
+**Update: `src/components/layout/SiteHeader.tsx`**
+- Add "Store" and "Course" to navigation
+
+---
+
+## Phase 3: Email Capture Component
+
+**New file: `src/components/sections/EmailCapture.tsx`**
+
+Reusable newsletter/waitlist signup:
+- Email input with accessible label
+- Submit button with loading state
+- Success/error toast feedback
+- Configurable headline and description
+- WCAG AA compliant form
+
+---
+
+## Phase 4: SEO/AEO Answer Blocks
+
+**New file: `src/components/sections/AnswerBlock.tsx`**
+
+Semantic answer blocks for search engines:
+- Stable anchor IDs for direct linking
+- Schema.org structured data ready
+- Clear heading hierarchy
+- Cite sources with outbound links
+
+**Add Answer Blocks to:**
+- Home page (Who is Surinder Seerat?, Published Works count)
+- Books page (Total works, Award-winning books)
+- Media/Press page (Featured coverage)
+
+---
+
+## Phase 5: Policies Pages
+
+**New file: `src/pages/Policies.tsx`**
+
+Combined policies page with tabs or sections:
+- Privacy Policy [PLACEHOLDER]
+- Terms of Service [PLACEHOLDER]
+- Refund Policy [PLACEHOLDER]
+- Shipping Policy [PLACEHOLDER]
+
+**Update: `src/components/layout/SiteFooter.tsx`**
+- Add policy links
+
+---
+
+## Phase 6: Enhanced Components
+
+**New file: `src/components/sections/FAQAccordion.tsx`**
+- Accessible accordion using Radix UI
+- Keyboard navigable
+- For Course and Store pages
+
+**New file: `src/components/sections/ProductCard.tsx`**
+- Book product display for store
+- Price, format, availability
+- Add to cart placeholder
+
+---
+
+## Phase 7: Meta Tags Enhancement
+
+**Update: Each page file**
+
+Add page-specific meta tags using react-helmet-async or document.title:
+- Books: "Eight Published Works by Surinder Seerat"
+- About: "About Surinder Seerat - Poet, Author, Visionary"
+- Media: "Press & Recordings - Surinder Seerat"
+- etc.
+
+**Update: `index.html`**
+- Add JSON-LD structured data for Person schema
 
 ---
 
 ## Technical Details
 
-### Index.tsx State Flow
+### New Routes Structure
 ```text
-Initial Load
-     |
-     v
-[bookOpened=false, showContent=false]
-     |
-     v
-Show BookCover (3D floating book)
-     |
-     v  (User clicks book)
-[isOpening=true] --> Animation plays
-     |
-     v  (After 2 seconds)
-[bookOpened=true] --> BookCover exits via AnimatePresence
-     |
-     v  (After 100ms)
-[showContent=true] --> PageLayout + content fades in
+/                 -> Index (3D Book Intro)
+/books            -> Books (grid of all works)
+/books/:id        -> BookDetail (individual book)
+/store            -> Store (Coming Soon)
+/course           -> Course (Coming Soon)
+/about            -> About (locked text)
+/media            -> Media (Press + Recordings)
+/contact          -> Contact (form)
+/policies         -> Policies (Privacy/Terms)
 ```
 
-### Color Variables Being Used
-- `--background: 20 10% 4%` (near-black)
-- `--foreground: 40 20% 92%` (cream text)
-- `--gold: 38 75% 55%` (accent gold)
-- `--ink: 20 10% 4%` (same as background)
-- `--cream: 40 20% 92%` (same as foreground)
+### Component Dependencies
+```text
+EmailCapture
+  -> Input, Label, Button (existing)
+  -> useToast (existing)
+
+AnswerBlock
+  -> Section heading with anchor
+  -> Structured content
+  -> Source citation link
+
+FAQAccordion
+  -> Accordion (existing Radix UI)
+  -> Accessible keyboard nav
+```
+
+### Data Models Already In Place
+- `Book` interface in `src/data/books.ts`
+- `MediaLink` interface in `src/data/media.ts`
 
 ---
 
-## Files to Modify
-1. `src/pages/Index.tsx` - Remove sessionStorage logic
-2. `src/components/BookCover.tsx` - Use CSS variables, enhance animation
-3. `src/components/layout/SiteHeader.tsx` - Remove mix-blend-difference, add proper background
+## Files to Create
+1. `src/pages/BookDetail.tsx` - Individual book pages
+2. `src/pages/Store.tsx` - Coming Soon store
+3. `src/pages/Course.tsx` - Coming Soon course
+4. `src/pages/Policies.tsx` - Legal pages
+5. `src/components/sections/EmailCapture.tsx` - Newsletter/waitlist
+6. `src/components/sections/AnswerBlock.tsx` - SEO answer blocks
+7. `src/components/sections/FAQAccordion.tsx` - FAQ component
+8. `src/components/sections/ProductCard.tsx` - Product display
+
+## Files to Update
+1. `src/App.tsx` - Add new routes
+2. `src/components/layout/SiteHeader.tsx` - Add Store/Course nav
+3. `src/components/layout/SiteFooter.tsx` - Add policy links
+4. `src/pages/Index.tsx` - Add Answer Blocks
+5. `src/pages/Books.tsx` - Add Answer Blocks
+6. `index.html` - Add JSON-LD schema
+
+---
+
+## Accessibility Checklist
+- All new forms have visible labels
+- Focus states use gold accent ring
+- Skip link already implemented
+- Motion toggle disables all new animations
+- Semantic headings (h1 > h2 > h3)
+- ARIA labels on interactive elements
 
 ---
 
 ## Result
-- The 3D book will appear every time someone visits the homepage
-- Clicking the book triggers a cinematic opening animation
-- After the animation, the main website content is revealed
-- Colors will be consistent and properly themed throughout
+- Full sitemap implementation per master prompt
+- SEO/AEO Answer Blocks on key pages
+- Email capture for store/course waitlists
+- Book detail pages with complete information
+- Policy pages with placeholders
+- All components follow existing design system
+- Motion Off toggle controls all new animations
