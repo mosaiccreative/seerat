@@ -1,6 +1,5 @@
  import { motion } from 'framer-motion';
  import { useMotionPreference } from '@/hooks/useMotionPreference';
- import bookCoverImage from '@/assets/book-cover.jpg';
  
  interface BookCoverProps {
    onOpen: () => void;
@@ -19,18 +18,6 @@
        onClick={onOpen}
        style={{ pointerEvents: isOpening ? 'none' : 'auto' }}
      >
-       {/* Ambient glow */}
-       <div className="absolute inset-0 flex items-center justify-center">
-         <motion.div
-           className="w-[600px] h-[600px] rounded-full opacity-20"
-           style={{
-             background: 'radial-gradient(circle, hsl(38 75% 55% / 0.4) 0%, transparent 70%)',
-           }}
-           animate={shouldAnimate ? { scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] } : undefined}
-           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-         />
-       </div>
- 
        {/* 3D Book */}
        <motion.div
          className="relative"
@@ -61,9 +48,9 @@
              style={{ transform: 'rotateX(90deg) translateZ(-20px)' }}
            />
            
-           {/* Book cover */}
+           {/* Book cover - leather texture */}
            <motion.div
-             className="relative w-[300px] md:w-[360px] aspect-[3/4] rounded-r-sm overflow-hidden"
+             className="relative w-[300px] md:w-[360px] aspect-[3/4] rounded-r-sm overflow-hidden bg-gradient-to-br from-amber-900 via-amber-800 to-amber-950"
              animate={isOpening ? {
                rotateY: -180,
                x: -100,
@@ -75,26 +62,58 @@
                boxShadow: '4px 4px 20px rgba(0,0,0,0.5), 20px 0 40px -10px rgba(0,0,0,0.3)',
              }}
            >
-             <img
-               src={bookCoverImage}
-               alt="The Collected Works of Surinder Seerat"
-               className="w-full h-full object-cover"
+             {/* Leather texture overlay */}
+             <div 
+               className="absolute inset-0 opacity-30"
+               style={{
+                 backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E")`,
+               }}
              />
              
-             {/* Gold title overlay */}
-             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/30 p-8">
+             {/* Gold border frame */}
+             <div className="absolute inset-4 border border-gold/40" />
+             <div className="absolute inset-6 border border-gold/20" />
+             
+             {/* Content */}
+             <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
+               {/* Punjabi text - decorative header */}
+               <motion.p
+                 className="text-gold/60 text-lg md:text-xl mb-6 tracking-wide"
+                 style={{ fontFamily: 'serif' }}
+                 animate={shouldAnimate ? { opacity: [0.4, 0.7, 0.4] } : undefined}
+                 transition={{ duration: 4, repeat: Infinity }}
+               >
+                 ਸੁਰਿੰਦਰ ਸੀਰਤ
+               </motion.p>
+               
+               {/* Decorative line */}
+               <div className="w-16 h-px bg-gold/50 mb-6" />
+               
                <motion.div
                  className="text-center"
                  animate={shouldAnimate ? { opacity: [0.8, 1, 0.8] } : undefined}
                  transition={{ duration: 3, repeat: Infinity }}
                >
-                 <h1 className="font-display text-3xl md:text-4xl text-gold mb-2 tracking-wide">
+                 <h1 className="font-display text-3xl md:text-4xl text-gold mb-3 tracking-wide">
                    Surinder Seerat
                  </h1>
-                 <p className="font-ui text-xs tracking-[0.4em] uppercase text-cream/70">
+                 <p className="font-ui text-xs tracking-[0.4em] uppercase text-cream/60">
                    Collected Works
                  </p>
                </motion.div>
+               
+               {/* Decorative line */}
+               <div className="w-16 h-px bg-gold/50 mt-6" />
+               
+               {/* Punjabi text - decorative footer */}
+               <motion.p
+                 className="text-gold/40 text-sm mt-6"
+                 style={{ fontFamily: 'serif' }}
+                 animate={shouldAnimate ? { opacity: [0.3, 0.5, 0.3] } : undefined}
+                 transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
+               >
+                 ਕਾਵਿ ਸੰਗ੍ਰਹਿ
+               </motion.p>
              </div>
            </motion.div>
            
@@ -116,23 +135,6 @@
              }}
            />
          </motion.div>
-       </motion.div>
- 
-       {/* Call to action */}
-       <motion.div
-         className="absolute bottom-20 left-1/2 -translate-x-1/2 text-center"
-         initial={{ opacity: 0 }}
-         animate={{ opacity: isOpening ? 0 : 1 }}
-         transition={{ duration: 0.5, delay: isOpening ? 0 : 2 }}
-       >
-         <motion.p
-           className="font-ui text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4"
-           animate={shouldAnimate ? { opacity: [0.5, 1, 0.5] } : undefined}
-           transition={{ duration: 2, repeat: Infinity }}
-         >
-           Click to enter
-         </motion.p>
-         <div className="w-px h-8 bg-gold/50 mx-auto" />
        </motion.div>
      </motion.div>
    );
