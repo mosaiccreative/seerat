@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
-import seeratBook from '@/assets/seerat-book.png';
+ import leatherBook from '@/assets/leather-book.png';
 
 interface BookCoverProps {
   onOpen: () => void;
@@ -93,23 +93,31 @@ export function BookCover({ onOpen, isOpening }: BookCoverProps) {
             transition={{ duration: 1.8, ease: [0.4, 0, 0.2, 1] }}
             style={{
               transformStyle: 'preserve-3d',
-              filter: 'drop-shadow(0 40px 60px rgba(0,0,0,0.5)) drop-shadow(0 20px 30px rgba(0,0,0,0.4))',
+               filter: 'drop-shadow(0 50px 80px rgba(0,0,0,0.6)) drop-shadow(0 25px 40px rgba(0,0,0,0.5))',
             }}
           >
             <img
-              src={seeratBook}
+               src={leatherBook}
               alt="ਸਿਰਰ ਤਵੀ - Surinder Seerat"
-              className="w-[380px] md:w-[480px] lg:w-[550px] h-auto"
+               className="w-[320px] md:w-[400px] lg:w-[480px] h-auto"
               style={{
                 transform: 'translateZ(20px)',
               }}
             />
             
-            {/* Subtle highlight overlay */}
+             {/* Leather texture highlight overlay */}
             <div 
               className="absolute inset-0 pointer-events-none"
               style={{
-                background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(0,0,0,0.1) 100%)',
+                 background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 40%, rgba(0,0,0,0.15) 100%)',
+               }}
+             />
+             
+             {/* Edge lighting for depth */}
+             <div 
+               className="absolute inset-0 pointer-events-none"
+               style={{
+                 boxShadow: 'inset 2px 2px 8px rgba(255,255,255,0.05), inset -2px -2px 8px rgba(0,0,0,0.2)',
               }}
             />
 
