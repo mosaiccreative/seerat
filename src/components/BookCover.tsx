@@ -93,17 +93,34 @@ export function BookCover({ onOpen, isOpening }: BookCoverProps) {
             transition={{ duration: 1.8, ease: [0.4, 0, 0.2, 1] }}
             style={{
               transformStyle: 'preserve-3d',
-               filter: 'drop-shadow(0 50px 80px rgba(0,0,0,0.6)) drop-shadow(0 25px 40px rgba(0,0,0,0.5))',
             }}
           >
-            <img
-               src={leatherBook}
-              alt="ਸਿਰਰ ਤਵੀ - Surinder Seerat"
-               className="w-[320px] md:w-[400px] lg:w-[480px] h-auto"
+            {/* Book image with edge blending mask */}
+            <div
+              className="relative"
               style={{
-                transform: 'translateZ(20px)',
+                filter: 'drop-shadow(0 50px 80px rgba(0,0,0,0.8)) drop-shadow(0 25px 40px rgba(0,0,0,0.7))',
               }}
-            />
+            >
+              <img
+                src={leatherBook}
+                alt="ਸਿਰਰ ਤਵੀ - Surinder Seerat"
+                className="w-[320px] md:w-[400px] lg:w-[480px] h-auto"
+                style={{
+                  transform: 'translateZ(20px)',
+                  maskImage: 'radial-gradient(ellipse 85% 90% at 50% 50%, black 60%, transparent 100%)',
+                  WebkitMaskImage: 'radial-gradient(ellipse 85% 90% at 50% 50%, black 60%, transparent 100%)',
+                }}
+              />
+              
+              {/* Additional edge fade overlay */}
+              <div 
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'radial-gradient(ellipse 100% 100% at 50% 50%, transparent 50%, hsl(20 10% 4%) 100%)',
+                }}
+              />
+            </div>
             
              {/* Leather texture highlight overlay */}
             <div 
