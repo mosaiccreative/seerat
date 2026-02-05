@@ -6,9 +6,10 @@ import { useMotionPreference } from '@/hooks/useMotionPreference';
 
 const navItems = [
   { label: 'Works', href: '/books' },
+   { label: 'Store', href: '/store' },
+   { label: 'Course', href: '/course' },
   { label: 'About', href: '/about' },
   { label: 'Media', href: '/media' },
-  { label: 'Contact', href: '/contact' },
 ];
 
 export function SiteHeader() {

@@ -10,6 +10,10 @@ import About from "./pages/About";
 import Media from "./pages/Media";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+ import BookDetail from "./pages/BookDetail";
+ import Store from "./pages/Store";
+ import Course from "./pages/Course";
+ import Policies from "./pages/Policies";
 
 const queryClient = new QueryClient();
 
@@ -23,9 +27,13 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/books" element={<Books />} />
+             <Route path="/books/:id" element={<BookDetail />} />
+             <Route path="/store" element={<Store />} />
+             <Route path="/course" element={<Course />} />
             <Route path="/about" element={<About />} />
             <Route path="/media" element={<Media />} />
             <Route path="/contact" element={<Contact />} />
+             <Route path="/policies" element={<Policies />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

@@ -5,6 +5,7 @@ import { ArrowRight, ChevronDown } from 'lucide-react';
 import { BookCover } from '@/components/BookCover';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
+ import { AnswerBlock } from '@/components/sections/AnswerBlock';
 import { books } from '@/data/books';
 import poetPortrait from '@/assets/poet-portrait.jpg';
 import bookPages from '@/assets/book-pages.jpg';
@@ -331,6 +332,27 @@ const Index = () => {
               <div className="line-gold w-12 mx-auto" />
             </motion.div>
           </section>
+ 
+           {/* SEO Answer Blocks */}
+           <section className="py-20 px-6 md:px-12 bg-card">
+             <div className="max-w-3xl mx-auto space-y-16">
+               <AnswerBlock
+                 id="who-is-surinder-seerat"
+                 question="Who is Surinder Seerat?"
+                 answer="Surinder Seerat is a renowned Punjabi poet and author who has published eight books spanning five decades. Born in a small village in India, he made his way to California where he founded Punjabi Sahit Sabha California in 1992 and co-founded Vishav Punjabi Sahit Academy in 2002, bridging Punjabi literature across continents."
+                 sourceLabel="Official Biography"
+                 sourceUrl="https://www.surinderseerat.com/"
+               />
+               
+               <AnswerBlock
+                 id="published-works-count"
+                 question="How many books has Surinder Seerat written?"
+                 answer="Surinder Seerat has published eight works including poetry collections in open verse, ghazals, a novel (Bharam Bhullayan), and literary criticism. Three of his books received the Best Book Award from J&K Academy of Art Culture and Languages."
+                 sourceLabel="Complete Works"
+                 sourceUrl="https://www.surinderseerat.com/books/"
+               />
+             </div>
+           </section>
         </PageLayout>
       )}
     </div>

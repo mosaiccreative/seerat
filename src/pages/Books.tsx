@@ -1,11 +1,18 @@
 import { motion } from 'framer-motion';
+ import { Link } from 'react-router-dom';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
+ import { AnswerBlock } from '@/components/sections/AnswerBlock';
 import { books } from '@/data/books';
+ import { useEffect } from 'react';
 
 const Books = () => {
   const { shouldAnimate } = useMotionPreference();
 
+   useEffect(() => {
+     document.title = 'Eight Published Works — Surinder Seerat';
+   }, []);
+ 
   return (
     <PageLayout>
       {/* Hero Section */}
@@ -29,41 +36,59 @@ const Books = () => {
         </div>
       </section>
 
+       {/* Answer Block for SEO */}
+       <section className="py-12 px-6 md:px-12 border-b border-border/30">
+         <div className="max-w-3xl mx-auto">
+           <AnswerBlock
+             id="published-works"
+             question="How many books has Surinder Seerat published?"
+             answer="Surinder Seerat has published eight books spanning five decades (1980-2014), including poetry collections, ghazals, a novel, and literary criticism. Three of his works have received the Best Book Award from J&K Academy of Art Culture and Languages."
+             sourceLabel="Official Works Collection"
+             sourceUrl="https://www.surinderseerat.com/books/"
+           />
+         </div>
+       </section>
+ 
       {/* Books Grid */}
       <section className="py-24 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {books.map((book, index) => (
-              <motion.article
+               <Link
                 key={book.id}
-                className="group relative aspect-[3/4] overflow-hidden bg-card"
-                initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                 to={`/books/${book.id}`}
+                 className="block"
               >
-                {book.coverImage && (
-                  <img
-                    src={book.coverImage}
-                    alt={book.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-                
-                <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <span className="font-ui text-xs text-gold tracking-wider mb-2">{book.year}</span>
-                  <h3 className="font-display text-xl md:text-2xl mb-2">{book.title}</h3>
-                  <p className="text-muted-foreground text-sm line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    {book.description}
-                  </p>
-                  {book.award && (
-                    <p className="mt-3 font-ui text-xs text-gold tracking-wide">
-                      ★ {book.award}
-                    </p>
-                  )}
-                </div>
-              </motion.article>
+                 <motion.article
+                   className="group relative aspect-[3/4] overflow-hidden bg-card"
+                   initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true }}
+                   transition={{ duration: 0.8, delay: index * 0.1 }}
+                 >
+                   {book.coverImage && (
+                     <img
+                       src={book.coverImage}
+                       alt={book.title}
+                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                     />
+                   )}
+                   <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                   
+                   <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                     <span className="font-ui text-xs text-gold tracking-wider mb-2">{book.year}</span>
+                     <h3 className="font-display text-xl md:text-2xl mb-2">{book.title}</h3>
+                     <p className="text-muted-foreground text-sm line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                       {book.description}
+                     </p>
+                     {book.award && (
+                       <p className="mt-3 font-ui text-xs text-gold tracking-wide">
+                         ★ {book.award}
+                       </p>
+                     )}
+                   </div>
+                 </motion.article>
+               </Link>
             ))}
           </div>
         </div>
