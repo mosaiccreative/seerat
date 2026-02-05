@@ -17,8 +17,8 @@ export function SiteHeader() {
   const { shouldAnimate } = useMotionPreference();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 mix-blend-difference">
-      <nav className="container mx-auto px-6 md:px-12 py-6 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-md border-b border-border/20">
+      <nav className="container mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
         <Link 
           to="/" 
           className="font-display text-xl md:text-2xl tracking-wide text-foreground hover:text-gold transition-colors duration-500"
