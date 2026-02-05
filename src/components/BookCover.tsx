@@ -1,6 +1,6 @@
  import { motion } from 'framer-motion';
  import { useMotionPreference } from '@/hooks/useMotionPreference';
- import bookCoverImage from '@/assets/book-cover.jpg';
+ import seeratBook from '@/assets/seerat-book.png';
  
  interface BookCoverProps {
    onOpen: () => void;
@@ -12,128 +12,132 @@
  
    return (
      <motion.div
-       className="fixed inset-0 z-50 flex items-center justify-center bg-ink cursor-pointer"
+       className="fixed inset-0 z-50 flex items-center justify-center cursor-pointer overflow-hidden"
+       style={{
+         background: 'radial-gradient(ellipse at center, hsl(30 20% 12%) 0%, hsl(20 15% 6%) 100%)',
+       }}
        initial={{ opacity: 1 }}
        animate={{ opacity: isOpening ? 0 : 1 }}
        transition={{ duration: 1.5, delay: isOpening ? 0.8 : 0 }}
        onClick={onOpen}
-       style={{ pointerEvents: isOpening ? 'none' : 'auto' }}
      >
-       {/* Ambient glow */}
-       <div className="absolute inset-0 flex items-center justify-center">
+       {/* Ambient warm glow */}
+       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
          <motion.div
-           className="w-[600px] h-[600px] rounded-full opacity-20"
+           className="w-[800px] h-[800px] rounded-full"
            style={{
-             background: 'radial-gradient(circle, hsl(38 75% 55% / 0.4) 0%, transparent 70%)',
+             background: 'radial-gradient(circle, hsl(35 60% 40% / 0.3) 0%, transparent 60%)',
            }}
-           animate={shouldAnimate ? { scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] } : undefined}
-           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+           animate={shouldAnimate ? { 
+             scale: [1, 1.15, 1], 
+             opacity: [0.3, 0.5, 0.3] 
+           } : undefined}
+           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
          />
        </div>
  
-       {/* 3D Book */}
+       {/* 3D Floating Book */}
        <motion.div
          className="relative"
          style={{
-           perspective: '2000px',
+           perspective: '1500px',
            transformStyle: 'preserve-3d',
          }}
-         initial={shouldAnimate ? { opacity: 0, y: 60 } : undefined}
-         animate={{ opacity: 1, y: 0 }}
-         transition={{ duration: 1.5, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+         initial={shouldAnimate ? { opacity: 0, scale: 0.8 } : undefined}
+         animate={{ opacity: 1, scale: 1 }}
+         transition={{ duration: 1.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
        >
          <motion.div
            className="relative"
            animate={shouldAnimate && !isOpening ? {
-             y: [0, -15, 0],
-             rotateX: [5, 7, 5],
-             rotateY: [-8, -10, -8],
+             y: [0, -20, 0],
+             rotateX: [8, 12, 8],
+             rotateY: [-5, -8, -5],
+             rotateZ: [-2, 0, -2],
            } : undefined}
-           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
            style={{
-             transform: 'rotateX(5deg) rotateY(-8deg)',
+             transform: 'rotateX(10deg) rotateY(-5deg) rotateZ(-2deg)',
              transformStyle: 'preserve-3d',
            }}
          >
-           {/* Book shadow */}
-           <div 
-             className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[280px] h-[40px] bg-black/40 blur-2xl"
-             style={{ transform: 'rotateX(90deg) translateZ(-20px)' }}
+           {/* Book shadow on ground */}
+           <motion.div 
+             className="absolute left-1/2 -translate-x-1/2 w-[400px] h-[80px] blur-3xl"
+             style={{ 
+               background: 'hsl(20 20% 5% / 0.8)',
+               bottom: '-60px',
+               borderRadius: '50%',
+             }}
+             animate={shouldAnimate && !isOpening ? {
+               scale: [1, 0.9, 1],
+               opacity: [0.6, 0.4, 0.6],
+             } : undefined}
+             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
            />
            
-           {/* Book cover */}
+           {/* Main book image */}
            <motion.div
-             className="relative w-[300px] md:w-[360px] aspect-[3/4] rounded-r-sm overflow-hidden"
+             className="relative"
              animate={isOpening ? {
-               rotateY: -180,
-               x: -100,
+               scale: 2.5,
+               rotateX: 0,
+               rotateY: 0,
+               rotateZ: 0,
+               y: 0,
              } : undefined}
              transition={{ duration: 1.5, ease: [0.4, 0, 0.2, 1] }}
              style={{
-               transformOrigin: 'left center',
                transformStyle: 'preserve-3d',
-               boxShadow: '4px 4px 20px rgba(0,0,0,0.5), 20px 0 40px -10px rgba(0,0,0,0.3)',
+               filter: 'drop-shadow(0 40px 60px rgba(0,0,0,0.5)) drop-shadow(0 20px 30px rgba(0,0,0,0.4))',
              }}
            >
              <img
-               src={bookCoverImage}
-               alt="The Collected Works of Surinder Seerat"
-               className="w-full h-full object-cover"
+               src={seeratBook}
+               alt="ਸਿਰਰ ਤਵੀ - Surinder Seerat"
+               className="w-[380px] md:w-[480px] lg:w-[550px] h-auto"
+               style={{
+                 transform: 'translateZ(20px)',
+               }}
              />
              
-             {/* Gold title overlay */}
-             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/30 p-8">
-               <motion.div
-                 className="text-center"
-                 animate={shouldAnimate ? { opacity: [0.8, 1, 0.8] } : undefined}
-                 transition={{ duration: 3, repeat: Infinity }}
-               >
-                 <h1 className="font-display text-3xl md:text-4xl text-gold mb-2 tracking-wide">
-                   Surinder Seerat
-                 </h1>
-                 <p className="font-ui text-xs tracking-[0.4em] uppercase text-cream/70">
-                   Collected Works
-                 </p>
-               </motion.div>
-             </div>
+             {/* Subtle highlight overlay */}
+             <div 
+               className="absolute inset-0 pointer-events-none"
+               style={{
+                 background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(0,0,0,0.1) 100%)',
+               }}
+             />
            </motion.div>
-           
-           {/* Book spine */}
-           <div 
-             className="absolute left-0 top-0 h-full w-[20px] bg-gradient-to-r from-amber-900 to-amber-800"
-             style={{
-               transform: 'rotateY(-90deg) translateZ(10px)',
-               transformOrigin: 'left center',
-             }}
-           />
-           
-           {/* Book pages edge */}
-           <div 
-             className="absolute right-0 top-0 h-full w-[15px]"
-             style={{
-               background: 'repeating-linear-gradient(to bottom, #f5f0e8 0px, #e8e0d4 1px, #f5f0e8 2px)',
-               transform: 'translateX(5px)',
-             }}
-           />
          </motion.div>
        </motion.div>
  
        {/* Call to action */}
        <motion.div
-         className="absolute bottom-20 left-1/2 -translate-x-1/2 text-center"
-         initial={{ opacity: 0 }}
-         animate={{ opacity: isOpening ? 0 : 1 }}
-         transition={{ duration: 0.5, delay: isOpening ? 0 : 2 }}
+         className="absolute bottom-16 md:bottom-24 left-1/2 -translate-x-1/2 text-center"
+         initial={{ opacity: 0, y: 20 }}
+         animate={{ opacity: isOpening ? 0 : 1, y: isOpening ? 20 : 0 }}
+         transition={{ duration: 0.5, delay: isOpening ? 0 : 1.5 }}
        >
          <motion.p
-           className="font-ui text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4"
-           animate={shouldAnimate ? { opacity: [0.5, 1, 0.5] } : undefined}
-           transition={{ duration: 2, repeat: Infinity }}
+           className="font-ui text-xs md:text-sm tracking-[0.4em] uppercase text-cream/60 mb-4"
+           animate={shouldAnimate ? { opacity: [0.4, 0.8, 0.4] } : undefined}
+           transition={{ duration: 3, repeat: Infinity }}
          >
-           Click to enter
+           Open the book
          </motion.p>
-         <div className="w-px h-8 bg-gold/50 mx-auto" />
+         <motion.div 
+           className="w-px h-10 bg-gradient-to-b from-gold/60 to-transparent mx-auto"
+           animate={shouldAnimate ? { scaleY: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] } : undefined}
+           transition={{ duration: 2, repeat: Infinity }}
+         />
        </motion.div>
+ 
+       {/* Corner accents */}
+       <div className="absolute top-8 left-8 w-16 h-16 border-l border-t border-gold/20" />
+       <div className="absolute top-8 right-8 w-16 h-16 border-r border-t border-gold/20" />
+       <div className="absolute bottom-8 left-8 w-16 h-16 border-l border-b border-gold/20" />
+       <div className="absolute bottom-8 right-8 w-16 h-16 border-r border-b border-gold/20" />
      </motion.div>
    );
  }
