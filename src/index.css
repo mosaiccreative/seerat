@@ -11,45 +11,45 @@
  
 @layer base {
   :root {
-    /* Maroon/Burgundy + Cream + Gold Accent */
-    --background: 345 45% 22%;
+    /* Dark theme as default (black/dark with gold accents) */
+    --background: 240 10% 4%;
     --foreground: 40 30% 95%;
     
-    --card: 40 25% 92%;
-    --card-foreground: 345 45% 20%;
+    --card: 240 10% 6%;
+    --card-foreground: 40 30% 95%;
     
-    --popover: 345 45% 18%;
+    --popover: 240 10% 6%;
     --popover-foreground: 40 30% 95%;
     
     --primary: 40 30% 95%;
-    --primary-foreground: 345 45% 20%;
+    --primary-foreground: 240 10% 4%;
     
-    --secondary: 345 40% 28%;
+    --secondary: 240 8% 12%;
     --secondary-foreground: 40 25% 90%;
     
-    --muted: 345 35% 30%;
-    --muted-foreground: 40 20% 75%;
+    --muted: 240 8% 15%;
+    --muted-foreground: 40 20% 65%;
     
     --accent: 38 75% 55%;
-    --accent-foreground: 345 45% 15%;
+    --accent-foreground: 240 10% 4%;
     
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 40 20% 80%;
-    --input: 345 40% 25%;
+    --border: 240 8% 18%;
+    --input: 240 8% 12%;
     --ring: 38 75% 55%;
     
     --radius: 0rem;
     
-    /* Extended Palette */
+    /* Extended Palette - Homepage specific */
     --ink: 345 45% 15%;
     --cream: 40 30% 95%;
     --gold: 38 75% 55%;
     --gold-dim: 38 50% 35%;
-    --burgundy: 345 45% 25%;
-    --burgundy-dark: 345 50% 18%;
-    --burgundy-light: 345 40% 35%;
+    --burgundy: 345 45% 22%;
+    --burgundy-dark: 345 50% 15%;
+    --burgundy-light: 345 40% 30%;
     
     /* Typography */
     --font-display: 'Playfair Display', Georgia, serif;
