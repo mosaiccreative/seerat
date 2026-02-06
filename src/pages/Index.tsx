@@ -445,11 +445,7 @@ const Index = () => {
           {/* Newsletter Signup */}
           <section className="py-24 px-6 md:px-12 bg-card">
             <div className="max-w-2xl mx-auto">
-              <EmailCapture
-                headline="Stay Updated"
-                description="Join our mailing list for poetry updates, new recordings, and event announcements."
-                buttonText="Subscribe"
-              />
+              <EmailCapture variant="homepage" />
             </div>
           </section>
 

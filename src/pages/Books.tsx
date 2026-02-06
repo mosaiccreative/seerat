@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { AnswerBlock } from '@/components/sections/AnswerBlock';
+import { EmailCapture } from '@/components/sections/EmailCapture';
+import { ScrollFadeIn } from '@/components/animations';
 import { books } from '@/data/books';
 import { useEffect, useState } from 'react';
 import { ArrowRight, Award, BookOpen, Music, Users } from 'lucide-react';
@@ -346,6 +348,13 @@ const Books = () => {
               </Link>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className="py-24 px-6 md:px-12">
+        <div className="max-w-2xl mx-auto">
+          <EmailCapture variant="books" />
         </div>
       </section>
 
