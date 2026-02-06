@@ -280,6 +280,48 @@ const About = () => {
         </div>
       </section>
 
+      {/* Recognition Across Continents */}
+      <section className="py-16 px-6 md:px-12">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            className="text-center mb-10"
+            initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+          >
+            <h2 className="font-display text-2xl md:text-3xl mb-3">
+              Recognition Across <span className="text-gold">Continents</span>
+            </h2>
+            <p className="text-muted-foreground text-base">
+              Four major awards spanning 32 years—evidence of sustained literary excellence
+            </p>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              { year: '1982', title: 'JKAACL Best Punjabi Book Award', book: 'Chhallan' },
+              { year: '1987', title: 'JKAACL Best Book Award', book: 'Bharam Bhullayan' },
+              { year: '1991', title: 'JKAACL Best Book Award', book: 'Kirchan (pure form ghazals)' },
+              { year: '2014', title: 'Professor Mohan Singh Award', book: 'Aroope Akhran da Aks' },
+            ].map((award, index) => (
+              <motion.div
+                key={award.year}
+                className="p-6 bg-card/50 rounded-lg"
+                initial={shouldAnimate ? { opacity: 0, y: 20 } : undefined}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <span className="text-gold font-ui text-sm tracking-wider">{award.year}</span>
+                <h3 className="font-display text-lg md:text-xl mt-1 mb-2">{award.title}</h3>
+                <p className="text-muted-foreground text-sm">for {award.book}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* The Scientist-Poet Lens */}
       <section className="py-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
