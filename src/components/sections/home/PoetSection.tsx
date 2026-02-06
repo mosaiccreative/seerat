@@ -20,9 +20,9 @@ export function PoetSection() {
             <span className="text-gold italic">Discovering</span>
           </h2>
           
-          <div className="prose-poetry text-burgundy/80 space-y-5 text-base md:text-lg leading-[1.8] max-w-[55ch]">
-            <p>
-              In a world hungry for authentic poetry, Surinder Singh Seerat offers something rare:
+        <div className="prose-poetry text-burgundy/80 space-y-5 text-base md:text-lg leading-[1.8] max-w-[55ch]">
+          <p>
+            In a world hungry for authentic poetry, Surinder Seerat offers something rare:
             </p>
             <ul className="space-y-3 text-burgundy list-none pl-0">
               <li className="flex items-start gap-3">
