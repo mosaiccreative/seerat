@@ -129,11 +129,12 @@ const Tishnagi = () => {
                   </p>
                   <p>
                     The ghazal form—with its refrain and rhyme scheme—is inherently melodic. 
-                    <em>Tishnagi</em> demonstrates what makes Surinder's poetry compelling: 
-                    <strong className="text-foreground"> longing expressed through technical mastery</strong>.
+                    The form evolved in royal courts where poet-musicians would perform their compositions, 
+                    the melody revealing meanings that text alone could not convey.
                   </p>
                   <p>
-                    These aren't just words on a page. They're meant to be heard, felt, experienced.
+                    This album brings Surinder's ghazals to life as they were intended—not just words on a page, 
+                    but <strong className="text-foreground">sound, feeling, experience</strong>.
                   </p>
                 </div>
               </div>
