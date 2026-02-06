@@ -50,25 +50,26 @@ export const BookSpine = forwardRef<HTMLButtonElement, BookSpineProps>(
             isSelected ? "shadow-[0_8px_30px_-8px_hsl(var(--gold)/0.4)]" : "shadow-lg",
             "group-hover:shadow-[0_8px_25px_-8px_hsl(var(--gold)/0.3)]"
           )}
-          style={{
-            background: coverImage 
-              ? `linear-gradient(to right, hsl(${20 + hueShift} 30% 12%), hsl(${20 + hueShift} 25% 18%))`
-              : `linear-gradient(to right, hsl(${20 + hueShift} 25% 15%), hsl(${20 + hueShift} 20% 22%))`,
-          }}
         >
+          {/* Cover image imprint */}
+          {coverImage && (
+            <img 
+              src={coverImage}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover opacity-60"
+              style={{ objectPosition: 'center top' }}
+            />
+          )}
+          
+          {/* Gradient overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/60" />
+          
           {/* Spine edge highlight */}
           <div className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-gold/30 via-gold/10 to-gold/20" />
           
           {/* Top edge */}
           <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-gold/20 via-gold/40 to-gold/20" />
-          
-          {/* Texture overlay */}
-          <div 
-            className="absolute inset-0 opacity-30"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-            }}
-          />
           
           {/* Title - rotated */}
           <div className="absolute inset-0 flex items-center justify-center">
@@ -77,7 +78,8 @@ export const BookSpine = forwardRef<HTMLButtonElement, BookSpineProps>(
                 "font-display text-sm md:text-base text-cream/90 whitespace-nowrap",
                 "transition-colors duration-300",
                 "group-hover:text-gold",
-                isSelected && "text-gold"
+                isSelected && "text-gold",
+                "drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
               )}
               style={{
                 writingMode: 'vertical-rl',
