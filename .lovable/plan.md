@@ -1,151 +1,170 @@
 
 
-# Books Page Redesign Plan
+## Books Page Redesign: Hybrid Bookshelf + Vertical Card Layout
 
-## Overview
+### Overview
 
-This plan covers a significant redesign of the Books page to match the vertical card layout from the reference screenshot, moves FAQ content to the Biography page, and adds a new Reading Paths section below the Literary Awards on the Books page.
+You want to combine the best of both worlds:
+1. **Keep the interactive bookshelf** but reduce it to a single row with book cover graphics imprinted on the spines
+2. **Restore the vertical card layout** from the screenshot below the shelf - book covers on the left (3:4 ratio), detailed content on the right
+
+This creates a visual "gallery entrance" (the shelf) followed by a detailed "catalog" (the cards) - art-first while maintaining readability.
 
 ---
 
-## Changes Summary
+### Design Approach
 
-### 1. Books Page - Vertical Card Layout
+```text
+┌─────────────────────────────────────────────────────┐
+│                    HERO SECTION                     │
+│   "Eight Books, 34 Years, Four Major Awards"       │
+└─────────────────────────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────┐
+│              SINGLE-ROW BOOKSHELF                   │
+│   ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐        │
+│   │░░│ │░░│ │░░│ │░░│ │░░│ │░░│ │░░│ │░░│        │
+│   │░░│ │░░│ │░░│ │░░│ │░░│ │░░│ │░░│ │░░│        │
+│   │▓▓│ │▓▓│ │▓▓│ │▓▓│ │▓▓│ │▓▓│ │▓▓│ │▓▓│        │
+│   └──┘ └──┘ └──┘ └──┘ └──┘ └──┘ └──┘ └──┘        │
+│   ════════════════════════════════════════         │
+│            (wood shelf base + divider)             │
+└─────────────────────────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────┐
+│              VERTICAL BOOK CARDS                    │
+│                                                     │
+│   ┌─────────┐  Chhallan (1980)                     │
+│   │ COVER   │  Free Verse Poems                    │
+│   │ IMAGE   │  Foreword by Dr. Kulbir Singh Kaang  │
+│   │  (3:4)  │  ───────────────────────             │
+│   │         │  "Surinder's debut—raw, unflinching  │
+│   │         │  exploration of what it means to     │
+│   └─────────┘  wrestle with existence itself..."   │
+│                ★ Best Punjabi Book — JKAACL 1982   │
+│                                                     │
+│   (repeat for each book, oldest to newest)         │
+└─────────────────────────────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────┐
+│       LITERARY AWARDS + READING PATHS + CTA         │
+│            (existing sections remain)               │
+└─────────────────────────────────────────────────────┘
+```
 
-**Current state:** 4-column grid with book covers as background images and overlay text
+---
 
-**New state:** Vertical full-width cards with book cover on the left and details on the right (matching reference screenshot)
+### Implementation Steps
 
-Each book card will include:
-- Book cover image (left side, approximately 1/3 width)
-- Right side content:
-  - Year badge (gold)
-  - Book title (large heading)
-  - Type/form (e.g., "Punjabi Ghazals", "Free Verse Poems")
-  - Foreword attribution (if applicable)
-  - Full description text
-  - Award badge (if applicable)
+#### 1. Enhance `BookSpine` Component
+- Add cover image as a background/overlay on the spine face
+- Use `object-cover` with reduced opacity or a gradient overlay so the title remains readable
+- Apply subtle vignette/edge darkening for depth
+- Keep all existing accessibility features (keyboard nav, ARIA labels)
+
+#### 2. Modify `BookshelfStage` Component  
+- Remove the multi-shelf loop - display all 8 books in a single horizontal row
+- For mobile: make the shelf horizontally scrollable (rail-style)
+- Remove the OpenBookPanel integration (clicking spines can scroll to the card below, or do nothing)
+
+#### 3. Create New `BookListCard` Component
+A horizontal card for the vertical list:
+- Left side: 3:4 aspect ratio cover image (or typographic fallback)
+- Right side: 
+  - Gold year badge
+  - Title (large display heading)
+  - Type/form (e.g., "Free Verse Poems")
+  - Foreword attribution (if present)
+  - Extended description
+  - Award badge (if present)
   - "Read More" link to `/books/{id}`
+- "Start Here" indicator for Kirchan and Aroope Akhran da Aks
 
-The entire card remains clickable, preserving the existing navigation to individual book pages with their own URLs.
-
-### 2. Move FAQ to Biography Page
-
-**Remove from Books page:**
-- The AnswerBlock section containing "How many books has Surinder Seerat published?"
-
-**Update on Biography page:**
-- The FAQ already contains a similar question ("How many books has Surinder Seerat written?")
-- Will enhance this existing entry with the additional context from the Books page answer (mentioning the 34-year span and institutional awards)
-
-### 3. Remove Tab Navigation
-
-Since the Reading Paths section will now appear below the awards (not as a tabbed view), the tab navigation ("THE COMPLETE COLLECTION" / "RECOMMENDED READING PATHS") will be removed. The page will flow:
-1. Hero section
-2. Books collection (vertical cards)
-3. Tishnagi album CTA section
-4. Literary Awards (tightened with animation)
-5. Recommended Reading Paths (new section)
-6. For Libraries & Scholars section
-7. Newsletter section
-8. Final CTA
-
-### 4. Tighten Literary Awards Section + Add Animation
-
-**Current state:** 4-column grid with moderate spacing
-**New state:**
-- Reduce vertical padding (py-24 to py-16)
-- Reduce bottom margin
-- Add staggered scale + fade animation on scroll for visual interest
-- Add hover effect (subtle border glow)
-
-### 5. Add Recommended Reading Paths Section
-
-New section placed directly below Literary Awards with this content structure:
-
-```text
-Recommended Reading Paths
-Four approaches to discovering the collection
-
-Path 1: Award-Winning Introduction
-Let award-winning work prove the quality. Three different forms showcase his range.
-- Kirchan (1990)
-- Aroope Akhran da Aks (2014)
-- Chhallan (1980)
-
-Path 2: Thematic Journey Through Longing
-For those drawn to themes of longing, meaning, and the human journey toward what remains forever incomplete.
-- Listen: Tishnagi album
-- Surat Seerat Te Saraab (2007)
-- Saij Sullee Te Saleeb (2007)
-
-Path 3: The Immigrant Voice
-Poetry exploring displacement, roots, and building new ground.
-- Kikkar Kande (1992)
-- Saij Sullee Te Saleeb (2007)
-- Aroope Akhran da Aks (2014)
-
-Path 4: Technical Mastery
-Watch a poet master multiple forms across 34 years. Perfect for students of poetry craft.
-- Chhallan (1980) - Free verse
-- Kirchan (1990) - Pure ghazal
-- Aroope Akhran da Aks (2014) - Mixed
-```
-
-Layout: 2x2 grid on desktop, stacked on mobile. Each path card will have an icon, title, description, and numbered book list.
+#### 4. Update `Books.tsx` Page
+- Keep the hero section
+- Replace multi-row bookshelf with single-row `BookshelfStage`
+- Add new vertical book cards section using `BookListCard`
+- Keep Literary Awards, Reading Paths, and CTA sections
 
 ---
 
-## Technical Implementation
+### Technical Details
 
-### Files to Modify
+**BookSpine cover imprint approach:**
+```tsx
+// Inside BookSpine component
+<div className="absolute inset-0 overflow-hidden">
+  {coverImage && (
+    <img 
+      src={coverImage}
+      alt=""
+      aria-hidden="true"
+      className="absolute inset-0 w-full h-full object-cover opacity-60"
+      style={{ objectPosition: 'center top' }}
+    />
+  )}
+  {/* Gradient overlay for readability */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/60" />
+  {/* Title text on top */}
+</div>
+```
 
-| File | Changes |
-|------|---------|
-| `src/pages/Books.tsx` | Major refactor: new vertical card layout, remove FAQ section, remove tabs, update reading paths layout, tighten awards section |
-| `src/pages/About.tsx` | Enhance existing FAQ entry with additional book details |
+**BookListCard structure:**
+```tsx
+<article className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-8 py-12 border-b border-border/30">
+  {/* Cover */}
+  <div className="aspect-[3/4] bg-muted overflow-hidden">
+    <img src={coverImage} className="w-full h-full object-cover" />
+  </div>
+  
+  {/* Details */}
+  <div className="max-w-[65ch]">
+    <YearBadgeGold year={year} />
+    <h3 className="font-display text-2xl md:text-3xl">{title}</h3>
+    <p className="text-muted-foreground text-sm">{type}</p>
+    {foreword && <p className="italic">Foreword by {foreword}</p>}
+    <p className="leading-relaxed">{description}</p>
+    {award && <AwardBadge award={award} />}
+    <ReadMoreLink to={`/books/${id}`} />
+  </div>
+</article>
+```
 
-### New Components (Optional)
-
-A `BookCardVertical` component could be extracted for reusability, but will assess whether inline implementation is cleaner.
-
-### Animations
-
-1. **Literary Awards Cards:**
-   - Initial: `opacity: 0, scale: 0.95`
-   - Animate: `opacity: 1, scale: 1`
-   - Stagger delay: 0.1s per card
-   - Hover: subtle gold border glow
-
-2. **Vertical Book Cards:**
-   - Existing motion patterns will be adapted
-   - Slide-in from left on scroll
-
-3. **Reading Paths:**
-   - Staggered fade-in matching existing patterns
-
-### Preserved Functionality
-
-- All book cards link to `/books/{book.id}` (individual book pages)
-- Enhanced book data (subtitles, "who it's for") preserved in tooltips/hover states where appropriate
-- Responsive design maintained (stacked layout on mobile)
+**Single-row shelf (mobile scrollable):**
+```tsx
+<div className="overflow-x-auto scrollbar-hide">
+  <div className="flex gap-3 min-w-max justify-center">
+    {books.map(book => <BookSpine ... />)}
+  </div>
+</div>
+```
 
 ---
 
-## Visual Reference Mapping
+### Files to Modify/Create
 
-Based on the uploaded screenshot:
+| File | Action |
+|------|--------|
+| `src/components/bookshelf/BookSpine.tsx` | Modify - add cover image overlay |
+| `src/components/bookshelf/BookshelfStage.tsx` | Modify - single row, remove panel integration |
+| `src/components/bookshelf/BookListCard.tsx` | Create - new vertical card component |
+| `src/pages/Books.tsx` | Modify - add vertical cards section |
 
-```text
-+------------------------------------------+
-|  [Book Cover]  |  YEAR                   |
-|     IMAGE      |  Book Title             |
-|   (aspect      |  Type • Foreword by     |
-|    3:4)        |  Description...         |
-|                |  [Award badge if any]   |
-|                |          [Read More ->] |
-+------------------------------------------+
-```
+---
 
-The burgundy/cream color scheme will be maintained with the existing dark noir theme colors.
+### Accessibility Preserved
+
+- Keyboard navigation on bookshelf spines
+- Focus rings and ARIA labels
+- `prefers-reduced-motion` support
+- Semantic HTML structure (articles, headings)
+- Strong color contrast (gold on dark backgrounds)
+
+---
+
+### Motion Behavior
+
+- **Bookshelf**: Staggered fade-in entrance, subtle hover lift
+- **Vertical cards**: Scroll-triggered fade-in with stagger
+- **Motion Off**: All animations disabled, instant rendering
 
