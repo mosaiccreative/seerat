@@ -231,6 +231,80 @@ const Tishnagi = () => {
         </div>
       </section>
 
+      {/* For Creative Professionals */}
+      <section className="py-12 md:py-16 px-6 md:px-12">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+              {/* Left Column */}
+              <div>
+                <h2 className="font-display text-3xl md:text-4xl mb-6 text-burgundy dark:text-foreground">
+                  For Creative Professionals
+                </h2>
+                
+                <div className="space-y-4 text-muted-foreground">
+                  <p>
+                    Music directors, lyricists, and filmmakers: <em className="text-foreground">Tishnagi</em> demonstrates 
+                    the cinematic potential of Seerat's ghazals.
+                  </p>
+                  <p>
+                    The Bollywood tradition has long recognized that the greatest film music comes from authentic poetry. 
+                    From Gulzar to Javed Akhtar, poet-lyricists have shaped Indian cinema's soul.
+                  </p>
+                  <p>
+                    Seerat's work continues this tradition—ghazals with technical mastery and emotional depth, 
+                    ready for contemporary adaptation.
+                  </p>
+                </div>
+                
+                <Link 
+                  to="/contact" 
+                  className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-burgundy text-cream font-ui text-sm tracking-wider rounded-full hover:bg-burgundy-dark transition-colors"
+                >
+                  Inquire About Collaboration
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
+              
+              {/* Right Column - Bollywood Precedent Card */}
+              <div className="p-6 md:p-8 bg-cream dark:bg-card border border-gold/20 rounded-sm">
+                <h3 className="font-display text-xl md:text-2xl text-burgundy dark:text-gold mb-4">
+                  The Bollywood Precedent
+                </h3>
+                
+                <p className="text-burgundy/80 dark:text-muted-foreground mb-4">
+                  Punjabi poetry has found renewed life in contemporary Indian cinema:
+                </p>
+                
+                <ul className="space-y-2 text-burgundy/80 dark:text-muted-foreground text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-burgundy/60 dark:text-muted-foreground/60">•</span>
+                    Shiv Kumar Batalvi's poems in <em className="text-burgundy dark:text-foreground">Love Aaj Kal</em> (2009)
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-burgundy/60 dark:text-muted-foreground/60">•</span>
+                    Poetry adaptations in <em className="text-burgundy dark:text-foreground">Udta Punjab</em> (2016)
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-burgundy/60 dark:text-muted-foreground/60">•</span>
+                    Gulzar's Sufi-inspired lyrics throughout his career
+                  </li>
+                </ul>
+                
+                <p className="text-burgundy/80 dark:text-muted-foreground mt-4 text-sm">
+                  Quality poetry transcends time. Seerat's ghazals await discovery.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Answer Block for SEO */}
       <section className="py-12 md:py-16 px-6 md:px-12">
         <div className="max-w-3xl mx-auto">
