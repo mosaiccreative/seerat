@@ -6,7 +6,7 @@ import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { MotionToggle } from '@/components/ui/motion-toggle';
 
 const navItems = [
-  { label: 'Main', href: '/' },
+  { label: 'Home', href: '/' },
   { label: 'Biography', href: '/about' },
   { label: 'Books', href: '/books' },
   { label: 'Tishnagi', href: '/tishnagi' },

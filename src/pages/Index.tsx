@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { BookCover } from '@/components/BookCover';
 import { PageLayout } from '@/components/layout/PageLayout';
@@ -15,10 +15,16 @@ import { PoetSection } from '@/components/sections/home/PoetSection';
 import { QuoteSection } from '@/components/sections/home/QuoteSection';
 import { NewsletterSection } from '@/components/sections/home/NewsletterSection';
 
+const SESSION_KEY = 'book-opened-this-session';
+
 const Index = () => {
   const { shouldAnimate } = useMotionPreference();
-  const [bookOpened, setBookOpened] = useState(false);
-  const [showContent, setShowContent] = useState(false);
+  
+  // Check if book was already opened this session
+  const hasOpenedThisSession = sessionStorage.getItem(SESSION_KEY) === 'true';
+  
+  const [bookOpened, setBookOpened] = useState(hasOpenedThisSession);
+  const [showContent, setShowContent] = useState(hasOpenedThisSession);
   const [isOpening, setIsOpening] = useState(false);
 
   const handleOpenBook = () => {
@@ -26,6 +32,7 @@ const Index = () => {
 
     setTimeout(() => {
       setBookOpened(true);
+      sessionStorage.setItem(SESSION_KEY, 'true');
       setTimeout(() => setShowContent(true), 100);
     }, shouldAnimate ? 2000 : 100);
   };
