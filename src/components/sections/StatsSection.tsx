@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import { useMotionPreference } from '@/hooks/useMotionPreference';
+import { StaggerReveal } from '@/components/animations/StaggerReveal';
 
 const stats = [
   { value: '8', label: 'Published Books' },
@@ -9,30 +8,44 @@ const stats = [
 ];
 
 export function StatsSection() {
-  const { shouldAnimate } = useMotionPreference();
-
   return (
-    <section className="py-12 md:py-16 bg-cream border-y border-burgundy/20">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              className="text-center"
-              initial={shouldAnimate ? { opacity: 0, y: 20 } : undefined}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <p className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy mb-2">
+    <section className="py-16 md:py-20 px-6 md:px-12 bg-cream text-burgundy relative">
+      {/* Top decorative divider */}
+      <div 
+        className="absolute top-0 left-1/2 -translate-x-1/2 flex items-center gap-2" 
+        aria-hidden="true"
+      >
+        <div className="w-16 h-px bg-burgundy/10" />
+        <div className="w-1.5 h-1.5 border border-burgundy/20 rotate-45" />
+        <div className="w-16 h-px bg-burgundy/10" />
+      </div>
+
+      <div className="max-w-4xl mx-auto">
+        <StaggerReveal 
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center" 
+          staggerDelay={0.1}
+        >
+          {stats.map((stat) => (
+            <div key={stat.label} className="group">
+              <p className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy mb-2 leading-none">
                 {stat.value}
               </p>
-              <p className="font-ui text-xs md:text-sm tracking-wider uppercase text-burgundy/70">
+              <p className="font-ui text-[11px] md:text-xs tracking-[0.15em] uppercase text-burgundy/60">
                 {stat.label}
               </p>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </StaggerReveal>
+      </div>
+      
+      {/* Bottom decorative divider */}
+      <div 
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center gap-2" 
+        aria-hidden="true"
+      >
+        <div className="w-16 h-px bg-burgundy/10" />
+        <div className="w-1.5 h-1.5 border border-burgundy/20 rotate-45" />
+        <div className="w-16 h-px bg-burgundy/10" />
       </div>
     </section>
   );
