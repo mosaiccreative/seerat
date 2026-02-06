@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 
 const navItems = [
-  { label: 'Works', href: '/books' },
-   { label: 'Store', href: '/store' },
-   { label: 'Course', href: '/course' },
-  { label: 'About', href: '/about' },
-  { label: 'Media', href: '/media' },
+  { label: 'Biography', href: '/about' },
+  { label: 'Books', href: '/books' },
+  { label: 'Tishnagi', href: '/tishnagi' },
+  { label: 'Ghazal History', href: '/ghazal-history' },
+  { label: 'Connect', href: '/contact' },
 ];
 
 export function SiteHeader() {
