@@ -181,8 +181,8 @@ const Tishnagi = () => {
         </div>
       </section>
 
-      {/* Themes */}
-      <section className="py-12 md:py-16 px-6 md:px-12 bg-card">
+      {/* Understanding Tishnagi - Combined Section */}
+      <section className="py-16 md:py-24 px-6 md:px-12 bg-card">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -195,7 +195,8 @@ const Tishnagi = () => {
               Understanding <span className="text-gold">Tishnagi</span>
             </h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Theme Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
               {[
                 { 
                   icon: Heart, 
@@ -227,20 +228,18 @@ const Tishnagi = () => {
                 </motion.div>
               ))}
             </div>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* Answer Block for SEO */}
-      <section className="py-12 md:py-16 px-6 md:px-12">
-        <div className="max-w-3xl mx-auto">
-          <AnswerBlock
-            id="tishnagi-album"
-            question="What is Tishnagi?"
-            answer="Tishnagi (meaning 'thirst' in Punjabi) is a ghazal album by Surinder Singh Seerat, available on YouTube and SoundCloud. The album demonstrates his poetry's musical potential, expressing themes of longing, consciousness, and the human condition through traditional ghazal form. It serves as an accessible entry point for those discovering his work."
-            sourceLabel="Tishnagi Album"
-            sourceUrl="https://www.surinderseerat.com/tishnagi/"
-          />
+            {/* What is Tishnagi - Integrated */}
+            <div className="max-w-3xl mx-auto pt-8 border-t border-border/30">
+              <AnswerBlock
+                id="tishnagi-album"
+                question="What is Tishnagi?"
+                answer="Tishnagi (meaning 'thirst' in Punjabi) is a ghazal album by Surinder Singh Seerat, available on YouTube and SoundCloud. The album demonstrates his poetry's musical potential, expressing themes of longing, consciousness, and the human condition through traditional ghazal form. It serves as an accessible entry point for those discovering his work."
+                sourceLabel="Tishnagi Album"
+                sourceUrl="https://www.surinderseerat.com/tishnagi/"
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
 
