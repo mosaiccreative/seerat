@@ -60,6 +60,7 @@ export function EmailCapture({
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState('');
   const { toast } = useToast();
   const { shouldAnimate } = useMotionPreference();
 
@@ -70,8 +71,10 @@ export function EmailCapture({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError('');
     
     if (!email || !email.includes('@')) {
+      setError('Please enter a valid email address.');
       toast({
         title: "Invalid email",
         description: "Please enter a valid email address.",
@@ -112,38 +115,49 @@ export function EmailCapture({
   return (
     <div className={className}>
       {variant !== 'minimal' && displayHeadline && (
-        <div className="text-center mb-8">
-          <h3 className="font-display text-2xl md:text-3xl mb-3">{displayHeadline}</h3>
+        <div className="text-center mb-10">
+          <h3 className="font-display text-2xl md:text-3xl mb-4">{displayHeadline}</h3>
           {displayDescription && (
-            <p className="text-muted-foreground max-w-md mx-auto">{displayDescription}</p>
+            <p className="text-muted-foreground max-w-lg mx-auto text-base leading-relaxed">{displayDescription}</p>
           )}
         </div>
       )}
       
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-        <div className="flex flex-col sm:flex-row gap-3">
+      <form onSubmit={handleSubmit} className="max-w-md mx-auto" noValidate>
+        <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex-1">
             <Label htmlFor="email-capture" className="sr-only">
               Email address
             </Label>
             <div className="relative">
-              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true" />
               <Input
                 id="email-capture"
                 type="email"
                 placeholder="your@email.com"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  if (error) setError('');
+                }}
                 disabled={isLoading}
-                className="pl-10 bg-secondary border-border focus:border-gold focus:ring-gold"
-                aria-describedby="email-hint"
+                className={`pl-11 py-6 bg-secondary border-2 text-base placeholder:text-muted-foreground/60 focus:border-gold focus:ring-gold focus-visible:ring-gold ${
+                  error ? 'border-destructive' : 'border-border'
+                }`}
+                aria-describedby="email-hint email-error"
+                aria-invalid={!!error}
               />
             </div>
+            {error && (
+              <p id="email-error" className="text-destructive text-sm mt-2" role="alert">
+                {error}
+              </p>
+            )}
           </div>
           <Button 
             type="submit" 
             disabled={isLoading}
-            className="bg-gold text-ink hover:bg-gold/90 font-ui tracking-wide"
+            className="bg-gold text-ink hover:bg-gold/90 font-ui tracking-wide py-6 px-8 text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
           >
             {isLoading ? (
               <>
@@ -155,7 +169,7 @@ export function EmailCapture({
             )}
           </Button>
         </div>
-        <p id="email-hint" className="text-xs text-muted-foreground mt-3 text-center">
+        <p id="email-hint" className="text-xs text-muted-foreground/70 mt-4 text-center">
           Monthly updates. Unsubscribe anytime. We respect your privacy.
         </p>
       </form>

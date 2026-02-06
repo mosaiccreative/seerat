@@ -126,75 +126,103 @@
    .font-ui { font-family: var(--font-ui); }
  }
  
- @layer components {
-   .page-section {
-     @apply min-h-screen flex flex-col items-center justify-center relative;
-     @apply px-6 md:px-12 lg:px-20 py-24;
-   }
-   
-   .chapter-label {
-     @apply font-ui text-xs tracking-[0.4em] uppercase mb-8;
-     color: hsl(var(--gold));
-   }
-   
-   .btn-gold {
-     @apply inline-flex items-center justify-center gap-3 px-10 py-5;
-     @apply font-ui text-xs tracking-[0.3em] uppercase;
-     @apply border transition-all duration-500;
-     border-color: hsl(var(--gold));
-     color: hsl(var(--gold));
-   }
-   
-   .btn-gold:hover {
-     background: hsl(var(--gold));
-     color: hsl(var(--ink));
-   }
-   
-   .btn-minimal {
-     @apply inline-flex items-center gap-3;
-     @apply font-ui text-xs tracking-[0.2em] uppercase;
-     @apply text-muted-foreground hover:text-foreground;
-     @apply transition-colors duration-500;
-   }
-   
-   .line-gold {
-     @apply h-px;
-     background: hsl(var(--gold));
-   }
-   
-   .quote-block {
-     @apply relative pl-8 md:pl-12;
-   }
-   
-   .quote-block::before {
-     content: '"';
-     @apply absolute left-0 -top-4 text-7xl md:text-8xl font-display;
-     color: hsl(var(--gold) / 0.4);
-   }
-   
-   .prose-poetry {
-     @apply max-w-2xl mx-auto;
-     font-size: clamp(1.125rem, 1.5vw + 0.875rem, 1.5rem);
-     line-height: 2;
-   }
-   
-   .drop-cap::first-letter {
-     @apply float-left text-7xl font-display leading-none mr-4 mt-1;
-     color: hsl(var(--gold));
-   }
-   
-   .book-spine {
-     @apply relative overflow-hidden;
-     transform-style: preserve-3d;
-     perspective: 2000px;
-   }
-   
-   .nav-link {
-     @apply font-ui text-xs tracking-[0.2em] uppercase;
-     @apply text-muted-foreground hover:text-foreground;
-     @apply transition-colors duration-300;
-   }
- }
+@layer components {
+  .page-section {
+    @apply min-h-screen flex flex-col items-center justify-center relative;
+    @apply px-6 md:px-12 lg:px-20 py-24;
+  }
+  
+  .chapter-label {
+    @apply font-ui text-[11px] tracking-[0.3em] uppercase;
+    color: hsl(var(--gold));
+  }
+  
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-3 px-10 py-5;
+    @apply font-ui text-xs tracking-[0.2em] uppercase;
+    @apply border transition-all duration-500;
+    border-color: hsl(var(--gold));
+    color: hsl(var(--gold));
+  }
+  
+  .btn-gold:hover {
+    background: hsl(var(--gold));
+    color: hsl(var(--ink));
+  }
+  
+  .btn-gold:focus-visible {
+    @apply ring-2 ring-offset-2;
+    ring-color: hsl(var(--gold));
+    ring-offset-color: hsl(var(--background));
+  }
+  
+  .btn-minimal {
+    @apply inline-flex items-center gap-3;
+    @apply font-ui text-xs tracking-[0.2em] uppercase;
+    @apply text-muted-foreground hover:text-foreground;
+    @apply transition-colors duration-500;
+  }
+  
+  .line-gold {
+    @apply h-px;
+    background: hsl(var(--gold));
+  }
+  
+  .quote-block {
+    @apply relative pl-8 md:pl-12;
+  }
+  
+  .quote-block::before {
+    content: '"';
+    @apply absolute left-0 -top-4 text-7xl md:text-8xl font-display;
+    color: hsl(var(--gold) / 0.4);
+  }
+  
+  /* Improved prose readability */
+  .prose-poetry {
+    @apply max-w-none;
+    font-size: clamp(1rem, 1.25vw + 0.875rem, 1.25rem);
+    line-height: 1.8;
+  }
+  
+  .drop-cap::first-letter {
+    @apply float-left text-7xl font-display leading-none mr-4 mt-1;
+    color: hsl(var(--gold));
+  }
+  
+  .book-spine {
+    @apply relative overflow-hidden;
+    transform-style: preserve-3d;
+    perspective: 2000px;
+  }
+  
+  .nav-link {
+    @apply font-ui text-xs tracking-[0.15em] uppercase;
+    @apply text-muted-foreground hover:text-foreground;
+    @apply transition-colors duration-300;
+  }
+  
+  /* Color utility classes */
+  .bg-burgundy {
+    background-color: hsl(var(--burgundy));
+  }
+  
+  .bg-burgundy-dark {
+    background-color: hsl(var(--burgundy-dark));
+  }
+  
+  .bg-cream {
+    background-color: hsl(var(--cream));
+  }
+  
+  .text-burgundy {
+    color: hsl(var(--burgundy));
+  }
+  
+  .text-cream {
+    color: hsl(var(--cream));
+  }
+}
  
 @layer utilities {
     @keyframes float {
