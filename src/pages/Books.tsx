@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
+import { BookshelfStage } from '@/components/bookshelf';
 
 import { books } from '@/data/books';
 import { useEffect } from 'react';
@@ -158,13 +159,13 @@ const Books = () => {
     document.title = 'Eight Books, 34 Years, Four Major Awards — Surinder Seerat';
   }, []);
 
-  // Sort books oldest to newest
+  // Sort books oldest to newest for the shelf
   const sortedBooks = [...books].sort((a, b) => parseInt(a.year) - parseInt(b.year));
 
   return (
     <PageLayout>
       {/* Hero Section */}
-      <section className="page-section">
+      <section className="py-16 md:py-24 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -176,112 +177,23 @@ const Books = () => {
               Eight Books, <span className="text-gold italic">34 Years</span>,
               <br />Four Major Awards
             </h1>
-            <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-              Explore poetry collections spanning free verse to pure ghazal form—from <em>Chhallan</em> (1980) to <em>Aroope Akhran da Aks</em> (2014)
+            <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-4">
+              Select a spine to explore the collection
+            </p>
+            <p className="text-muted-foreground/60 text-sm font-ui">
+              From <em>Chhallan</em> (1980) to <em>Aroope Akhran da Aks</em> (2014)
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Vertical Book Cards */}
-      <section className="py-16 px-6 md:px-12">
-        <div className="max-w-4xl mx-auto space-y-6">
-          {sortedBooks.map((book, index) => {
-            const enhanced = enhancedBookData[book.id];
-            return (
-              <motion.article
-                key={book.id}
-                className="group relative bg-card border border-border/50 overflow-hidden hover:border-gold/30 transition-colors"
-                initial={shouldAnimate ? { opacity: 0, x: -40 } : undefined}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: index * 0.08 }}
-              >
-                <Link 
-                  to={`/books/${book.id}`}
-                  className="flex flex-col md:flex-row"
-                >
-                  {/* Book Cover */}
-                  <div className="relative md:w-1/3 shrink-0">
-                    <div className="aspect-[3/4] overflow-hidden">
-                      {book.coverImage ? (
-                        <img
-                          src={book.coverImage}
-                          alt={`Cover of ${book.title}`}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                      ) : (
-                        <div className="w-full h-full bg-muted flex items-center justify-center">
-                          <span className="text-6xl opacity-10">੧</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Book Details */}
-                  <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
-                    {/* Badges row */}
-                    <div className="flex flex-wrap items-center gap-2 mb-4">
-                      {enhanced && (
-                        <span className="font-ui text-xs tracking-wide text-muted-foreground bg-muted px-3 py-1 rounded-full">
-                          {enhanced.form}
-                        </span>
-                      )}
-                      {book.award && (
-                        <span className="font-ui text-xs tracking-wide text-gold bg-gold/10 px-3 py-1 rounded-full flex items-center gap-1">
-                          🏆 {book.award}
-                        </span>
-                      )}
-                      {enhanced?.startHere && (
-                        <span className="font-ui text-xs tracking-wide text-accent-foreground bg-accent px-3 py-1 rounded-full flex items-center gap-1">
-                          ✓ Start Here
-                        </span>
-                      )}
-                    </div>
-                    
-                    <h2 className="font-display text-2xl md:text-3xl mb-1 group-hover:text-gold transition-colors">
-                      {book.title} ({book.year})
-                    </h2>
-                    
-                    {enhanced && (
-                      <p className="text-muted-foreground italic text-base mb-4">
-                        {enhanced.subtitle}
-                      </p>
-                    )}
-                    
-                    {enhanced && (
-                      <p className="text-foreground text-sm mb-3">
-                        <span className="font-semibold">Theme:</span> {enhanced.theme}
-                      </p>
-                    )}
-                    
-                    <p className="text-muted-foreground text-base leading-relaxed mb-5">
-                      {enhanced?.expandedDescription || book.description}
-                    </p>
-
-                    {enhanced && enhanced.whoFor.length > 0 && (
-                      <div className="mb-5">
-                        <p className="text-foreground font-semibold text-sm mb-2">Who it's for:</p>
-                        <ul className="space-y-1">
-                          {enhanced.whoFor.map((item, i) => (
-                            <li key={i} className="text-muted-foreground text-sm flex items-start gap-2">
-                              <span className="text-muted-foreground/60">•</span>
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-
-                    <span className="inline-flex items-center gap-2 text-gold font-ui text-sm tracking-wider group-hover:underline">
-                      Read More <ArrowRight size={14} />
-                    </span>
-                  </div>
-                </Link>
-              </motion.article>
-            );
-          })}
-        </div>
+      {/* Bookshelf Stage */}
+      <section className="py-8 md:py-16 px-4 md:px-8">
+        <BookshelfStage 
+          books={sortedBooks} 
+          motionEnabled={shouldAnimate}
+          enhancedBookData={enhancedBookData}
+        />
       </section>
 
       {/* Literary Awards - Tightened with Animation */}
@@ -390,48 +302,8 @@ const Books = () => {
         </div>
       </section>
 
-      {/* For Libraries & Scholars */}
+      {/* CTA Section */}
       <section className="py-16 px-6 md:px-12">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <motion.div
-              initial={shouldAnimate ? { opacity: 0, x: -30 } : undefined}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="p-8 border border-border/50"
-            >
-              <h3 className="font-display text-2xl mb-4">For Libraries & Academic Institutions</h3>
-              <p className="text-muted-foreground text-sm mb-6">
-                Surinder Singh Seerat merits inclusion as a significant contemporary poet with 4 major awards spanning 32 years, 
-                a 2015 National Seminar dedicated to his creative process, and institutional leadership founding two California literary organizations.
-              </p>
-              <Link to="/contact" className="text-gold font-ui text-sm tracking-wider flex items-center gap-2 hover:underline">
-                Request library acquisition info <ArrowRight size={14} />
-              </Link>
-            </motion.div>
-
-            <motion.div
-              initial={shouldAnimate ? { opacity: 0, x: 30 } : undefined}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="p-8 border border-border/50"
-            >
-              <h3 className="font-display text-2xl mb-4">For Scholars & Researchers</h3>
-              <p className="text-muted-foreground text-sm mb-6">
-                Minimal secondary scholarship exists on Surinder's work—opportunity to establish yourself 
-                as a scholarly authority on a validated contemporary poet. Research angles include diaspora poetics, 
-                physicist's epistemological approach, and technical ghazal analysis.
-              </p>
-              <Link to="/contact" className="text-gold font-ui text-sm tracking-wider flex items-center gap-2 hover:underline">
-                Contact for research inquiries <ArrowRight size={14} />
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Tishnagi CTA */}
-      <section className="py-16 px-6 md:px-12 bg-background">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -439,15 +311,18 @@ const Books = () => {
             viewport={{ once: true }}
           >
             <h2 className="font-display text-3xl md:text-4xl mb-8">
-              Experience the <span className="text-gold">Poetry</span> Through Music
+              Explore <span className="text-gold">Beyond the Page</span>
             </h2>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              The Tishnagi album demonstrates what makes these ghazals compelling—longing expressed through technical mastery.
-            </p>
-            <Link to="/tishnagi" className="btn-gold">
-              Listen to Tishnagi
-              <ArrowRight size={16} />
-            </Link>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/tishnagi" className="btn-gold">
+                Listen to the Album
+                <ArrowRight size={16} />
+              </Link>
+              <Link to="/ghazal-history" className="btn-minimal">
+                Understanding the Ghazal Form
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
