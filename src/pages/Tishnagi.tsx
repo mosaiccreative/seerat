@@ -231,8 +231,21 @@ const Tishnagi = () => {
         </div>
       </section>
 
+      {/* Answer Block for SEO */}
+      <section className="py-12 md:py-16 px-6 md:px-12">
+        <div className="max-w-3xl mx-auto">
+          <AnswerBlock
+            id="tishnagi-album"
+            question="What is Tishnagi?"
+            answer="Tishnagi (meaning 'thirst' in Punjabi) is a ghazal album by Surinder Singh Seerat, available on YouTube and SoundCloud. The album demonstrates his poetry's musical potential, expressing themes of longing, consciousness, and the human condition through traditional ghazal form. It serves as an accessible entry point for those discovering his work."
+            sourceLabel="Tishnagi Album"
+            sourceUrl="https://www.surinderseerat.com/tishnagi/"
+          />
+        </div>
+      </section>
+
       {/* For Creative Professionals */}
-      <section className="py-12 md:py-16 px-6 md:px-12 bg-cream text-burgundy">
+      <section className="py-16 md:py-20 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -240,16 +253,17 @@ const Tishnagi = () => {
             viewport={{ once: true }}
             transition={{ duration: 1 }}
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-              {/* Left Column */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Left Column - Content */}
               <div>
+                <span className="chapter-label block">Collaboration</span>
                 <h2 className="font-display text-3xl md:text-4xl mb-6">
-                  For Creative Professionals
+                  For Creative <span className="text-gold">Professionals</span>
                 </h2>
                 
-                <div className="space-y-4 text-burgundy/80">
+                <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Music directors, lyricists, and filmmakers: <em className="text-burgundy">Tishnagi</em> demonstrates 
+                    Music directors, lyricists, and filmmakers: <em className="text-foreground">Tishnagi</em> demonstrates 
                     the cinematic potential of Seerat's ghazals.
                   </p>
                   <p>
@@ -271,50 +285,53 @@ const Tishnagi = () => {
                 </Link>
               </div>
               
-              {/* Right Column - Bollywood Precedent Card */}
-              <div className="p-6 md:p-8 bg-background border border-gold/30 rounded-sm">
-                <h3 className="font-display text-xl md:text-2xl text-gold mb-4">
-                  The Bollywood Precedent
-                </h3>
+              {/* Right Column - Elegant Card */}
+              <motion.div 
+                className="relative aspect-square"
+                initial={shouldAnimate ? { opacity: 0, scale: 0.95 } : undefined}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                {/* Decorative outer frame */}
+                <div className="absolute -inset-3 border border-gold/20" />
                 
-                <p className="text-foreground/80 mb-4">
-                  Punjabi poetry has found renewed life in contemporary Indian cinema:
-                </p>
-                
-                <ul className="space-y-2 text-foreground/70 text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="text-gold">•</span>
-                    Shiv Kumar Batalvi's poems in <em className="text-foreground">Love Aaj Kal</em> (2009)
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gold">•</span>
-                    Poetry adaptations in <em className="text-foreground">Udta Punjab</em> (2016)
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gold">•</span>
-                    Gulzar's Sufi-inspired lyrics throughout his career
-                  </li>
-                </ul>
-                
-                <p className="text-foreground/70 mt-4 text-sm">
-                  Quality poetry transcends time. Seerat's ghazals await discovery.
-                </p>
-              </div>
+                {/* Main card */}
+                <div className="relative h-full bg-gradient-to-br from-burgundy/10 via-card to-burgundy/5 border border-gold/30 p-8 flex flex-col justify-center">
+                  {/* Gold corner accents */}
+                  <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-gold/40" />
+                  <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-gold/40" />
+                  
+                  <h3 className="font-display text-xl md:text-2xl text-gold mb-6">
+                    The Bollywood Precedent
+                  </h3>
+                  
+                  <p className="text-foreground/80 mb-6 text-sm leading-relaxed">
+                    Punjabi poetry has found renewed life in contemporary Indian cinema:
+                  </p>
+                  
+                  <ul className="space-y-3 text-muted-foreground text-sm mb-6">
+                    <li className="flex items-start gap-3">
+                      <span className="text-gold mt-1">◆</span>
+                      <span>Shiv Kumar Batalvi's poems in <em className="text-foreground">Love Aaj Kal</em> (2009)</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-gold mt-1">◆</span>
+                      <span>Poetry adaptations in <em className="text-foreground">Udta Punjab</em> (2016)</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-gold mt-1">◆</span>
+                      <span>Gulzar's Sufi-inspired lyrics throughout his career</span>
+                    </li>
+                  </ul>
+                  
+                  <p className="text-foreground/60 text-xs italic border-t border-gold/20 pt-4">
+                    Quality poetry transcends time. Seerat's ghazals await discovery.
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Answer Block for SEO */}
-      <section className="py-12 md:py-16 px-6 md:px-12">
-        <div className="max-w-3xl mx-auto">
-          <AnswerBlock
-            id="tishnagi-album"
-            question="What is Tishnagi?"
-            answer="Tishnagi (meaning 'thirst' in Punjabi) is a ghazal album by Surinder Singh Seerat, available on YouTube and SoundCloud. The album demonstrates his poetry's musical potential, expressing themes of longing, consciousness, and the human condition through traditional ghazal form. It serves as an accessible entry point for those discovering his work."
-            sourceLabel="Tishnagi Album"
-            sourceUrl="https://www.surinderseerat.com/tishnagi/"
-          />
         </div>
       </section>
 
