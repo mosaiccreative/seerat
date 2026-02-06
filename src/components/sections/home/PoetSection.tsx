@@ -22,7 +22,7 @@ export function PoetSection() {
           
         <div className="prose-poetry text-burgundy/80 space-y-5 text-base md:text-lg leading-[1.8] max-w-[55ch]">
           <p>
-            In a world hungry for authentic poetry, Surinder Seerat offers something rare:
+            Poet, novelist, critic, editor, and short story writer—Surinder Seerat offers something rare in a world hungry for authentic literary voices:
             </p>
             <ul className="space-y-3 text-burgundy list-none pl-0">
               <li className="flex items-start gap-3">
