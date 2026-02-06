@@ -22,9 +22,9 @@ export function RareCombinationSection() {
             <span className="text-gold italic">modernity</span>.
           </h2>
           
-          <p className="text-xl md:text-2xl text-burgundy font-display">
-            Surinder masters both.
-          </p>
+        <p className="text-xl md:text-2xl text-burgundy font-display">
+          Seerat masters both.
+        </p>
         </div>
         
         {/* Body text with improved readability */}
