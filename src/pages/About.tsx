@@ -2,10 +2,33 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
-import { AnswerBlock } from '@/components/sections/AnswerBlock';
+import { FAQAccordion } from '@/components/sections/FAQAccordion';
 import { ArrowRight } from 'lucide-react';
 import { useEffect } from 'react';
 import poetPortrait from '@/assets/poet-portrait.jpg';
+
+const faqItems = [
+  {
+    question: "Who is Surinder Seerat?",
+    answer: "Surinder Singh Seerat is an award-winning Punjabi ghazal master exploring consciousness, longing, and the immigrant experience. Born in Kashmir in 1947, he became the first person in his village to graduate university, built a career as a physics professor, and later founded two major Punjabi literary organizations in California. He has published eight books spanning 34 years, earning four major literary awards."
+  },
+  {
+    question: "How many books has Surinder Seerat written?",
+    answer: "Surinder Seerat has published eight works from 1980 to 2014, including seven poetry collections (spanning free verse, open verse, and pure ghazal forms) and one stream-of-consciousness novel. Four of his works received major literary awards from the Jammu & Kashmir Academy of Art, Culture & Languages and North American institutions."
+  },
+  {
+    question: "What awards has Surinder Seerat received?",
+    answer: "Surinder Seerat has received four major literary awards: JKAACL Best Punjabi Book Award (1982) for Chhallan, JKAACL Best Punjabi Book Award (1987) for Bharam Bhullayan, JKAACL Best Punjabi Book Award (1991) for Kirchan, and the Professor Mohan Singh Award (2014) for Aroope Akhran da Aks. In 2015, a National Seminar in Jammu was dedicated to studying his creative process."
+  },
+  {
+    question: "What is a ghazal?",
+    answer: "A ghazal is a poetic form consisting of rhyming couplets and a refrain, with each couplet containing a complete thought while contributing to a unified theme. Originating in 7th-century Arabia and perfected in Persian and Urdu traditions, the ghazal explores themes of love, loss, and mysticism. Visit our Ghazal History page to learn more about this ancient art form."
+  },
+  {
+    question: "Where can I listen to Surinder Seerat's poetry?",
+    answer: "You can experience Surinder Seerat's poetry through Tishnagi, his ghazal album that demonstrates the musical quality of his work. The album is available on YouTube and SoundCloud. Visit our Tishnagi page to listen and learn more about this collection of sung ghazals."
+  }
+];
 
 const About = () => {
   const { shouldAnimate } = useMotionPreference();
@@ -293,16 +316,28 @@ const About = () => {
         </div>
       </section>
 
-      {/* Answer Block for SEO */}
+      {/* FAQ Section */}
       <section className="py-20 px-6 md:px-12 bg-card">
         <div className="max-w-3xl mx-auto">
-          <AnswerBlock
-            id="who-is-surinder-seerat"
-            question="Who is Surinder Singh Seerat?"
-            answer="Surinder Singh Seerat (born September 19, 1947) is an award-winning Punjabi ghazal master, physicist, and literary leader. Born in Kashmir, he became the first person in his village to graduate university. After 20+ years as a physics professor, he immigrated to California where he founded Punjabi Sahit Sabha California (1992) and co-founded Vishav Punjabi Sahit Academy (2002). He has published eight books spanning 34 years, winning four major literary awards."
-            sourceLabel="Official Biography"
-            sourceUrl="https://www.surinderseerat.com/about/"
-          />
+          <motion.div
+            className="text-center mb-12"
+            initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="chapter-label block">Questions</span>
+            <h2 className="font-display text-3xl md:text-4xl">
+              Frequently <span className="text-gold">Asked</span>
+            </h2>
+          </motion.div>
+          
+          <motion.div
+            initial={shouldAnimate ? { opacity: 0, y: 20 } : undefined}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <FAQAccordion items={faqItems} />
+          </motion.div>
         </div>
       </section>
 

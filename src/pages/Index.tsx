@@ -6,7 +6,6 @@ import { BookCover } from '@/components/BookCover';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { StatsSection } from '@/components/sections/StatsSection';
-import { AnswerBlock } from '@/components/sections/AnswerBlock';
 import { EmailCapture } from '@/components/sections/EmailCapture';
 import { books } from '@/data/books';
 import poetPortrait from '@/assets/poet-portrait.jpg';
@@ -446,26 +445,6 @@ const Index = () => {
             </div>
           </section>
 
-          {/* SEO Answer Blocks */}
-          <section className="py-20 px-6 md:px-12">
-            <div className="max-w-3xl mx-auto space-y-16">
-              <AnswerBlock
-                id="who-is-surinder-seerat"
-                question="Who is Surinder Seerat?"
-                answer="Surinder Singh Seerat is an award-winning Punjabi ghazal master exploring consciousness, longing, and the immigrant experience. Born in Kashmir in 1947, he became the first person in his village to graduate university, built a career as a physics professor, and later founded two major Punjabi literary organizations in California. He has published eight books spanning 34 years, earning four major literary awards."
-                sourceLabel="Official Biography"
-                sourceUrl="https://www.surinderseerat.com/about/"
-              />
-              
-              <AnswerBlock
-                id="published-works-count"
-                question="How many books has Surinder Seerat written?"
-                answer="Surinder Seerat has published eight works from 1980 to 2014, including seven poetry collections (spanning free verse, open verse, and pure ghazal forms) and one stream-of-consciousness novel. Four of his works received major literary awards from the Jammu & Kashmir Academy of Art, Culture & Languages and North American institutions."
-                sourceLabel="Complete Works"
-                sourceUrl="https://www.surinderseerat.com/books/"
-              />
-            </div>
-          </section>
         </PageLayout>
       )}
     </div>
