@@ -17,7 +17,7 @@ const Tishnagi = () => {
   return (
     <PageLayout>
       {/* Hero Section */}
-      <section className="page-section">
+      <section className="py-16 md:py-20 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -108,7 +108,7 @@ const Tishnagi = () => {
       </section>
 
       {/* Album Description */}
-      <section className="py-24 px-6 md:px-12 bg-card">
+      <section className="py-12 md:py-16 px-6 md:px-12 bg-card">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -155,7 +155,7 @@ const Tishnagi = () => {
       </section>
 
       {/* Themes */}
-      <section className="py-24 px-6 md:px-12 bg-card">
+      <section className="py-12 md:py-16 px-6 md:px-12 bg-card">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -205,7 +205,7 @@ const Tishnagi = () => {
       </section>
 
       {/* Answer Block for SEO */}
-      <section className="py-20 px-6 md:px-12">
+      <section className="py-12 md:py-16 px-6 md:px-12">
         <div className="max-w-3xl mx-auto">
           <AnswerBlock
             id="tishnagi-album"
@@ -218,7 +218,7 @@ const Tishnagi = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="page-section">
+      <section className="py-12 md:py-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
