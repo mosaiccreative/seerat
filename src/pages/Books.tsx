@@ -7,6 +7,95 @@ import { books } from '@/data/books';
 import { useEffect } from 'react';
 import { ArrowRight, Award, BookOpen, Music, Users } from 'lucide-react';
 
+// Enhanced book data with theme, subtitle, who it's for, and form
+const enhancedBookData: Record<string, {
+  subtitle: string;
+  theme: string;
+  form: string;
+  whoFor: string[];
+}> = {
+  'chhallan': {
+    subtitle: 'The Dance of Internal Struggle',
+    theme: 'The internal struggle to exist',
+    form: 'Free verse',
+    whoFor: [
+      'Readers drawn to existential themes',
+      'Those appreciating raw, unpolished emotional honesty',
+      'Anyone exploring the darker corners of consciousness',
+    ],
+  },
+  'khalaw-ch-tangey-harf': {
+    subtitle: 'Alone with Hanging Words',
+    theme: 'The transformation from introvert to extravert',
+    form: 'Open verse',
+    whoFor: [
+      'Introverts navigating social expectations',
+      'Those experiencing personal transformation',
+      'Readers interested in psychological poetry',
+    ],
+  },
+  'bharam-bhullayan': {
+    subtitle: 'Illusions and Labyrinths',
+    theme: 'The maze of perception and reality',
+    form: 'Stream of consciousness novel',
+    whoFor: [
+      'Readers of experimental fiction',
+      'Those who enjoyed Woolf, Joyce, Faulkner',
+      'Anyone questioning the nature of reality and perception',
+    ],
+  },
+  'kirchan': {
+    subtitle: 'Splinters: Pure Ghazal Form',
+    theme: 'Hidden realities beneath surface life',
+    form: 'Pure ghazal',
+    whoFor: [
+      'Ghazal purists appreciating technical excellence',
+      'Readers seeking depth beneath everyday existence',
+      'Literary scholars analyzing contemporary ghazal form',
+    ],
+  },
+  'kikkar-kande': {
+    subtitle: 'Acacia Thorns',
+    theme: 'Symbolic subjectivity meets technical poetry',
+    form: 'Open verse & ghazals',
+    whoFor: [
+      'Readers who enjoy symbolic poetry',
+      'Those interested in the immigrant experience',
+      'Poetry lovers appreciating formal variety',
+    ],
+  },
+  'surat-seerat-te-saraab': {
+    subtitle: 'Form, Character, and Mirage',
+    theme: 'Unachievable life desires in humanity\'s wilderness',
+    form: 'Punjabi ghazals',
+    whoFor: [
+      'Anyone who\'s chased something forever out of reach',
+      'Readers drawn to themes of longing',
+      'Those appreciating the beauty of unfulfilled desire',
+    ],
+  },
+  'saij-sullee-te-saleeb': {
+    subtitle: 'Marriage Bed, Scaffold, and Cross',
+    theme: 'Three life stages—self, cause, humanity',
+    form: 'Open verse & ghazals',
+    whoFor: [
+      'Readers exploring life\'s purpose and meaning',
+      'Those interested in spiritual evolution',
+      'Anyone asking "What am I living for?"',
+    ],
+  },
+  'aroope-akhran-da-aks': {
+    subtitle: 'The Reflection of Incomparable Letters',
+    theme: 'The mysteriousness of the modern world',
+    form: 'Open verse & ghazals',
+    whoFor: [
+      'Readers navigating modern life\'s complexity',
+      'Those appreciating philosophical inquiry',
+      'Anyone feeling the mystery beneath technological surfaces',
+    ],
+  },
+};
+
 const readingPaths = [
   {
     title: 'Award-Winning Introduction',
@@ -57,6 +146,9 @@ const Books = () => {
     document.title = 'Eight Books, 34 Years, Four Major Awards — Surinder Seerat';
   }, []);
 
+  // Sort books oldest to newest
+  const sortedBooks = [...books].sort((a, b) => parseInt(a.year) - parseInt(b.year));
+
   return (
     <PageLayout>
       {/* Hero Section */}
@@ -82,68 +174,96 @@ const Books = () => {
       {/* Vertical Book Cards */}
       <section className="py-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto space-y-6">
-          {books.map((book, index) => (
-            <motion.article
-              key={book.id}
-              className="group relative bg-card border border-border/50 overflow-hidden hover:border-gold/30 transition-colors"
-              initial={shouldAnimate ? { opacity: 0, x: -40 } : undefined}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.08 }}
-            >
-              <Link 
-                to={`/books/${book.id}`}
-                className="flex flex-col md:flex-row"
+          {sortedBooks.map((book, index) => {
+            const enhanced = enhancedBookData[book.id];
+            return (
+              <motion.article
+                key={book.id}
+                className="group relative bg-card border border-border/50 overflow-hidden hover:border-gold/30 transition-colors"
+                initial={shouldAnimate ? { opacity: 0, x: -40 } : undefined}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: index * 0.08 }}
               >
-                {/* Book Cover */}
-                <div className="relative md:w-1/3 shrink-0">
-                  <div className="aspect-[3/4] overflow-hidden">
-                    {book.coverImage ? (
-                      <img
-                        src={book.coverImage}
-                        alt={`Cover of ${book.title}`}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-muted flex items-center justify-center">
-                        <span className="text-6xl opacity-10">੧</span>
+                <Link 
+                  to={`/books/${book.id}`}
+                  className="flex flex-col md:flex-row"
+                >
+                  {/* Book Cover */}
+                  <div className="relative md:w-1/3 shrink-0">
+                    <div className="aspect-[3/4] overflow-hidden">
+                      {book.coverImage ? (
+                        <img
+                          src={book.coverImage}
+                          alt={`Cover of ${book.title}`}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-muted flex items-center justify-center">
+                          <span className="text-6xl opacity-10">੧</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Book Details */}
+                  <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
+                    {/* Badges row */}
+                    <div className="flex flex-wrap items-center gap-2 mb-4">
+                      {enhanced && (
+                        <span className="font-ui text-xs tracking-wide text-muted-foreground bg-muted px-3 py-1 rounded-full">
+                          {enhanced.form}
+                        </span>
+                      )}
+                      {book.award && (
+                        <span className="font-ui text-xs tracking-wide text-gold bg-gold/10 px-3 py-1 rounded-full flex items-center gap-1">
+                          🏆 {book.award}
+                        </span>
+                      )}
+                    </div>
+                    
+                    <h2 className="font-display text-2xl md:text-3xl mb-1 group-hover:text-gold transition-colors">
+                      {book.title} ({book.year})
+                    </h2>
+                    
+                    {enhanced && (
+                      <p className="text-muted-foreground italic text-base mb-4">
+                        {enhanced.subtitle}
+                      </p>
+                    )}
+                    
+                    {enhanced && (
+                      <p className="text-foreground text-sm mb-3">
+                        <span className="font-semibold">Theme:</span> {enhanced.theme}
+                      </p>
+                    )}
+                    
+                    <p className="text-muted-foreground text-base leading-relaxed mb-5">
+                      {book.description}
+                    </p>
+
+                    {enhanced && enhanced.whoFor.length > 0 && (
+                      <div className="mb-5">
+                        <p className="text-foreground font-semibold text-sm mb-2">Who it's for:</p>
+                        <ul className="space-y-1">
+                          {enhanced.whoFor.map((item, i) => (
+                            <li key={i} className="text-muted-foreground text-sm flex items-start gap-2">
+                              <span className="text-muted-foreground/60">•</span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     )}
+
+                    <span className="inline-flex items-center gap-2 text-gold font-ui text-sm tracking-wider group-hover:underline">
+                      Read More <ArrowRight size={14} />
+                    </span>
                   </div>
-                </div>
-
-                {/* Book Details */}
-                <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
-                  <span className="inline-block font-ui text-xs tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-full w-fit mb-4">
-                    {book.year}
-                  </span>
-                  
-                  <h2 className="font-display text-2xl md:text-3xl mb-2 group-hover:text-gold transition-colors">
-                    {book.title}
-                  </h2>
-                  
-                  <p className="text-muted-foreground text-sm mb-4">
-                    {book.type}
-                    {book.foreword && <span> • Foreword by {book.foreword}</span>}
-                  </p>
-                  
-                  <p className="text-muted-foreground text-base leading-relaxed mb-6">
-                    {book.description}
-                  </p>
-
-                  {book.award && (
-                    <p className="text-gold font-ui text-sm tracking-wide mb-4">
-                      🏆 {book.award}
-                    </p>
-                  )}
-
-                  <span className="inline-flex items-center gap-2 text-gold font-ui text-sm tracking-wider group-hover:underline">
-                    Read More <ArrowRight size={14} />
-                  </span>
-                </div>
-              </Link>
-            </motion.article>
-          ))}
+                </Link>
+              </motion.article>
+            );
+          })}
         </div>
       </section>
 
