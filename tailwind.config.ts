@@ -55,7 +55,11 @@ export default {
         ink: "hsl(var(--ink))",
         cream: "hsl(var(--cream))",
         gold: "hsl(var(--gold))",
-        burgundy: "hsl(var(--burgundy))",
+        burgundy: {
+          DEFAULT: "hsl(var(--burgundy))",
+          dark: "hsl(var(--burgundy-dark))",
+          light: "hsl(var(--burgundy-light))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
