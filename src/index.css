@@ -47,7 +47,9 @@
      --cream: 40 20% 92%;
      --gold: 38 75% 55%;
      --gold-dim: 38 50% 35%;
-     --burgundy: 350 50% 25%;
+      --burgundy: 345 45% 25%;
+      --burgundy-dark: 345 50% 18%;
+      --burgundy-light: 345 40% 35%;
      
      /* Typography */
      --font-display: 'Playfair Display', Georgia, serif;

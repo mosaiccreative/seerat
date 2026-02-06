@@ -58,17 +58,17 @@ const Index = () => {
       {showContent && (
         <PageLayout>
           {/* Hero Section */}
-          <section className="page-section relative overflow-hidden">
+          <section className="page-section relative overflow-hidden bg-burgundy">
             {/* Background texture */}
             <div 
-              className="absolute inset-0 opacity-10"
+              className="absolute inset-0 opacity-5"
               style={{ 
                 backgroundImage: `url(${bookPages})`, 
                 backgroundSize: 'cover',
                 backgroundPosition: 'center' 
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+            <div className="absolute inset-0 bg-gradient-to-b from-burgundy-dark/50 via-transparent to-burgundy-dark/80" />
             
             <motion.div
               className="relative z-10 text-center max-w-4xl mx-auto"
