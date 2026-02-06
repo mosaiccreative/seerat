@@ -86,8 +86,8 @@ const enhancedBookData: Record<string, {
   'saij-sullee-te-saleeb': {
     subtitle: 'Marriage Bed, Scaffold, and Cross',
     theme: 'Three life stages—self, cause, humanity',
-    form: 'Open verse & ghazals',
-    expandedDescription: 'The title justifies the three stages of life: Living for yourself, Living for a cause, and Living for humanity. Poetry that traces the evolution from personal desire to collective purpose.',
+    form: 'Open verse + Ghazals',
+    expandedDescription: 'What does it mean to move through life\'s stages? From the intimacy of the marriage bed to the scaffold of commitment to a cause, to the cross of bearing humanity\'s weight—this collection maps a spiritual and philosophical journey.',
     whoFor: [
       'Readers exploring life\'s purpose and meaning',
       'Those interested in spiritual evolution',
@@ -97,8 +97,9 @@ const enhancedBookData: Record<string, {
   'aroope-akhran-da-aks': {
     subtitle: 'The Reflection of Incomparable Letters',
     theme: 'The mysteriousness of the modern world',
-    form: 'Open verse & ghazals',
-    expandedDescription: "Surinder's most recent book reflects the mysteriousness of the modern world. He exemplifies the idea that a word's definition is trapped within the word itself—demonstrating that it is impossible to interpret the internal thoughts of any creation with words or symbols.",
+    form: 'Open verse + Ghazals',
+    expandedDescription: "Surinder's most recent collection explores how contemporary life—with all its technology, information, and rationality—remains profoundly mysterious. The physicist-poet brings both lenses: analytical precision and mystical wonder.",
+    startHere: true,
     whoFor: [
       'Readers navigating modern life\'s complexity',
       'Those appreciating philosophical inquiry',
