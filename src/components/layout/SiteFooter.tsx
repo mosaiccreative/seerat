@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { MotionToggle } from '@/components/ui/motion-toggle';
 import { Instagram, Youtube, Music } from 'lucide-react';
+import { EmailCapture } from '@/components/sections/EmailCapture';
 
 export function SiteFooter() {
   const currentYear = new Date().getFullYear();
@@ -25,6 +26,13 @@ export function SiteFooter() {
 
   return (
     <footer className="border-t border-border/30 bg-background">
+      {/* Newsletter Section */}
+      <div className="border-b border-border/30 py-16 px-6 md:px-12">
+        <div className="max-w-2xl mx-auto">
+          <EmailCapture variant="homepage" />
+        </div>
+      </div>
+      
       <div className="container mx-auto px-6 md:px-12 py-20">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           {/* Brand */}

@@ -5,7 +5,7 @@ import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { ArrowRight, Music, BookOpen, Users, Award } from 'lucide-react';
 import { useEffect } from 'react';
 import { AnswerBlock } from '@/components/sections/AnswerBlock';
-import { EmailCapture } from '@/components/sections/EmailCapture';
+
 
 const GhazalHistory = () => {
   const { shouldAnimate } = useMotionPreference();
@@ -276,13 +276,6 @@ const GhazalHistory = () => {
             sourceLabel="Bollywood Legacy"
             sourceUrl="https://www.surinderseerat.com/ghazal-history/"
           />
-        </div>
-      </section>
-
-      {/* Newsletter */}
-      <section className="py-24 px-6 md:px-12 bg-card">
-        <div className="max-w-2xl mx-auto">
-          <EmailCapture variant="ghazal" />
         </div>
       </section>
 

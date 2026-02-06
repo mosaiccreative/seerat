@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
-import { EmailCapture } from '@/components/sections/EmailCapture';
+
 import { books } from '@/data/books';
 import { useEffect } from 'react';
 import { ArrowRight, Award, BookOpen, Music, Users } from 'lucide-react';
@@ -427,13 +427,6 @@ const Books = () => {
               </Link>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Newsletter */}
-      <section className="py-16 px-6 md:px-12 bg-card">
-        <div className="max-w-2xl mx-auto">
-          <EmailCapture variant="books" />
         </div>
       </section>
 
