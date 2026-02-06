@@ -123,7 +123,7 @@ const Index = () => {
           <StatsSection />
 
           {/* A Rare Combination */}
-          <section className="page-section">
+          <section className="page-section bg-cream text-burgundy">
             <motion.div
               className="max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 60 }}
@@ -140,16 +140,16 @@ const Index = () => {
                   <span className="text-gold italic">modernity</span>.
                 </h2>
                 
-                <p className="text-xl md:text-2xl text-foreground mb-8">
+                <p className="text-xl md:text-2xl text-burgundy mb-8">
                   Surinder masters both.
                 </p>
               </div>
               
-              <div className="prose-poetry text-muted-foreground space-y-6 max-w-3xl mx-auto">
+              <div className="prose-poetry text-burgundy/80 space-y-6 max-w-3xl mx-auto">
                 <p>
-                  His ghazals maintain the <strong className="text-foreground">technical purity</strong> that won him 
+                  His ghazals maintain the <strong className="text-burgundy">technical purity</strong> that won him 
                   three consecutive awards from the Jammu & Kashmir Academy of Art, Culture & Languages (1982, 1987, 1991). 
-                  Yet his work explores <strong className="text-foreground">contemporary questions</strong>: consciousness 
+                  Yet his work explores <strong className="text-burgundy">contemporary questions</strong>: consciousness 
                   and language, the immigrant experience, the limits of rational thought.
                 </p>
               </div>
@@ -162,10 +162,10 @@ const Index = () => {
                 <span><strong className="text-gold">Tradition</strong> meets the modern soul.</span>
               </div>
               
-              <div className="mt-16 prose-poetry text-muted-foreground space-y-6 max-w-3xl mx-auto">
+              <div className="mt-16 prose-poetry text-burgundy/80 space-y-6 max-w-3xl mx-auto">
                 <p>
                   Born in a small village in Kashmir, Surinder Singh Seerat was the{' '}
-                  <strong className="text-foreground">first person in his family—and his entire village—to graduate from university</strong>. 
+                  <strong className="text-burgundy">first person in his family—and his entire village—to graduate from university</strong>. 
                   He built a career as a physics professor, taught for over twenty years, and worked in corporate America 
                   at IBM, Iomega, and the U.S. Postal Service.
                 </p>
@@ -184,7 +184,7 @@ const Index = () => {
           </section>
 
           {/* The Difference */}
-          <section className="page-section bg-card">
+          <section className="page-section bg-burgundy">
             <div className="max-w-6xl mx-auto">
               <motion.div
                 className="text-center mb-16"
@@ -219,14 +219,14 @@ const Index = () => {
                 ].map((item, index) => (
                   <motion.div
                     key={item.title}
-                    className="p-8 border border-border/50 hover:border-gold/30 transition-colors"
+                    className="p-8 border border-cream/20 hover:border-gold/50 transition-colors"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <h3 className="font-display text-xl md:text-2xl mb-4">{index + 1}. {item.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                    <h3 className="font-display text-xl md:text-2xl text-cream mb-4">{index + 1}. {item.title}</h3>
+                    <p className="text-cream/70 text-sm leading-relaxed">{item.desc}</p>
                   </motion.div>
                 ))}
               </div>
@@ -234,7 +234,7 @@ const Index = () => {
           </section>
 
           {/* The Works */}
-          <section className="page-section">
+          <section className="page-section bg-cream text-burgundy">
             <div className="max-w-6xl mx-auto w-full">
               <motion.div
                 className="text-center mb-20"
@@ -247,7 +247,7 @@ const Index = () => {
                 <h2 className="font-display text-4xl md:text-6xl">
                   Eight Books, <span className="text-gold italic">34 Years</span>
                 </h2>
-                <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+                <p className="text-burgundy/70 mt-4 max-w-2xl mx-auto">
                   From 1980 to 2014, exploring themes of longing, consciousness, existence, and transformation.
                 </p>
               </motion.div>
@@ -256,7 +256,7 @@ const Index = () => {
                 {books.slice(0, 8).map((book, index) => (
                   <motion.div
                     key={book.id}
-                    className="group relative aspect-[3/4] overflow-hidden bg-secondary"
+                    className="group relative aspect-[3/4] overflow-hidden bg-burgundy"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -269,7 +269,7 @@ const Index = () => {
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-burgundy-dark via-burgundy/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
                     
                     <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
                       <p className="font-ui text-xs text-gold mb-1">{book.year}</p>
@@ -297,7 +297,7 @@ const Index = () => {
           </section>
 
           {/* Who This Poetry Is For */}
-          <section className="page-section bg-card">
+          <section className="page-section bg-burgundy">
             <div className="max-w-5xl mx-auto">
               <motion.div
                 className="text-center mb-16"
@@ -344,15 +344,15 @@ const Index = () => {
                 ].map((item, index) => (
                   <motion.div
                     key={item.audience}
-                    className="p-8 border border-border/50 hover:border-gold/30 transition-colors"
+                    className="p-8 border border-cream/20 hover:border-gold/50 transition-colors"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                   >
                     <item.icon className="w-8 h-8 text-gold mb-4" />
-                    <h3 className="font-display text-lg md:text-xl mb-3">{item.audience}</h3>
-                    <p className="text-muted-foreground text-sm mb-4">{item.action}</p>
+                    <h3 className="font-display text-lg md:text-xl text-cream mb-3">{item.audience}</h3>
+                    <p className="text-cream/70 text-sm mb-4">{item.action}</p>
                     <Link to={item.link} className="text-gold font-ui text-xs tracking-wider flex items-center gap-1 hover:underline">
                       {item.linkText} <ArrowRight size={12} />
                     </Link>
@@ -363,7 +363,7 @@ const Index = () => {
           </section>
 
           {/* The Poet Portrait */}
-          <section className="page-section">
+          <section className="page-section bg-cream text-burgundy">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center max-w-6xl mx-auto">
               <motion.div
                 className="order-2 lg:order-1"
@@ -380,11 +380,11 @@ const Index = () => {
                   <span className="text-gold italic">Discovering</span>
                 </h2>
                 
-                <div className="prose-poetry text-muted-foreground space-y-4">
+                <div className="prose-poetry text-burgundy/80 space-y-4">
                   <p>
                     In a world hungry for authentic poetry, Surinder Singh Seerat offers something rare:
                   </p>
-                  <ul className="space-y-2 text-foreground">
+                  <ul className="space-y-2 text-burgundy">
                     <li><strong>Technical mastery</strong> without academic sterility.</li>
                     <li><strong>Philosophical depth</strong> without abstraction.</li>
                     <li><strong>Tradition</strong> meeting modernity.</li>
@@ -417,20 +417,20 @@ const Index = () => {
                   />
                   
                   {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-cream/60 via-transparent to-transparent" />
                 </div>
               </motion.div>
             </div>
           </section>
 
           {/* Closing Quote */}
-          <section className="py-32 px-6 text-center border-t border-border/30">
+          <section className="py-32 px-6 text-center border-t border-burgundy/30 bg-burgundy">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
             >
-              <p className="font-display text-2xl md:text-3xl italic text-muted-foreground mb-8 max-w-3xl mx-auto">
+              <p className="font-display text-2xl md:text-3xl italic text-cream/90 mb-8 max-w-3xl mx-auto">
                 "The mysteriousness of existence cannot be fully captured in language—but the attempt reveals truths rationality alone cannot access."
               </p>
               <p className="text-gold font-ui text-sm tracking-wider">— Surinder Singh Seerat</p>
@@ -439,7 +439,7 @@ const Index = () => {
           </section>
 
           {/* Newsletter Signup */}
-          <section className="py-24 px-6 md:px-12 bg-card">
+          <section className="py-24 px-6 md:px-12 bg-burgundy-dark">
             <div className="max-w-2xl mx-auto">
               <EmailCapture variant="homepage" />
             </div>

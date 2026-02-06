@@ -12,7 +12,7 @@ export function StatsSection() {
   const { shouldAnimate } = useMotionPreference();
 
   return (
-    <section className="py-12 md:py-16 bg-card border-y border-border/30">
+    <section className="py-12 md:py-16 bg-cream border-y border-burgundy/20">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {stats.map((stat, index) => (
@@ -24,10 +24,10 @@ export function StatsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <p className="font-display text-4xl md:text-5xl lg:text-6xl text-gold mb-2">
+              <p className="font-display text-4xl md:text-5xl lg:text-6xl text-burgundy mb-2">
                 {stat.value}
               </p>
-              <p className="font-ui text-xs md:text-sm tracking-wider uppercase text-muted-foreground">
+              <p className="font-ui text-xs md:text-sm tracking-wider uppercase text-burgundy/70">
                 {stat.label}
               </p>
             </motion.div>
