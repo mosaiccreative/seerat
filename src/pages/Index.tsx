@@ -5,6 +5,7 @@ import { ArrowRight, ChevronDown, BookOpen, Music, GraduationCap, Users } from '
 import { BookCover } from '@/components/BookCover';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
+import { StatsSection } from '@/components/sections/StatsSection';
 import { AnswerBlock } from '@/components/sections/AnswerBlock';
 import { EmailCapture } from '@/components/sections/EmailCapture';
 import { books } from '@/data/books';
@@ -57,7 +58,7 @@ const Index = () => {
       {/* Main Website Content */}
       {showContent && (
         <PageLayout>
-          {/* Chapter 1: Opening - The Physicist Who Became a Poet */}
+          {/* Hero Section */}
           <section className="page-section relative overflow-hidden">
             {/* Background texture */}
             <div 
@@ -76,9 +77,12 @@ const Index = () => {
               initial="hidden"
               animate="visible"
             >
-              <motion.span variants={fadeUp} className="chapter-label block">
-                Chapter One
-              </motion.span>
+              {/* Badge */}
+              <motion.div variants={fadeUp} className="mb-6">
+                <span className="inline-block px-4 py-2 bg-gold/10 border border-gold/30 text-gold font-ui text-xs tracking-[0.15em] uppercase">
+                  Award-Winning Punjabi Ghazal Writer
+                </span>
+              </motion.div>
               
               <motion.h1 
                 variants={fadeUp}
@@ -96,23 +100,7 @@ const Index = () => {
                 variants={fadeUp}
                 className="font-body text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
               >
-                Born in a small village in Kashmir, Surinder Singh Seerat was the{' '}
-                <strong className="text-foreground">first person in his family—and his entire village—to graduate from university</strong>. 
-                He built a career as a physics professor, taught for over twenty years, and worked in corporate America.
-              </motion.p>
-              
-              <motion.p 
-                variants={fadeUp}
-                className="font-body text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mt-6"
-              >
-                But poetry called louder than any profession.
-              </motion.p>
-              
-              <motion.p 
-                variants={fadeUp}
-                className="font-display text-xl md:text-2xl mt-8 text-gold"
-              >
-                Eight award-winning books spanning 34 years
+                Exploring consciousness, longing, and the immigrant experience through the ancient art of the ghazal
               </motion.p>
               
               <motion.div 
@@ -120,7 +108,7 @@ const Index = () => {
                 className="mt-16 flex flex-col items-center gap-4"
               >
                 <span className="font-ui text-xs tracking-[0.2em] uppercase text-muted-foreground">
-                  Scroll to continue reading
+                  Scroll to continue
                 </span>
                 <motion.div
                   animate={shouldAnimate ? { y: [0, 8, 0] } : undefined}
@@ -132,28 +120,33 @@ const Index = () => {
             </motion.div>
           </section>
 
-          {/* Chapter 2: A Rare Combination */}
-          <section className="page-section bg-card">
+          {/* Stats Section */}
+          <StatsSection />
+
+          {/* A Rare Combination */}
+          <section className="page-section">
             <motion.div
-              className="max-w-4xl mx-auto text-center"
+              className="max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="chapter-label block">A Rare Combination</span>
+              <div className="text-center mb-12">
+                <span className="chapter-label block">A Rare Combination</span>
+                
+                <h2 className="font-display text-3xl md:text-5xl lg:text-6xl mb-8">
+                  Most poets choose either{' '}
+                  <span className="text-gold italic">tradition</span> or{' '}
+                  <span className="text-gold italic">modernity</span>.
+                </h2>
+                
+                <p className="text-xl md:text-2xl text-foreground mb-8">
+                  Surinder masters both.
+                </p>
+              </div>
               
-              <h2 className="font-display text-3xl md:text-5xl lg:text-6xl mb-8">
-                Most poets choose either{' '}
-                <span className="text-gold italic">tradition</span> or{' '}
-                <span className="text-gold italic">modernity</span>.
-              </h2>
-              
-              <p className="text-xl md:text-2xl text-foreground mb-8">
-                Surinder masters both.
-              </p>
-              
-              <div className="prose-poetry text-muted-foreground space-y-4 max-w-2xl mx-auto text-left md:text-center">
+              <div className="prose-poetry text-muted-foreground space-y-6 max-w-3xl mx-auto">
                 <p>
                   His ghazals maintain the <strong className="text-foreground">technical purity</strong> that won him 
                   three consecutive awards from the Jammu & Kashmir Academy of Art, Culture & Languages (1982, 1987, 1991). 
@@ -162,18 +155,37 @@ const Index = () => {
                 </p>
               </div>
               
-              <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 font-display text-lg md:text-xl">
+              <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 font-display text-lg md:text-xl text-center">
                 <span><strong className="text-gold">Physics</strong> meets mysticism.</span>
                 <span className="hidden md:inline text-gold">•</span>
                 <span><strong className="text-gold">Kashmir</strong> meets California.</span>
                 <span className="hidden md:inline text-gold">•</span>
                 <span><strong className="text-gold">Tradition</strong> meets the modern soul.</span>
               </div>
+              
+              <div className="mt-16 prose-poetry text-muted-foreground space-y-6 max-w-3xl mx-auto">
+                <p>
+                  Born in a small village in Kashmir, Surinder Singh Seerat was the{' '}
+                  <strong className="text-foreground">first person in his family—and his entire village—to graduate from university</strong>. 
+                  He built a career as a physics professor, taught for over twenty years, and worked in corporate America 
+                  at IBM, Iomega, and the U.S. Postal Service.
+                </p>
+                <p>
+                  But poetry called louder than any profession. In 2011, he took sabbatical to pursue what he'd been 
+                  doing quietly for decades: writing ghazals that explore the mysteries of human existence.
+                </p>
+              </div>
+              
+              <div className="mt-10 text-center">
+                <Link to="/about" className="text-gold font-ui text-sm tracking-wider inline-flex items-center gap-2 hover:underline">
+                  Read the full story <ArrowRight size={14} />
+                </Link>
+              </div>
             </motion.div>
           </section>
 
-          {/* Chapter 3: What Makes His Work Different */}
-          <section className="page-section">
+          {/* The Difference */}
+          <section className="page-section bg-card">
             <div className="max-w-6xl mx-auto">
               <motion.div
                 className="text-center mb-16"
@@ -222,8 +234,8 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Chapter 4: The Works */}
-          <section className="page-section bg-card">
+          {/* The Works */}
+          <section className="page-section">
             <div className="max-w-6xl mx-auto w-full">
               <motion.div
                 className="text-center mb-20"
@@ -285,37 +297,7 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Chapter 5: Experience Through Music */}
-          <section className="page-section">
-            <div className="max-w-4xl mx-auto text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <span className="chapter-label block">The Music</span>
-                <h2 className="font-display text-3xl md:text-5xl mb-8">
-                  <span className="text-gold italic">Tishnagi</span>: Ghazals That Sing
-                </h2>
-                
-                <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
-                  Surinder's ghazal album, <em>Tishnagi</em> (meaning "thirst"), demonstrates what makes his poetry compelling: 
-                  <strong className="text-foreground"> longing expressed through technical mastery</strong>.
-                </p>
-                
-                <p className="text-muted-foreground mb-12">
-                  These aren't just words on a page. They're meant to be heard, felt, experienced.
-                </p>
-                
-                <Link to="/tishnagi" className="btn-gold">
-                  Listen to Tishnagi
-                  <ArrowRight size={16} />
-                </Link>
-              </motion.div>
-            </div>
-          </section>
-
-          {/* Chapter 6: Who This Poetry Is For */}
+          {/* Who This Poetry Is For */}
           <section className="page-section bg-card">
             <div className="max-w-5xl mx-auto">
               <motion.div
@@ -381,7 +363,7 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Chapter 7: The Portrait */}
+          {/* The Poet Portrait */}
           <section className="page-section">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center max-w-6xl mx-auto">
               <motion.div
@@ -442,13 +424,6 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Newsletter Signup */}
-          <section className="py-24 px-6 md:px-12 bg-card">
-            <div className="max-w-2xl mx-auto">
-              <EmailCapture variant="homepage" />
-            </div>
-          </section>
-
           {/* Closing Quote */}
           <section className="py-32 px-6 text-center border-t border-border/30">
             <motion.div
@@ -464,8 +439,15 @@ const Index = () => {
             </motion.div>
           </section>
 
+          {/* Newsletter Signup */}
+          <section className="py-24 px-6 md:px-12 bg-card">
+            <div className="max-w-2xl mx-auto">
+              <EmailCapture variant="homepage" />
+            </div>
+          </section>
+
           {/* SEO Answer Blocks */}
-          <section className="py-20 px-6 md:px-12 bg-card">
+          <section className="py-20 px-6 md:px-12">
             <div className="max-w-3xl mx-auto space-y-16">
               <AnswerBlock
                 id="who-is-surinder-seerat"
