@@ -5,7 +5,7 @@ import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { ArrowRight, ExternalLink, Music, BookOpen, Heart } from 'lucide-react';
 import { useEffect } from 'react';
 import { AnswerBlock } from '@/components/sections/AnswerBlock';
-import { EmailCapture } from '@/components/sections/EmailCapture';
+
 
 const Tishnagi = () => {
   const { shouldAnimate } = useMotionPreference();
@@ -186,13 +186,6 @@ const Tishnagi = () => {
             sourceLabel="Tishnagi Album"
             sourceUrl="https://www.surinderseerat.com/tishnagi/"
           />
-        </div>
-      </section>
-
-      {/* Newsletter */}
-      <section className="py-24 px-6 md:px-12 bg-card">
-        <div className="max-w-2xl mx-auto">
-          <EmailCapture variant="tishnagi" />
         </div>
       </section>
 
