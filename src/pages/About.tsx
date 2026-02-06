@@ -11,7 +11,7 @@ import poetPortrait from '@/assets/poet-portrait.jpg';
 const faqItems = [
   {
     question: "Who is Surinder Seerat?",
-    answer: "Surinder Singh Seerat is an award-winning Punjabi ghazal master exploring consciousness, longing, and the immigrant experience. Born in Kashmir in 1947, he became the first person in his village to graduate university, built a career as a physics professor, and later founded two major Punjabi literary organizations in California. He has published eight books spanning 34 years, earning four major literary awards."
+    answer: "Surinder Singh Seerat is an award-winning Punjabi poet, novelist, critic, editor, and short story writer with particular expertise in the ghazal form. Born in Kashmir in 1947, he became the first person in his village to graduate university, built a career as a physics professor, and later founded two major Punjabi literary organizations in California. He has published eight books spanning 34 years, earning four major literary awards."
   },
   {
     question: "How many books has Surinder Seerat published?",
@@ -67,8 +67,8 @@ const About = () => {
               From <span className="text-gold italic">Physics</span> to Poetry
             </h1>
             <p className="font-display text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              First in his village to graduate university. Professor for 20 years. 
-              Founder of California's premier Punjabi literary organization. Poet for life.
+              Poet, novelist, critic, editor, and short story writer. First in his village to graduate university. 
+              Professor for 20 years. Founder of California's premier Punjabi literary organization.
             </p>
           </motion.div>
         </div>
@@ -172,17 +172,21 @@ const About = () => {
           >
             <span className="chapter-label block">The Parallel Life</span>
             <h2 className="font-display text-2xl md:text-3xl mb-6">
-              Poetry <span className="text-gold">(1968-1987)</span>
+              The Literary <span className="text-gold">Voice</span> (1968-1987)
             </h2>
             
             <div className="text-muted-foreground space-y-3 text-base leading-relaxed mb-8">
               <p>
-                While building his academic career, Surinder was active in Punjabi literary circles throughout India.
-                He published his first poetry collection, <em>Chhallan</em>, in 1980 and received his first major recognition: 
-                the JKAACL Best Punjabi Book Award in 1982.
+                While building his academic career, Surinder was active in Punjabi literary circles throughout India—not just as a poet, 
+                but as a critic, editor, and short story writer. His versatility across forms earned him recognition as a complete literary voice.
               </p>
               <p>
-                By the time he left India, he was an established poet with three major literary awards.
+                He published his first poetry collection, <em>Chhallan</em>, in 1980 and received his first major recognition: 
+                the JKAACL Best Punjabi Book Award in 1982. His novel <em>Bharam Bhullayan</em> followed in 1986, demonstrating 
+                his mastery of stream-of-consciousness prose alongside his ghazal expertise.
+              </p>
+              <p>
+                By the time he left India, he was an established literary figure with three major awards.
               </p>
             </div>
 
