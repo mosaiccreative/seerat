@@ -37,43 +37,71 @@ const Tishnagi = () => {
               Experience Surinder Seerat's ghazals through music.
             </p>
             
-            {/* Stream CTAs */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-              <a
+            {/* Stream CTAs - Artsy Modern Design */}
+            <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+              {/* YouTube */}
+              <motion.a
                 href="https://www.youtube.com/@SurinderSinghSeerat"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group p-8 border border-border/50 hover:border-gold/50 transition-all duration-500 flex flex-col items-center"
+                className="group relative overflow-hidden"
+                whileHover={shouldAnimate ? { scale: 1.02 } : undefined}
+                whileTap={shouldAnimate ? { scale: 0.98 } : undefined}
               >
-                <div className="w-16 h-16 rounded-full bg-red-600/20 flex items-center justify-center mb-4 group-hover:bg-red-600/30 transition-colors">
-                  <svg className="w-8 h-8 text-red-500" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                  </svg>
+                {/* Glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-red-600/20 via-gold/10 to-red-600/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                
+                <div className="relative flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-background via-card to-background border border-gold/20 rounded-full group-hover:border-gold/50 transition-all duration-500">
+                  {/* Animated ring */}
+                  <div className="relative">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-red-500/30 to-gold/20 animate-pulse" />
+                    <div className="relative w-12 h-12 rounded-full bg-gradient-to-br from-red-600/30 to-red-900/50 flex items-center justify-center backdrop-blur-sm border border-red-500/30">
+                      <svg className="w-5 h-5 text-red-400 group-hover:text-red-300 transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  <div className="text-left">
+                    <span className="block font-display text-lg text-foreground group-hover:text-gold transition-colors">Watch on YouTube</span>
+                    <span className="block text-xs text-muted-foreground/70 font-ui tracking-wide">Video & lyrics</span>
+                  </div>
+                  
+                  <ExternalLink size={14} className="text-muted-foreground/50 group-hover:text-gold transition-colors ml-2" />
                 </div>
-                <h3 className="font-display text-xl mb-2">YouTube</h3>
-                <p className="text-muted-foreground text-sm mb-4">Watch and listen with video</p>
-                <span className="text-gold text-xs font-ui tracking-wider flex items-center gap-1">
-                  OPEN <ExternalLink size={12} />
-                </span>
-              </a>
+              </motion.a>
 
-              <a
+              {/* SoundCloud */}
+              <motion.a
                 href="https://soundcloud.com/surinderseerat"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group p-8 border border-border/50 hover:border-gold/50 transition-all duration-500 flex flex-col items-center"
+                className="group relative overflow-hidden"
+                whileHover={shouldAnimate ? { scale: 1.02 } : undefined}
+                whileTap={shouldAnimate ? { scale: 0.98 } : undefined}
               >
-                <div className="w-16 h-16 rounded-full bg-orange-500/20 flex items-center justify-center mb-4 group-hover:bg-orange-500/30 transition-colors">
-                  <svg className="w-8 h-8 text-orange-500" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.255-2.154c-.01-.057-.049-.1-.099-.1m-.899.828c-.06 0-.091.037-.104.094L0 14.479l.172 1.282c.013.06.044.094.104.094.058 0 .091-.037.102-.094l.196-1.282-.196-1.332c-.011-.057-.044-.094-.102-.094m1.8-1.093c-.066 0-.108.042-.115.109l-.196 2.41.196 2.322c.007.066.049.109.115.109.064 0 .107-.043.116-.109l.222-2.322-.222-2.41c-.009-.067-.052-.109-.116-.109m.899-.828c-.073 0-.121.048-.127.122l-.178 3.238.178 3.073c.006.074.054.122.127.122.072 0 .12-.048.128-.122l.2-3.073-.2-3.238c-.008-.074-.056-.122-.128-.122m.905-.281c-.079 0-.133.053-.14.134l-.161 3.519.161 3.334c.007.08.061.133.14.133.076 0 .131-.053.139-.133l.183-3.334-.183-3.519c-.008-.081-.063-.134-.139-.134m.896-.434c-.085 0-.144.058-.151.146l-.145 3.953.145 3.536c.007.087.066.145.151.145.083 0 .142-.058.15-.145l.165-3.536-.165-3.953c-.008-.088-.067-.146-.15-.146m.902-.262c-.092 0-.156.063-.164.156l-.128 4.215.128 3.625c.008.093.072.156.164.156.09 0 .154-.063.163-.156l.145-3.625-.145-4.215c-.009-.093-.073-.156-.163-.156m.9-.198c-.098 0-.168.068-.176.169l-.111 4.413.111 3.682c.008.1.078.168.176.168.096 0 .167-.068.176-.168l.127-3.682-.127-4.413c-.009-.101-.08-.169-.176-.169m.905-.09c-.104 0-.18.073-.188.18l-.095 4.503.095 3.718c.008.106.084.18.188.18.102 0 .178-.074.187-.18l.108-3.718-.108-4.503c-.009-.107-.085-.18-.187-.18m.902.07c-.111 0-.192.078-.2.192l-.079 4.433.079 3.744c.008.113.089.191.2.191.109 0 .19-.078.199-.191l.091-3.744-.091-4.433c-.009-.114-.09-.192-.199-.192m.906.12c-.116 0-.203.083-.212.203l-.062 4.313.062 3.756c.009.12.096.203.212.203.114 0 .201-.083.211-.203l.071-3.756-.071-4.313c-.01-.12-.097-.203-.211-.203m.902.188c-.122 0-.215.088-.224.213l-.045 4.125.045 3.756c.009.126.102.214.224.214.12 0 .213-.088.223-.214l.052-3.756-.052-4.125c-.01-.125-.103-.213-.223-.213m.902.258c-.128 0-.227.094-.236.226l-.028 3.867.028 3.744c.009.131.108.225.236.225.127 0 .226-.094.236-.225l.032-3.744-.032-3.867c-.01-.132-.109-.226-.236-.226m1.69-.125c-.209 0-.378.169-.378.379v7.891c0 .21.169.379.378.379h5.656c1.317 0 2.385-1.068 2.385-2.386 0-1.317-1.068-2.385-2.385-2.385-.365 0-.711.083-1.02.229-.215-2.056-1.963-3.661-4.087-3.661-.558 0-1.091.119-1.573.333-.155.069-.197.14-.2.278v6.834"/>
-                  </svg>
+                {/* Glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-gold/10 to-orange-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                
+                <div className="relative flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-background via-card to-background border border-gold/20 rounded-full group-hover:border-gold/50 transition-all duration-500">
+                  {/* Animated ring */}
+                  <div className="relative">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-orange-500/30 to-gold/20 animate-pulse" />
+                    <div className="relative w-12 h-12 rounded-full bg-gradient-to-br from-orange-500/30 to-orange-900/50 flex items-center justify-center backdrop-blur-sm border border-orange-500/30">
+                      <svg className="w-5 h-5 text-orange-400 group-hover:text-orange-300 transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M7 17.939h-1v-8.068c.308-.231.639-.429 1-.566v8.634zm3 0h1v-9.224c-.229.265-.443.548-.621.857l-.379-.184v8.551zm-2 0h1v-8.848c-.508-.079-.623-.05-1-.01v8.858zm-4 0h1v-7.02c-.312.458-.555.971-.692 1.535l-.308-.182v5.667zm-3-5.25c-.606.547-1 1.354-1 2.268 0 .914.394 1.721 1 2.268v-4.536zm18.879-.671c-.204-2.837-2.404-5.079-5.117-5.079-1.022 0-1.964.328-2.762.877v10.123h9.089c1.607 0 2.911-1.393 2.911-3.106 0-1.607-1.13-2.939-2.621-3.09-.064.015-.203-.725-1.5-.725zm-9.879 5.921v-10.501c-.371-.18-.771-.286-1.197-.286-.549 0-1.06.154-1.501.42l-.302-.18v10.547h3z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  <div className="text-left">
+                    <span className="block font-display text-lg text-foreground group-hover:text-gold transition-colors">Stream on SoundCloud</span>
+                    <span className="block text-xs text-muted-foreground/70 font-ui tracking-wide">Full album</span>
+                  </div>
+                  
+                  <ExternalLink size={14} className="text-muted-foreground/50 group-hover:text-gold transition-colors ml-2" />
                 </div>
-                <h3 className="font-display text-xl mb-2">SoundCloud</h3>
-                <p className="text-muted-foreground text-sm mb-4">Stream the full album</p>
-                <span className="text-gold text-xs font-ui tracking-wider flex items-center gap-1">
-                  OPEN <ExternalLink size={12} />
-                </span>
-              </a>
+              </motion.a>
             </div>
           </motion.div>
         </div>
