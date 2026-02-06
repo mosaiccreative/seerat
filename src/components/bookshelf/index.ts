@@ -5,3 +5,4 @@ export { ShelfDividerMotif } from './ShelfDividerMotif';
 export { YearBadgeGold } from './YearBadgeGold';
 export { AwardBadge } from './AwardBadge';
 export { ReadMoreLink } from './ReadMoreLink';
+export { BookListCard } from './BookListCard';

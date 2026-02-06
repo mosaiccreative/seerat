@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
-import { BookshelfStage } from '@/components/bookshelf';
+import { BookshelfStage, BookListCard, ShelfDividerMotif } from '@/components/bookshelf';
 
 import { books } from '@/data/books';
 import { useEffect } from 'react';
@@ -187,13 +187,52 @@ const Books = () => {
         </div>
       </section>
 
-      {/* Bookshelf Stage */}
+      {/* Bookshelf Stage - Single Row */}
       <section className="py-8 md:py-16 px-4 md:px-8">
         <BookshelfStage 
           books={sortedBooks} 
           motionEnabled={shouldAnimate}
-          enhancedBookData={enhancedBookData}
         />
+      </section>
+
+      {/* Decorative Divider */}
+      <ShelfDividerMotif className="my-8 md:my-12" />
+
+      {/* Vertical Book Cards */}
+      <section className="py-8 md:py-16 px-6 md:px-12">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={shouldAnimate ? { opacity: 0, y: 20 } : undefined}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <span className="chapter-label block">The Catalog</span>
+            <h2 className="font-display text-3xl md:text-4xl">
+              Explore the <span className="text-gold">Collection</span>
+            </h2>
+          </motion.div>
+
+          {sortedBooks.map((book, index) => {
+            const enhanced = enhancedBookData[book.id];
+            return (
+              <BookListCard
+                key={book.id}
+                id={book.id}
+                title={book.title}
+                year={book.year}
+                type={book.type}
+                description={enhanced?.expandedDescription || book.description}
+                award={book.award}
+                foreword={book.foreword}
+                coverImage={book.coverImage}
+                startHere={enhanced?.startHere}
+                motionEnabled={shouldAnimate}
+                index={index}
+              />
+            );
+          })}
+        </div>
       </section>
 
       {/* Literary Awards - Tightened with Animation */}
