@@ -64,22 +64,22 @@ const enhancedBookData: Record<string, {
   'kikkar-kande': {
     subtitle: 'Acacia Thorns',
     theme: 'Symbolic subjectivity meets technical poetry',
-    form: 'Open verse & ghazals',
-    expandedDescription: 'Creating the subjectivity of relevance in symbolic form and technically bound poetry, Surinder illustrates the social and political influence on the surrounding environment—particularly the immigrant experience of building new roots.',
+    form: 'Open verse + Ghazals',
+    expandedDescription: 'The acacia tree—thorny, resilient, deeply rooted—becomes a symbol for consciousness itself. Published the same year Surinder founded Punjabi Sahit Sabha California—a book about roots created as he planted institutional foundations abroad.',
     whoFor: [
       'Readers who enjoy symbolic poetry',
-      'Those interested in the immigrant experience',
+      'Those interested in the immigrant experience (roots and thorns)',
       'Poetry lovers appreciating formal variety',
     ],
   },
   'surat-seerat-te-saraab': {
     subtitle: 'Form, Character, and Mirage',
     theme: 'Unachievable life desires in humanity\'s wilderness',
-    form: 'Punjabi ghazals',
-    expandedDescription: 'A book of three dimensional ghazals based on form, content and illusion. Surinder encapsulates how the lust of life remains unachievable in the wilderness of humanity—the eternal chase for what remains just out of reach.',
+    form: 'Ghazals',
+    expandedDescription: 'After a 15-year publishing gap, Surinder returns with ghazals exploring saraab—the mirage. What we chase but cannot grasp. The title plays on the poet\'s own name (seerat means character).',
     whoFor: [
       'Anyone who\'s chased something forever out of reach',
-      'Readers drawn to themes of longing',
+      'Readers drawn to themes of longing and incompleteness',
       'Those appreciating the beauty of unfulfilled desire',
     ],
   },
