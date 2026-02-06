@@ -290,9 +290,12 @@ const About = () => {
             transition={{ duration: 1 }}
           >
             <span className="chapter-label block">The Unique Lens</span>
-            <h2 className="font-display text-2xl md:text-3xl mb-6">
+            <h2 className="font-display text-2xl md:text-3xl mb-3">
               Scientist Meets <span className="text-gold">Mystic</span>
             </h2>
+            <p className="text-muted-foreground text-base leading-relaxed mb-6 max-w-2xl">
+              What makes Surinder's poetry distinctive is precisely what made his life unusual: the collision of rational precision and mystical inquiry.
+            </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <div className="p-5 border border-border/50">
