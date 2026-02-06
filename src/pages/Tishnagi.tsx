@@ -155,6 +155,32 @@ const Tishnagi = () => {
         </div>
       </section>
 
+      {/* Theme of Longing - Burgundy Section */}
+      <section className="py-16 md:py-20 px-6 md:px-12 bg-burgundy text-cream">
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.div
+            initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+          >
+            <h2 className="font-display text-3xl md:text-4xl mb-8">
+              The Theme of Longing
+            </h2>
+            
+            <p className="font-display text-xl md:text-2xl italic mb-8 text-cream/90">
+              "Reading poetry engages the mind. Hearing it sung engages the soul."
+            </p>
+            
+            <p className="text-cream/70 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+              The ghazal form has explored longing for over a thousand years. In Seerat's hands, that 
+              longing becomes philosophical—a thirst not just for love, but for understanding, for meaning, 
+              for what lies beyond the reach of language.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Themes */}
       <section className="py-12 md:py-16 px-6 md:px-12 bg-card">
         <div className="max-w-4xl mx-auto">
