@@ -23,7 +23,7 @@ export function QuoteSection() {
         </div>
         
         <cite className="text-gold font-ui text-sm tracking-[0.15em] uppercase not-italic">
-          — Surinder Singh Seerat
+          — Seerat
         </cite>
       </CinematicReveal>
     </section>
