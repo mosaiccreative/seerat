@@ -284,28 +284,6 @@ const Books = () => {
         </div>
       </section>
 
-      {/* Tishnagi CTA */}
-      <section className="py-16 px-6 md:px-12 bg-card">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="font-display text-3xl md:text-4xl mb-8">
-              Experience the <span className="text-gold">Poetry</span> Through Music
-            </h2>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              The Tishnagi album demonstrates what makes these ghazals compelling—longing expressed through technical mastery.
-            </p>
-            <Link to="/tishnagi" className="btn-gold">
-              Listen to Tishnagi
-              <ArrowRight size={16} />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Literary Awards - Tightened with Animation */}
       <section className="py-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
@@ -456,6 +434,28 @@ const Books = () => {
       <section className="py-16 px-6 md:px-12 bg-card">
         <div className="max-w-2xl mx-auto">
           <EmailCapture variant="books" />
+        </div>
+      </section>
+
+      {/* Tishnagi CTA */}
+      <section className="py-16 px-6 md:px-12 bg-background">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="font-display text-3xl md:text-4xl mb-8">
+              Experience the <span className="text-gold">Poetry</span> Through Music
+            </h2>
+            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+              The Tishnagi album demonstrates what makes these ghazals compelling—longing expressed through technical mastery.
+            </p>
+            <Link to="/tishnagi" className="btn-gold">
+              Listen to Tishnagi
+              <ArrowRight size={16} />
+            </Link>
+          </motion.div>
         </div>
       </section>
     </PageLayout>
