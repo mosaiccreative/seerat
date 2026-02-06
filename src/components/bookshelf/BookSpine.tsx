@@ -34,10 +34,15 @@ export const BookSpine = forwardRef<HTMLButtonElement, BookSpineProps>(
         initial={false}
         animate={motionEnabled ? {
           z: isSelected ? 20 : 0,
-          y: isSelected ? -8 : 0,
+          y: isSelected ? -12 : 0,
         } : undefined}
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        whileHover={motionEnabled ? { y: -4 } : undefined}
+        whileHover={motionEnabled ? { 
+          y: -16, 
+          scale: 1.02,
+          transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] }
+        } : undefined}
+        whileTap={motionEnabled ? { scale: 0.98 } : undefined}
         aria-label={`Open book details: ${title}, ${year}`}
         aria-pressed={isSelected}
         role="button"
