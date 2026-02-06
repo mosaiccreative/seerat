@@ -345,26 +345,25 @@ const Books = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-6 md:px-12">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-20 md:py-28 px-6 md:px-12">
+        <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-3xl md:text-4xl mb-8">
-              Explore <span className="text-gold">Beyond the Page</span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-6">
+              Experience the <span className="text-gold italic underline underline-offset-4 decoration-gold/50">Poetry</span> Through Music
             </h2>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/tishnagi" className="btn-gold">
-                Listen to the Album
-                <ArrowRight size={16} />
-              </Link>
-              <Link to="/ghazal-history" className="btn-minimal">
-                Understanding the Ghazal Form
-              </Link>
-            </div>
+            <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto">
+              The Tishnagi album demonstrates what makes these ghazals compelling—longing expressed through technical mastery.
+            </p>
+            
+            <Link to="/tishnagi" className="btn-gold">
+              Listen to Tishnagi
+              <ArrowRight size={16} />
+            </Link>
           </motion.div>
         </div>
       </section>
