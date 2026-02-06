@@ -14,8 +14,8 @@ const faqItems = [
     answer: "Surinder Singh Seerat is an award-winning Punjabi ghazal master exploring consciousness, longing, and the immigrant experience. Born in Kashmir in 1947, he became the first person in his village to graduate university, built a career as a physics professor, and later founded two major Punjabi literary organizations in California. He has published eight books spanning 34 years, earning four major literary awards."
   },
   {
-    question: "How many books has Surinder Seerat written?",
-    answer: "Surinder Seerat has published eight works from 1980 to 2014, including seven poetry collections (spanning free verse, open verse, and pure ghazal forms) and one stream-of-consciousness novel. Four of his works received major literary awards from the Jammu & Kashmir Academy of Art, Culture & Languages and North American institutions."
+    question: "How many books has Surinder Seerat published?",
+    answer: "Surinder Seerat has published eight works spanning 34 years (1980-2014). His collection includes seven poetry volumes exploring free verse, open verse, and pure ghazal forms, plus one novel using stream of consciousness. Four of his works received major literary awards from the Jammu & Kashmir Academy of Art, Culture & Languages and North American institutions."
   },
   {
     question: "What awards has Surinder Seerat received?",
