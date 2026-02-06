@@ -7,17 +7,20 @@ import { books } from '@/data/books';
 import { useEffect } from 'react';
 import { ArrowRight, Award, BookOpen, Music, Users } from 'lucide-react';
 
-// Enhanced book data with theme, subtitle, who it's for, and form
+// Enhanced book data with theme, subtitle, who it's for, form, and expanded descriptions
 const enhancedBookData: Record<string, {
   subtitle: string;
   theme: string;
   form: string;
   whoFor: string[];
+  expandedDescription?: string;
+  startHere?: boolean;
 }> = {
   'chhallan': {
     subtitle: 'The Dance of Internal Struggle',
     theme: 'The internal struggle to exist',
     form: 'Free verse',
+    expandedDescription: "Surinder's debut—raw, unflinching exploration of what it means to wrestle with existence itself. The free verse form mirrors the chaos of internal conflict, refusing easy resolution.",
     whoFor: [
       'Readers drawn to existential themes',
       'Those appreciating raw, unpolished emotional honesty',
@@ -28,6 +31,7 @@ const enhancedBookData: Record<string, {
     subtitle: 'Alone with Hanging Words',
     theme: 'The transformation from introvert to extravert',
     form: 'Open verse',
+    expandedDescription: 'What happens when someone deeply internal must engage the external world? This collection explores that painful, necessary transformation. The "hanging words" suggest language suspended between inner and outer realities.',
     whoFor: [
       'Introverts navigating social expectations',
       'Those experiencing personal transformation',
@@ -37,7 +41,8 @@ const enhancedBookData: Record<string, {
   'bharam-bhullayan': {
     subtitle: 'Illusions and Labyrinths',
     theme: 'The maze of perception and reality',
-    form: 'Stream of consciousness novel',
+    form: 'Novel (stream of consciousness)',
+    expandedDescription: "Surinder's only published novel employs stream-of-consciousness to blur boundaries between thought and experience, perception and truth. A physicist exploring the subjectivity of experience.",
     whoFor: [
       'Readers of experimental fiction',
       'Those who enjoyed Woolf, Joyce, Faulkner',
@@ -48,6 +53,8 @@ const enhancedBookData: Record<string, {
     subtitle: 'Splinters: Pure Ghazal Form',
     theme: 'Hidden realities beneath surface life',
     form: 'Pure ghazal',
+    expandedDescription: 'This is where Surinder fully embraces traditional ghazal form—and the Jammu & Kashmir Academy recognized the mastery. Each ghazal maintains technical precision while revealing truths we hide even from ourselves.',
+    startHere: true,
     whoFor: [
       'Ghazal purists appreciating technical excellence',
       'Readers seeking depth beneath everyday existence',
@@ -58,6 +65,7 @@ const enhancedBookData: Record<string, {
     subtitle: 'Acacia Thorns',
     theme: 'Symbolic subjectivity meets technical poetry',
     form: 'Open verse & ghazals',
+    expandedDescription: 'Creating the subjectivity of relevance in symbolic form and technically bound poetry, Surinder illustrates the social and political influence on the surrounding environment—particularly the immigrant experience of building new roots.',
     whoFor: [
       'Readers who enjoy symbolic poetry',
       'Those interested in the immigrant experience',
@@ -68,6 +76,7 @@ const enhancedBookData: Record<string, {
     subtitle: 'Form, Character, and Mirage',
     theme: 'Unachievable life desires in humanity\'s wilderness',
     form: 'Punjabi ghazals',
+    expandedDescription: 'A book of three dimensional ghazals based on form, content and illusion. Surinder encapsulates how the lust of life remains unachievable in the wilderness of humanity—the eternal chase for what remains just out of reach.',
     whoFor: [
       'Anyone who\'s chased something forever out of reach',
       'Readers drawn to themes of longing',
@@ -78,6 +87,7 @@ const enhancedBookData: Record<string, {
     subtitle: 'Marriage Bed, Scaffold, and Cross',
     theme: 'Three life stages—self, cause, humanity',
     form: 'Open verse & ghazals',
+    expandedDescription: 'The title justifies the three stages of life: Living for yourself, Living for a cause, and Living for humanity. Poetry that traces the evolution from personal desire to collective purpose.',
     whoFor: [
       'Readers exploring life\'s purpose and meaning',
       'Those interested in spiritual evolution',
@@ -88,6 +98,7 @@ const enhancedBookData: Record<string, {
     subtitle: 'The Reflection of Incomparable Letters',
     theme: 'The mysteriousness of the modern world',
     form: 'Open verse & ghazals',
+    expandedDescription: "Surinder's most recent book reflects the mysteriousness of the modern world. He exemplifies the idea that a word's definition is trapped within the word itself—demonstrating that it is impossible to interpret the internal thoughts of any creation with words or symbols.",
     whoFor: [
       'Readers navigating modern life\'s complexity',
       'Those appreciating philosophical inquiry',
@@ -220,6 +231,11 @@ const Books = () => {
                           🏆 {book.award}
                         </span>
                       )}
+                      {enhanced?.startHere && (
+                        <span className="font-ui text-xs tracking-wide text-accent-foreground bg-accent px-3 py-1 rounded-full flex items-center gap-1">
+                          ✓ Start Here
+                        </span>
+                      )}
                     </div>
                     
                     <h2 className="font-display text-2xl md:text-3xl mb-1 group-hover:text-gold transition-colors">
@@ -239,7 +255,7 @@ const Books = () => {
                     )}
                     
                     <p className="text-muted-foreground text-base leading-relaxed mb-5">
-                      {book.description}
+                      {enhanced?.expandedDescription || book.description}
                     </p>
 
                     {enhanced && enhanced.whoFor.length > 0 && (
