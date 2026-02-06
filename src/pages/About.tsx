@@ -107,18 +107,15 @@ const About = () => {
             </h2>
             <div className="text-muted-foreground space-y-3 text-base leading-relaxed">
               <p>
-                Surinder Singh Seerat was born on <strong className="text-foreground">September 19, 1947</strong>, 
-                in <strong className="text-foreground">Sadipura-Pulwama, Kashmir, India</strong>—a small village 
+                Surinder Singh Seerat was born on September 19, 1947, in Sadipura-Pulwama, Kashmir, India—a small village 
                 where higher education was not just rare, but virtually unknown.
               </p>
               <p>
-                He would become the <strong className="text-foreground">first person in his family to graduate from university</strong>.
-                Not just his family—<strong className="text-foreground">the first person in his entire village</strong>.
+                He would become the first person in his family to graduate from university. Not just his family—the first person in his entire village.
               </p>
               <p>
                 This wasn't a small achievement. It was a rupture in generational expectations, made possible only through 
-                <strong className="text-foreground"> tutoring other students to finance his education</strong> and earning 
-                full scholarships through academic excellence.
+                tutoring other students to finance his education and earning full scholarships through academic excellence.
               </p>
             </div>
           </motion.article>
@@ -143,17 +140,16 @@ const About = () => {
               <div className="p-5 border border-border/50">
                 <h3 className="font-display text-lg mb-3 text-gold">Education</h3>
                 <ul className="space-y-2 text-muted-foreground text-sm leading-relaxed">
-                  <li><strong className="text-foreground">1966:</strong> B.Sc. in Physics, Chemistry, Mathematics, and English — Amar Singh Degree College</li>
-                  <li><strong className="text-foreground">1969:</strong> M.Sc. in Physics and Electronics — University of Kashmir</li>
+                  <li>1966: B.Sc. in Physics, Chemistry, Mathematics, and English — Amar Singh Degree College</li>
+                  <li>1969: M.Sc. in Physics and Electronics — University of Kashmir</li>
                 </ul>
               </div>
               
               <div className="p-5 border border-border/50">
                 <h3 className="font-display text-lg mb-3 text-gold">Academic Career</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  For over 20 years, Surinder taught physics—primarily at <strong className="text-foreground">G.G.M. Science College in Jammu</strong>. 
-                  In 1987, he was selected for the <strong className="text-foreground">highest grade of college teachers in India</strong> 
-                  under the Union Grant Commission.
+                  For over 20 years, Surinder taught physics—primarily at G.G.M. Science College in Jammu. 
+                  In 1987, he was selected for the highest grade of college teachers in India under the Union Grant Commission.
                 </p>
               </div>
             </div>
@@ -182,11 +178,11 @@ const About = () => {
             <div className="text-muted-foreground space-y-3 text-base leading-relaxed mb-8">
               <p>
                 While building his academic career, Surinder was active in Punjabi literary circles throughout India.
-                He published his first poetry collection, <em>Chhallan</em>, in <strong className="text-foreground">1980</strong> 
-                and received his first major recognition: <strong className="text-foreground">JKAACL Best Punjabi Book Award in 1982</strong>.
+                He published his first poetry collection, <em>Chhallan</em>, in 1980 and received his first major recognition: 
+                the JKAACL Best Punjabi Book Award in 1982.
               </p>
               <p>
-                By the time he left India, he was an established poet with <strong className="text-foreground">three major literary awards</strong>.
+                By the time he left India, he was an established poet with three major literary awards.
               </p>
             </div>
 
@@ -230,19 +226,17 @@ const About = () => {
             
             <div className="text-muted-foreground space-y-3 text-base leading-relaxed">
               <p>
-                Surinder immigrated to California, where he worked in corporate America—<strong className="text-foreground">IBM, 
-                Iomega, and the United States Postal Service management</strong>.
+                Surinder immigrated to California, where he worked in corporate America—IBM, Iomega, and the United States Postal Service management.
               </p>
               <p>
                 For many, this would have been the end of a literary career. The demands of building a new life, 
                 supporting a family, navigating a foreign professional landscape—these things consume time and energy.
               </p>
-              <p className="text-foreground font-medium">
+              <p>
                 But Surinder kept writing.
               </p>
               <p>
-                And he did something more: <strong className="text-foreground">he built the institutional foundations 
-                to preserve Punjabi literature in his new home</strong>.
+                And he did something more: he built the institutional foundations to preserve Punjabi literature in his new home.
               </p>
             </div>
           </motion.div>
@@ -269,8 +263,7 @@ const About = () => {
                 <h3 className="font-display text-xl mt-2 mb-3">Punjabi Sahit Sabha California</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   Surinder founded an organization dedicated to preserving and advancing Punjabi literature in North America.
-                  He served as <strong className="text-foreground">President from 1992 through 2002</strong>, transforming 
-                  California into a <strong className="text-foreground">Punjabi literary center</strong>.
+                  He served as President from 1992 through 2002, transforming California into a Punjabi literary center.
                 </p>
               </div>
               
@@ -278,7 +271,7 @@ const About = () => {
                 <span className="text-gold font-ui text-xs tracking-widest">2002</span>
                 <h3 className="font-display text-xl mt-2 mb-3">Vishav Punjabi Sahit Academy</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  He co-founded this organization, continuing his work as a <strong className="text-foreground">Board Member</strong>.
+                  He co-founded this organization, continuing his work as a Board Member.
                   These organizations published books, produced stage plays, organized <em>kavi darbars</em>, seminars, and conferences.
                 </p>
               </div>
@@ -324,7 +317,7 @@ const About = () => {
             <p className="text-muted-foreground text-center text-sm leading-relaxed">
               This is not a common combination. Most poets never study physics. Most physicists never write ghazals.
               <br /><br />
-              <strong className="text-foreground">Surinder did both</strong>—and his poetry reflects this epistemological tension: 
+              Surinder did both—and his poetry reflects this epistemological tension: 
               the desire to know confronting the unknowable.
             </p>
           </motion.div>
