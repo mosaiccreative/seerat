@@ -10,8 +10,11 @@ interface BookListCardProps {
   id: string;
   title: string;
   year: string;
-  type: string;
+  form?: string;
+  subtitle?: string;
+  theme?: string;
   description: string;
+  whoFor?: string[];
   award?: string;
   foreword?: string;
   coverImage?: string;
@@ -24,8 +27,11 @@ export function BookListCard({
   id,
   title,
   year,
-  type,
+  form,
+  subtitle,
+  theme,
   description,
+  whoFor,
   award,
   foreword,
   coverImage,
@@ -72,49 +78,72 @@ export function BookListCard({
             </div>
           )}
         </AspectRatio>
-        
-        {/* Start Here badge */}
-        {startHere && (
-          <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2 py-1 bg-gold/90 text-background text-xs font-ui tracking-wide">
-            <Check size={12} />
-            Start Here
-          </div>
-        )}
       </div>
 
       {/* Details */}
       <div className="flex flex-col max-w-[65ch]">
-        {/* Year Badge */}
-        <YearBadgeGold year={year} className="mb-4 self-start" />
+        {/* Top badges row */}
+        <div className="flex flex-wrap items-center gap-2 mb-4">
+          {/* Form badge */}
+          {form && (
+            <span className="px-3 py-1 text-xs font-ui tracking-wide border border-border/50 text-muted-foreground">
+              {form}
+            </span>
+          )}
+          
+          {/* Award badge inline */}
+          {award && (
+            <span className="px-3 py-1 text-xs font-ui tracking-wide bg-gold/10 border border-gold/30 text-gold">
+              🏆 {award}
+            </span>
+          )}
+          
+          {/* Start Here badge */}
+          {startHere && (
+            <span className="flex items-center gap-1.5 px-3 py-1 text-xs font-ui tracking-wide border border-gold/50 text-gold">
+              <Check size={12} />
+              Start Here
+            </span>
+          )}
+        </div>
         
-        {/* Title */}
-        <h3 className="font-display text-2xl md:text-3xl lg:text-4xl text-foreground mb-2">
-          {title}
+        {/* Title with year */}
+        <h3 className="font-display text-2xl md:text-3xl lg:text-4xl text-foreground mb-1">
+          {title} ({year})
         </h3>
         
-        {/* Type/Form */}
-        <p className="text-muted-foreground text-sm md:text-base mb-3">
-          {type}
-        </p>
-        
-        {/* Foreword */}
-        {foreword && (
-          <p className="text-muted-foreground/80 text-sm italic mb-4">
-            Foreword by {foreword}
+        {/* Subtitle */}
+        {subtitle && (
+          <p className="font-display italic text-muted-foreground text-base md:text-lg mb-4">
+            {subtitle}
           </p>
         )}
         
-        {/* Decorative divider */}
-        <div className="w-16 h-px bg-gold/30 mb-5" aria-hidden="true" />
+        {/* Theme */}
+        {theme && (
+          <p className="text-foreground/90 mb-4">
+            <span className="font-semibold">Theme:</span> {theme}
+          </p>
+        )}
         
         {/* Description */}
-        <p className="text-foreground/90 leading-relaxed mb-6">
+        <p className="text-muted-foreground leading-relaxed mb-6">
           {description}
         </p>
         
-        {/* Award */}
-        {award && (
-          <AwardBadge award={award} className="mb-6" />
+        {/* Who it's for */}
+        {whoFor && whoFor.length > 0 && (
+          <div className="mb-6">
+            <p className="font-semibold text-foreground mb-2">Who it's for:</p>
+            <ul className="space-y-1">
+              {whoFor.map((item, i) => (
+                <li key={i} className="text-muted-foreground text-sm flex items-start gap-2">
+                  <span className="text-gold mt-1">•</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
         
         {/* Read More Link */}
