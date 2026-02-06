@@ -75,11 +75,11 @@ const enhancedBookData: Record<string, {
   },
   'surat-seerat-te-saraab': {
     subtitle: 'Form, Character, and Mirage',
-    theme: 'Unachievable life desires in humanity\'s wilderness',
+    theme: "Unachievable life desires in humanity's wilderness",
     form: 'Ghazals',
-    expandedDescription: 'After a 15-year publishing gap, Surinder returns with ghazals exploring saraab—the mirage. What we chase but cannot grasp. The title plays on the poet\'s own name (seerat means character).',
+    expandedDescription: "After a 15-year publishing gap, Surinder returns with ghazals exploring saraab—the mirage. What we chase but cannot grasp. The title plays on the poet's own name (seerat means character).",
     whoFor: [
-      'Anyone who\'s chased something forever out of reach',
+      "Anyone who's chased something forever out of reach",
       'Readers drawn to themes of longing and incompleteness',
       'Those appreciating the beauty of unfulfilled desire',
     ],
@@ -87,10 +87,10 @@ const enhancedBookData: Record<string, {
   'saij-sullee-te-saleeb': {
     subtitle: 'Marriage Bed, Scaffold, and Cross',
     theme: 'Three life stages—self, cause, humanity',
-    form: 'Open verse + Ghazals',
-    expandedDescription: 'What does it mean to move through life\'s stages? From the intimacy of the marriage bed to the scaffold of commitment to a cause, to the cross of bearing humanity\'s weight—this collection maps a spiritual and philosophical journey.',
+    form: 'Open verse & ghazals',
+    expandedDescription: "The title justifies the three stages of life: Living for yourself, Living for a cause, and Living for humanity. Poetry that traces the evolution from personal desire to collective purpose.",
     whoFor: [
-      'Readers exploring life\'s purpose and meaning',
+      "Readers exploring life's purpose and meaning",
       'Those interested in spiritual evolution',
       'Anyone asking "What am I living for?"',
     ],
@@ -98,11 +98,11 @@ const enhancedBookData: Record<string, {
   'aroope-akhran-da-aks': {
     subtitle: 'The Reflection of Incomparable Letters',
     theme: 'The mysteriousness of the modern world',
-    form: 'Open verse + Ghazals',
-    expandedDescription: "Surinder's most recent collection explores how contemporary life—with all its technology, information, and rationality—remains profoundly mysterious. The physicist-poet brings both lenses: analytical precision and mystical wonder.",
+    form: 'Open verse & ghazals',
+    expandedDescription: "Surinder's most recent book reflects the mysteriousness of the modern world. He exemplifies the idea that a word's definition is trapped within the word itself—demonstrating that it is impossible to interpret the internal thoughts of any creation with words or symbols.",
     startHere: true,
     whoFor: [
-      'Readers navigating modern life\'s complexity',
+      "Readers navigating modern life's complexity",
       'Those appreciating philosophical inquiry',
       'Anyone feeling the mystery beneath technological surfaces',
     ],
@@ -221,8 +221,11 @@ const Books = () => {
                 id={book.id}
                 title={book.title}
                 year={book.year}
-                type={book.type}
+                form={enhanced?.form}
+                subtitle={enhanced?.subtitle}
+                theme={enhanced?.theme}
                 description={enhanced?.expandedDescription || book.description}
+                whoFor={enhanced?.whoFor}
                 award={book.award}
                 foreword={book.foreword}
                 coverImage={book.coverImage}
