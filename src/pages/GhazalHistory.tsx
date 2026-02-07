@@ -17,7 +17,7 @@ const GhazalHistory = () => {
   return (
     <PageLayout>
       {/* Hero Section */}
-      <section className="py-24 md:py-32 px-6 md:px-12">
+      <section className="py-16 md:py-20 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -39,7 +39,7 @@ const GhazalHistory = () => {
       </section>
 
       {/* What is a Ghazal */}
-      <section className="py-24 px-6 md:px-12 bg-card">
+      <section className="py-16 px-6 md:px-12 bg-card">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -90,7 +90,7 @@ const GhazalHistory = () => {
       </section>
 
       {/* Bollywood's Foundation */}
-      <section className="py-24 px-6 md:px-12">
+      <section className="py-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -127,7 +127,7 @@ const GhazalHistory = () => {
       </section>
 
       {/* Poet-Lyricist Legacy */}
-      <section className="py-24 px-6 md:px-12 bg-card">
+      <section className="py-16 px-6 md:px-12 bg-card">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -185,7 +185,7 @@ const GhazalHistory = () => {
       </section>
 
       {/* 2025 New Era */}
-      <section className="py-24 px-6 md:px-12">
+      <section className="py-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -214,7 +214,7 @@ const GhazalHistory = () => {
       </section>
 
       {/* Surinder's Place */}
-      <section className="py-24 px-6 md:px-12 bg-card">
+      <section className="py-16 px-6 md:px-12 bg-card">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -259,7 +259,7 @@ const GhazalHistory = () => {
       </section>
 
       {/* Answer Blocks for SEO */}
-      <section className="py-24 px-6 md:px-12">
+      <section className="py-16 px-6 md:px-12">
         <div className="max-w-3xl mx-auto space-y-12">
           <AnswerBlock
             id="what-is-ghazal"
@@ -280,7 +280,7 @@ const GhazalHistory = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 md:px-12 bg-card">
+      <section className="py-16 px-6 md:px-12 bg-card">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
