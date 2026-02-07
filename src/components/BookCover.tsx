@@ -109,15 +109,52 @@ export function BookCover({ onOpen, isOpening }: BookCoverProps) {
               transformStyle: 'preserve-3d',
             }}
           >
-            <img
-              src={leatherBook}
-              alt="ਸਿਰਰ ਤਵੀ - Surinder Seerat"
-              className="w-[320px] md:w-[400px] lg:w-[480px] h-auto"
-              style={{
-                transform: 'translateZ(20px)',
-                filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.9)) drop-shadow(0 15px 30px rgba(0,0,0,0.8))',
-              }}
-            />
+            <div className="relative">
+              <img
+                src={leatherBook}
+                alt="ਸੁਰਿੰਦਰ ਸੀਰਤ - Surinder Seerat"
+                className="w-[320px] md:w-[400px] lg:w-[480px] h-auto"
+                style={{
+                  transform: 'translateZ(20px)',
+                  filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.9)) drop-shadow(0 15px 30px rgba(0,0,0,0.8))',
+                }}
+              />
+              
+              {/* Text overlays on the book */}
+              {/* Top left - Gurmukhi (Punjabi) */}
+              <span 
+                className="absolute top-[12%] left-[12%] font-display text-[14px] md:text-[18px] lg:text-[22px] text-gold/90 tracking-wide"
+                style={{
+                  textShadow: '0 2px 4px rgba(0,0,0,0.6)',
+                  transform: 'translateZ(25px)',
+                }}
+              >
+                ਸੁਰਿੰਦਰ ਸੀਰਤ
+              </span>
+              
+              {/* Middle right - Urdu/Shahmukhi (right to left) */}
+              <span 
+                className="absolute top-[45%] right-[10%] font-display text-[16px] md:text-[20px] lg:text-[24px] text-gold/90"
+                style={{
+                  direction: 'rtl',
+                  textShadow: '0 2px 4px rgba(0,0,0,0.6)',
+                  transform: 'translateZ(25px)',
+                }}
+              >
+                سُریندر سیرت
+              </span>
+              
+              {/* Bottom left - English */}
+              <span 
+                className="absolute bottom-[15%] left-[12%] font-display text-[12px] md:text-[14px] lg:text-[16px] text-gold/80 tracking-[0.15em] uppercase"
+                style={{
+                  textShadow: '0 2px 4px rgba(0,0,0,0.6)',
+                  transform: 'translateZ(25px)',
+                }}
+              >
+                Surinder Seerat
+              </span>
+            </div>
 
             {/* Page spread glow on opening */}
             {isOpening && (
