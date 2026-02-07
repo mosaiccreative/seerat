@@ -60,13 +60,6 @@ export function HeroSection() {
             </span>
           </motion.div>
           
-          {/* Sub-badge */}
-          <motion.div variants={shouldAnimate ? fadeUp : undefined} className="mb-6">
-            <span className="font-ui text-xs tracking-[0.15em] text-cream/60 uppercase">
-              Poet · Novelist · Critic
-            </span>
-          </motion.div>
-
           {/* Stacked Headline */}
           <motion.h1 
             variants={shouldAnimate ? fadeUp : undefined}
@@ -102,30 +95,34 @@ export function HeroSection() {
             motionEnabled={shouldAnimate}
           />
         </motion.div>
-      </div>
 
-      {/* Bottom area: Scroll cue + Revealed subtitle */}
-      <div className="relative pb-8 md:pb-12 mt-auto">
-        {/* Scroll cue */}
-        <motion.div 
-          ref={scrollCueRef}
-          initial={shouldAnimate ? { opacity: 0 } : undefined}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="flex justify-center mb-6"
-        >
-          <ScrollCue />
-        </motion.div>
+        {/* Bottom area: Scroll cue + Revealed subtitle */}
+        <div ref={scrollCueRef} className="relative mt-auto pt-6 pb-8 md:pb-10">
+          {/* Scroll cue */}
+          <motion.div 
+            initial={shouldAnimate ? { opacity: 0 } : undefined}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+            className="flex justify-center mb-5"
+          >
+            <ScrollCue />
+          </motion.div>
 
-        {/* Subtitle - revealed on scroll */}
-        <motion.p 
-          initial={shouldAnimate ? { opacity: 0, y: 20 } : { opacity: 1 }}
-          animate={scrollCueInView || !shouldAnimate ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: easeOut }}
-          className="font-body text-base md:text-lg text-cream/70 text-center max-w-[50ch] mx-auto px-6"
-        >
-          Exploring consciousness, longing, and the immigrant experience through the ancient art of the ghazal
-        </motion.p>
+          {/* Subtitle - revealed on scroll */}
+          <motion.div
+            initial={shouldAnimate ? { opacity: 0, y: 15 } : { opacity: 1 }}
+            animate={scrollCueInView || !shouldAnimate ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, ease: easeOut }}
+            className="text-center px-6"
+          >
+            <p className="font-body text-base md:text-lg text-cream/70 max-w-[50ch] mx-auto mb-3">
+              Exploring consciousness, longing, and the immigrant experience through the ancient art of the ghazal
+            </p>
+            <span className="font-ui text-xs tracking-[0.15em] text-cream/50 uppercase">
+              Poet · Novelist · Critic
+            </span>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
