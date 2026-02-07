@@ -86,7 +86,7 @@ export function HeroSection() {
             {/* Sub-badge */}
             <motion.div variants={shouldAnimate ? fadeUp : undefined}>
               <span className="font-ui text-xs tracking-[0.15em] text-cream/60 uppercase">
-                Poet · Novelist · Critic
+                Editor · Novelist · Critic
               </span>
             </motion.div>
           </motion.div>
