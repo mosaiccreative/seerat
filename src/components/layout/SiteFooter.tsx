@@ -25,7 +25,7 @@ export function SiteFooter() {
             
             {/* Easter Egg Quote */}
             <p className="text-xs italic text-gold/80 leading-relaxed max-w-md">
-              "The mysteriousness of existence cannot be fully captured in language—but the attempt reveals truths rationality alone cannot access."
+              "A word's definition is trapped within the word itself."
             </p>
           </div>
 
