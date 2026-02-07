@@ -71,7 +71,7 @@ export function SiteHeader() {
             animate={{ opacity: 1, y: 0 }}
             exit={shouldAnimate ? { opacity: 0, y: -20 } : undefined}
             transition={{ duration: 0.3 }}
-            className="md:hidden fixed inset-0 top-[73px] bg-background z-50"
+            className="md:hidden fixed inset-0 top-[73px] bg-background/98 backdrop-blur-lg border-t border-border z-50"
           >
             <div className="container mx-auto px-6 py-12">
               <ul className="flex flex-col gap-6">
