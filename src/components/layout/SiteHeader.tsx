@@ -82,7 +82,7 @@ export function SiteHeader() {
                   <li key={item.href}>
                     <Link
                       to={item.href}
-                      className={`block py-3 font-display text-2xl focus:outline-none focus-visible:underline ${
+                      className={`block py-2 font-display text-xl focus:outline-none focus-visible:underline ${
                         location.pathname === item.href ? 'text-gold' : 'text-foreground'
                       }`}
                       onClick={() => setIsMenuOpen(false)}
