@@ -27,7 +27,7 @@ export function SiteHeader() {
             to="/" 
             className="font-display text-xl md:text-2xl tracking-wide text-foreground hover:text-gold transition-colors duration-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
           >
-            Surinder Seerat
+            Seerat
           </Link>
 
           {/* Desktop Navigation */}
