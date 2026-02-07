@@ -65,9 +65,11 @@ export function HeroSection() {
             variants={shouldAnimate ? fadeUp : undefined}
             className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] tracking-tight mb-6"
           >
-            The Physicist.<br />
-            The <span className="text-burgundy-light font-bold">Writer</span>.<br />
-            The <span className="text-gold italic">Poet</span>.
+            <span className="inline-grid grid-cols-[auto_1fr] gap-x-3 md:gap-x-4">
+              <span>The</span><span>Physicist.</span>
+              <span>The</span><span className="text-burgundy-light font-bold">Writer.</span>
+              <span>The</span><span className="text-gold italic">Poet.</span>
+            </span>
           </motion.h1>
           
           {/* Decorative divider */}
