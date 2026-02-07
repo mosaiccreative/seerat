@@ -53,7 +53,7 @@ export function HeroSection() {
         {/* Top badge */}
         <motion.div variants={shouldAnimate ? fadeUp : undefined} className="mb-4">
           <span className="inline-block px-5 py-2.5 bg-gold/5 border border-gold/20 text-gold font-ui text-[11px] tracking-[0.2em] uppercase">
-            Award-Winning Punjabi Ghazal Master
+            Award-Winning Punjabi Ghazal Writer
           </span>
         </motion.div>
         
