@@ -5,6 +5,7 @@ import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { ArrowRight, ExternalLink, Music, BookOpen, Heart } from 'lucide-react';
 import { useEffect } from 'react';
 import { AnswerBlock } from '@/components/sections/AnswerBlock';
+import tishnagiCover from '@/assets/tishnagi-cover.jpg';
 
 
 const Tishnagi = () => {
@@ -140,12 +141,12 @@ const Tishnagi = () => {
               </div>
 
               <div className="relative">
-                <div className="aspect-square bg-gradient-to-br from-gold/20 via-gold/10 to-transparent rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <Music className="w-24 h-24 text-gold/60 mx-auto mb-6" />
-                    <p className="font-display text-2xl text-gold">Tishnagi</p>
-                    <p className="text-muted-foreground text-sm mt-2">Ghazal Album</p>
-                  </div>
+                <div className="aspect-square overflow-hidden rounded-lg">
+                  <img
+                    src={tishnagiCover}
+                    alt="Tishnagi Album Cover - Sunset over water"
+                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                  />
                 </div>
                 {/* Decorative frame */}
                 <div className="absolute -inset-4 border border-gold/20 -z-10" />
