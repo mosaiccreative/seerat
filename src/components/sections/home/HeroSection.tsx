@@ -79,14 +79,14 @@ export function HeroSection() {
             {/* Award badge */}
             <motion.div variants={shouldAnimate ? fadeUp : undefined} className="mb-4">
               <span className="inline-block px-5 py-2.5 bg-gold/5 border border-gold/20 text-gold font-ui text-[11px] tracking-[0.2em] uppercase">
-                Award-Winning Punjabi Ghazal, Short Story and Novel Writer
+                Award-Winning Punjabi Ghazal, Short Story and Novelist
               </span>
             </motion.div>
             
             {/* Sub-badge */}
             <motion.div variants={shouldAnimate ? fadeUp : undefined}>
               <span className="font-ui text-xs tracking-[0.15em] text-cream/60 uppercase">
-                Editor · Novelist · Critic
+                Editor · Critic
               </span>
             </motion.div>
           </motion.div>
