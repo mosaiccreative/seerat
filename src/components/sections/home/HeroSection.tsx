@@ -66,7 +66,7 @@ export function HeroSection() {
             className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] tracking-tight mb-6"
           >
             The Physicist.<br />
-            The Sufi.<br />
+            The <span className="text-burgundy-dark">Writer</span>.<br />
             The <span className="text-gold italic">Poet</span>.
           </motion.h1>
           
