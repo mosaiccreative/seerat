@@ -50,7 +50,7 @@ export function BookshelfStage({ books, motionEnabled, onBookSelect }: Bookshelf
 
   return (
     <div 
-      className="relative w-full max-w-5xl mx-auto"
+      className="relative w-full max-w-6xl mx-auto"
       role="list"
       aria-label="Book collection - select a spine to scroll to details"
     >
