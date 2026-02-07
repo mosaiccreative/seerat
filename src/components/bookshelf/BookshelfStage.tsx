@@ -38,11 +38,13 @@ export function BookshelfStage({ books, motionEnabled, onBookSelect }: Bookshelf
     () => ({
       loop: true,
       align: (isDesktop ? 'start' : 'center') as 'start' | 'center',
+      // On smaller screens, start in the middle so the shelf *visually* reads as centered.
+      startIndex: isDesktop ? 0 : Math.floor(books.length / 2),
       dragFree: true,
       containScroll: false as const,
       skipSnaps: true,
     }),
-    [isDesktop]
+    [isDesktop, books.length]
   );
 
   const [emblaRef, emblaApi] = useEmblaCarousel(emblaOptions);
@@ -117,7 +119,7 @@ export function BookshelfStage({ books, motionEnabled, onBookSelect }: Bookshelf
             "pt-8 pb-4 px-4 md:px-8"
           )}
         >
-          <div className="flex items-end gap-2 md:gap-4 justify-center lg:justify-start">
+          <div className="flex items-end gap-2 md:gap-4">
             {books.map((book, index) => (
               <motion.div
                 key={book.id}
