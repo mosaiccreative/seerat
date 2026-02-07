@@ -19,7 +19,7 @@ interface EmailCaptureProps {
 
 const variantContent: Record<EmailCaptureVariant, { headline: string; description: string; buttonText: string }> = {
   homepage: {
-    headline: "Join the Inner Circle",
+    headline: "Join the Mehfil",
     description: "Receive new ghazals, poetry insights, and stories from Surinder's literary journey—straight to your inbox. Get exclusive access to unreleased recordings, behind-the-scenes stories, and event invitations.",
     buttonText: "Subscribe",
   },
@@ -93,7 +93,7 @@ export function EmailCapture({
     setEmail('');
     
     toast({
-      title: "Welcome to the circle!",
+      title: "Welcome to the Mehfil!",
       description: "You've been added to our mailing list.",
     });
   };
@@ -106,7 +106,7 @@ export function EmailCapture({
         animate={{ opacity: 1, scale: 1 }}
       >
         <CheckCircle className="w-12 h-12 text-gold mx-auto mb-4" />
-        <p className="font-display text-2xl mb-2">Welcome to the Circle</p>
+        <p className="font-display text-2xl mb-2">Welcome to the Mehfil</p>
         <p className="text-muted-foreground">Your first ghazal awaits in your inbox.</p>
       </motion.div>
     );
