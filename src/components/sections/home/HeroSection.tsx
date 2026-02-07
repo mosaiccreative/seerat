@@ -1,6 +1,8 @@
 import { motion, type Easing } from 'framer-motion';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { ScrollCue } from '@/components/ui/scroll-cue';
+import { BookshelfStage } from '@/components/bookshelf';
+import { books } from '@/data/books';
 import bookPages from '@/assets/book-pages.jpg';
 
 const easeOut: Easing = [0.16, 1, 0.3, 1];
@@ -90,13 +92,24 @@ export function HeroSection() {
           Exploring consciousness, longing, and the immigrant experience through the ancient art of the ghazal
         </motion.p>
         
-        {/* Scroll cue */}
-        <motion.div 
-          variants={shouldAnimate ? fadeUp : undefined}
-          className="mt-20"
-        >
-          <ScrollCue />
-        </motion.div>
+      </motion.div>
+
+      {/* Bookshelf Stage */}
+      <section className="py-8 md:py-16 px-4 md:px-8">
+        <BookshelfStage 
+          books={[...books].sort((a, b) => parseInt(a.year) - parseInt(b.year))} 
+          motionEnabled={shouldAnimate}
+        />
+      </section>
+
+      {/* Scroll cue */}
+      <motion.div 
+        initial={shouldAnimate ? { opacity: 0 } : undefined}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="pb-12"
+      >
+        <ScrollCue />
       </motion.div>
     </section>
   );
