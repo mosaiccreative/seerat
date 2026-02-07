@@ -262,7 +262,7 @@ const Tishnagi = () => {
                 Read the Poetry
                 <ArrowRight size={16} />
               </Link>
-              <Link to="/ghazal-history" className="btn-minimal">
+              <Link to="/course" className="btn-minimal">
                 Understand the Form
               </Link>
             </div>
