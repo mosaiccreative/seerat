@@ -53,6 +53,20 @@ export function HeroSection() {
           initial={shouldAnimate ? "hidden" : undefined}
           animate="visible"
         >
+          {/* Award badge */}
+          <motion.div variants={shouldAnimate ? fadeUp : undefined} className="mb-3">
+            <span className="inline-block px-5 py-2.5 bg-gold/5 border border-gold/20 text-gold font-ui text-[11px] tracking-[0.2em] uppercase">
+              Award-Winning Punjabi Ghazal Writer
+            </span>
+          </motion.div>
+          
+          {/* Sub-badge */}
+          <motion.div variants={shouldAnimate ? fadeUp : undefined} className="mb-6">
+            <span className="font-ui text-xs tracking-[0.15em] text-cream/60 uppercase">
+              Poet · Novelist · Critic
+            </span>
+          </motion.div>
+
           {/* Stacked Headline */}
           <motion.h1 
             variants={shouldAnimate ? fadeUp : undefined}
@@ -66,27 +80,13 @@ export function HeroSection() {
           {/* Decorative divider */}
           <motion.div 
             variants={shouldAnimate ? fadeUp : undefined} 
-            className="flex justify-center mb-6"
+            className="flex justify-center"
           >
             <div className="flex items-center gap-3" aria-hidden="true">
               <div className="w-12 h-px bg-gold/30" />
               <div className="w-1.5 h-1.5 border border-gold/50 rotate-45" />
               <div className="w-12 h-px bg-gold/30" />
             </div>
-          </motion.div>
-          
-          {/* Award badge */}
-          <motion.div variants={shouldAnimate ? fadeUp : undefined} className="mb-3">
-            <span className="inline-block px-5 py-2.5 bg-gold/5 border border-gold/20 text-gold font-ui text-[11px] tracking-[0.2em] uppercase">
-              Award-Winning Punjabi Ghazal Writer
-            </span>
-          </motion.div>
-          
-          {/* Sub-badge */}
-          <motion.div variants={shouldAnimate ? fadeUp : undefined}>
-            <span className="font-ui text-xs tracking-[0.15em] text-cream/60 uppercase">
-              Poet · Novelist · Critic
-            </span>
           </motion.div>
         </motion.div>
         
