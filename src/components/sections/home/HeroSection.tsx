@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
-import { ScrollCue } from '@/components/ui/scroll-cue';
 import { BookshelfStage } from '@/components/bookshelf';
 import { books } from '@/data/books';
 
@@ -9,12 +7,6 @@ const easeOut = [0.16, 1, 0.3, 1] as const;
 
 export function HeroSection() {
   const { shouldAnimate } = useMotionPreference();
-  
-  // Trigger subtitle reveal when scroll cue enters viewport
-  const { ref: scrollCueRef, inView: scrollCueInView } = useInView({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
 
   const stagger = {
     hidden: { opacity: 0 },
@@ -106,24 +98,12 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom area: Scroll cue + Revealed subtitle */}
+      {/* Bottom area: Subtitle */}
       <div className="relative pb-8 md:pb-12">
-        {/* Scroll cue */}
-        <motion.div 
-          ref={scrollCueRef}
-          initial={shouldAnimate ? { opacity: 0 } : undefined}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="flex justify-center mb-6"
-        >
-          <ScrollCue />
-        </motion.div>
-
-        {/* Subtitle - revealed on scroll */}
         <motion.p 
           initial={shouldAnimate ? { opacity: 0, y: 20 } : { opacity: 1 }}
-          animate={scrollCueInView || !shouldAnimate ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: easeOut }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.8, ease: easeOut }}
           className="font-body text-base md:text-lg text-cream/70 text-center max-w-[50ch] mx-auto px-6"
         >
           Exploring consciousness, longing, and the immigrant experience through the ancient art of the ghazal
