@@ -129,11 +129,11 @@ const Contact = () => {
           >
             <p className="text-muted-foreground text-sm mb-6">Or reach out directly</p>
             <a
-              href="mailto:contact@surinderseerat.com"
+              href="mailto:arz@surinderseerat.com"
               className="inline-flex items-center gap-3 text-gold hover:text-foreground transition-colors duration-300"
             >
               <Mail size={18} />
-              <span className="font-ui text-sm tracking-wider">contact@surinderseerat.com</span>
+              <span className="font-ui text-sm tracking-wider">arz@surinderseerat.com</span>
             </a>
           </motion.div>
         </div>
