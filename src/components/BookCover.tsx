@@ -12,8 +12,8 @@ export function BookCover({ onOpen, isOpening }: BookCoverProps) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center cursor-pointer overflow-hidden"
-      style={{ backgroundColor: '#000000' }}
+      className="fixed inset-0 z-[60] flex items-center justify-center cursor-pointer overflow-hidden"
+      style={{ backgroundColor: 'hsl(var(--background))' }}
       initial={{ opacity: 1 }}
       animate={{ opacity: isOpening ? 0 : 1 }}
       transition={{ duration: 1.2, delay: isOpening ? 0.2 : 0 }}
