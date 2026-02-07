@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
- import leatherBook from '@/assets/leather-book.png';
+import seeratBook from '@/assets/seerat-book-cover.png';
 
 interface BookCoverProps {
   onOpen: () => void;
@@ -12,35 +12,12 @@ export function BookCover({ onOpen, isOpening }: BookCoverProps) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center cursor-pointer overflow-hidden bg-ink"
+      className="fixed inset-0 z-50 flex items-center justify-center cursor-pointer overflow-hidden bg-black"
       initial={{ opacity: 1 }}
       animate={{ opacity: isOpening ? 0 : 1 }}
       transition={{ duration: 1.8, delay: isOpening ? 0.5 : 0 }}
       onClick={onOpen}
     >
-      {/* Radial gradient overlay */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          background: 'radial-gradient(ellipse at center, hsl(20 10% 8%) 0%, hsl(20 10% 4%) 100%)',
-        }}
-      />
-
-      {/* Ambient warm glow */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <motion.div
-          className="w-[800px] h-[800px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, hsl(38 75% 55% / 0.25) 0%, transparent 60%)',
-          }}
-          animate={shouldAnimate ? { 
-            scale: [1, 1.15, 1], 
-            opacity: [0.3, 0.5, 0.3] 
-          } : undefined}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
-
       {/* 3D Floating Book */}
       <motion.div
         className="relative"
@@ -66,32 +43,18 @@ export function BookCover({ onOpen, isOpening }: BookCoverProps) {
             transformStyle: 'preserve-3d',
           }}
         >
-          {/* Book shadow on ground */}
+          {/* Subtle book shadow */}
           <motion.div 
-            className="absolute left-1/2 -translate-x-1/2 w-[400px] h-[80px] blur-3xl bg-black/70"
+            className="absolute left-1/2 -translate-x-1/2 w-[350px] h-[60px] blur-3xl bg-black/50"
             style={{
-              bottom: '-60px',
+              bottom: '-50px',
               borderRadius: '50%',
             }}
             animate={shouldAnimate && !isOpening ? {
               scale: [1, 0.9, 1],
-              opacity: [0.6, 0.4, 0.6],
+              opacity: [0.4, 0.3, 0.4],
             } : undefined}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          />
-          
-          {/* Warm glow behind the book */}
-          <motion.div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: 'radial-gradient(ellipse 70% 80% at 50% 50%, hsl(30 60% 25% / 0.4) 0%, hsl(25 50% 15% / 0.2) 40%, transparent 70%)',
-              filter: 'blur(40px)',
-            }}
-            animate={shouldAnimate && !isOpening ? {
-              opacity: [0.6, 0.9, 0.6],
-              scale: [1, 1.05, 1],
-            } : undefined}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />
 
           {/* Main book image */}
@@ -109,52 +72,15 @@ export function BookCover({ onOpen, isOpening }: BookCoverProps) {
               transformStyle: 'preserve-3d',
             }}
           >
-            <div className="relative">
-              <img
-                src={leatherBook}
-                alt="ਸੁਰਿੰਦਰ ਸੀਰਤ - Surinder Seerat"
-                className="w-[320px] md:w-[400px] lg:w-[480px] h-auto"
-                style={{
-                  transform: 'translateZ(20px)',
-                  filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.9)) drop-shadow(0 15px 30px rgba(0,0,0,0.8))',
-                }}
-              />
-              
-              {/* Text overlays on the book */}
-              {/* Top left - Gurmukhi (Punjabi) */}
-              <span 
-                className="absolute top-[12%] left-[12%] font-display text-[14px] md:text-[18px] lg:text-[22px] text-gold/90 tracking-wide"
-                style={{
-                  textShadow: '0 2px 4px rgba(0,0,0,0.6)',
-                  transform: 'translateZ(25px)',
-                }}
-              >
-                ਸੁਰਿੰਦਰ ਸੀਰਤ
-              </span>
-              
-              {/* Middle right - Urdu/Shahmukhi (right to left) */}
-              <span 
-                className="absolute top-[45%] right-[10%] font-display text-[16px] md:text-[20px] lg:text-[24px] text-gold/90"
-                style={{
-                  direction: 'rtl',
-                  textShadow: '0 2px 4px rgba(0,0,0,0.6)',
-                  transform: 'translateZ(25px)',
-                }}
-              >
-                سُریندر سیرت
-              </span>
-              
-              {/* Bottom left - English */}
-              <span 
-                className="absolute bottom-[15%] left-[12%] font-display text-[12px] md:text-[14px] lg:text-[16px] text-gold/80 tracking-[0.15em] uppercase"
-                style={{
-                  textShadow: '0 2px 4px rgba(0,0,0,0.6)',
-                  transform: 'translateZ(25px)',
-                }}
-              >
-                Surinder Seerat
-              </span>
-            </div>
+            <img
+              src={seeratBook}
+              alt="ਸੁਰਿੰਦਰ ਸੀਰਤ - Surinder Seerat"
+              className="w-[320px] md:w-[400px] lg:w-[480px] h-auto"
+              style={{
+                transform: 'translateZ(20px)',
+                filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.8))',
+              }}
+            />
 
             {/* Page spread glow on opening */}
             {isOpening && (
