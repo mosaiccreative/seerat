@@ -1,114 +1,100 @@
 
-# Restructure Hero: Dual-Zone Layout (Black Bookshelf + Maroon Text)
 
-## Overview
-Split the hero section into two visually distinct zones:
-- **Top**: Black background with the bookshelf
-- **Bottom**: Maroon/burgundy background with all text content
+# Full-Bleed Bookshelf Hero with Split Editorial Layout
 
-## Visual Structure
+## Concept
+
+Transform the hero into a single, full-viewport black section where the bookshelf is the visual centerpiece, with text arranged in an asymmetric editorial split layout. The subtitle ("Exploring consciousness...") reveals on scroll or user interaction, keeping the initial view ultra-minimal and dramatic.
 
 ```text
-┌─────────────────────────────────────────────────────────────┐
-│                    BLACK BACKGROUND                          │
-│                                                              │
-│    ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐    │
-│    │      │ │      │ │      │ │      │ │      │ │      │    │
-│    │Book  │ │Book  │ │Book  │ │Book  │ │Book  │ │Book  │    │
-│    │Spine │ │Spine │ │Spine │ │Spine │ │Spine │ │Spine │    │
-│    │      │ │      │ │      │ │      │ │      │ │      │    │
-│    └──────┴─┴──────┴─┴──────┴─┴──────┴─┴──────┴─┴──────┘    │
-│    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   │
-│                      (shelf base)                            │
-└─────────────────────────────────────────────────────────────┘
-┌─────────────────────────────────────────────────────────────┐
-│                   MAROON BACKGROUND                          │
-│           (with paper texture + gradient overlay)            │
-│                                                              │
-│        ┌─────────────────────────────────────────┐          │
-│        │ AWARD-WINNING PUNJABI GHAZAL WRITER     │          │
-│        └─────────────────────────────────────────┘          │
-│                                                              │
-│                  POET · NOVELIST · CRITIC                    │
-│                                                              │
-│               The Physicist Who Became a                     │
-│                         Poet                                 │
-│                                                              │
-│                    ───── ◇ ─────                             │
-│                                                              │
-│          Exploring consciousness, longing, and               │
-│       the immigrant experience through the ancient           │
-│                   art of the ghazal                          │
-│                                                              │
-│                        SCROLL                                │
-│                          │                                   │
-└─────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         BLACK FULL-BLEED (100vh)                         │
+│                                                                          │
+│  ┌────────────────────────────┐   ┌───────────────────────────────────┐  │
+│  │                            │   │                                   │  │
+│  │      THE                   │   │                                   │  │
+│  │      PHYSICIST.            │   │                                   │  │
+│  │      THE SUFI.             │   │                                   │  │
+│  │      THE POET.             │   │    ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐  │  │
+│  │                            │   │    │  │ │  │ │  │ │  │ │  │ │  │  │  │
+│  │     ────◇────              │   │    │  │ │  │ │  │ │  │ │  │ │  │  │  │
+│  │                            │   │    │  │ │  │ │  │ │  │ │  │ │  │ ◄│  │
+│  │  Award-Winning Punjabi     │   │    │  │ │  │ │  │ │  │ │  │ │  │  │  │
+│  │  Ghazal Writer             │   │    │  │ │  │ │  │ │  │ │  │ │  │  │  │
+│  │                            │   │    └──┴─┴──┴─┴──┴─┴──┴─┴──┴─┴──┘  │  │
+│  │  Poet · Novelist · Critic  │   │    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   │  │
+│  │                            │   │           (shelf base)            │  │
+│  └────────────────────────────┘   └───────────────────────────────────┘  │
+│                                                                          │
+│                              SCROLL                                      │
+│                                │                                         │
+└──────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│                    (REVEALED ON SCROLL - subtle fade-in)                  │
+│                                                                          │
+│         Exploring consciousness, longing, and the immigrant              │
+│            experience through the ancient art of the ghazal              │
+│                                                                          │
+└──────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Technical Changes
+## Key Design Decisions
+
+| Element | Approach |
+|---------|----------|
+| Background | Full-bleed black (`bg-background`) for entire hero |
+| Layout | CSS Grid: 2-column split on desktop, stacked on mobile |
+| Left column | Text content, left-aligned for editorial feel |
+| Right column | Bookshelf, vertically centered |
+| Headline | "The Physicist. The Sufi. The Poet." — stacked lines for drama |
+| Subtitle reveal | Hidden initially, fades in after scroll cue or on scroll via Intersection Observer |
+| Mobile | Stacked layout (text above, bookshelf below), full-width |
+
+---
+
+## Technical Implementation
 
 ### File: `src/components/sections/home/HeroSection.tsx`
 
-**1. Remove the outer single-section wrapper** 
-Replace the current single `<section>` with a `<>` fragment containing two separate sections.
+**Structure Changes:**
+- Single full-viewport section with `min-h-screen bg-background`
+- CSS Grid container: `grid-cols-1 lg:grid-cols-2`
+- Left column: all text content (headline, badges, divider)
+- Right column: `BookshelfStage` component
+- Scroll cue positioned at bottom center
+- Subtitle lives in a new hidden-by-default element that uses `useInView` or scroll trigger
 
-**2. Create the Bookshelf Zone (Top)**
+**Headline Rework:**
 ```tsx
-{/* Bookshelf Zone - Black Background */}
-<section className="relative overflow-hidden bg-background pt-24 md:pt-32 pb-8">
-  <BookshelfStage 
-    books={[...books].sort((a, b) => parseInt(a.year) - parseInt(b.year))} 
-    motionEnabled={shouldAnimate}
-  />
-</section>
+<h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-left">
+  The Physicist.<br />
+  The Sufi.<br />
+  The <span className="text-gold italic">Poet</span>.
+</h1>
 ```
-- Uses `bg-background` which is the dark noir black (`240 10% 4%`)
-- Padding top accounts for the header space
-- Minimal bottom padding since the shelf base provides visual grounding
 
-**3. Create the Text Zone (Bottom)**
-```tsx
-{/* Text Zone - Maroon Background */}
-<section className="relative overflow-hidden bg-burgundy px-6 py-16 md:py-24">
-  {/* Background texture - subtle paper grain */}
-  <div 
-    className="absolute inset-0 opacity-[0.03]"
-    style={{ backgroundImage: `url(${bookPages})`, ... }}
-    aria-hidden="true"
-  />
-  
-  {/* Gradient overlay */}
-  <div className="absolute inset-0 bg-gradient-to-b from-burgundy-dark/40 via-transparent to-burgundy-dark/60" aria-hidden="true" />
-  
-  {/* All text content (badge, sub-badge, H1, divider, subhead) */}
-  <motion.div className="relative z-10 text-center max-w-3xl mx-auto">
-    {/* ... existing content ... */}
-  </motion.div>
-  
-  {/* Scroll cue at bottom */}
-  <motion.div className="relative z-10 mt-12 flex justify-center">
-    <ScrollCue />
-  </motion.div>
-</section>
-```
-- Keeps the paper texture and gradient overlay
-- Maintains all existing text content and animations
-- Scroll cue positioned at the bottom
+**Subtitle Reveal:**
+- Use `react-intersection-observer` (already installed) to detect when ScrollCue enters viewport
+- Alternatively, reveal after a 3-second delay or on first scroll
+- Subtitle appears at the bottom of the section with a fade-up animation
 
-**4. Adjust spacing**
-- Bookshelf zone: `pt-24 md:pt-32` (top padding for header clearance), `pb-8` (small bottom padding)
-- Text zone: `py-16 md:py-24` (balanced vertical padding)
+**Responsive Behavior:**
+- Mobile (`< lg`): Text stacked above bookshelf, both centered
+- Desktop (`lg+`): Side-by-side split layout
 
 ---
 
 ## Summary of Changes
 
-| Element | Current | New |
-|---------|---------|-----|
-| Outer wrapper | Single `<section>` with burgundy bg | Fragment with two sections |
-| Bookshelf position | Below text content | **Above** text content |
-| Bookshelf background | Inherited burgundy | **Black** (`bg-background`) |
-| Text background | Burgundy | Remains burgundy |
-| Section structure | One min-h-screen section | Two stacked sections (natural height) |
+| Aspect | Before | After |
+|--------|--------|-------|
+| Structure | Two separate sections (black + maroon) | Single full-bleed black section |
+| Layout | Stacked (bookshelf above text) | Split left/right on desktop |
+| Headline | "The Physicist Who Became a Poet" | "The Physicist. The Sufi. The Poet." (stacked) |
+| Subtitle | Always visible | Hidden initially, revealed on scroll |
+| Maroon section | Contained text | Removed entirely |
+| Mobile | Stacked zones | Text above, bookshelf below (same section) |
+
