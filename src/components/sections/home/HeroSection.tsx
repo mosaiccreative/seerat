@@ -50,10 +50,17 @@ export function HeroSection() {
         initial={shouldAnimate ? "hidden" : undefined}
         animate="visible"
       >
-        {/* Badge */}
-        <motion.div variants={shouldAnimate ? fadeUp : undefined} className="mb-8">
+        {/* Top badge */}
+        <motion.div variants={shouldAnimate ? fadeUp : undefined} className="mb-4">
           <span className="inline-block px-5 py-2.5 bg-gold/5 border border-gold/20 text-gold font-ui text-[11px] tracking-[0.2em] uppercase">
-            Poet · Novelist · Critic · Ghazal Master
+            Award-Winning Punjabi Ghazal Master
+          </span>
+        </motion.div>
+        
+        {/* Sub-badge */}
+        <motion.div variants={shouldAnimate ? fadeUp : undefined} className="mb-8">
+          <span className="font-ui text-xs tracking-[0.15em] text-cream/60 uppercase">
+            Poet · Novelist · Critic
           </span>
         </motion.div>
         
