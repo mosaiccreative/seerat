@@ -17,7 +17,7 @@ const GhazalHistory = () => {
   return (
     <PageLayout>
       {/* Hero Section */}
-      <section className="py-16 md:py-20 px-6 md:px-12">
+      <section className="py-12 md:py-20 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -39,7 +39,7 @@ const GhazalHistory = () => {
       </section>
 
       {/* What is a Ghazal */}
-      <section className="py-16 px-6 md:px-12 bg-card">
+      <section className="py-12 md:py-16 px-6 md:px-12 bg-card">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -52,7 +52,7 @@ const GhazalHistory = () => {
               What is a <span className="text-gold">Ghazal</span>?
             </h2>
             
-            <div className="prose-poetry text-muted-foreground space-y-6 mb-12">
+            <div className="prose-poetry text-muted-foreground space-y-6 mb-8 md:mb-12">
               <p className="text-lg">
                 The ghazal is a poetic form that has captivated audiences for over a millennium. 
                 Originating in 7th-century Arabia and flourishing through Persian and Urdu literary traditions, 
@@ -60,7 +60,7 @@ const GhazalHistory = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 md:mb-12">
               <div className="p-6 border border-border/50">
                 <h3 className="font-display text-xl mb-4 text-gold">The Technical Form</h3>
                 <p className="text-muted-foreground text-sm mb-4">
@@ -90,7 +90,7 @@ const GhazalHistory = () => {
       </section>
 
       {/* Bollywood's Foundation */}
-      <section className="py-16 px-6 md:px-12">
+      <section className="py-12 md:py-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -103,7 +103,7 @@ const GhazalHistory = () => {
               The Ghazal as <span className="text-gold">Bollywood's Foundation</span>
             </h2>
             
-            <div className="prose-poetry text-muted-foreground space-y-6 mb-12">
+            <div className="prose-poetry text-muted-foreground space-y-6 mb-8 md:mb-12">
               <p className="text-lg">
                 When Indian cinema found its voice with the first talkie film, <em>Alam Ara</em> (1931), 
                 <strong className="text-foreground"> ghazals provided the foundation</strong>. The poetic form dominated 
@@ -115,7 +115,7 @@ const GhazalHistory = () => {
               </p>
             </div>
 
-            <div className="p-8 border border-gold/30 bg-card/50 mb-12">
+            <div className="p-8 border border-gold/30 bg-card/50 mb-8 md:mb-12">
               <h3 className="font-display text-xl mb-4">The Tazmeen Tradition</h3>
               <p className="text-muted-foreground">
                 When Bollywood used classical poetry, it followed the <em>tazmeen</em> tradition—<strong className="text-foreground">adding new verses 
@@ -127,14 +127,14 @@ const GhazalHistory = () => {
       </section>
 
       {/* Poet-Lyricist Legacy */}
-      <section className="py-16 px-6 md:px-12 bg-card">
+      <section className="py-12 md:py-16 px-6 md:px-12 bg-card">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="text-center mb-16"
+            className="text-center mb-10 md:mb-16"
           >
             <span className="chapter-label block">The Masters</span>
             <h2 className="font-display text-3xl md:text-5xl">
@@ -185,7 +185,7 @@ const GhazalHistory = () => {
       </section>
 
       {/* 2025 New Era */}
-      <section className="py-16 px-6 md:px-12">
+      <section className="py-12 md:py-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -198,7 +198,7 @@ const GhazalHistory = () => {
               2025: <span className="text-gold">Lyricists Rise</span>
             </h2>
             
-            <div className="prose-poetry text-muted-foreground space-y-6 mb-12">
+            <div className="prose-poetry text-muted-foreground space-y-6 mb-8 md:mb-12">
               <p className="text-lg">
                 In 2025, India's music and screenwriter groups signed a <strong className="text-foreground">historic agreement 
                 recognizing lyricists as "equal co-authors" and "primary artists"</strong>—not merely contributors.
@@ -214,7 +214,7 @@ const GhazalHistory = () => {
       </section>
 
       {/* Surinder's Place */}
-      <section className="py-16 px-6 md:px-12 bg-card">
+      <section className="py-12 md:py-16 px-6 md:px-12 bg-card">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -227,7 +227,7 @@ const GhazalHistory = () => {
               Surinder Seerat's <span className="text-gold">Place</span> in This Tradition
             </h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 md:mb-12">
               {[
                 { icon: Award, title: 'Technical Mastery', desc: 'Kirchan (1990) won JKAACL Award for "pure form ghazals"' },
                 { icon: BookOpen, title: 'Philosophical Depth', desc: 'Physicist background brings unique epistemological perspective' },
@@ -259,8 +259,8 @@ const GhazalHistory = () => {
       </section>
 
       {/* Answer Blocks for SEO */}
-      <section className="py-16 px-6 md:px-12">
-        <div className="max-w-3xl mx-auto space-y-12">
+      <section className="py-12 md:py-16 px-6 md:px-12">
+        <div className="max-w-3xl mx-auto space-y-10 md:space-y-12">
           <AnswerBlock
             id="what-is-ghazal"
             question="What is a ghazal?"
@@ -280,7 +280,7 @@ const GhazalHistory = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-6 md:px-12 bg-card">
+      <section className="py-12 md:py-16 px-6 md:px-12 bg-card">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
