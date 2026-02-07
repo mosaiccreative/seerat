@@ -1,4 +1,4 @@
-import { useRef, useCallback, useEffect } from 'react';
+import { useRef, useCallback, useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import useEmblaCarousel from 'embla-carousel-react';
 import { Book } from '@/data/books';
@@ -13,14 +13,44 @@ interface BookshelfStageProps {
 
 export function BookshelfStage({ books, motionEnabled, onBookSelect }: BookshelfStageProps) {
   const spineRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
-  
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: 'start',
-    dragFree: true,
-    containScroll: false,
-    skipSnaps: true,
+
+  // Responsive alignment: center on mobile/tablet, start on desktop (Tailwind `lg` = 1024px)
+  const [isDesktop, setIsDesktop] = useState(() => {
+    if (typeof window === 'undefined') return true;
+    return window.matchMedia('(min-width: 1024px)').matches;
   });
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const mq = window.matchMedia('(min-width: 1024px)');
+    const onChange = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+
+    // Initialize
+    setIsDesktop(mq.matches);
+
+    // Subscribe
+    mq.addEventListener?.('change', onChange);
+    return () => mq.removeEventListener?.('change', onChange);
+  }, []);
+
+  const emblaOptions = useMemo(
+    () => ({
+      loop: true,
+      align: (isDesktop ? 'start' : 'center') as 'start' | 'center',
+      dragFree: true,
+      containScroll: false as const,
+      skipSnaps: true,
+    }),
+    [isDesktop]
+  );
+
+  const [emblaRef, emblaApi] = useEmblaCarousel(emblaOptions);
+
+  useEffect(() => {
+    // Ensure Embla recalculates alignment on breakpoint changes
+    emblaApi?.reInit(emblaOptions);
+  }, [emblaApi, emblaOptions]);
 
   const handleSelectBook = useCallback((bookId: string) => {
     const cardElement = document.getElementById(`book-card-${bookId}`);
