@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { CinematicReveal } from '@/components/animations/CinematicReveal';
+import { StaggerReveal } from '@/components/animations/StaggerReveal';
 import { DecorativeDivider } from '@/components/ui/decorative-divider';
+
+const pillars = [
+  { keyword: 'Physics', connector: 'meets', complement: 'mysticism' },
+  { keyword: 'Kashmir', connector: 'meets', complement: 'California' },
+  { keyword: 'Tradition', connector: 'meets', complement: 'the modern soul' },
+];
 
 export function RareCombinationSection() {
   return (
@@ -22,33 +29,60 @@ export function RareCombinationSection() {
             <span className="text-gold italic">modernity</span>.
           </h2>
           
-        <p className="text-xl md:text-2xl text-burgundy font-display">
-          Seerat masters both.
-        </p>
-        </div>
-        
-        {/* Body text with improved readability */}
-        <div className="prose-poetry text-burgundy/80 space-y-6 max-w-[65ch] mx-auto text-base md:text-lg leading-[1.8]">
-          <p>
-            His ghazals maintain the <strong className="text-burgundy font-medium">technical purity</strong> that won him 
-            three consecutive awards from the Jammu & Kashmir Academy of Art, Culture & Languages (1982, 1987, 1991). 
-            Yet his work explores <strong className="text-burgundy font-medium">contemporary questions</strong>: consciousness 
-            and language, the immigrant experience, the limits of rational thought.
+          <p className="text-xl md:text-2xl text-burgundy font-display">
+            Seerat masters both.
           </p>
         </div>
         
-        <DecorativeDivider variant="rhythm" className="my-12" />
-        
-        {/* Three pillars */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 font-display text-base md:text-lg text-center">
-          <span><strong className="text-gold">Physics</strong> meets mysticism.</span>
-          <span className="hidden md:inline text-gold/50">•</span>
-          <span><strong className="text-gold">Kashmir</strong> meets California.</span>
-          <span className="hidden md:inline text-gold/50">•</span>
-          <span><strong className="text-gold">Tradition</strong> meets the modern soul.</span>
+        {/* Body text with pull-quote styling */}
+        <div className="border-l-2 border-gold/40 pl-6 py-6 bg-burgundy/[0.02] rounded-r-sm">
+          <div className="prose-poetry text-burgundy/80 space-y-6 max-w-[65ch] mx-auto text-base md:text-lg leading-[1.8]">
+            <p>
+              His ghazals maintain the <strong className="text-burgundy font-medium">technical purity</strong> that won him 
+              three consecutive awards from the Jammu & Kashmir Academy of Art, Culture & Languages (1982, 1987, 1991). 
+              Yet his work explores <strong className="text-burgundy font-medium">contemporary questions</strong>: consciousness 
+              and language, the immigrant experience, the limits of rational thought.
+            </p>
+          </div>
         </div>
         
-        <DecorativeDivider variant="line" className="my-12" />
+        <DecorativeDivider variant="rhythm" className="my-16" />
+        
+        {/* Three pillars as elevated cards */}
+        <StaggerReveal 
+          className="grid grid-cols-1 md:grid-cols-3 gap-6" 
+          staggerDelay={0.15}
+        >
+          {pillars.map((pillar) => (
+            <div 
+              key={pillar.keyword}
+              className="group relative p-8 border border-burgundy/10 bg-cream/50 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-gold/30"
+            >
+              {/* Gold top accent bar */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-gold" />
+              
+              {/* Decorative diamond */}
+              <div className="w-2 h-2 border border-gold/60 rotate-45 mx-auto mb-4" aria-hidden="true" />
+              
+              {/* Keyword */}
+              <span className="block text-gold font-display text-xl md:text-2xl font-medium">
+                {pillar.keyword}
+              </span>
+              
+              {/* Connector */}
+              <span className="block text-burgundy/50 text-sm font-ui uppercase tracking-widest my-2">
+                {pillar.connector}
+              </span>
+              
+              {/* Complement */}
+              <span className="block text-burgundy font-display text-lg md:text-xl">
+                {pillar.complement}
+              </span>
+            </div>
+          ))}
+        </StaggerReveal>
+        
+        <DecorativeDivider variant="line" className="my-16" />
         
         {/* Extended bio */}
         <div className="prose-poetry text-burgundy/80 space-y-6 max-w-[65ch] mx-auto text-base md:text-lg leading-[1.8]">
