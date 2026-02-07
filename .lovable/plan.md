@@ -1,137 +1,62 @@
 
-
-# Widen Bookshelf & Improve Scroll Experience
+# Replace Book Cover with New Premium 3D Book Asset
 
 ## Overview
-This plan addresses two issues on the homepage bookshelf:
-1. Making the bookshelf wider to fit more books without scrolling on desktop
-2. Improving the horizontal scroll experience on mobile with proper scrollbar hiding and visual scroll indicators
+Replace the current book cover implementation with the user's provided premium leather-bound book image. The new image already contains all three scripts (Gurmukhi, Urdu, English) embedded directly, so we'll remove the text overlays and simplify the background to a pure matte black as requested.
 
----
+## Changes Required
 
-## Current State Analysis
+### 1. Add New Book Asset
+- Copy the uploaded image (`IMG_9891.png`) to `src/assets/` as a new book image (e.g., `seerat-book-cover.png`)
+- Update the import in BookCover.tsx to use the new asset
 
-| Aspect | Current Value | Issue |
-|--------|---------------|-------|
-| Max width | `max-w-6xl` (1152px) | Constrains 8 books |
-| Scrollbar hiding | Class used but undefined | Scrollbars visible |
-| Scroll indicators | None | Users don't know content scrolls |
-| Book spine widths | 48-60px each | ~450px total needed |
+### 2. Simplify Background
+- Remove the radial gradient overlay (currently lines 21-27)
+- Remove the ambient warm glow effect (currently lines 29-42)
+- Set background to pure matte black (`bg-black` or `#000000`)
 
----
+### 3. Remove Text Overlays
+- Remove all three text overlay spans (Gurmukhi, Urdu, English) since they're now baked into the image (lines 123-156)
 
-## Changes
+### 4. Simplify Lighting Effects
+- Remove the "warm glow behind the book" effect (lines 83-95)
+- Keep the subtle book shadow for depth, but make it more subtle
+- Maintain the 3D floating animation for premium feel
 
-### 1. Remove Max-Width Constraint on Bookshelf
+### 5. Keep Essential Elements
+- Preserve the 3D perspective and floating animation
+- Keep the "Open the book" call-to-action
+- Keep the corner accent decorations
+- Maintain the opening transition animation
 
-**File:** `src/components/bookshelf/BookshelfStage.tsx`
+## File Changes
 
-Remove the `max-w-6xl` constraint so the bookshelf can expand to fill available space in the hero's grid column.
-
-```tsx
-// Before (line 53)
-className="relative w-full max-w-6xl mx-auto"
-
-// After
-className="relative w-full mx-auto"
-```
-
-This allows the bookshelf to use the full width of its container (the right column of the hero grid), which on large screens is roughly half of `max-w-7xl` (640px).
-
----
-
-### 2. Add Scrollbar-Hide CSS Utility
-
-**File:** `src/index.css`
-
-Add the missing `scrollbar-hide` utility class that hides scrollbars while maintaining scroll functionality.
-
-```css
-/* Add to @layer utilities */
-.scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari, Opera */
-}
-```
-
----
-
-### 3. Add Subtle Scroll Fade Indicators
-
-**File:** `src/components/bookshelf/BookshelfStage.tsx`
-
-Add gradient fade overlays on the left/right edges that hint at scrollable content on smaller screens.
-
-```tsx
-{/* Scroll fade indicators - visible only when scrollable */}
-<div 
-  className="absolute left-0 top-0 bottom-4 w-8 pointer-events-none md:hidden"
-  style={{
-    background: 'linear-gradient(to right, hsl(var(--background)), transparent)'
-  }}
-  aria-hidden="true"
-/>
-<div 
-  className="absolute right-0 top-0 bottom-4 w-8 pointer-events-none md:hidden"
-  style={{
-    background: 'linear-gradient(to left, hsl(var(--background)), transparent)'
-  }}
-  aria-hidden="true"
-/>
-```
-
-These overlays:
-- Only show on mobile (`md:hidden`)
-- Create a subtle fade effect indicating more content exists
-- Are non-interactive (`pointer-events-none`)
-
----
-
-### 4. Improve Book Container Centering
-
-**File:** `src/components/bookshelf/BookshelfStage.tsx`
-
-Adjust the inner container to better center books when they don't need to scroll.
-
-```tsx
-// Before (line 66)
-<div className="flex items-end justify-center gap-2 md:gap-4 min-w-max mx-auto">
-
-// After
-<div className="flex items-end justify-start md:justify-center gap-2 md:gap-4 min-w-max md:min-w-0 mx-auto">
-```
-
-This change:
-- On mobile: left-align books for natural scroll start position
-- On desktop: center books when no scroll is needed
-- `md:min-w-0` allows books to wrap/fit naturally on larger screens
-
----
-
-## Summary of File Changes
-
-| File | Changes |
-|------|---------|
-| `BookshelfStage.tsx` | Remove max-width, add scroll fade indicators, adjust centering |
-| `index.css` | Add `.scrollbar-hide` utility class |
+| File | Action |
+|------|--------|
+| `src/assets/seerat-book-cover.png` | Create (copy from upload) |
+| `src/components/BookCover.tsx` | Modify |
 
 ---
 
 ## Technical Details
 
-**Width Calculation:**
-- 8 books × ~55px average spine width = ~440px
-- Plus gaps (7 × 16px on desktop) = ~112px
-- Total needed: ~550px
-- Hero right column on desktop: ~640px at `max-w-7xl`
-- Result: All 8 books should fit without scrolling on desktop ≥1024px
+### BookCover.tsx Changes
 
-**Accessibility:**
-- Scroll fade indicators are decorative (`aria-hidden`)
-- Keyboard navigation already supported via arrow keys
-- Focus states preserved on book spines
+```text
+Key modifications:
+1. Import: leather-book.png -> seerat-book-cover.png
+2. Background: Remove gradient, use pure bg-black
+3. Remove: Ambient glow div, warm glow behind book div
+4. Remove: All text overlay spans
+5. Simplify: Drop shadow to be more subtle/cinematic
+6. Keep: 3D transform, floating animation, CTA, corner accents
+```
 
+### Updated Structure
+- Pure black background container
+- 3D floating book with subtle shadow
+- Book image (no additional overlays)
+- "Open the book" CTA at bottom
+- Corner gold accents
+
+The result will be a clean, museum-quality presentation matching the user's specifications: a single floating 3D book centered on a pure black page, clean, minimal, and premium.
