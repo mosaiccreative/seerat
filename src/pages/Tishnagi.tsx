@@ -257,13 +257,20 @@ const Tishnagi = () => {
               Go <span className="text-gold">Deeper</span>
             </h2>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/books" className="btn-gold">
+            <div className="flex flex-col gap-4 justify-center items-center">
+              <Link 
+                to="/books" 
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold text-background font-ui text-sm tracking-[0.15em] uppercase hover:bg-gold/90 transition-colors w-full sm:w-auto"
+              >
                 Read the Poetry
                 <ArrowRight size={16} />
               </Link>
-              <Link to="/course" className="btn-minimal">
+              <Link 
+                to="/course" 
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-background border border-gold/30 text-gold font-ui text-sm tracking-[0.15em] uppercase hover:bg-gold/10 hover:border-gold/50 transition-colors w-full sm:w-auto"
+              >
                 Understand the Form
+                <ArrowRight size={16} />
               </Link>
             </div>
           </motion.div>
