@@ -50,12 +50,28 @@ export function BookshelfStage({ books, motionEnabled, onBookSelect }: Bookshelf
 
   return (
     <div 
-      className="relative w-full max-w-6xl mx-auto"
+      className="relative w-full mx-auto"
       role="list"
       aria-label="Book collection - select a spine to scroll to details"
     >
       {/* Single-row shelf with horizontal scroll on mobile */}
       <div className="relative">
+        {/* Scroll fade indicators - visible only when scrollable */}
+        <div 
+          className="absolute left-0 top-0 bottom-4 w-8 pointer-events-none md:hidden z-10"
+          style={{
+            background: 'linear-gradient(to right, hsl(var(--background)), transparent)'
+          }}
+          aria-hidden="true"
+        />
+        <div 
+          className="absolute right-0 top-0 bottom-4 w-8 pointer-events-none md:hidden z-10"
+          style={{
+            background: 'linear-gradient(to left, hsl(var(--background)), transparent)'
+          }}
+          aria-hidden="true"
+        />
+        
         {/* Shelf surface with books */}
         <div 
           className={cn(
@@ -63,7 +79,7 @@ export function BookshelfStage({ books, motionEnabled, onBookSelect }: Bookshelf
             "pt-8 pb-4 px-4 md:px-8"
           )}
         >
-          <div className="flex items-end justify-center gap-2 md:gap-4 min-w-max mx-auto">
+          <div className="flex items-end justify-start md:justify-center gap-2 md:gap-4 min-w-max md:min-w-0 mx-auto">
             {books.map((book, index) => (
               <motion.div
                 key={book.id}
