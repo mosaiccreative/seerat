@@ -356,16 +356,12 @@ const GhazalHistory = () => {
             id="what-is-ghazal"
             question="What is a ghazal?"
             answer="A ghazal is a poetic form originating in 7th-century Arabia, composed of rhyming couplets (sher) and a refrain (radif). Each couplet stands alone as a complete thought while exploring themes of longing, mysticism, beauty, and consciousness. The form shaped Indian cinema through Bollywood's golden era and continues to captivate audiences today."
-            sourceLabel="Ghazal History"
-            sourceUrl="https://www.surinderseerat.com/ghazal-history/"
           />
           
           <AnswerBlock
             id="ghazal-bollywood-connection"
             question="How did ghazals influence Bollywood?"
             answer="Ghazals provided the foundation for Bollywood music from the first talkie film Alam Ara (1931) through the 1960s. Legendary poet-lyricists like Gulzar, Javed Akhtar, and Irshad Kamil brought literary excellence to film, establishing a tradition where poetry and cinema were inseparable. In 2025, lyricists were officially recognized as 'equal co-authors' in Indian film music."
-            sourceLabel="Bollywood Legacy"
-            sourceUrl="https://www.surinderseerat.com/ghazal-history/"
           />
         </div>
       </section>
