@@ -38,7 +38,7 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <span className="chapter-label block">Connect</span>
+            <span className="chapter-label block">Arz Kiya Hai</span>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl mb-8">
               Get in <span className="text-gold italic">Touch</span>
             </h1>
