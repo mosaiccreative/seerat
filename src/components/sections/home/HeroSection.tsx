@@ -28,89 +28,91 @@ export function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-burgundy px-6 py-24 md:py-32">
-      {/* Background texture - subtle paper grain */}
-      <div 
-        className="absolute inset-0 opacity-[0.03]"
-        style={{ 
-          backgroundImage: `url(${bookPages})`, 
-          backgroundSize: 'cover',
-          backgroundPosition: 'center' 
-        }}
-        aria-hidden="true"
-      />
-      
-      {/* Refined gradient overlay */}
-      <div 
-        className="absolute inset-0 bg-gradient-to-b from-burgundy-dark/40 via-transparent to-burgundy-dark/60" 
-        aria-hidden="true" 
-      />
-      
-      <motion.div
-        className="relative z-10 text-center max-w-3xl mx-auto"
-        variants={shouldAnimate ? stagger : undefined}
-        initial={shouldAnimate ? "hidden" : undefined}
-        animate="visible"
-      >
-        {/* Top badge */}
-        <motion.div variants={shouldAnimate ? fadeUp : undefined} className="mb-4">
-          <span className="inline-block px-5 py-2.5 bg-gold/5 border border-gold/20 text-gold font-ui text-[11px] tracking-[0.2em] uppercase">
-            Award-Winning Punjabi Ghazal Writer
-          </span>
-        </motion.div>
-        
-        {/* Sub-badge */}
-        <motion.div variants={shouldAnimate ? fadeUp : undefined} className="mb-8">
-          <span className="font-ui text-xs tracking-[0.15em] text-cream/60 uppercase">
-            Poet · Novelist · Critic
-          </span>
-        </motion.div>
-        
-        {/* Headline with improved typography */}
-        <motion.h1 
-          variants={shouldAnimate ? fadeUp : undefined}
-          className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-8 leading-[1.1] tracking-tight max-w-[18ch] mx-auto"
-        >
-          The Physicist Who Became a{' '}
-          <span className="text-gold italic">Poet</span>
-        </motion.h1>
-        
-        {/* Decorative divider */}
-        <motion.div variants={shouldAnimate ? fadeUp : undefined} className="flex justify-center mb-8">
-          <div className="flex items-center gap-3" aria-hidden="true">
-            <div className="w-12 h-px bg-gold/30" />
-            <div className="w-1.5 h-1.5 border border-gold/50 rotate-45" />
-            <div className="w-12 h-px bg-gold/30" />
-          </div>
-        </motion.div>
-        
-        {/* Subhead with comfortable line length */}
-        <motion.p 
-          variants={shouldAnimate ? fadeUp : undefined}
-          className="font-body text-lg md:text-xl text-cream/80 max-w-[55ch] mx-auto leading-relaxed"
-        >
-          Exploring consciousness, longing, and the immigrant experience through the ancient art of the ghazal
-        </motion.p>
-        
-      </motion.div>
-
-      {/* Bookshelf Stage */}
-      <section className="py-8 md:py-16 px-4 md:px-8">
+    <>
+      {/* Bookshelf Zone - Black Background */}
+      <section className="relative overflow-hidden bg-background pt-24 md:pt-32 pb-8">
         <BookshelfStage 
           books={[...books].sort((a, b) => parseInt(a.year) - parseInt(b.year))} 
           motionEnabled={shouldAnimate}
         />
       </section>
 
-      {/* Scroll cue */}
-      <motion.div 
-        initial={shouldAnimate ? { opacity: 0 } : undefined}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="pb-12"
-      >
-        <ScrollCue />
-      </motion.div>
-    </section>
+      {/* Text Zone - Maroon Background */}
+      <section className="relative overflow-hidden bg-burgundy px-6 py-16 md:py-24">
+        {/* Background texture - subtle paper grain */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{ 
+            backgroundImage: `url(${bookPages})`, 
+            backgroundSize: 'cover',
+            backgroundPosition: 'center' 
+          }}
+          aria-hidden="true"
+        />
+        
+        {/* Refined gradient overlay */}
+        <div 
+          className="absolute inset-0 bg-gradient-to-b from-burgundy-dark/40 via-transparent to-burgundy-dark/60" 
+          aria-hidden="true" 
+        />
+        
+        <motion.div
+          className="relative z-10 text-center max-w-3xl mx-auto"
+          variants={shouldAnimate ? stagger : undefined}
+          initial={shouldAnimate ? "hidden" : undefined}
+          animate="visible"
+        >
+          {/* Top badge */}
+          <motion.div variants={shouldAnimate ? fadeUp : undefined} className="mb-4">
+            <span className="inline-block px-5 py-2.5 bg-gold/5 border border-gold/20 text-gold font-ui text-[11px] tracking-[0.2em] uppercase">
+              Award-Winning Punjabi Ghazal Writer
+            </span>
+          </motion.div>
+          
+          {/* Sub-badge */}
+          <motion.div variants={shouldAnimate ? fadeUp : undefined} className="mb-8">
+            <span className="font-ui text-xs tracking-[0.15em] text-cream/60 uppercase">
+              Poet · Novelist · Critic
+            </span>
+          </motion.div>
+          
+          {/* Headline with improved typography */}
+          <motion.h1 
+            variants={shouldAnimate ? fadeUp : undefined}
+            className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-8 leading-[1.1] tracking-tight max-w-[18ch] mx-auto"
+          >
+            The Physicist Who Became a{' '}
+            <span className="text-gold italic">Poet</span>
+          </motion.h1>
+          
+          {/* Decorative divider */}
+          <motion.div variants={shouldAnimate ? fadeUp : undefined} className="flex justify-center mb-8">
+            <div className="flex items-center gap-3" aria-hidden="true">
+              <div className="w-12 h-px bg-gold/30" />
+              <div className="w-1.5 h-1.5 border border-gold/50 rotate-45" />
+              <div className="w-12 h-px bg-gold/30" />
+            </div>
+          </motion.div>
+          
+          {/* Subhead with comfortable line length */}
+          <motion.p 
+            variants={shouldAnimate ? fadeUp : undefined}
+            className="font-body text-lg md:text-xl text-cream/80 max-w-[55ch] mx-auto leading-relaxed"
+          >
+            Exploring consciousness, longing, and the immigrant experience through the ancient art of the ghazal
+          </motion.p>
+        </motion.div>
+
+        {/* Scroll cue at bottom */}
+        <motion.div 
+          initial={shouldAnimate ? { opacity: 0 } : undefined}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="relative z-10 mt-12 flex justify-center"
+        >
+          <ScrollCue />
+        </motion.div>
+      </section>
+    </>
   );
 }
