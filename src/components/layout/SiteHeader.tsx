@@ -20,7 +20,7 @@ export function SiteHeader() {
   const { shouldAnimate } = useMotionPreference();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 bg-background/90 backdrop-blur-md border-b border-border/10">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/10">
       <nav className="container mx-auto px-6 md:px-12 py-5 flex items-center justify-between">
         <Link 
           to="/" 
@@ -71,10 +71,9 @@ export function SiteHeader() {
             animate={{ opacity: 1, y: 0 }}
             exit={shouldAnimate ? { opacity: 0, y: -20 } : undefined}
             transition={{ duration: 0.3 }}
-            className="md:hidden fixed inset-x-0 top-[73px] bottom-0 z-50 overflow-y-auto"
-            style={{ backgroundColor: 'hsl(240 10% 4%)' }}
+            className="md:hidden fixed inset-x-0 top-[73px] bottom-0 z-[60] overflow-y-auto bg-[hsl(240,10%,4%)]"
           >
-            <div className="border-t border-border/30 px-6 py-12 min-h-full" style={{ backgroundColor: 'hsl(240 10% 4%)' }}>
+            <div className="border-t border-gold/20 px-6 py-12 min-h-full bg-[hsl(240,10%,4%)]">
               <ul className="flex flex-col gap-6">
                 {navItems.map((item) => (
                   <li key={item.href}>
