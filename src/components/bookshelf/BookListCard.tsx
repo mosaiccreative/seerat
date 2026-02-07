@@ -84,6 +84,11 @@ export function BookListCard({
       <div className="flex flex-col max-w-[65ch]">
         {/* Top badges row */}
         <div className="flex flex-wrap items-center gap-2 mb-4">
+          {/* Year badge */}
+          <span className="px-3 py-1 text-xs font-ui tracking-wide border border-border/50 text-muted-foreground">
+            {year}
+          </span>
+          
           {/* Form badge */}
           {form && (
             <span className="px-3 py-1 text-xs font-ui tracking-wide border border-border/50 text-muted-foreground">
@@ -109,7 +114,7 @@ export function BookListCard({
         
         {/* Title with year */}
         <h3 className="font-display text-2xl md:text-3xl lg:text-4xl text-foreground mb-1">
-          {title} ({year})
+          {title}
         </h3>
         
         {/* Subtitle */}
