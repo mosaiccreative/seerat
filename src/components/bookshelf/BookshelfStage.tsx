@@ -9,9 +9,10 @@ interface BookshelfStageProps {
   books: Book[];
   motionEnabled: boolean;
   onBookSelect?: (bookId: string) => void;
+  centered?: boolean;
 }
 
-export function BookshelfStage({ books, motionEnabled, onBookSelect }: BookshelfStageProps) {
+export function BookshelfStage({ books, motionEnabled, onBookSelect, centered = false }: BookshelfStageProps) {
   const spineRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
 
   // Responsive alignment: center on mobile/tablet, start on desktop (Tailwind `lg` = 1024px)
@@ -37,14 +38,14 @@ export function BookshelfStage({ books, motionEnabled, onBookSelect }: Bookshelf
   const emblaOptions = useMemo(
     () => ({
       loop: true,
-      align: (isDesktop ? 'start' : 'center') as 'start' | 'center',
-      // On smaller screens, start in the middle so the shelf *visually* reads as centered.
-      startIndex: isDesktop ? 0 : Math.floor(books.length / 2),
+      align: (centered || !isDesktop ? 'center' : 'start') as 'start' | 'center',
+      // On smaller screens or when centered prop is true, start in the middle so the shelf *visually* reads as centered.
+      startIndex: (centered || !isDesktop) ? Math.floor(books.length / 2) : 0,
       dragFree: true,
       containScroll: false as const,
       skipSnaps: true,
     }),
-    [isDesktop, books.length]
+    [isDesktop, books.length, centered]
   );
 
   const [emblaRef, emblaApi] = useEmblaCarousel(emblaOptions);

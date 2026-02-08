@@ -192,6 +192,7 @@ const Books = () => {
         <BookshelfStage 
           books={sortedBooks} 
           motionEnabled={shouldAnimate}
+          centered
         />
       </section>
 
