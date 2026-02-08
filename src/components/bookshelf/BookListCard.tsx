@@ -1,3 +1,4 @@
+import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -39,6 +40,13 @@ export function BookListCard({
   motionEnabled,
   index,
 }: BookListCardProps) {
+  const [coverFailed, setCoverFailed] = useState(false);
+  const effectiveCover = useMemo(() => {
+    if (!coverImage) return undefined;
+    if (coverFailed) return undefined;
+    return coverImage;
+  }, [coverImage, coverFailed]);
+
   return (
     <motion.article
       id={`book-card-${id}`}
@@ -50,8 +58,8 @@ export function BookListCard({
       initial={motionEnabled ? { opacity: 0, y: 40 } : undefined}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ 
-        delay: index * 0.1, 
+      transition={{
+        delay: index * 0.1,
         duration: 0.6,
         ease: [0.16, 1, 0.3, 1]
       }}
@@ -59,12 +67,14 @@ export function BookListCard({
       {/* Cover Image */}
       <div className="relative">
         <AspectRatio ratio={3/4} className="bg-muted overflow-hidden">
-          {coverImage ? (
-            <img 
-              src={coverImage} 
+          {effectiveCover ? (
+            <img
+              src={effectiveCover}
               alt={`Cover of ${title}`}
               className="w-full h-full object-cover"
               loading="lazy"
+              onError={() => setCoverFailed(true)}
+              referrerPolicy="no-referrer"
             />
           ) : (
             // Typographic fallback
