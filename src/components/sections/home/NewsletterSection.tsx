@@ -6,7 +6,7 @@ export function NewsletterSection() {
   return (
     <section className="py-24 md:py-32 px-6 md:px-12 bg-burgundy-dark">
       <CinematicReveal className="max-w-2xl mx-auto">
-        <EmailCapture variant="homepage" />
+        <EmailCapture variant="homepage" endpoint="newsletter" source="homepage" />
         
         {/* Privacy micro-link */}
         <div className="text-center mt-6">
