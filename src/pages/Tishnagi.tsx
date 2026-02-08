@@ -5,8 +5,8 @@ import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { ArrowRight, ExternalLink, Music, BookOpen, Heart } from 'lucide-react';
 import { useEffect } from 'react';
 import { AnswerBlock } from '@/components/sections/AnswerBlock';
-import tishnagiCover from '@/assets/tishnagi-cover.jpg';
 
+const tishnagiCover = '/images/tishnagi-cover.jpg';
 
 const Tishnagi = () => {
   const { shouldAnimate } = useMotionPreference();

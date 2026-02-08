@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { CinematicReveal } from '@/components/animations/CinematicReveal';
-import poetPortrait from '@/assets/poet-portrait.jpg';
+
+const poetPortrait = '/images/poet-portrait.jpg';
 
 export function PoetSection() {
   return (
