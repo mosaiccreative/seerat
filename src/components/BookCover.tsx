@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
-import seeratBook from '@/assets/seerat-book-cover.png';
+
+const seeratBook = '/images/seerat-book-cover.png';
 
 interface BookCoverProps {
   onOpen: () => void;

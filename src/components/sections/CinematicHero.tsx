@@ -1,8 +1,9 @@
 import { motion, type Easing } from 'framer-motion';
- import { ChevronDown } from 'lucide-react';
- import { useMotionPreference } from '@/hooks/useMotionPreference';
- import heroImage from '@/assets/hero-landscape.jpg';
- 
+import { ChevronDown } from 'lucide-react';
+import { useMotionPreference } from '@/hooks/useMotionPreference';
+
+const heroImage = '/images/hero-landscape.jpg';
+
  interface CinematicHeroProps {
    title?: string;
    subtitle?: string;

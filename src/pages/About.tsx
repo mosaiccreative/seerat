@@ -6,7 +6,8 @@ import { FAQAccordion } from '@/components/sections/FAQAccordion';
 import { VerticalTimeline } from '@/components/sections/about/VerticalTimeline';
 import { ArrowRight } from 'lucide-react';
 import { useEffect } from 'react';
-import poetPortrait from '@/assets/poet-portrait.jpg';
+
+const poetPortrait = '/images/poet-portrait.jpg';
 
 const faqItems = [
   {
