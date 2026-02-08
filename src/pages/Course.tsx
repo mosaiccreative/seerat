@@ -80,9 +80,11 @@ const Course = () => {
           viewport={{ once: true }}
         >
           <EmailCapture
+            endpoint="course-waitlist"
             headline="Join the Waitlist"
             description="Be the first to enroll when the course launches."
             buttonText="Join Waitlist"
+            showFirstName
           />
         </motion.div>
       </section>
@@ -266,7 +268,7 @@ const Course = () => {
           <p className="text-muted-foreground mb-8">
             Join the waitlist for early access and exclusive launch pricing.
           </p>
-          <EmailCapture variant="minimal" buttonText="Join Waitlist" />
+          <EmailCapture variant="minimal" endpoint="course-waitlist" buttonText="Join Waitlist" showFirstName />
         </div>
       </section>
     </PageLayout>

@@ -48,11 +48,13 @@
              bringing Surinder Seerat's works directly to your library.
            </p>
            
-           <EmailCapture
-             headline="Be First to Know"
-             description="Get notified when the store launches with exclusive early-bird offers."
-             buttonText="Notify Me"
-           />
+            <EmailCapture
+              endpoint="store-waitlist"
+              headline="Be First to Know"
+              description="Get notified when the store launches with exclusive early-bird offers."
+              buttonText="Notify Me"
+              showFirstName
+            />
          </motion.div>
        </section>
  
