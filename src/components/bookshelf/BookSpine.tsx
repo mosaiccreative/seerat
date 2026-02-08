@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
@@ -14,9 +14,17 @@ interface BookSpineProps {
 
 export const BookSpine = forwardRef<HTMLButtonElement, BookSpineProps>(
   ({ title, year, isSelected, onSelect, motionEnabled, coverImage, index }, ref) => {
+    const [coverFailed, setCoverFailed] = useState(false);
+
     // Deterministic spine thickness based on title length
     const spineWidth = 48 + (title.length % 4) * 4;
-    
+
+    const effectiveCover = useMemo(() => {
+      if (!coverImage) return undefined;
+      if (coverFailed) return undefined;
+      return coverImage;
+    }, [coverImage, coverFailed]);
+
     // Deterministic hue variation based on index
     const hueShift = (index * 15) % 45;
 
@@ -37,8 +45,8 @@ export const BookSpine = forwardRef<HTMLButtonElement, BookSpineProps>(
           y: isSelected ? -12 : 0,
         } : undefined}
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        whileHover={motionEnabled ? { 
-          y: -16, 
+        whileHover={motionEnabled ? {
+          y: -16,
           scale: 1.02,
           transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] }
         } : undefined}
@@ -48,7 +56,7 @@ export const BookSpine = forwardRef<HTMLButtonElement, BookSpineProps>(
         role="button"
       >
         {/* Spine body */}
-        <div 
+        <div
           className={cn(
             "absolute inset-0 rounded-sm overflow-hidden",
             "transition-all duration-300",
@@ -57,18 +65,26 @@ export const BookSpine = forwardRef<HTMLButtonElement, BookSpineProps>(
           )}
         >
           {/* Cover image imprint */}
-          {coverImage && (
-            <img 
-              src={coverImage}
+          {effectiveCover && (
+            <img
+              src={effectiveCover}
               alt=""
               aria-hidden="true"
               className="absolute inset-0 w-full h-full object-cover opacity-60"
               style={{ objectPosition: 'center top' }}
+              onError={() => setCoverFailed(true)}
+              referrerPolicy="no-referrer"
             />
           )}
-          
+
           {/* Gradient overlay for readability */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/60" />
+
+          {/* Spine edge highlight */}
+          <div className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-gold/30 via-gold/10 to-gold/20" />
+
+          {/* Top edge */}
+          <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-gold/20 via-gold/40 to-gold/20" />
           
           {/* Spine edge highlight */}
           <div className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-gold/30 via-gold/10 to-gold/20" />
