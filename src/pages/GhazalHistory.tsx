@@ -301,45 +301,45 @@ const GhazalHistory = () => {
               
               {/* Right Column - Elegant Card */}
               <motion.div 
-                className="relative aspect-square"
+                className="relative"
                 initial={shouldAnimate ? { opacity: 0, scale: 0.95 } : undefined}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                {/* Decorative outer frame */}
-                <div className="absolute -inset-3 border border-gold/20" />
+                {/* Decorative outer frame - hidden on mobile for cleaner look */}
+                <div className="absolute -inset-2 md:-inset-3 border border-gold/20 hidden sm:block" />
                 
                 {/* Main card */}
-                <div className="relative h-full bg-gradient-to-br from-burgundy/10 via-card to-burgundy/5 border border-gold/30 p-8 flex flex-col justify-center">
-                  {/* Gold corner accents */}
-                  <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-gold/40" />
-                  <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-gold/40" />
+                <div className="relative bg-gradient-to-br from-burgundy/10 via-card to-burgundy/5 border border-gold/30 p-4 sm:p-6 md:p-8 flex flex-col justify-center">
+                  {/* Gold corner accents - smaller on mobile */}
+                  <div className="absolute top-2 left-2 sm:top-3 sm:left-3 md:top-4 md:left-4 w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 border-l-2 border-t-2 border-gold/40" />
+                  <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 md:bottom-4 md:right-4 w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 border-r-2 border-b-2 border-gold/40" />
                   
-                  <h3 className="font-display text-xl md:text-2xl text-gold mb-6">
+                  <h3 className="font-display text-lg sm:text-xl md:text-2xl text-gold mb-3 sm:mb-4 md:mb-6">
                     The Bollywood Precedent
                   </h3>
                   
-                  <p className="text-foreground/80 mb-6 text-sm leading-relaxed">
+                  <p className="text-foreground/80 mb-3 sm:mb-4 md:mb-6 text-xs sm:text-sm leading-relaxed">
                     Punjabi poetry has found renewed life in contemporary Indian cinema:
                   </p>
                   
-                  <ul className="space-y-3 text-muted-foreground text-sm mb-6">
-                    <li className="flex items-start gap-3">
-                      <span className="text-gold mt-1">◆</span>
+                  <ul className="space-y-2 sm:space-y-3 text-muted-foreground text-xs sm:text-sm mb-3 sm:mb-4 md:mb-6">
+                    <li className="flex items-start gap-2 sm:gap-3">
+                      <span className="text-gold mt-0.5 sm:mt-1 text-xs sm:text-sm">◆</span>
                       <span>Shiv Kumar Batalvi's poems in <em className="text-foreground">Love Aaj Kal</em> (2009)</span>
                     </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-gold mt-1">◆</span>
+                    <li className="flex items-start gap-2 sm:gap-3">
+                      <span className="text-gold mt-0.5 sm:mt-1 text-xs sm:text-sm">◆</span>
                       <span>Poetry adaptations in <em className="text-foreground">Udta Punjab</em> (2016)</span>
                     </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-gold mt-1">◆</span>
+                    <li className="flex items-start gap-2 sm:gap-3">
+                      <span className="text-gold mt-0.5 sm:mt-1 text-xs sm:text-sm">◆</span>
                       <span>Gulzar's Sufi-inspired lyrics throughout his career</span>
                     </li>
                   </ul>
                   
-                  <p className="text-foreground/60 text-xs italic border-t border-gold/20 pt-4">
+                  <p className="text-foreground/60 text-[10px] sm:text-xs italic border-t border-gold/20 pt-3 sm:pt-4">
                     Quality poetry transcends time. Seerat's ghazals await discovery.
                   </p>
                 </div>
