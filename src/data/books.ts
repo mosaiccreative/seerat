@@ -31,7 +31,7 @@ export const books: Book[] = [
   {
     id: "surat-seerat-te-saraab",
     title: "Surat Seerat Te Saraab",
-    year: "2007",
+    year: "2002",
     type: "Punjabi Ghazals",
     description: "A book of three dimensional ghazals based on form, content and illusion. In which, Seerat encapsulates how the lust of life remains unachievable in the wilderness of humanity.",
     coverImage: "/images/books/Surat-Seerat-Te-Saraab.jpeg"
