@@ -1,19 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { BookCover } from '@/components/BookCover';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 
-// Home page sections
+// Above-the-fold section loaded eagerly
 import { HeroSection } from '@/components/sections/home/HeroSection';
-import { StatsSection } from '@/components/sections/StatsSection';
-import { RareCombinationSection } from '@/components/sections/home/RareCombinationSection';
-import { DifferenceSection } from '@/components/sections/home/DifferenceSection';
-import { BooksSection } from '@/components/sections/home/BooksSection';
-import { AudienceSection } from '@/components/sections/home/AudienceSection';
-import { PoetSection } from '@/components/sections/home/PoetSection';
-import { QuoteSection } from '@/components/sections/home/QuoteSection';
-import { NewsletterSection } from '@/components/sections/home/NewsletterSection';
+
+// Below-the-fold sections lazy-loaded to reduce TTI
+const StatsSection = lazy(() => import('@/components/sections/StatsSection').then(m => ({ default: m.StatsSection })));
+const RareCombinationSection = lazy(() => import('@/components/sections/home/RareCombinationSection').then(m => ({ default: m.RareCombinationSection })));
+const DifferenceSection = lazy(() => import('@/components/sections/home/DifferenceSection').then(m => ({ default: m.DifferenceSection })));
+const BooksSection = lazy(() => import('@/components/sections/home/BooksSection').then(m => ({ default: m.BooksSection })));
+const AudienceSection = lazy(() => import('@/components/sections/home/AudienceSection').then(m => ({ default: m.AudienceSection })));
+const PoetSection = lazy(() => import('@/components/sections/home/PoetSection').then(m => ({ default: m.PoetSection })));
+const QuoteSection = lazy(() => import('@/components/sections/home/QuoteSection').then(m => ({ default: m.QuoteSection })));
+const NewsletterSection = lazy(() => import('@/components/sections/home/NewsletterSection').then(m => ({ default: m.NewsletterSection })));
 
 const SESSION_KEY = 'book-opened-this-session';
 
@@ -50,14 +52,16 @@ const Index = () => {
       {showContent && (
         <PageLayout>
           <HeroSection />
-          <StatsSection />
-          <RareCombinationSection />
-          <DifferenceSection />
-          <BooksSection />
-          <AudienceSection />
-          <PoetSection />
-          <QuoteSection />
-          <NewsletterSection />
+          <Suspense fallback={null}>
+            <StatsSection />
+            <RareCombinationSection />
+            <DifferenceSection />
+            <BooksSection />
+            <AudienceSection />
+            <PoetSection />
+            <QuoteSection />
+            <NewsletterSection />
+          </Suspense>
         </PageLayout>
       )}
     </div>

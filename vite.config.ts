@@ -20,17 +20,11 @@ export default defineConfig(() => ({
     rollupOptions: {
       output: {
         manualChunks: {
-          // Split large dependencies into cacheable chunks
+          // Only keep React in an eager chunk; motion and radix
+          // are loaded via lazy routes / dynamic imports so they
+          // naturally code-split without forcing them into an
+          // up-front bundle that delays TTI.
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-motion': ['framer-motion'],
-          'vendor-radix': [
-            '@radix-ui/react-accordion',
-            '@radix-ui/react-dialog',
-            '@radix-ui/react-dropdown-menu',
-            '@radix-ui/react-navigation-menu',
-            '@radix-ui/react-tooltip',
-            '@radix-ui/react-scroll-area',
-          ],
         },
       },
     },
