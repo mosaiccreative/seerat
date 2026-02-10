@@ -87,8 +87,8 @@ export function RareCombinationSection() {
         {/* Extended bio */}
         <div className="prose-poetry text-burgundy/80 space-y-6 max-w-[65ch] mx-auto text-base md:text-lg leading-[1.8]">
           <p>
-            Born in Saidpora, Pulwama in Kashmir, Surinder Singh Seerat was the{' '}
-            <strong className="text-burgundy font-medium">first person in his family—and his entire village—to graduate from university</strong>. 
+            Born in Saidpora—a small settlement in the Pulwama district of the Kashmir Valley, a temperate region of rice paddies and saffron fields at 1,500 meters above sea level—Surinder Singh Seerat was the{' '}
+            <strong className="text-burgundy font-medium">first person in his family, and his entire community, to graduate from university</strong>. 
             He built a career as a physics professor, taught for over twenty years, and worked in corporate America 
             at IBM, Iomega, and the U.S. Postal Service.
           </p>

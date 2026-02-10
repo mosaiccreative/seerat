@@ -11,7 +11,7 @@ const differenceItems = [
   },
   {
     title: 'The Immigrant Bridge',
-    desc: "His journey—from Kashmir village to California literary leadership—embodies the diaspora experience. His poetry speaks to displacement and belonging, honoring Punjabi tradition while building something new.",
+    desc: "His journey—from the Kashmir Valley to California literary leadership—embodies the diaspora experience. His poetry speaks to displacement and belonging, honoring Punjabi tradition while building something new.",
   },
   {
     title: 'Literary Leadership',
