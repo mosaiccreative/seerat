@@ -1,46 +1,26 @@
 
-# Center Bookshelf on Mobile/Tablet View
 
-## The Issue
-When the screen size causes the layout to stack (books above H1 text), the bookshelf appears left-aligned instead of centered. This happens because:
-1. The Embla carousel uses `align: 'start'` which left-aligns the book spines
-2. On mobile, the carousel container spans the full width but content starts from the left
+## Consistent "Back to Books" Scroll Behavior
 
-## Solution
-Apply responsive centering to the bookshelf so that on mobile/tablet (when it stacks above the H1), the books are centered, while maintaining the current behavior on larger screens.
+**The Problem:** When you're on a book detail page (e.g., `/books/kirchan`) and click "Back to All Works," you're taken to the top of the `/books` page. But when you use the browser's Back button, the browser tries to restore your previous scroll position. You want both to behave the same way -- returning you to where that book was on the page.
 
----
+**The Solution:** Two changes:
 
-## Technical Changes
+1. **Replace the "Back to All Works" link with browser-style back navigation** -- instead of navigating forward to `/books`, it will use `navigate(-1)` (equivalent to the browser back button), so the browser restores your scroll position automatically.
 
-### 1. Update BookshelfStage Component
-**File:** `src/components/bookshelf/BookshelfStage.tsx`
-
-Change the Embla carousel alignment to be responsive:
-- On mobile/tablet (`lg:` breakpoint and below): Use `align: 'center'` to center the books
-- On desktop: Keep `align: 'start'` for the current left-to-right scrolling behavior
-
-Since Embla doesn't support responsive options out of the box, we'll:
-- Add a `centered` prop to `BookshelfStage`
-- Use CSS flexbox centering as a fallback for the inner container on smaller screens
-
-**Changes:**
-```text
-Line 90: Change from:
-  <div className="flex items-end gap-2 md:gap-4">
-
-To:
-  <div className="flex items-end gap-2 md:gap-4 justify-center lg:justify-start">
-```
-
-### 2. Update HeroSection to Pass Centering Context
-**File:** `src/components/sections/home/HeroSection.tsx`
-
-Ensure the bookshelf container properly constrains width on mobile for centering:
-- The current setup already has `justify-center`, but we may need to adjust overflow behavior
+2. **Update ScrollToTop to skip back/forward navigation** -- currently it forces scroll-to-top on every route change, even browser back/forward. We'll detect navigation type and only scroll to top on new navigations (clicking links to new pages), not when going back.
 
 ---
 
-## Visual Outcome
-- **Mobile/Tablet (stacked layout):** Books will be horizontally centered above the H1 text
-- **Desktop (side-by-side layout):** Books remain left-aligned with drag-to-scroll behavior intact
+### Technical Details
+
+**File 1: `src/components/ScrollToTop.tsx`**
+- Use `useNavigationType()` from react-router-dom to detect if the navigation is a `PUSH` (new link click) vs `POP` (back/forward button).
+- Only call `window.scrollTo(0, 0)` on `PUSH` navigations, letting the browser handle scroll restoration on `POP`.
+
+**File 2: `src/pages/BookDetail.tsx`**
+- Replace the `<Link to="/books">` "Back to All Works" with a `<button>` that calls `navigate(-1)`.
+- Add a fallback: if there's no history to go back to (user landed directly on the book page), fall back to navigating to `/books`.
+
+These are small, focused changes that won't affect any other page's behavior -- new page visits still scroll to top as expected.
+
