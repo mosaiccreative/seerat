@@ -12,6 +12,8 @@ export interface Book {
   coverPosition?: string;
   /** How the cover image fits its container. "contain" shows full image with letterboxing. Default: "cover" */
   coverFit?: "cover" | "contain";
+  /** Scale factor for the cover image, e.g. 1.1 = 10% zoom in. Default: 1 */
+  coverScale?: number;
 }
 
 export const books: Book[] = [
@@ -99,7 +101,8 @@ export const books: Book[] = [
     description: "Composition of ghazals in its pure form. The premise of this anthology of poems is to discuss the deeply hidden realities of life, which are scattered in the spectrum of life.",
     award: "Best book award from JKAACL in 1991",
     coverImage: "/images/books/Kirchan.jpeg",
-    coverFit: "contain"
+    coverFit: "contain",
+    coverScale: 1.1
   },
   {
     id: "bharam-bhullayan",
