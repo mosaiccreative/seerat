@@ -106,7 +106,7 @@ export function HeroSection() {
           transition={{ delay: 1.2, duration: 0.8, ease: easeOut }}
           className="font-body text-base md:text-lg text-cream/70 text-center max-w-[50ch] mx-auto px-6"
         >
-          Exploring consciousness, longing, and the immigrant experience through the ancient art of the ghazal
+          Exploring consciousness, longing, and the immigrant experience through the ancient art of the ghazal.
         </motion.p>
       </div>
     </section>
