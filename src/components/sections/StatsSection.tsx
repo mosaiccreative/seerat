@@ -1,9 +1,9 @@
 import { StaggerReveal } from '@/components/animations/StaggerReveal';
 
 const stats = [
-  { value: '8', label: 'Published Books' },
-  { value: '4', label: 'Major Awards' },
-  { value: '34', label: 'Years of Poetry' },
+  { value: '13', label: 'Published Books' },
+  { value: '7', label: 'Major Awards' },
+  { value: '45', label: 'Years of Poetry' },
   { value: '2', label: 'Orgs Founded' },
 ];
 
