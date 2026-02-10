@@ -74,16 +74,16 @@ const BookDetail = () => {
                animate={{ opacity: 1, x: 0 }}
                transition={{ duration: 0.8 }}
              >
-               <div className="relative aspect-[3/4] overflow-hidden shadow-2xl">
+               <div className="relative aspect-[3/4] overflow-hidden shadow-2xl bg-secondary flex items-center justify-center">
                  {/* Gold frame accent */}
-                 <div className="absolute -inset-3 border border-gold/30" />
-                 <div className="absolute -inset-6 border border-gold/10" />
-                 
+                 <div className="absolute -inset-3 border border-gold/30 pointer-events-none" />
+                 <div className="absolute -inset-6 border border-gold/10 pointer-events-none" />
+
                  {book.coverImage ? (
                    <img
                      src={book.coverImage}
                      alt={book.title}
-                     className="w-full h-full object-cover"
+                     className="max-w-full max-h-full w-auto h-auto object-contain"
                    />
                  ) : (
                    <div className="w-full h-full bg-secondary flex items-center justify-center">
@@ -195,13 +195,13 @@ const BookDetail = () => {
                  >
                    <Link
                      to={`/books/${related.id}`}
-                     className="group block relative aspect-[3/4] overflow-hidden bg-secondary"
+                     className="group block relative aspect-[3/4] overflow-hidden bg-secondary flex items-center justify-center"
                    >
                      {related.coverImage && (
                        <img
                          src={related.coverImage}
                          alt={related.title}
-                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                         className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-700 group-hover:scale-110"
                        />
                      )}
                      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />

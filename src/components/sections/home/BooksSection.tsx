@@ -33,7 +33,7 @@ export function BooksSection() {
           {books.slice(0, 8).map((book) => (
             <motion.article
               key={book.id}
-              className="group relative aspect-[3/4] overflow-hidden bg-burgundy focus-within:ring-2 focus-within:ring-gold focus-within:ring-offset-2 focus-within:ring-offset-cream"
+              className="group relative aspect-[3/4] overflow-hidden bg-burgundy focus-within:ring-2 focus-within:ring-gold focus-within:ring-offset-2 focus-within:ring-offset-cream flex items-center justify-center"
               whileHover={shouldAnimate ? { y: -4 } : undefined}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
@@ -42,7 +42,7 @@ export function BooksSection() {
                   src={book.coverImage}
                   alt={`Cover of ${book.title}`}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-700 group-hover:scale-105"
                 />
               )}
               

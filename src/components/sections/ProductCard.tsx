@@ -31,12 +31,12 @@
        transition={{ duration: 0.6 }}
      >
        {/* Image */}
-       <div className="aspect-[3/4] overflow-hidden bg-secondary">
+       <div className="aspect-[3/4] overflow-hidden bg-secondary flex items-center justify-center">
          {image ? (
            <img
              src={image}
              alt={title}
-             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+             className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-700 group-hover:scale-105"
            />
          ) : (
            <div className="w-full h-full flex items-center justify-center">

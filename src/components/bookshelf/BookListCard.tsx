@@ -36,7 +36,7 @@ export function BookListCard({
   theme,
   description,
   coverPosition,
-  coverFit,
+  coverFit = "contain",
   coverScale,
   whoFor,
   award,
@@ -72,12 +72,16 @@ export function BookListCard({
     >
       {/* Cover Image */}
       <div className="relative">
-        <AspectRatio ratio={3/4} className="bg-[hsl(25_20%_12%)] overflow-hidden">
+        <AspectRatio ratio={3/4} className="bg-[hsl(25_20%_12%)] overflow-hidden flex items-center justify-center">
           {effectiveCover ? (
             <img
               src={effectiveCover}
               alt={`Cover of ${title}`}
-              className={cn("w-full h-full", coverFit === "contain" ? "object-contain" : "object-cover")}
+              className={cn(
+                coverFit === "contain"
+                  ? "max-w-full max-h-full w-auto h-auto object-contain"
+                  : "w-full h-full object-cover"
+              )}
               style={{
                 ...(coverPosition ? { objectPosition: coverPosition } : {}),
                 ...(coverScale ? { transform: `scale(${coverScale})` } : {}),
@@ -108,21 +112,21 @@ export function BookListCard({
           <span className="px-3 py-1 text-xs font-ui tracking-wide border border-border/50 text-muted-foreground">
             {year}
           </span>
-          
+
           {/* Form badge */}
           {form && (
             <span className="px-3 py-1 text-xs font-ui tracking-wide border border-border/50 text-muted-foreground">
               {form}
             </span>
           )}
-          
+
           {/* Award badge inline */}
           {award && (
             <span className="px-3 py-1 text-xs font-ui tracking-wide bg-gold/10 border border-gold/30 text-gold">
               🏆 {award}
             </span>
           )}
-          
+
           {/* Start Here badge */}
           {startHere && (
             <span className="flex items-center gap-1.5 px-3 py-1 text-xs font-ui tracking-wide border border-gold/50 text-gold">
@@ -131,26 +135,26 @@ export function BookListCard({
             </span>
           )}
         </div>
-        
+
         {/* Title with year */}
         <h3 className="font-display text-2xl md:text-3xl lg:text-4xl text-foreground mb-1">
           {title}
         </h3>
-        
+
         {/* Subtitle */}
         {subtitle && (
           <p className="font-display italic text-muted-foreground text-base md:text-lg mb-4">
             {subtitle}
           </p>
         )}
-        
+
         {/* Theme */}
         {theme && (
           <p className="text-foreground/90 mb-4">
             <span className="font-semibold">Theme:</span> {theme}
           </p>
         )}
-        
+
         {/* Foreword */}
         {foreword && (
           <p className="text-foreground/80 italic mb-4">
@@ -162,7 +166,7 @@ export function BookListCard({
         <p className="text-muted-foreground leading-relaxed mb-6">
           {description}
         </p>
-        
+
         {/* Who it's for */}
         {whoFor && whoFor.length > 0 && (
           <div className="mb-6">
@@ -177,7 +181,7 @@ export function BookListCard({
             </ul>
           </div>
         )}
-        
+
         {/* Read More Link */}
         <ReadMoreLink to={`/books/${id}`} className="mt-auto" />
       </div>
