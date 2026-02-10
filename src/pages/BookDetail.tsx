@@ -74,7 +74,7 @@ const BookDetail = () => {
                animate={{ opacity: 1, x: 0 }}
                transition={{ duration: 0.8 }}
              >
-               <div className="relative aspect-[3/4] overflow-hidden shadow-2xl bg-secondary flex items-center justify-center">
+               <div className="relative overflow-hidden shadow-2xl bg-secondary flex items-center justify-center">
                  {/* Gold frame accent */}
                  <div className="absolute -inset-3 border border-gold/30 pointer-events-none" />
                  <div className="absolute -inset-6 border border-gold/10 pointer-events-none" />

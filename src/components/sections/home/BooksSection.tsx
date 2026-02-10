@@ -33,7 +33,7 @@ export function BooksSection() {
           {books.slice(0, 8).map((book) => (
             <motion.article
               key={book.id}
-              className="group relative aspect-[3/4] overflow-hidden bg-burgundy focus-within:ring-2 focus-within:ring-gold focus-within:ring-offset-2 focus-within:ring-offset-cream flex items-center justify-center"
+              className="group relative overflow-hidden focus-within:ring-2 focus-within:ring-gold focus-within:ring-offset-2 focus-within:ring-offset-cream"
               whileHover={shouldAnimate ? { y: -4 } : undefined}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
@@ -42,16 +42,16 @@ export function BooksSection() {
                   src={book.coverImage}
                   alt={`Cover of ${book.title}`}
                   loading="lazy"
-                  className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
                 />
               )}
-              
+
               {/* Gradient overlay */}
-              <div 
-                className="absolute inset-0 bg-gradient-to-t from-burgundy-dark via-burgundy/50 to-transparent opacity-70 group-hover:opacity-85 transition-opacity duration-500" 
-                aria-hidden="true" 
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-burgundy-dark via-burgundy/50 to-transparent opacity-70 group-hover:opacity-85 transition-opacity duration-500 pointer-events-none"
+                aria-hidden="true"
               />
-              
+
               {/* Content overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
                 <p className="font-ui text-[10px] md:text-xs text-gold/80 mb-1 tracking-wider">
@@ -66,7 +66,7 @@ export function BooksSection() {
                   </p>
                 )}
               </div>
-              
+
               {/* Focus-visible link overlay */}
               <Link
                 to={`/books/${book.id}`}

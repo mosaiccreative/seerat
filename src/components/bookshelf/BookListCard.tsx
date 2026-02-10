@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { YearBadgeGold } from './YearBadgeGold';
 import { AwardBadge } from './AwardBadge';
 import { ReadMoreLink } from './ReadMoreLink';
@@ -72,36 +71,29 @@ export function BookListCard({
     >
       {/* Cover Image */}
       <div className="relative">
-        <AspectRatio ratio={3/4} className="bg-[hsl(25_20%_12%)] overflow-hidden flex items-center justify-center">
-          {effectiveCover ? (
-            <img
-              src={effectiveCover}
-              alt={`Cover of ${title}`}
-              className={cn(
-                coverFit === "contain"
-                  ? "max-w-full max-h-full w-auto h-auto object-contain"
-                  : "w-full h-full object-cover"
-              )}
-              style={{
-                ...(coverPosition ? { objectPosition: coverPosition } : {}),
-                ...(coverScale ? { transform: `scale(${coverScale})` } : {}),
-              }}
-              loading="lazy"
-              onError={() => setCoverFailed(true)}
-              referrerPolicy="no-referrer"
-            />
-          ) : (
-            // Typographic fallback
-            <div className="w-full h-full bg-gradient-to-br from-[hsl(25_20%_15%)] to-[hsl(25_15%_10%)] flex flex-col items-center justify-center p-6 text-center">
-              <span className="font-display text-xl text-cream/80 leading-tight">
-                {title}
-              </span>
-              <span className="font-ui text-xs text-gold/60 mt-3 tracking-widest">
-                {year}
-              </span>
-            </div>
-          )}
-        </AspectRatio>
+        {effectiveCover ? (
+          <img
+            src={effectiveCover}
+            alt={`Cover of ${title}`}
+            className="w-full h-auto block rounded-sm shadow-lg"
+            style={{
+              ...(coverScale ? { transform: `scale(${coverScale})` } : {}),
+            }}
+            loading="lazy"
+            onError={() => setCoverFailed(true)}
+            referrerPolicy="no-referrer"
+          />
+        ) : (
+          // Typographic fallback
+          <div className="w-full aspect-[3/4] bg-gradient-to-br from-[hsl(25_20%_15%)] to-[hsl(25_15%_10%)] flex flex-col items-center justify-center p-6 text-center rounded-sm shadow-lg">
+            <span className="font-display text-xl text-cream/80 leading-tight">
+              {title}
+            </span>
+            <span className="font-ui text-xs text-gold/60 mt-3 tracking-widest">
+              {year}
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Details */}

@@ -40,23 +40,23 @@ export function BookCard({
         ease: [0.16, 1, 0.3, 1]
       }}
     >
-      <div className="aspect-[3/4] bg-[hsl(25_20%_12%)] relative overflow-hidden flex items-center justify-center">
+      <div className="relative overflow-hidden">
         {effectiveCover ? (
           <img
             src={effectiveCover}
             alt={`Cover of ${title}`}
-            className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-700 group-hover:scale-105"
+            className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
             onError={() => setCoverFailed(true)}
             loading="lazy"
             referrerPolicy="no-referrer"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center">
+          <div className="w-full aspect-[3/4] bg-[hsl(25_20%_12%)] flex items-center justify-center">
             <span className="text-6xl opacity-10">੧</span>
           </div>
         )}
         {/* Hover overlay */}
-        <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/10 transition-colors duration-500" />
+        <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/10 transition-colors duration-500 pointer-events-none" />
       </div>
 
 
