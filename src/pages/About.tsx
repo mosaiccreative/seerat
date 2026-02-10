@@ -29,6 +29,10 @@ const faqItems = [
   {
     question: "Where can I listen to Surinder Seerat's poetry?",
     answer: "You can experience Surinder Seerat's poetry through Tishnagi, his ghazal album that demonstrates the musical quality of his work. The album is available on YouTube and SoundCloud. Visit our Tishnagi page to listen and learn more about this collection of sung ghazals."
+  },
+  {
+    question: "What has Surinder Seerat edited?",
+    answer: "Beyond his own creative work, Surinder Seerat has served as editor and critic across multiple literary platforms: Neelsar (Magazine) in Jammu & Kashmir, Himaal (Magazine) in Kashmir, and the World Punjabi Sahit Academy in California. These roles reflect his commitment to nurturing Punjabi literature—not only through his own writing, but by building the editorial infrastructure that supports other voices."
   }
 ];
 
