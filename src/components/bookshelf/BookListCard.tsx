@@ -141,6 +141,13 @@ export function BookListCard({
           </p>
         )}
         
+        {/* Foreword */}
+        {foreword && (
+          <p className="text-foreground/80 italic mb-4">
+            Foreword by {foreword}
+          </p>
+        )}
+
         {/* Description */}
         <p className="text-muted-foreground leading-relaxed mb-6">
           {description}

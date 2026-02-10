@@ -34,6 +34,7 @@ export const books: Book[] = [
     year: "2002",
     type: "Punjabi Ghazals",
     description: "A book of three dimensional ghazals based on form, content and illusion. In which, Seerat encapsulates how the lust of life remains unachievable in the wilderness of humanity.",
+    foreword: "Dr. Jagtar",
     coverImage: "/images/books/Surat-Seerat-Te-Saraab.jpeg"
   },
   {
