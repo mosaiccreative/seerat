@@ -34,10 +34,10 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen bg-background overflow-hidden flex flex-col">
+    <section className="relative min-h-screen lg:h-auto lg:min-h-0 bg-background overflow-hidden flex flex-col">
       {/* Main content area */}
-      <div className="flex-1 flex items-center px-6 md:px-12 lg:px-16 pt-24 md:pt-28 pb-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto w-full">
+      <div className="flex-1 flex items-center px-6 md:px-12 lg:px-16 pt-24 md:pt-28 lg:pt-20 pb-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-7xl mx-auto w-full">
           
           {/* Left Column: Text Content */}
           <motion.div
@@ -84,14 +84,14 @@ export function HeroSection() {
           </motion.div>
           
           {/* Right Column: Bookshelf */}
-          <motion.div 
-            className="flex items-center justify-center order-1 lg:order-2"
+          <motion.div
+            className="flex items-center justify-center order-1 lg:order-2 lg:max-h-[60vh]"
             initial={shouldAnimate ? { opacity: 0, scale: 0.95 } : undefined}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: easeOut }}
           >
-            <BookshelfStage 
-              books={[...books].sort((a, b) => parseInt(a.year) - parseInt(b.year))} 
+            <BookshelfStage
+              books={[...books].sort((a, b) => parseInt(a.year) - parseInt(b.year))}
               motionEnabled={shouldAnimate}
             />
           </motion.div>
@@ -99,8 +99,8 @@ export function HeroSection() {
       </div>
 
       {/* Bottom area: Subtitle - pinned above fold */}
-      <div className="relative pb-6 md:pb-10">
-        <motion.p 
+      <div className="relative pb-6 md:pb-8 lg:pb-12 lg:pt-4">
+        <motion.p
           initial={shouldAnimate ? { opacity: 0, y: 20 } : { opacity: 1 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.8, ease: easeOut }}
