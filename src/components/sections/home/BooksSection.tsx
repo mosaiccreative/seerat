@@ -16,10 +16,10 @@ export function BooksSection() {
         <CinematicReveal className="text-center mb-16 md:mb-20">
           <span className="chapter-label block mb-4">The Works</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mb-4">
-            Eight Books, <span className="text-gold italic">34 Years</span>
+            Thirteen Books, <span className="text-gold italic">45 Years</span>
           </h2>
           <p className="text-burgundy/60 mt-4 max-w-xl mx-auto text-base md:text-lg">
-            From 1980 to 2014, exploring themes of longing, consciousness, existence, and transformation.
+            From 1980 to 2025, exploring themes of longing, consciousness, diaspora, and transformation.
           </p>
         </CinematicReveal>
         

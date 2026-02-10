@@ -17,6 +17,64 @@ const enhancedBookData: Record<string, {
   expandedDescription?: string;
   startHere?: boolean;
 }> = {
+  'amriki-punjabi-kahani': {
+    subtitle: '22 Stories, Many Voices',
+    theme: 'Diaspora as chorus—the American Punjabi story told collectively',
+    form: 'Short story anthology',
+    expandedDescription: "This is not a single narrative. This is 22 voices—writers across North America exploring what it means to be Punjabi in America. Surinder serves as curator and guide, weaving diverse stories into a coherent portrait of diaspora consciousness. The World Punjabi Sahit Academy entrusted him with this Silver Jubilee project.",
+    startHere: true,
+    whoFor: [
+      'North American Punjabis seeking literary reflection',
+      'Children of immigrants wanting to understand parent narratives',
+      'Scholars building frameworks for diaspora literature',
+      'Libraries building collections on South Asian-American literature',
+    ],
+  },
+  'jung-jaari-hai': {
+    subtitle: 'The Struggle Continues',
+    theme: 'Resistance, persistence, and the refusal to settle',
+    form: 'Contemporary poetry',
+    expandedDescription: "Jung Jaari Hai—the struggle continues—is a declaration, not a lament. This is poetry for our moment: political without slogans, personal without sentimentality, philosophical without abstraction. These poems arrive as the poet enters his ninth decade—and instead of softening, they intensify.",
+    whoFor: [
+      'Readers seeking poetry with political and spiritual urgency',
+      'Those asking "What does it mean to resist?"',
+      'Anyone refusing despair in difficult times',
+      'Philosophers, activists, truth-seekers',
+    ],
+  },
+  'poorab-pacham-te-parvaas': {
+    subtitle: 'East, West, and the Journey Between',
+    theme: 'The immigrant condition—caught between geographies',
+    form: 'Short stories',
+    expandedDescription: "After years of poetry's vertical depth, Surinder turns to short stories—a form perfect for horizontal fragmentation. East and West are not destinations here. They're internal territories. The real journey (parvaas) is psychological, spiritual, existential.",
+    whoFor: [
+      'Anyone navigating life between cultures and geographies',
+      'Readers drawn to diaspora narratives with psychological depth',
+      'Immigrants, children of immigrants, third-culture individuals',
+    ],
+  },
+  'bharam-bhuleyan-2nd-edition': {
+    subtitle: 'Illusions and Labyrinths (Reissued)',
+    theme: 'The enduring mystery of consciousness',
+    form: 'Novel (stream of consciousness)',
+    expandedDescription: "Thirty-one years after its original publication, Bharam Bhuleyan returns—the revolutionary 1986 novel that earned major awards for daring to employ stream-of-consciousness technique in Punjabi literature. The novel didn't age. It deepened.",
+    whoFor: [
+      'Readers of experimental fiction (Joyce, Woolf, Faulkner)',
+      'Those interested in how consciousness itself can be formal structure',
+      'New readers discovering a seminal work in diaspora literature',
+    ],
+  },
+  'srijna-te-samvaad': {
+    subtitle: 'Creation and Conversation',
+    theme: "A poet's work through the lens of scholarly engagement",
+    form: 'Edited critical volume',
+    expandedDescription: "Thirty-five Punjabi scholars, writers, and literary critics converge on a single body of work. This is not biography or hagiography. This is rigorous, critical scholarship—academia in conversation with artistry. Each contributor asks: what does Surinder's voice reveal about contemporary Punjabi consciousness?",
+    whoFor: [
+      'Scholars and students of contemporary Punjabi literature',
+      'Readers interested in how poetry is critically examined',
+      'Anyone seeking multiple perspectives on a sustained literary career',
+    ],
+  },
   'chhallan': {
     subtitle: 'The Dance of Internal Struggle',
     theme: 'The internal struggle to exist',
@@ -113,11 +171,11 @@ const readingPaths = [
   {
     title: 'Award-Winning Introduction',
     icon: Award,
-    description: 'Let award-winning work prove the quality. Three different forms showcase his range.',
+    description: 'Let award-winning work prove the quality. Multiple forms showcase his range.',
     books: [
       { title: 'Kirchan', year: '1990', id: 'kirchan' },
       { title: 'Aroope Akhran da Aks', year: '2014', id: 'aroope-akhran-da-aks' },
-      { title: 'Chhallan', year: '1980', id: 'chhallan' },
+      { title: 'Amrīkī Punjabi Kahāṇī', year: '2025', id: 'amriki-punjabi-kahani' },
     ],
   },
   {
@@ -127,27 +185,27 @@ const readingPaths = [
     books: [
       { title: 'Listen: Tishnagi album', year: '', id: null, link: '/tishnagi' },
       { title: 'Surat Seerat Te Saraab', year: '2007', id: 'surat-seerat-te-saraab' },
-      { title: 'Saij Sullee Te Saleeb', year: '2007', id: 'saij-sullee-te-saleeb' },
+      { title: 'Jung Jaari Hai', year: '2023', id: 'jung-jaari-hai' },
     ],
   },
   {
     title: 'The Immigrant Voice',
     icon: Users,
-    description: 'Poetry exploring displacement, roots, and building new ground.',
+    description: 'Poetry and stories exploring displacement, roots, and building new ground.',
     books: [
+      { title: 'Poorab Pacham te Parvaas', year: '2022', id: 'poorab-pacham-te-parvaas' },
       { title: 'Kikkar Kande', year: '1992', id: 'kikkar-kande' },
-      { title: 'Saij Sullee Te Saleeb', year: '2007', id: 'saij-sullee-te-saleeb' },
-      { title: 'Aroope Akhran da Aks', year: '2014', id: 'aroope-akhran-da-aks' },
+      { title: 'Amrīkī Punjabi Kahāṇī', year: '2025', id: 'amriki-punjabi-kahani' },
     ],
   },
   {
     title: 'Technical Mastery',
     icon: BookOpen,
-    description: 'Watch a poet master multiple forms across 34 years. Perfect for students of poetry craft.',
+    description: 'Watch a poet master multiple forms across 45 years. Perfect for students of poetry craft.',
     books: [
       { title: 'Chhallan', year: '1980', id: 'chhallan', note: 'Free verse' },
       { title: 'Kirchan', year: '1990', id: 'kirchan', note: 'Pure ghazal' },
-      { title: 'Aroope Akhran da Aks', year: '2014', id: 'aroope-akhran-da-aks', note: 'Mixed' },
+      { title: 'Jung Jaari Hai', year: '2023', id: 'jung-jaari-hai', note: 'Late poetry' },
     ],
   },
 ];
@@ -156,7 +214,7 @@ const Books = () => {
   const { shouldAnimate } = useMotionPreference();
 
   useEffect(() => {
-    document.title = 'Eight Books, 34 Years, Four Major Awards — Surinder Seerat';
+    document.title = 'Thirteen Books, 45 Years of Poetry, Novels, Stories & Scholarship — Surinder Seerat';
   }, []);
 
   // Sort books oldest to newest for the shelf
@@ -174,14 +232,13 @@ const Books = () => {
           >
             <span className="chapter-label block">The Collection</span>
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl mb-6">
-              Eight Books, <span className="text-gold italic">34 Years</span>,
-              <br />Four Major Awards
+              Thirteen Books, <span className="text-gold italic">45 Years</span>
             </h1>
             <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-4">
-              Select a spine to explore the collection
+              Poetry, novels, stories, and scholarship spanning five decades
             </p>
             <p className="text-muted-foreground/60 text-sm font-ui">
-              From <em>Chhallan</em> (1980) to <em>Aroope Akhran da Aks</em> (2014)
+              From <em>Chhallan</em> (1980) to <em>Amrīkī Punjabi Kahāṇī</em> (2025)
             </p>
           </motion.div>
         </div>

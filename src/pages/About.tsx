@@ -12,11 +12,11 @@ const poetPortrait = '/images/poet-portrait.jpg';
 const faqItems = [
   {
     question: "Who is Surinder Seerat?",
-    answer: "Surinder Singh Seerat is an award-winning Punjabi poet, novelist, critic, editor, and short story writer with particular expertise in the ghazal form. Born in Kashmir in 1947, he became the first person in his village to graduate university, built a career as a physics professor, and later founded two major Punjabi literary organizations in California. He has published eight books spanning 34 years, earning four major literary awards."
+    answer: "Surinder Singh Seerat is an award-winning Punjabi poet, novelist, critic, editor, and short story writer with particular expertise in the ghazal form. Born in Kashmir in 1947, he became the first person in his village to graduate university, built a career as a physics professor, and later founded two major Punjabi literary organizations in California. He has published thirteen books spanning 45 years (1980-2025), earning major literary awards and recognition."
   },
   {
     question: "How many books has Surinder Seerat published?",
-    answer: "Surinder Seerat has published eight works spanning 34 years (1980-2014). His collection includes seven poetry volumes exploring free verse, open verse, and pure ghazal forms, plus one novel using stream of consciousness. Four of his works received major literary awards from the Jammu & Kashmir Academy of Art, Culture & Languages and North American institutions."
+    answer: "Surinder Seerat has published thirteen works spanning 45 years (1980-2025). His collection includes poetry volumes exploring free verse, open verse, and pure ghazal forms, novels, short story collections, an edited critical volume featuring 35 scholars, and most recently the anthology Amrīkī Punjabi Kahāṇī (2025) for the World Punjabi Sahit Academy Silver Jubilee."
   },
   {
     question: "What awards has Surinder Seerat received?",
@@ -44,6 +44,10 @@ const timelineItems = [
   { year: '2011', event: 'Sabbatical to focus on poetry full-time' },
   { year: '2014', event: 'Published "Aroope Akhran da Aks" — Professor Mohan Singh Award' },
   { year: '2015', event: 'National Seminar in Jammu dedicated to his creative process' },
+  { year: '2016', event: '"Srijna te Samvaad" — 35 scholars examine his work' },
+  { year: '2022', event: '"Poorab Pacham te Parvaas" — Short stories on the immigrant journey' },
+  { year: '2023', event: '"Jung Jaari Hai" — The struggle continues in late poetry' },
+  { year: '2025', event: '"Amrīkī Punjabi Kahāṇī" — 22-author anthology for WPSA Silver Jubilee' },
 ];
 
 const About = () => {
