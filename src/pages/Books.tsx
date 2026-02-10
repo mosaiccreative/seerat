@@ -99,7 +99,7 @@ const enhancedBookData: Record<string, {
     subtitle: 'The Reflection of Incomparable Letters',
     theme: 'The mysteriousness of the modern world',
     form: 'Open verse & ghazals',
-    expandedDescription: "Surinder's most recent book reflects the mysteriousness of the modern world. He exemplifies the idea that a word's definition is trapped within the word itself—demonstrating that it is impossible to interpret the internal thoughts of any creation with words or symbols.",
+    expandedDescription: "This book reflects the mysteriousness of the modern world. He exemplifies the idea that a word's definition is trapped within the word itself—demonstrating that it is impossible to interpret the internal thoughts of any creation with words or symbols.",
     startHere: true,
     whoFor: [
       "Readers navigating modern life's complexity",
