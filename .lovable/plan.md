@@ -1,38 +1,32 @@
 
 
-## Kirchan Cover: Reduce Cropping
+## Revert coverFit and Adjust Kirchan Cover
 
-**Problem:** The Kirchan book cover is displayed with `object-cover`, which fills the 3:4 container by cropping the top and bottom. `coverPosition` only shifts the crop center -- it cannot reduce how much is cropped.
+### What changed
+Revert the `coverFit: "contain"` value on the Kirchan entry back to default (`cover` mode). Remove the `coverFit` property from Kirchan in `src/data/books.ts`. The interface and component support for `coverFit` can stay -- it's useful for other books later.
 
-**Solution:** Add a new optional `coverFit` property to the Book data model. When set to `"contain"`, the image will fit entirely within the frame (no cropping) with a matching background color. The default remains `"cover"` (current behavior).
+### Adjustment options for Kirchan
+Since the Kirchan cover has text at both the very top ("ਕਿਰਚਾਂ") and very bottom ("ਸੁਰਿੰਦਰ ਸਿੰਘ ਸੀਰਤ"), and the image is taller than the 3:4 display frame, `object-cover` will always crop one end. The options are:
 
----
+- **`coverPosition: "center 10%"`** — prioritize showing the top title, bottom author gets clipped
+- **`coverPosition: "center 90%"`** — prioritize showing the bottom author, top title gets clipped  
+- **`coverPosition: "center 50%"`** (default) — center the art, both edges clipped equally
+- **Keep `coverFit: "contain"`** — no cropping at all, full image visible with dark background padding
+
+### Properties cheat sheet for other book covers
+
+| Property | What it does | Example values |
+|---|---|---|
+| `coverPosition` | Pans the image within the frame (which part stays visible when cropped) | `"center top"`, `"center 30%"`, `"left center"` |
+| `coverFit` | `"cover"` fills frame and crops; `"contain"` shows full image with padding | `"cover"` (default), `"contain"` |
 
 ### Steps
 
-1. **Add `coverFit` to the Book interface** in `src/data/books.ts`
-   - New optional field: `coverFit?: "cover" | "contain"`
-   - Set `coverFit: "contain"` on the Kirchan entry
+1. In `src/data/books.ts`, remove `coverFit: "contain"` from the Kirchan entry (or replace with desired `coverPosition` value based on your preference)
 
-2. **Update BookListCard** (`src/components/bookshelf/BookListCard.tsx`)
-   - Accept the new `coverFit` prop
-   - Apply `object-contain` instead of `object-cover` when `coverFit` is `"contain"`
-   - Add a dark background behind the image so letterboxing looks intentional
+### What to tell me for other covers
 
-3. **Update BookSpine and BookCard** if they also display covers
-   - Same logic: respect `coverFit` when rendering cover images
-
-### Technical Details
-
-The key CSS change per component:
-
-```tsx
-// Before
-className="w-full h-full object-cover"
-
-// After
-className={cn("w-full h-full", coverFit === "contain" ? "object-contain" : "object-cover")}
-```
-
-The contain mode will show the full image with dark bars (letterboxing) on the sides or top/bottom, matching the existing fallback background color.
-
+For any book cover, you can say things like:
+- "Shift [book] cover up/down to center X%" — adjusts `coverPosition`
+- "Show full cover for [book] without cropping" — sets `coverFit: "contain"`
+- "Zoom into the middle of [book] cover" — uses default `coverPosition: "center center"`
