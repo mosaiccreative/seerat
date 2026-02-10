@@ -173,9 +173,9 @@ const readingPaths = [
     icon: Award,
     description: 'Let award-winning work prove the quality. Multiple forms showcase his range.',
     books: [
+      { title: 'Chhallan', year: '1980', id: 'chhallan' },
+      { title: 'Bharam Bhullayan', year: '1986', id: 'bharam-bhullayan' },
       { title: 'Kirchan', year: '1990', id: 'kirchan' },
-      { title: 'Aroope Akhran da Aks', year: '2014', id: 'aroope-akhran-da-aks' },
-      { title: 'Amrīkī Punjabi Kahāṇī', year: '2025', id: 'amriki-punjabi-kahani' },
     ],
   },
   {
@@ -183,9 +183,9 @@ const readingPaths = [
     icon: Music,
     description: 'For those drawn to themes of longing, meaning, and the human journey toward what remains forever incomplete.',
     books: [
-      { title: 'Listen: Tishnagi album', year: '', id: null, link: '/tishnagi' },
-      { title: 'Surat Seerat Te Saraab', year: '2007', id: 'surat-seerat-te-saraab' },
-      { title: 'Jung Jaari Hai', year: '2023', id: 'jung-jaari-hai' },
+      { title: 'Khalaw \'ch Tangey Harf', year: '1985', id: 'khalaw-ch-tangey-harf' },
+      { title: 'Surat Seerat Te Saraab', year: '2002', id: 'surat-seerat-te-saraab' },
+      { title: 'Jung Jaari Hai', year: '2024', id: 'jung-jaari-hai' },
     ],
   },
   {
@@ -193,8 +193,8 @@ const readingPaths = [
     icon: Users,
     description: 'Poetry and stories exploring displacement, roots, and building new ground.',
     books: [
+      { title: 'Aroope Akhran da Aks', year: '2014', id: 'aroope-akhran-da-aks' },
       { title: 'Poorab Pacham te Parvaas', year: '2022', id: 'poorab-pacham-te-parvaas' },
-      { title: 'Kikkar Kande', year: '1992', id: 'kikkar-kande' },
       { title: 'Amrīkī Punjabi Kahāṇī', year: '2025', id: 'amriki-punjabi-kahani' },
     ],
   },
@@ -203,9 +203,9 @@ const readingPaths = [
     icon: BookOpen,
     description: 'Watch a poet master multiple forms across 45 years. Perfect for students of poetry craft.',
     books: [
-      { title: 'Chhallan', year: '1980', id: 'chhallan', note: 'Free verse' },
-      { title: 'Kirchan', year: '1990', id: 'kirchan', note: 'Pure ghazal' },
-      { title: 'Jung Jaari Hai', year: '2023', id: 'jung-jaari-hai', note: 'Late poetry' },
+      { title: 'Kikkar Kande', year: '1992', id: 'kikkar-kande' },
+      { title: 'Listen: Tishnagi album', year: '2016', id: null, link: '/tishnagi' },
+      { title: 'Bharam Bhuleyan (2nd Edition)', year: '2017', id: 'bharam-bhuleyan-2nd-edition' },
     ],
   },
 ];
