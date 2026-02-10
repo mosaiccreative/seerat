@@ -287,6 +287,7 @@ const Books = () => {
                 award={book.award}
                 foreword={book.foreword}
                 coverImage={book.coverImage}
+                coverPosition={book.coverPosition}
                 startHere={enhanced?.startHere}
                 motionEnabled={shouldAnimate}
                 index={index}

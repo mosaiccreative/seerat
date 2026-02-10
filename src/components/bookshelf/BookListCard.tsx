@@ -16,6 +16,7 @@ interface BookListCardProps {
   theme?: string;
   description: string;
   whoFor?: string[];
+  coverPosition?: string;
   award?: string;
   foreword?: string;
   coverImage?: string;
@@ -32,6 +33,7 @@ export function BookListCard({
   subtitle,
   theme,
   description,
+  coverPosition,
   whoFor,
   award,
   foreword,
@@ -71,7 +73,8 @@ export function BookListCard({
             <img
               src={effectiveCover}
               alt={`Cover of ${title}`}
-              className="w-full h-full object-contain bg-[hsl(25_20%_12%)]"
+              className="w-full h-full object-cover"
+              style={coverPosition ? { objectPosition: coverPosition } : undefined}
               loading="lazy"
               onError={() => setCoverFailed(true)}
               referrerPolicy="no-referrer"
