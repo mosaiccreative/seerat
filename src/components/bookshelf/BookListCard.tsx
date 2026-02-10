@@ -71,7 +71,7 @@ export function BookListCard({
             <img
               src={effectiveCover}
               alt={`Cover of ${title}`}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain bg-[hsl(25_20%_12%)]"
               loading="lazy"
               onError={() => setCoverFailed(true)}
               referrerPolicy="no-referrer"
