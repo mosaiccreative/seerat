@@ -64,7 +64,7 @@ export const books: Book[] = [
     title: "Aroope Akhran da Aks",
     year: "2014",
     type: "Poetry in open verse and Ghazals",
-    description: "This book reflects the mysteriousness of the modern world. He exemplifies the idea that a word's definition is trapped within the word itself. Demonstrating that it is impossible to interpret the internal thoughts of any creation with words or symbols, when you try to personify the reflection of nonexistence.",
+    description: "This book reflects the mysteriousness of the modern world. It explores a paradox: a word's definition is trapped within the word itself. The collection demonstrates that the internal thoughts of any creation cannot be fully interpreted through language alone.",
     award: "Professor Mohan Singh Award 2014",
     coverImage: "/images/books/Aroope-Akhran-da-Aks.jpeg"
   },
@@ -82,7 +82,7 @@ export const books: Book[] = [
     title: "Surat Seerat Te Saraab",
     year: "2002",
     type: "Punjabi Ghazals",
-    description: "A book of three dimensional ghazals based on form, content and illusion. In which, Seerat encapsulates how the lust of life remains unachievable in the wilderness of humanity.",
+    description: "A collection of multidimensional ghazals exploring form, content, and illusion. Seerat encapsulates how the longing for life remains unachievable in the wilderness of humanity.",
     coverImage: "/images/books/Surat-Seerat-Te-Saraab.jpeg"
   },
   {
@@ -90,7 +90,7 @@ export const books: Book[] = [
     title: "Kikkar Kande",
     year: "1992",
     type: "Poetry in open verse and Ghazals",
-    description: "Seerat's first book in which he combines poetry in open verse and ghazals. Creating the subjectivity of relevance in symbolic form and technically bound poetry, Seerat illustrates beautifully the social and political influence on the surrounding environment.",
+    description: "Seerat's first book combining poetry in open verse and ghazals. Through symbolic form and technically bound poetry, Seerat beautifully illustrates the social and political influences on the surrounding environment.",
     coverImage: "/images/books/Kikkar-Kande.jpeg"
   },
   {
@@ -108,7 +108,7 @@ export const books: Book[] = [
     title: "Bharam Bhullayan",
     year: "1986",
     type: "Punjabi Novel",
-    description: "Seerat's first novel on \"stream of consciousness\", in which we are shown the internal reflection of a boy's thoughts as he tries to piece together the shattered images around him.",
+    description: "Seerat's pioneering stream-of-consciousness novel reveals the internal reflections of a boy's thoughts as he tries to piece together the shattered images around him.",
     award: "Best book award from JKAACL in 1987",
     coverImage: "/images/books/Bharam-Bullyan.jpeg"
   },
@@ -117,7 +117,7 @@ export const books: Book[] = [
     title: "Khalaw 'ch Tangey Harf",
     year: "1985",
     type: "Punjabi Poems",
-    description: "Seerat's second book of poetry in open verse. Acknowledged for its intense and meaningful poetry, in which he explores interpretation from introvert to extravert state of mind and vice versa.",
+    description: "Seerat's second book of poetry in open verse. Acknowledged for its intense and meaningful poetry, the collection explores the transformation from introvert to extrovert states of mind and vice versa.",
     coverImage: "/images/books/Khalavich-Tangey-Harf.jpeg"
   },
   {
@@ -126,7 +126,7 @@ export const books: Book[] = [
     year: "1980",
     type: "Free Verse Poems",
     description: "Surinder Seerat's first book of free verse poems. Poetry of this book reflects the internal struggle to exist in the world.",
-    award: "Best Punjabi book by J&K Academy of Art Culture and Languages (JKAACL) in 1982",
+    award: "Best Punjabi Book by Jammu & Kashmir Academy of Art, Culture, and Languages (JKAACL) in 1982",
     foreword: "Dr. Kulbir Singh Kaang",
     coverImage: "/images/books/Chhallan.jpeg",
     coverPosition: "center 5%"
