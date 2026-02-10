@@ -138,7 +138,7 @@ const About = () => {
           >
             <span className="chapter-label block">The Scholar</span>
             <h2 className="font-display text-2xl md:text-3xl mb-6">
-              Building <span className="text-gold">Foundations</span> (1966-1987)
+              Building <span className="text-gold">Foundations</span> (1964-1969)
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -177,7 +177,7 @@ const About = () => {
           >
             <span className="chapter-label block">The Parallel Life</span>
             <h2 className="font-display text-2xl md:text-3xl mb-6">
-              The Literary <span className="text-gold">Voice</span> (1968-1987)
+              The Literary <span className="text-gold">Voice</span> (1965-1989)
             </h2>
             
             <div className="text-muted-foreground space-y-3 text-base leading-relaxed mb-8">
@@ -312,7 +312,7 @@ const About = () => {
               { year: '1982', title: 'JKAACL Best Punjabi Book Award', book: 'Chhallan' },
               { year: '1987', title: 'JKAACL Best Book Award', book: 'Bharam Bhullayan' },
               { year: '1991', title: 'JKAACL Best Book Award', book: 'Kirchan (pure form ghazals)' },
-              { year: '2014', title: 'Professor Mohan Singh Award', book: 'Aroope Akhran da Aks' },
+              { year: '2014', title: 'Professor Mohan Singh Award', book: '' },
             ].map((award, index) => (
               <motion.div
                 key={award.year}
@@ -324,7 +324,7 @@ const About = () => {
               >
                 <span className="text-gold font-ui text-sm tracking-wider">{award.year}</span>
                 <h3 className="font-display text-lg md:text-xl mt-1 mb-2">{award.title}</h3>
-                <p className="text-muted-foreground text-sm">for {award.book}</p>
+                {award.book && <p className="text-muted-foreground text-sm">for {award.book}</p>}
               </motion.div>
             ))}
           </div>
