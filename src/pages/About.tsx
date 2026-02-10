@@ -12,7 +12,7 @@ const poetPortrait = '/images/poet-portrait.jpg';
 const faqItems = [
   {
     question: "Who is Surinder Seerat?",
-    answer: "Surinder Singh Seerat is an award-winning Punjabi poet, novelist, critic, editor, and short story writer with particular expertise in the ghazal form. Born in Kashmir in 1947, he became the first person in his village to graduate university, built a career as a physics professor, and later founded two major Punjabi literary organizations in California. He has published thirteen books spanning 45 years (1980-2025), earning major literary awards and recognition."
+    answer: "Surinder Singh Seerat is an award-winning Punjabi poet, novelist, critic, editor, and short story writer with particular expertise in the ghazal form. Born in Kashmir in 1947, he became the first person in his community to graduate university, built a career as a physics professor, and later founded two major Punjabi literary organizations in California. He has published thirteen books spanning 45 years (1980-2025), earning major literary awards and recognition."
   },
   {
     question: "How many books has Surinder Seerat published?",
@@ -38,7 +38,7 @@ const faqItems = [
 
 const timelineItems = [
   { year: '1947', event: 'Born in Sadipura-Pulwama, Kashmir, India' },
-  { year: '1966', event: 'B.Sc. from Amar Singh Degree College — First in family and village to graduate' },
+  { year: '1966', event: 'B.Sc. from Amar Singh Degree College — First in family and community to graduate' },
   { year: '1969', event: 'M.Sc. Physics (Electronics) from University of Kashmir' },
   { year: '1980', event: 'First book "Chhallan" published — free verse poems' },
   { year: '1982', event: 'First JKAACL Best Punjabi Book Award (Chhallan)' },
@@ -122,11 +122,10 @@ const About = () => {
             </h2>
             <div className="text-muted-foreground space-y-3 text-base leading-relaxed">
               <p>
-                Surinder Singh Seerat was born on September 19, 1947, in Sadipura-Pulwama, Kashmir, India—a small village 
-                where higher education was not just rare, but virtually unknown.
+                Surinder Singh Seerat was born on September 19, 1947, in Saidpora, a settlement in the Pulwama district of the Kashmir Valley—a temperate, hilly region known for rice and saffron production, situated at an elevation of 1,500 to 2,000 meters above sea level—where higher education was not just rare, but virtually unknown.
               </p>
               <p>
-                He would become the first person in his family to graduate from university. Not just his family—the first person in his entire village.
+                He would become the first person in his family to graduate from university. Not just his family—the first person in his entire community.
               </p>
               <p>
                 This wasn't a small achievement. It was a rupture in generational expectations, made possible only through 
