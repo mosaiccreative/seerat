@@ -99,7 +99,7 @@ export const books: Book[] = [
     description: "Composition of ghazals in its pure form. The premise of this anthology of poems is to discuss the deeply hidden realities of life, which are scattered in the spectrum of life.",
     award: "Best book award from JKAACL in 1991",
     coverImage: "/images/books/Kirchan.jpeg",
-    coverPosition: "center 50%"
+    coverFit: "contain"
   },
   {
     id: "bharam-bhullayan",
