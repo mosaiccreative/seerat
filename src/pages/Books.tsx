@@ -101,7 +101,7 @@ const enhancedBookData: Record<string, {
     subtitle: 'Illusions and Labyrinths',
     theme: 'The maze of perception and reality',
     form: 'Novel (stream of consciousness)',
-    expandedDescription: "Surinder's only published novel employs stream-of-consciousness to blur boundaries between thought and experience, perception and truth. A physicist exploring the subjectivity of experience.",
+    expandedDescription: "Surinder's only published novel employs stream-of-consciousness to blur boundaries between thought and experience, perception and truth. A physicist exploring the subjectivity of reflection.",
     whoFor: [
       'Readers of experimental fiction',
       'Those who enjoyed Woolf, Joyce, Faulkner',
