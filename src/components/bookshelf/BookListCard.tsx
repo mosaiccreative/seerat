@@ -17,6 +17,7 @@ interface BookListCardProps {
   description: string;
   whoFor?: string[];
   coverPosition?: string;
+  coverFit?: "cover" | "contain";
   award?: string;
   foreword?: string;
   coverImage?: string;
@@ -34,6 +35,7 @@ export function BookListCard({
   theme,
   description,
   coverPosition,
+  coverFit,
   whoFor,
   award,
   foreword,
@@ -68,12 +70,12 @@ export function BookListCard({
     >
       {/* Cover Image */}
       <div className="relative">
-        <AspectRatio ratio={3/4} className="bg-muted overflow-hidden">
+        <AspectRatio ratio={3/4} className="bg-[hsl(25_20%_12%)] overflow-hidden">
           {effectiveCover ? (
             <img
               src={effectiveCover}
               alt={`Cover of ${title}`}
-              className="w-full h-full object-cover"
+              className={cn("w-full h-full", coverFit === "contain" ? "object-contain" : "object-cover")}
               style={coverPosition ? { objectPosition: coverPosition } : undefined}
               loading="lazy"
               onError={() => setCoverFailed(true)}

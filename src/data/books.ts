@@ -10,6 +10,8 @@ export interface Book {
   coverImage?: string;
   /** CSS object-position value for cover image, e.g. "center 60%" */
   coverPosition?: string;
+  /** How the cover image fits its container. "contain" shows full image with letterboxing. Default: "cover" */
+  coverFit?: "cover" | "contain";
 }
 
 export const books: Book[] = [
@@ -96,7 +98,8 @@ export const books: Book[] = [
     type: "Punjabi Ghazals",
     description: "Composition of ghazals in its pure form. The premise of this anthology of poems is to discuss the deeply hidden realities of life, which are scattered in the spectrum of life.",
     award: "Best book award from JKAACL in 1991",
-    coverImage: "/images/books/Kirchan.jpeg"
+    coverImage: "/images/books/Kirchan.jpeg",
+    coverFit: "contain"
   },
   {
     id: "bharam-bhullayan",

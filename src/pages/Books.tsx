@@ -288,6 +288,7 @@ const Books = () => {
                 foreword={book.foreword}
                 coverImage={book.coverImage}
                 coverPosition={book.coverPosition}
+                coverFit={book.coverFit}
                 startHere={enhanced?.startHere}
                 motionEnabled={shouldAnimate}
                 index={index}

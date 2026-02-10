@@ -40,7 +40,7 @@ export function BookCard({
         ease: [0.16, 1, 0.3, 1]
       }}
     >
-      <div className="aspect-[3/4] bg-paper-aged relative overflow-hidden">
+      <div className="aspect-[3/4] bg-[hsl(25_20%_12%)] relative overflow-hidden">
         {effectiveCover ? (
           <img
             src={effectiveCover}
