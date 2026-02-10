@@ -36,7 +36,7 @@ export function HeroSection() {
   return (
     <section className="relative h-screen bg-background overflow-hidden flex flex-col">
       {/* Main content area - full bleed, content constrained inside */}
-      <div className="flex-1 flex items-center w-full pt-24 md:pt-28 lg:pt-20 pb-4">
+      <div className="flex-1 flex items-center w-full pt-20 md:pt-24 lg:pt-8 pb-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16">
           
           {/* Left Column: Text Content */}
