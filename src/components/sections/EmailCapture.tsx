@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -243,7 +244,11 @@ export function EmailCapture({
           </div>
         </div>
         <p id="email-hint" className="text-xs text-muted-foreground/70 mt-4 text-center">
-          Monthly updates. Unsubscribe anytime. We respect your privacy.
+          By subscribing, you agree to receive emails and accept our{' '}
+          <Link to="/policies" className="text-gold/80 hover:text-gold underline">
+            Privacy Policy
+          </Link>
+          . Unsubscribe anytime.
         </p>
       </form>
     </div>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Mail, ArrowRight, Loader2 } from 'lucide-react';
 import { PageLayout } from '@/components/layout/PageLayout';
@@ -174,6 +175,18 @@ const Contact = () => {
                   className="bg-[#faf8f4] border-[#e8e3d8] text-[#1a1815] placeholder:text-[#4a453f]/60 focus:bg-white focus:border-[#d4a84b] focus:ring-[#d4a84b]/20 resize-none transition-colors"
                 />
               </div>
+
+              <p className="text-xs text-[#4a453f]/80 text-center mb-4">
+                By submitting, you agree to our{' '}
+                <Link to="/policies" className="text-[#d4a84b] hover:underline">
+                  Privacy Policy
+                </Link>{' '}
+                and{' '}
+                <Link to="/policies?tab=terms" className="text-[#d4a84b] hover:underline">
+                  Terms of Service
+                </Link>
+                .
+              </p>
 
               <button
                 type="submit"

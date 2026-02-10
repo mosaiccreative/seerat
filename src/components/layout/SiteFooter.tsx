@@ -90,13 +90,25 @@ export function SiteFooter() {
           <p className="text-sm text-muted-foreground">
             © {currentYear} Surinder Seerat. All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
             <MotionToggle />
             <Link
               to="/policies"
-              className="font-ui text-xs tracking-wider uppercase text-muted-foreground hover:text-gold transition-colors duration-300"
+              className="font-ui text-xs tracking-wider text-muted-foreground hover:text-gold transition-colors duration-300"
             >
-              Policies
+              Privacy
+            </Link>
+            <Link
+              to="/policies?tab=terms"
+              className="font-ui text-xs tracking-wider text-muted-foreground hover:text-gold transition-colors duration-300"
+            >
+              Terms
+            </Link>
+            <Link
+              to="/policies?tab=refund"
+              className="font-ui text-xs tracking-wider text-muted-foreground hover:text-gold transition-colors duration-300"
+            >
+              Refunds
             </Link>
           </div>
         </div>
