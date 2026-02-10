@@ -99,7 +99,7 @@ export function HeroSection() {
       </div>
 
       {/* Bottom area: Subtitle - pinned above fold */}
-      <div className="relative pb-6 md:pb-8 lg:pb-12 lg:pt-4">
+      <div className="relative pb-4 md:pb-6 lg:pb-6 lg:pt-2">
         <motion.p
           initial={shouldAnimate ? { opacity: 0, y: 20 } : { opacity: 1 }}
           animate={{ opacity: 1, y: 0 }}
