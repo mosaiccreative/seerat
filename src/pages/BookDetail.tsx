@@ -1,4 +1,4 @@
- import { useParams, Link } from 'react-router-dom';
+ import { useParams, Link, useNavigate } from 'react-router-dom';
  import { motion } from 'framer-motion';
  import { ArrowLeft, Award, BookOpen, User } from 'lucide-react';
  import { PageLayout } from '@/components/layout/PageLayout';
@@ -6,10 +6,19 @@
  import { books } from '@/data/books';
  import { useEffect } from 'react';
  
- const BookDetail = () => {
-   const { id } = useParams<{ id: string }>();
-   const { shouldAnimate } = useMotionPreference();
-   const book = books.find(b => b.id === id);
+const BookDetail = () => {
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+  const { shouldAnimate } = useMotionPreference();
+  const book = books.find(b => b.id === id);
+
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate('/books');
+    }
+  };
  
    useEffect(() => {
      if (book) {
@@ -44,15 +53,15 @@
    return (
      <PageLayout>
        {/* Back Navigation */}
-       <div className="container mx-auto px-6 md:px-12 pt-8">
-         <Link 
-           to="/books" 
-           className="inline-flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors font-ui text-sm tracking-wide"
-         >
-           <ArrowLeft className="w-4 h-4" />
-           Back to All Works
-         </Link>
-       </div>
+        <div className="container mx-auto px-6 md:px-12 pt-8">
+          <button 
+            onClick={handleBack}
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors font-ui text-sm tracking-wide"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to All Works
+          </button>
+        </div>
  
        {/* Hero Section */}
        <section className="py-16 md:py-24 px-6 md:px-12">
