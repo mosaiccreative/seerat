@@ -34,7 +34,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen bg-background overflow-hidden flex flex-col">
+    <section className="relative h-screen bg-background overflow-hidden flex flex-col">
       {/* Main content area - full bleed, content constrained inside */}
       <div className="flex-1 flex items-center w-full pt-24 md:pt-28 lg:pt-20 pb-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16">
@@ -99,7 +99,7 @@ export function HeroSection() {
       </div>
 
       {/* Bottom area: Subtitle - pinned above fold */}
-      <div className="relative pb-10 md:pb-12 lg:pb-16 lg:pt-4">
+      <div className="relative pb-8 md:pb-10 lg:pb-12">
         <motion.p
           initial={shouldAnimate ? { opacity: 0, y: 20 } : { opacity: 1 }}
           animate={{ opacity: 1, y: 0 }}
