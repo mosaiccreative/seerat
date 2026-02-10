@@ -25,6 +25,10 @@ export function BookCover({ onOpen, isOpening }: BookCoverProps) {
         src={seeratBook}
         alt="Surinder Seerat book cover"
         className="block"
+        width={600}
+        height={900}
+        // @ts-ignore - fetchpriority not yet in React types
+        fetchpriority="high"
         style={{
           maxHeight: '50vh',
           maxWidth: '60%',
