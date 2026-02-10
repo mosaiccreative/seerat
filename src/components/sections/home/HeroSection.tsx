@@ -34,9 +34,9 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen bg-background overflow-hidden flex flex-col">
+    <section className="relative h-screen bg-background overflow-hidden flex flex-col">
       {/* Main content area */}
-      <div className="flex-1 flex items-center px-6 md:px-12 lg:px-16 pt-24 md:pt-32 pb-8">
+      <div className="flex-1 flex items-center px-6 md:px-12 lg:px-16 pt-24 md:pt-28 pb-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto w-full">
           
           {/* Left Column: Text Content */}
@@ -49,7 +49,7 @@ export function HeroSection() {
             {/* Stacked Headline */}
             <motion.h1 
               variants={shouldAnimate ? fadeUp : undefined}
-              className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] tracking-tight mb-8"
+              className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] tracking-tight mb-6"
             >
               The Physicist.<br />
               The Writer.<br />
@@ -59,7 +59,7 @@ export function HeroSection() {
             {/* Decorative divider */}
             <motion.div 
               variants={shouldAnimate ? fadeUp : undefined} 
-              className="flex justify-center lg:justify-start mb-8"
+              className="flex justify-center lg:justify-start mb-6"
             >
               <div className="flex items-center gap-3" aria-hidden="true">
                 <div className="w-12 h-px bg-gold/30" />
@@ -69,7 +69,7 @@ export function HeroSection() {
             </motion.div>
             
             {/* Award badge */}
-            <motion.div variants={shouldAnimate ? fadeUp : undefined} className="mb-4">
+            <motion.div variants={shouldAnimate ? fadeUp : undefined} className="mb-3">
               <span className="inline-block px-5 py-2.5 bg-gold/5 border border-gold/20 text-gold font-ui text-[11px] tracking-[0.2em] uppercase">
                 Award-Winning Punjabi Ghazals and Novel.
               </span>
@@ -98,8 +98,8 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom area: Subtitle */}
-      <div className="relative pb-8 md:pb-12">
+      {/* Bottom area: Subtitle - pinned above fold */}
+      <div className="relative pb-6 md:pb-10">
         <motion.p 
           initial={shouldAnimate ? { opacity: 0, y: 20 } : { opacity: 1 }}
           animate={{ opacity: 1, y: 0 }}
