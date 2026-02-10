@@ -20,7 +20,7 @@ const faqItems = [
   },
   {
     question: "What awards has Surinder Seerat received?",
-    answer: "Surinder Seerat has received four major literary awards: JKAACL Best Punjabi Book Award (1982) for Chhallan, JKAACL Best Punjabi Book Award (1987) for Bharam Bhullayan, JKAACL Best Punjabi Book Award (1991) for Kirchan, and the Professor Mohan Singh Award (2014) for Aroope Akhran da Aks. In 2015, a National Seminar in Jammu was dedicated to studying his creative process."
+    answer: "Surinder Seerat has received seven major literary awards spanning 40 years: JKAACL Best Punjabi Book Awards (1982, 1987, 1991), Professor Mohan Singh Award (2014), Bhai Vir Singh Chair Award from Patiala University (2016), Sahir Ludhianvi Award from Indian Poets Conference Chandigarh (2017), and Sarv-Uttam Sahitkaar (Distinguished Writer) from VIPSA (2022). In 2015, a National Seminar in Jammu was dedicated to studying his creative process."
   },
   {
     question: "What is a ghazal?",
@@ -44,8 +44,9 @@ const timelineItems = [
   { year: '2011', event: 'Sabbatical to focus on poetry full-time' },
   { year: '2014', event: 'Published "Aroope Akhran da Aks" — Professor Mohan Singh Award' },
   { year: '2015', event: 'National Seminar in Jammu dedicated to his creative process' },
-  { year: '2016', event: '"Srijna te Samvaad" — 35 scholars examine his work' },
-  { year: '2022', event: '"Poorab Pacham te Parvaas" — Short stories on the immigrant journey' },
+  { year: '2016', event: '"Srijna te Samvaad" published; Bhai Vir Singh Chair Award (Patiala University)' },
+  { year: '2017', event: 'Sahir Ludhianvi Award — Indian Poets Conference, Chandigarh' },
+  { year: '2022', event: '"Poorab Pacham te Parvaas" published; Sarv-Uttam Sahitkaar Award (VIPSA)' },
   { year: '2023', event: '"Jung Jaari Hai" — The struggle continues in late poetry' },
   { year: '2025', event: '"Amrīkī Punjabi Kahāṇī" — 22-author anthology for WPSA Silver Jubilee' },
 ];
@@ -303,16 +304,19 @@ const About = () => {
               Recognition Across <span className="text-gold">Continents</span>
             </h2>
             <p className="text-muted-foreground text-base">
-              Four major awards spanning 32 years—evidence of sustained literary excellence
+              Seven major awards spanning 40 years—evidence of sustained literary excellence
             </p>
           </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               { year: '1982', title: 'JKAACL Best Punjabi Book Award', book: 'Chhallan' },
               { year: '1987', title: 'JKAACL Best Book Award', book: 'Bharam Bhullayan' },
               { year: '1991', title: 'JKAACL Best Book Award', book: 'Kirchan (pure form ghazals)' },
-              { year: '2014', title: 'Professor Mohan Singh Award', book: '' },
+              { year: '2014', title: 'Professor Mohan Singh Award', book: 'Aroope Akhran da Aks' },
+              { year: '2016', title: 'Bhai Vir Singh Chair Award', book: 'Patiala University' },
+              { year: '2017', title: 'Sahir Ludhianvi Award', book: 'Indian Poets Conference, Chandigarh' },
+              { year: '2022', title: 'Sarv-Uttam Sahitkaar', book: 'VIPSA — Distinguished Writer' },
             ].map((award, index) => (
               <motion.div
                 key={award.year}
@@ -324,7 +328,7 @@ const About = () => {
               >
                 <span className="text-gold font-ui text-sm tracking-wider">{award.year}</span>
                 <h3 className="font-display text-lg md:text-xl mt-1 mb-2">{award.title}</h3>
-                {award.book && <p className="text-muted-foreground text-sm">for {award.book}</p>}
+                {award.book && <p className="text-muted-foreground text-sm">{award.book}</p>}
               </motion.div>
             ))}
           </div>
