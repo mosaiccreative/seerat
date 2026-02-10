@@ -78,7 +78,7 @@ const About = () => {
               From <span className="text-gold italic">Physics</span> to Poetry
             </h1>
             <p className="font-display text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Poet, novelist, critic, editor, and short story writer. First in his village to graduate university. 
+              Poet, novelist, short story writer, critic and editor. First in his town to graduate university. 
               Professor for 20 years. Founder of California's premier Punjabi literary organization.
             </p>
           </motion.div>
