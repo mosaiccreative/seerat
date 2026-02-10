@@ -85,31 +85,44 @@ export function EmailCapture({
   const displayDescription = description ?? content.description;
   const displayButtonText = buttonText ?? content.buttonText;
 
+  const MAX_EMAIL_LENGTH = 255;
+  const MAX_NAME_LENGTH = 100;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    
-    if (!email || !email.includes('@')) {
+
+    const trimmedEmail = email.trim();
+    const trimmedName = firstName.trim();
+
+    if (!trimmedEmail || !emailRegex.test(trimmedEmail)) {
       setError('Please enter a valid email address.');
-      toast({
-        title: "Invalid email",
-        description: "Please enter a valid email address.",
-        variant: "destructive"
-      });
+      toast({ title: "Invalid email", description: "Please enter a valid email address.", variant: "destructive" });
+      return;
+    }
+
+    if (trimmedEmail.length > MAX_EMAIL_LENGTH) {
+      setError('Email address is too long.');
+      toast({ title: "Invalid email", description: "Email address is too long.", variant: "destructive" });
+      return;
+    }
+
+    if (trimmedName.length > MAX_NAME_LENGTH) {
+      setError('Name is too long.');
+      toast({ title: "Invalid name", description: "Name is too long.", variant: "destructive" });
       return;
     }
 
     setIsLoading(true);
     
     try {
-      // Build payload based on endpoint type
-      const payload: Record<string, string> = { email };
+      const payload: Record<string, string> = { email: trimmedEmail };
       
-      if (firstName.trim()) {
-        payload.firstName = firstName.trim();
+      if (trimmedName) {
+        payload.firstName = trimmedName;
       }
       
-      // Add source for newsletter endpoint
       if (endpoint === 'newsletter' && source) {
         payload.source = source;
       }
