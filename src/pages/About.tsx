@@ -236,7 +236,7 @@ const About = () => {
           >
             <span className="chapter-label block">The Immigrant</span>
             <h2 className="font-display text-2xl md:text-3xl mb-4">
-              <span className="text-gold">California</span> (Late 1980s)
+              <span className="text-gold">California</span> (November 22, 1988)
             </h2>
             
             <div className="text-muted-foreground space-y-3 text-base leading-relaxed">
