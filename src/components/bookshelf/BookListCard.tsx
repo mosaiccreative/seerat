@@ -18,6 +18,7 @@ interface BookListCardProps {
   whoFor?: string[];
   coverPosition?: string;
   coverFit?: "cover" | "contain";
+  coverScale?: number;
   award?: string;
   foreword?: string;
   coverImage?: string;
@@ -36,6 +37,7 @@ export function BookListCard({
   description,
   coverPosition,
   coverFit,
+  coverScale,
   whoFor,
   award,
   foreword,
@@ -76,7 +78,10 @@ export function BookListCard({
               src={effectiveCover}
               alt={`Cover of ${title}`}
               className={cn("w-full h-full", coverFit === "contain" ? "object-contain" : "object-cover")}
-              style={coverPosition ? { objectPosition: coverPosition } : undefined}
+              style={{
+                ...(coverPosition ? { objectPosition: coverPosition } : {}),
+                ...(coverScale ? { transform: `scale(${coverScale})` } : {}),
+              }}
               loading="lazy"
               onError={() => setCoverFailed(true)}
               referrerPolicy="no-referrer"
