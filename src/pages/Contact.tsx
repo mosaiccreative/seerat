@@ -20,18 +20,46 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [inquiryType, setInquiryType] = useState<InquiryType>('general');
 
+  const MAX_NAME_LENGTH = 100;
+  const MAX_EMAIL_LENGTH = 255;
+  const MAX_SUBJECT_LENGTH = 200;
+  const MAX_MESSAGE_LENGTH = 5000;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const VALID_INQUIRY_TYPES: InquiryType[] = ['general', 'collaboration', 'academic', 'library_acquisition'];
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
+
     const formData = new FormData(e.currentTarget);
-    const payload = {
-      name: formData.get('name') as string,
-      email: formData.get('email') as string,
-      subject: formData.get('subject') as string,
-      message: formData.get('message') as string,
-      inquiryType: inquiryType,
-    };
+    const name = (formData.get('name') as string || '').trim();
+    const email = (formData.get('email') as string || '').trim();
+    const subject = (formData.get('subject') as string || '').trim();
+    const message = (formData.get('message') as string || '').trim();
+
+    if (!name || name.length > MAX_NAME_LENGTH) {
+      toast({ title: "Invalid name", description: `Name must be between 1 and ${MAX_NAME_LENGTH} characters.`, variant: "destructive" });
+      return;
+    }
+    if (!email || !emailRegex.test(email) || email.length > MAX_EMAIL_LENGTH) {
+      toast({ title: "Invalid email", description: "Please enter a valid email address.", variant: "destructive" });
+      return;
+    }
+    if (!subject || subject.length > MAX_SUBJECT_LENGTH) {
+      toast({ title: "Invalid subject", description: `Subject must be between 1 and ${MAX_SUBJECT_LENGTH} characters.`, variant: "destructive" });
+      return;
+    }
+    if (!message || message.length > MAX_MESSAGE_LENGTH) {
+      toast({ title: "Invalid message", description: `Message must be between 1 and ${MAX_MESSAGE_LENGTH} characters.`, variant: "destructive" });
+      return;
+    }
+    if (!VALID_INQUIRY_TYPES.includes(inquiryType)) {
+      toast({ title: "Invalid inquiry type", description: "Please select a valid inquiry type.", variant: "destructive" });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const payload = { name, email, subject, message, inquiryType };
 
     try {
       const response = await fetch(CONTACT_ENDPOINT, {
@@ -110,6 +138,7 @@ const Contact = () => {
                     required
                     aria-required="true"
                     disabled={isSubmitting}
+                    maxLength={MAX_NAME_LENGTH}
                     className="bg-[#faf8f4] border-[#e8e3d8] text-[#1a1815] placeholder:text-[#4a453f]/60 h-12 focus:bg-white focus:border-[#d4a84b] focus:ring-[#d4a84b]/20 transition-colors"
                   />
                 </div>
@@ -124,6 +153,7 @@ const Contact = () => {
                     required
                     aria-required="true"
                     disabled={isSubmitting}
+                    maxLength={MAX_EMAIL_LENGTH}
                     className="bg-[#faf8f4] border-[#e8e3d8] text-[#1a1815] placeholder:text-[#4a453f]/60 h-12 focus:bg-white focus:border-[#d4a84b] focus:ring-[#d4a84b]/20 transition-colors"
                   />
                 </div>
@@ -140,6 +170,7 @@ const Contact = () => {
                     required
                     aria-required="true"
                     disabled={isSubmitting}
+                    maxLength={MAX_SUBJECT_LENGTH}
                     className="bg-[#faf8f4] border-[#e8e3d8] text-[#1a1815] placeholder:text-[#4a453f]/60 h-12 focus:bg-white focus:border-[#d4a84b] focus:ring-[#d4a84b]/20 transition-colors"
                   />
                 </div>
@@ -172,6 +203,7 @@ const Contact = () => {
                   required
                   aria-required="true"
                   disabled={isSubmitting}
+                  maxLength={MAX_MESSAGE_LENGTH}
                   className="bg-[#faf8f4] border-[#e8e3d8] text-[#1a1815] placeholder:text-[#4a453f]/60 focus:bg-white focus:border-[#d4a84b] focus:ring-[#d4a84b]/20 resize-none transition-colors"
                 />
               </div>
