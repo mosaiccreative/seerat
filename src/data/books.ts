@@ -124,6 +124,6 @@ export const books: Book[] = [
     award: "Best Punjabi book by J&K Academy of Art Culture and Languages (JKAACL) in 1982",
     foreword: "Dr. Kulbir Singh Kaang",
     coverImage: "/images/books/Chhallan.jpeg",
-    coverPosition: "center 15%"
+    coverPosition: "center 5%"
   }
 ];
