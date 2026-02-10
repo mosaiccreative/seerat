@@ -78,9 +78,8 @@
  }
  
  @layer base {
-   * {
-     @apply border-border;
-   }
+   /* Note: border-border removed from * selector to prevent unintended borders.
+      Components that need border-border should apply it explicitly. */
    
    html {
      scroll-behavior: smooth;

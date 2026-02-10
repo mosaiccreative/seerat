@@ -34,10 +34,10 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen lg:h-auto lg:min-h-0 bg-background overflow-hidden flex flex-col">
-      {/* Main content area */}
-      <div className="flex-1 flex items-center px-6 md:px-12 lg:px-16 pt-24 md:pt-28 lg:pt-20 pb-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-7xl mx-auto w-full">
+    <section className="relative min-h-screen bg-background overflow-hidden flex flex-col">
+      {/* Main content area - full bleed, content constrained inside */}
+      <div className="flex-1 flex items-center w-full pt-24 md:pt-28 lg:pt-20 pb-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16">
           
           {/* Left Column: Text Content */}
           <motion.div
