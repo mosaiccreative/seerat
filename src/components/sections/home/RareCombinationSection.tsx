@@ -12,7 +12,7 @@ const pillars = [
 
 export function RareCombinationSection() {
   return (
-    <section className="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-cream text-burgundy">
+    <section className="py-14 md:py-20 lg:py-24 px-6 md:px-12 bg-cream text-burgundy">
       {/* Margin ornament - thin vertical line with stamp */}
       <div className="hidden lg:block fixed left-8 top-1/3 h-32" aria-hidden="true">
         <div className="w-px h-full bg-burgundy/10" />

@@ -9,7 +9,7 @@ const stats = [
 
 export function StatsSection() {
   return (
-    <section className="py-16 md:py-20 px-6 md:px-12 bg-cream text-burgundy relative">
+    <section className="py-12 md:py-14 px-6 md:px-12 bg-cream text-burgundy relative">
       {/* Top decorative divider */}
       <div 
         className="absolute top-0 left-1/2 -translate-x-1/2 flex items-center gap-2" 
