@@ -16,7 +16,7 @@ export const books: Book[] = [
     title: "Aroope Akhran da Aks",
     year: "2014",
     type: "Poetry in open verse and Ghazals",
-    description: "Seerat's most recent book reflects the mysteriousness of the modern world. He exemplifies the idea that a word's definition is trapped within the word itself. Demonstrating that it is impossible to interpret the internal thoughts of any creation with words or symbols, when you try to personify the reflection of nonexistence.",
+    description: "This book reflects the mysteriousness of the modern world. He exemplifies the idea that a word's definition is trapped within the word itself. Demonstrating that it is impossible to interpret the internal thoughts of any creation with words or symbols, when you try to personify the reflection of nonexistence.",
     coverImage: "/images/books/Aroope-Akhran-da-Aks.jpeg"
   },
   {
