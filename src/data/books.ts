@@ -8,6 +8,8 @@ export interface Book {
   award?: string;
   foreword?: string;
   coverImage?: string;
+  /** CSS object-position value for cover image, e.g. "center 60%" */
+  coverPosition?: string;
 }
 
 export const books: Book[] = [
@@ -121,6 +123,7 @@ export const books: Book[] = [
     description: "Surinder Seerat's first book of free verse poems. Poetry of this book reflects the internal struggle to exist in the world.",
     award: "Best Punjabi book by J&K Academy of Art Culture and Languages (JKAACL) in 1982",
     foreword: "Dr. Kulbir Singh Kaang",
-    coverImage: "/images/books/Chhallan.jpeg"
+    coverImage: "/images/books/Chhallan.jpeg",
+    coverPosition: "center 65%"
   }
 ];
