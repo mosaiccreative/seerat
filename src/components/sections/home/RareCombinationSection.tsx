@@ -87,7 +87,7 @@ export function RareCombinationSection() {
         {/* Extended bio */}
         <div className="prose-poetry text-burgundy/80 space-y-6 max-w-[65ch] mx-auto text-base md:text-lg leading-[1.8]">
           <p>
-            Born in a small village in Kashmir, Surinder Singh Seerat was the{' '}
+            Born in Saidpora, Pulwama in Kashmir, Surinder Singh Seerat was the{' '}
             <strong className="text-burgundy font-medium">first person in his family—and his entire village—to graduate from university</strong>. 
             He built a career as a physics professor, taught for over twenty years, and worked in corporate America 
             at IBM, Iomega, and the U.S. Postal Service.
