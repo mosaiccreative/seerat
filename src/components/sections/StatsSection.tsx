@@ -20,7 +20,7 @@ export function StatsSection() {
         <div className="w-16 h-px bg-burgundy/10" />
       </div>
 
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         <StaggerReveal 
           className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center" 
           staggerDelay={0.1}
