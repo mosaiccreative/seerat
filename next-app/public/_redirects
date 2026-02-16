@@ -1,0 +1,8 @@
+# Redirect www to non-www (canonical URL)
+https://www.surinderseerat.com/* https://surinderseerat.com/:splat 301!
+
+/assets/*    /assets/:splat    200
+/images/*    /images/:splat    200
+/sitemap.xml /sitemap.xml      200
+/robots.txt  /robots.txt       200
+/*           /index.html       200
