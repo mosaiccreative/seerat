@@ -37,3 +37,4 @@ next-app/.next
 next-app/.netlify
 next-app/node_modules
 *.tsbuildinfo
+.env
