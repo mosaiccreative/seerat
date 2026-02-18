@@ -10,8 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Preload LCP image with high priority -->
-    <link rel="preload" as="image" href="/images/seerat-book-cover.png" fetchpriority="high" />
+    <!-- Preload LCP image with high priority (WebP for modern browsers) -->
+    <link rel="preload" as="image" href="/images/seerat-book-cover.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/seerat-book-cover.png" fetchpriority="low" />
 
     <!-- Inline critical font-face to avoid render-blocking Google Fonts request -->
     <style>
@@ -235,7 +236,10 @@
 
   <body>
     <!-- Prerender LCP image so browser discovers it before JS hydration -->
-    <img src="/images/seerat-book-cover.png" alt="" width="600" height="900" fetchpriority="high" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-height:50vh;max-width:60%;width:auto;height:auto;object-fit:contain;z-index:59;pointer-events:none;" aria-hidden="true" id="lcp-prerender" />
+    <picture>
+      <source srcset="/images/seerat-book-cover.webp" type="image/webp" />
+      <img src="/images/seerat-book-cover.png" alt="" width="600" height="900" fetchpriority="high" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-height:50vh;max-width:60%;width:auto;height:auto;object-fit:contain;z-index:59;pointer-events:none;" aria-hidden="true" id="lcp-prerender" />
+    </picture>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>

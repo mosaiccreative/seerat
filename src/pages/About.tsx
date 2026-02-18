@@ -7,7 +7,7 @@ import { VerticalTimeline } from '@/components/sections/about/VerticalTimeline';
 import { ArrowRight } from 'lucide-react';
 import { SEO } from '@/components/SEO';
 
-const poetPortrait = '/images/poet-portrait.jpg';
+const poetPortrait = '/images/poet-portrait.webp';
 
 const faqItems = [
   {

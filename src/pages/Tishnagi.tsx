@@ -6,7 +6,7 @@ import { ArrowRight, ExternalLink, Music, BookOpen, Heart } from 'lucide-react';
 import { AnswerBlock } from '@/components/sections/AnswerBlock';
 import { SEO } from '@/components/SEO';
 
-const tishnagiCover = '/images/tishnagi-cover.jpg';
+const tishnagiCover = '/images/tishnagi-cover.webp';
 
 const tishnagiSchema = {
   "@context": "https://schema.org",

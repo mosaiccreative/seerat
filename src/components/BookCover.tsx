@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 
-const seeratBookPng = '/images/seerat-book-cover.png';
+const seeratBookWebp = '/images/seerat-book-cover.webp';
 
 interface BookCoverProps {
   onOpen: () => void;
@@ -22,7 +22,7 @@ export function BookCover({ onOpen, isOpening }: BookCoverProps) {
     >
       {/* Floating book - simple up/down motion only */}
       <motion.img
-        src={seeratBookPng}
+        src={seeratBookWebp}
         alt="Surinder Seerat book cover"
         className="block"
         width={600}
