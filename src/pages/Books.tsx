@@ -5,8 +5,8 @@ import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { BookshelfStage, BookListCard, ShelfDividerMotif } from '@/components/bookshelf';
 
 import { books } from '@/data/books';
-import { useEffect } from 'react';
 import { ArrowRight, Award, BookOpen, Music, Users } from 'lucide-react';
+import { SEO } from '@/components/SEO';
 
 // Enhanced book data with theme, subtitle, who it's for, form, and expanded descriptions
 const enhancedBookData: Record<string, {
@@ -213,15 +213,17 @@ const readingPaths = [
 const Books = () => {
   const { shouldAnimate } = useMotionPreference();
 
-  useEffect(() => {
-    document.title = 'Thirteen Books, 45 Years of Poetry, Novels, Stories & Scholarship — Surinder Seerat';
-  }, []);
-
   // Sort books oldest to newest for the shelf
   const sortedBooks = [...books].sort((a, b) => parseInt(a.year) - parseInt(b.year));
 
   return (
     <PageLayout>
+      <SEO
+        title="Books by Surinder Seerat"
+        description="Explore 13 published works spanning 45 years: poetry collections, novels, short stories, and scholarly works. From Chhallan (1980) to Amrīkī Punjabi Kahāṇī (2025)."
+        canonical="/books"
+        keywords="Surinder Seerat books, Punjabi poetry books, ghazal collections, Chhallan, Kirchan, Bharam Bhullayan, Punjabi literature"
+      />
       {/* Hero Section */}
       <section className="py-16 md:py-24 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Clock, GraduationCap, Users, BookOpen } from 'lucide-react';
 import { PageLayout } from '@/components/layout/PageLayout';
@@ -6,6 +5,7 @@ import { EmailCapture } from '@/components/sections/EmailCapture';
 import { FAQAccordion } from '@/components/sections/FAQAccordion';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { Button } from '@/components/ui/button';
+import { SEO } from '@/components/SEO';
 
 const courseFAQ = [
   {
@@ -26,15 +26,33 @@ const courseFAQ = [
   }
 ];
 
+const courseSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Learn the Art of Poetry with Surinder Seerat",
+  "description": "A comprehensive course on ghazals, free-verse, and the craft of meaningful poetry taught by award-winning poet Surinder Seerat.",
+  "provider": {
+    "@type": "Person",
+    "name": "Surinder Singh Seerat"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online"
+  }
+};
+
 const Course = () => {
   const { shouldAnimate } = useMotionPreference();
 
-  useEffect(() => {
-    document.title = 'Poetry Course — Surinder Seerat';
-  }, []);
-
   return (
     <PageLayout>
+      <SEO
+        title="Poetry Course"
+        description="Learn the art of ghazals and free-verse poetry from award-winning Punjabi poet Surinder Seerat. Coming soon: self-paced and cohort learning options."
+        canonical="/course"
+        keywords="poetry course, learn ghazal, Punjabi poetry class, creative writing, Surinder Seerat course"
+        schema={courseSchema}
+      />
       {/* Hero */}
       <section className="page-section relative overflow-hidden">
         {/* Ambient glow */}

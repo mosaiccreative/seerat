@@ -3,19 +3,45 @@ import { Link } from 'react-router-dom';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { ArrowRight, Music, BookOpen, Users, Award } from 'lucide-react';
-import { useEffect } from 'react';
 import { AnswerBlock } from '@/components/sections/AnswerBlock';
+import { SEO } from '@/components/SEO';
 
+
+const ghazalFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a ghazal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A ghazal is a poetic form consisting of rhyming couplets (called sher) and a refrain (called radif). Each couplet is a self-contained poem with themes of longing, mysticism, and consciousness. Originating in 7th-century Arabia, it flourished through Persian and Urdu traditions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How did ghazals influence Bollywood?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The ghazal tradition directly shaped Bollywood's golden age of music. Legendary composers and lyricists brought ghazal sensibilities to film songs, creating the emotional depth that defined classic Indian cinema."
+      }
+    }
+  ]
+};
 
 const GhazalHistory = () => {
   const { shouldAnimate } = useMotionPreference();
 
-  useEffect(() => {
-    document.title = 'The Ghazal: From Bollywood\'s Foundation to Modern Renaissance — Surinder Seerat';
-  }, []);
-
   return (
     <PageLayout>
+      <SEO
+        title="What is a Ghazal?"
+        description="Discover the ghazal: the ancient poetic form that shaped Bollywood music and continues to explore human longing. Learn about its structure, themes, and modern renaissance."
+        canonical="/ghazal-history"
+        keywords="what is ghazal, ghazal poetry, ghazal form, Bollywood ghazal, Punjabi ghazal, Urdu poetry"
+        schema={ghazalFaqSchema}
+      />
       {/* Light theme wrapper for entire page */}
       <div className="bg-[#f7f3eb] text-[#1a1815]">
         {/* Hero Section */}

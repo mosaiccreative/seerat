@@ -3,6 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 import { BookCover } from '@/components/BookCover';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
+import { SEO } from '@/components/SEO';
 
 // Above-the-fold section loaded eagerly
 import { HeroSection } from '@/components/sections/home/HeroSection';
@@ -41,6 +42,12 @@ const Index = () => {
 
   return (
     <div className="noise-overlay">
+      <SEO
+        title="Surinder Singh Seerat"
+        description="Award-winning Punjabi ghazal master with 8 published books spanning 34 years. Explore poetry collections, the Tishnagi album, and join the literary circle."
+        canonical="/"
+        keywords="Surinder Singh Seerat, Punjabi poetry, Punjabi poet, ghazal, Punjabi literature, Punjabi ghazal, Kirchan, Chhallan, Tishnagi, Punjabi author, contemporary Punjabi poetry"
+      />
       {/* Book Cover Intro */}
       <AnimatePresence>
         {!bookOpened && (

@@ -1,22 +1,24 @@
- import { useEffect } from 'react';
- import { motion } from 'framer-motion';
- import { Clock, Package, BookOpen, Sparkles } from 'lucide-react';
- import { PageLayout } from '@/components/layout/PageLayout';
- import { EmailCapture } from '@/components/sections/EmailCapture';
- import { ProductCard } from '@/components/sections/ProductCard';
- import { useMotionPreference } from '@/hooks/useMotionPreference';
- import { books } from '@/data/books';
+import { motion } from 'framer-motion';
+import { Clock, Package, BookOpen, Sparkles } from 'lucide-react';
+import { PageLayout } from '@/components/layout/PageLayout';
+import { EmailCapture } from '@/components/sections/EmailCapture';
+import { ProductCard } from '@/components/sections/ProductCard';
+import { useMotionPreference } from '@/hooks/useMotionPreference';
+import { books } from '@/data/books';
+import { SEO } from '@/components/SEO';
  
- const Store = () => {
-   const { shouldAnimate } = useMotionPreference();
- 
-   useEffect(() => {
-     document.title = 'Store — Surinder Seerat';
-   }, []);
- 
-   return (
-     <PageLayout>
-       {/* Hero */}
+const Store = () => {
+  const { shouldAnimate } = useMotionPreference();
+
+  return (
+    <PageLayout>
+      <SEO
+        title="Bookshop"
+        description="Coming soon: Physical books, ebooks, and exclusive signed bundles from Surinder Seerat. Join the waitlist for early access and launch pricing."
+        canonical="/store"
+        keywords="buy Surinder Seerat books, Punjabi poetry books, signed poetry books, ebook poetry"
+      />
+      {/* Hero */}
        <section className="page-section relative overflow-hidden">
          {/* Ambient glow */}
          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

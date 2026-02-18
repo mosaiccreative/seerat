@@ -5,7 +5,7 @@ import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { FAQAccordion } from '@/components/sections/FAQAccordion';
 import { VerticalTimeline } from '@/components/sections/about/VerticalTimeline';
 import { ArrowRight } from 'lucide-react';
-import { useEffect } from 'react';
+import { SEO } from '@/components/SEO';
 
 const poetPortrait = '/images/poet-portrait.jpg';
 
@@ -60,15 +60,50 @@ const timelineItems = [
   { year: '2025', event: '"Amrīkī Punjabi Kahāṇī" — 22-author anthology for WPSA Silver Jubilee' },
 ];
 
+const aboutFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who is Surinder Seerat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Surinder Singh Seerat is an award-winning Punjabi poet, novelist, critic, editor, and short story writer with particular expertise in the ghazal form. Born in Kashmir in 1947, he became the first person in his community to graduate university, built a career as a physics professor, and later founded two major Punjabi literary organizations in California."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many books has Surinder Seerat published?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Surinder Seerat has published thirteen works spanning 45 years (1980-2025). His collection includes poetry volumes exploring free verse, open verse, and pure ghazal forms, novels, short story collections, an edited critical volume featuring 35 scholars."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What awards has Surinder Seerat received?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Surinder Seerat has received seven major literary awards spanning 40 years: JKAACL Best Punjabi Book Awards (1982, 1987, 1991), Professor Mohan Singh Award (2014), Bhai Vir Singh Chair Award from Patiala University (2016), Sahir Ludhianvi Award (2017), and Sarv-Uttam Sahitkaar from VIPSA (2022)."
+      }
+    }
+  ]
+};
+
 const About = () => {
   const { shouldAnimate } = useMotionPreference();
 
-  useEffect(() => {
-    document.title = 'From Physics to Poetry: A Journey Across Continents — Surinder Seerat';
-  }, []);
-
   return (
     <PageLayout>
+      <SEO
+        title="About Surinder Seerat"
+        description="From Kashmir to California: the journey of award-winning Punjabi poet Surinder Singh Seerat. Physicist, professor, and founder of California's premier Punjabi literary organizations."
+        canonical="/about"
+        ogType="profile"
+        keywords="Surinder Seerat biography, Punjabi poet history, Kashmir poet, immigrant poet, physics professor poet"
+        schema={aboutFaqSchema}
+      />
       {/* Hero Section */}
       <section className="py-16 md:py-24 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">

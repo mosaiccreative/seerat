@@ -9,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
+import { SEO } from '@/components/SEO';
 
 type InquiryType = 'general' | 'collaboration' | 'academic' | 'library_acquisition';
 
@@ -96,6 +97,12 @@ const Contact = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title="Contact Surinder Seerat"
+        description="Get in touch for events, readings, book purchases, academic inquiries, or literary collaborations. Connect with award-winning Punjabi poet Surinder Singh Seerat."
+        canonical="/contact"
+        keywords="contact Surinder Seerat, Punjabi poet contact, literary events, poetry readings, book purchase inquiry"
+      />
       {/* Light theme wrapper for entire page */}
       <div className="bg-[#f7f3eb] min-h-screen">
         {/* Hero Section */}

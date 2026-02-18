@@ -3,20 +3,38 @@ import { Link } from 'react-router-dom';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { ArrowRight, ExternalLink, Music, BookOpen, Heart } from 'lucide-react';
-import { useEffect } from 'react';
 import { AnswerBlock } from '@/components/sections/AnswerBlock';
+import { SEO } from '@/components/SEO';
 
 const tishnagiCover = '/images/tishnagi-cover.jpg';
+
+const tishnagiSchema = {
+  "@context": "https://schema.org",
+  "@type": "MusicAlbum",
+  "name": "Tishnagi",
+  "alternateName": "Thirst",
+  "byArtist": {
+    "@type": "Person",
+    "name": "Surinder Singh Seerat"
+  },
+  "genre": ["Ghazal", "Punjabi Music"],
+  "description": "Ghazal album capturing longing as the fundamental human condition. Experience Surinder Seerat's poetry through music.",
+  "url": "https://surinderseerat.com/tishnagi"
+};
 
 const Tishnagi = () => {
   const { shouldAnimate } = useMotionPreference();
 
-  useEffect(() => {
-    document.title = 'Tishnagi: Ghazals That Sing — Surinder Seerat';
-  }, []);
-
   return (
     <PageLayout>
+      <SEO
+        title="Tishnagi - Ghazal Album"
+        description="Experience Surinder Seerat's ghazals through music. Tishnagi (Thirst) captures longing as the fundamental human condition. Listen on YouTube and SoundCloud."
+        canonical="/tishnagi"
+        ogType="music.album"
+        keywords="Tishnagi, Punjabi ghazal album, Surinder Seerat music, ghazal songs, Punjabi poetry music"
+        schema={tishnagiSchema}
+      />
       {/* Hero Section */}
       <section className="py-16 md:py-20 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">

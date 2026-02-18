@@ -3,6 +3,7 @@ import { ExternalLink } from 'lucide-react';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { getVerifiedPress } from '@/data/media';
+import { SEO } from '@/components/SEO';
 
 const Media = () => {
   const { shouldAnimate } = useMotionPreference();
@@ -10,6 +11,12 @@ const Media = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title="Press & Media"
+        description="Coverage, interviews, and features about Surinder Singh Seerat from publications across India and beyond. Watch poetry readings and listen to ghazal recordings."
+        canonical="/media"
+        keywords="Surinder Seerat interviews, Punjabi poet media, poetry readings, ghazal recordings, press coverage"
+      />
       {/* Hero Section */}
       <section className="page-section">
         <div className="max-w-4xl mx-auto text-center">

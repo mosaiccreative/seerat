@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
+import { SEO } from '@/components/SEO';
 
 const Policies = () => {
   const { shouldAnimate } = useMotionPreference();
@@ -12,7 +13,6 @@ const Policies = () => {
   const [activeTab, setActiveTab] = useState(tabParam || 'privacy');
 
   useEffect(() => {
-    document.title = 'Policies — Surinder Seerat';
     if (tabParam && ['privacy', 'terms', 'refund', 'cookies'].includes(tabParam)) {
       setActiveTab(tabParam);
     }
@@ -22,6 +22,12 @@ const Policies = () => {
 
   return (
     <PageLayout>
+      <SEO
+        title="Legal Policies"
+        description="Privacy Policy, Terms of Service, Refund Policy, and Cookie Policy for surinderseerat.com."
+        canonical="/policies"
+        noindex={true}
+      />
       <section className="page-section">
         <motion.div
           className="max-w-3xl mx-auto"

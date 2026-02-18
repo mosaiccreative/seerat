@@ -1,10 +1,10 @@
- import { useParams, Link, useNavigate } from 'react-router-dom';
- import { motion } from 'framer-motion';
- import { ArrowLeft, Award, BookOpen, User } from 'lucide-react';
- import { PageLayout } from '@/components/layout/PageLayout';
- import { useMotionPreference } from '@/hooks/useMotionPreference';
- import { books } from '@/data/books';
- import { useEffect } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { ArrowLeft, Award, BookOpen, User } from 'lucide-react';
+import { PageLayout } from '@/components/layout/PageLayout';
+import { useMotionPreference } from '@/hooks/useMotionPreference';
+import { books } from '@/data/books';
+import { SEO } from '@/components/SEO';
  
 const BookDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -19,40 +19,61 @@ const BookDetail = () => {
       navigate('/books');
     }
   };
- 
-   useEffect(() => {
-     if (book) {
-       document.title = `${book.title} — Surinder Seerat`;
-     }
-   }, [book]);
- 
-   if (!book) {
-     return (
-       <PageLayout>
-         <section className="page-section">
-           <div className="text-center">
-             <h1 className="font-display text-4xl mb-4">Book Not Found</h1>
-             <p className="text-muted-foreground mb-8">
-               The book you're looking for doesn't exist.
-             </p>
-             <Link to="/books" className="btn-gold">
-               <ArrowLeft className="w-4 h-4" />
-               Back to All Works
-             </Link>
-           </div>
-         </section>
-       </PageLayout>
-     );
-   }
- 
-   // Get related books (same type, excluding current)
-   const relatedBooks = books
-     .filter(b => b.id !== book.id && b.type === book.type)
-     .slice(0, 3);
- 
-   return (
-     <PageLayout>
-       {/* Back Navigation */}
+
+  if (!book) {
+    return (
+      <PageLayout>
+        <SEO
+          title="Book Not Found"
+          description="The book you're looking for doesn't exist."
+          noindex={true}
+        />
+        <section className="page-section">
+          <div className="text-center">
+            <h1 className="font-display text-4xl mb-4">Book Not Found</h1>
+            <p className="text-muted-foreground mb-8">
+              The book you're looking for doesn't exist.
+            </p>
+            <Link to="/books" className="btn-gold">
+              <ArrowLeft className="w-4 h-4" />
+              Back to All Works
+            </Link>
+          </div>
+        </section>
+      </PageLayout>
+    );
+  }
+
+  // Get related books (same type, excluding current)
+  const relatedBooks = books
+    .filter(b => b.id !== book.id && b.type === book.type)
+    .slice(0, 3);
+
+  const bookSchema = {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": book.title,
+    "author": {
+      "@type": "Person",
+      "name": "Surinder Singh Seerat"
+    },
+    "datePublished": book.year,
+    "inLanguage": "pa",
+    "description": book.description,
+    ...(book.award && { "award": book.award })
+  };
+
+  return (
+    <PageLayout>
+      <SEO
+        title={book.title}
+        description={book.description}
+        canonical={`/books/${book.id}`}
+        ogType="book"
+        keywords={`${book.title}, Surinder Seerat, Punjabi poetry, ${book.type || 'poetry'}`}
+        schema={bookSchema}
+      />
+      {/* Back Navigation */}
         <div className="container mx-auto px-6 md:px-12 pt-8">
           <button 
             onClick={handleBack}
