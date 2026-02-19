@@ -1,12 +1,9 @@
 # Redirect www to non-www (canonical URL)
 https://www.surinderseerat.com/* https://surinderseerat.com/:splat 301!
 
-# Static files (must be before catch-all)
-/assets/*    /assets/:splat    200
-/images/*    /images/:splat    200
-/sitemap.xml /sitemap.xml      200
-/robots.txt  /robots.txt       200
-/yandex_*.html /yandex_:splat.html 200
+# Legacy URL redirects (old routes that Google indexed)
+/biography   /about            301!
+/connect     /contact          301!
 
-# SPA catch-all
-/*           /index.html       200
+# Note: With @netlify/plugin-nextjs, most routing is handled by Next.js
+# Static files and SPA catch-all are no longer needed for Next.js

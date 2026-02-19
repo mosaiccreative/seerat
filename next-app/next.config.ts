@@ -5,9 +5,10 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  // Redirect www to non-www
+  // Redirects: www to non-www + legacy URL aliases
   async redirects() {
     return [
+      // www to non-www redirect
       {
         source: '/:path*',
         has: [
@@ -17,6 +18,17 @@ const nextConfig: NextConfig = {
           },
         ],
         destination: 'https://surinderseerat.com/:path*',
+        permanent: true,
+      },
+      // Legacy URL redirects (old routes that Google indexed)
+      {
+        source: '/biography',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/connect',
+        destination: '/contact',
         permanent: true,
       },
     ];

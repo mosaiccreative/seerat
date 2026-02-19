@@ -14,3 +14,16 @@
   to = "https://surinderseerat.com/:splat"
   status = 301
   force = true
+
+# Legacy URL redirects (old routes that Google indexed)
+[[redirects]]
+  from = "/biography"
+  to = "/about"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/connect"
+  to = "/contact"
+  status = 301
+  force = true
