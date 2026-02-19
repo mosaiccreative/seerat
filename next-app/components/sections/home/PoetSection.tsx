@@ -67,7 +67,7 @@ export function PoetSection() {
             
             <Image
               src={poetPortrait}
-              alt="Surinder Seerat"
+              alt="Portrait of Surinder Singh Seerat, award-winning Punjabi poet and author"
               fill
               sizes="(max-width: 768px) 100vw, 400px"
               className="object-cover grayscale hover:grayscale-0 transition-all duration-1000"

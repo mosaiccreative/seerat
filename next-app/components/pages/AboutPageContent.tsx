@@ -9,7 +9,7 @@ import { FAQAccordion } from '@/components/sections/FAQAccordion';
 import { VerticalTimeline } from '@/components/sections/about/VerticalTimeline';
 import { ArrowRight } from 'lucide-react';
 
-const poetPortrait = '/images/poet-portrait.jpg';
+const poetPortrait = '/images/poet-portrait.webp';
 
 const faqItems = [
   {
@@ -101,7 +101,7 @@ export function AboutPageContent() {
               <div className="absolute -inset-3 border border-gold/30" />
               <Image
                 src={poetPortrait}
-                alt="Surinder Seerat"
+                alt="Surinder Singh Seerat, Kashmir-born physicist turned Punjabi poet"
                 fill
                 sizes="(max-width: 1024px) 100vw, 400px"
                 className="object-cover"
