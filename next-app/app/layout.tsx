@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     template: "%s | Surinder Seerat",
   },
   description:
-    "Award-winning Punjabi ghazal master with 8 published books spanning 34 years. Explore poetry collections, the Tishnagi album, and join the literary circle.",
+    "Discover the literary world of Surinder Singh Seerat, award-winning Punjabi ghazal master with 13 published books spanning 45 years of poetry, novels, and scholarship.",
   authors: [{ name: "Surinder Singh Seerat" }],
   keywords: [
     "Surinder Singh Seerat",
@@ -54,28 +54,33 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: {
+    canonical: "https://surinderseerat.com",
+  },
   openGraph: {
     type: "website",
     url: "https://surinderseerat.com/",
     siteName: "Surinder Singh Seerat",
-    title: "Surinder Seerat | Award-Winning Punjabi Literary Voice",
+    title: "Surinder Singh Seerat — Award-Winning Punjabi Poet & Author",
     description:
-      "Award-winning Punjabi ghazal master with 8 published books spanning 34 years. Exploring consciousness, longing, and the immigrant experience through verse.",
+      "Discover the literary world of Surinder Singh Seerat, award-winning Punjabi ghazal master with 13 published books spanning 45 years of poetry, novels, and scholarship.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Surinder Singh Seerat - The Physicist. The Writer. The Poet. - Bookshelf with 8 award-winning Punjabi poetry collections",
+        alt: "Surinder Singh Seerat - The Physicist. The Writer. The Poet. - Bookshelf with award-winning Punjabi poetry collections",
       },
     ],
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Surinder Seerat | Award-Winning Punjabi Literary Voice",
+    site: "@SurinderSeerat",
+    creator: "@SurinderSeerat",
+    title: "Surinder Singh Seerat — Award-Winning Punjabi Poet & Author",
     description:
-      "Award-winning Punjabi ghazal master. 8 books, 4 major awards, 34 years of literary excellence.",
+      "Discover the literary world of Surinder Singh Seerat, award-winning Punjabi ghazal master with 13 published books spanning 45 years.",
     images: ["/og-image.png"],
   },
   icons: {

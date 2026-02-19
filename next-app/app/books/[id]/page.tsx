@@ -25,13 +25,27 @@ export async function generateMetadata({ params }: BookPageProps): Promise<Metad
     };
   }
 
+  const pageTitle = `${book.title} (${book.year}) — ${book.type} by Surinder Seerat`;
+  const pageDescription = book.description.length > 160
+    ? book.description.substring(0, 157) + '...'
+    : book.description;
+
   return {
-    title: book.title,
-    description: book.description,
+    title: pageTitle,
+    description: pageDescription,
+    alternates: {
+      canonical: `https://surinderseerat.com/books/${id}`,
+    },
     openGraph: {
-      title: `${book.title} | Surinder Seerat`,
-      description: book.description,
-      images: book.coverImage ? [{ url: book.coverImage }] : undefined,
+      title: pageTitle,
+      description: pageDescription,
+      images: book.coverImage ? [{ url: book.coverImage }] : ['/og-image.png'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: pageTitle,
+      description: pageDescription,
+      images: book.coverImage ? [book.coverImage] : ['/og-image.png'],
     },
   };
 }

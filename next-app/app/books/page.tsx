@@ -2,11 +2,21 @@ import type { Metadata } from 'next';
 import { BooksPageContent } from '@/components/pages/BooksPageContent';
 
 export const metadata: Metadata = {
-  title: 'Thirteen Books, 45 Years of Poetry',
-  description: 'Poetry, novels, stories, and scholarship spanning five decades. From Chhallan (1980) to Amrīkī Punjabi Kahāṇī (2025).',
+  title: 'Complete Bibliography — 13 Books Across 45 Years of Writing',
+  description: 'Explore the complete literary works of Surinder Singh Seerat: poetry collections, novels, short stories, and critical scholarship from 1980 to 2025. Award-winning Punjabi literature.',
+  alternates: {
+    canonical: 'https://surinderseerat.com/books',
+  },
   openGraph: {
-    title: 'Thirteen Books, 45 Years of Poetry | Surinder Seerat',
-    description: 'Poetry, novels, stories, and scholarship spanning five decades.',
+    title: 'Complete Bibliography — 13 Books Across 45 Years of Writing',
+    description: 'Explore the complete literary works of Surinder Singh Seerat: poetry collections, novels, short stories, and critical scholarship from 1980 to 2025.',
+    images: ['/og-image.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Complete Bibliography — 13 Books Across 45 Years of Writing',
+    description: 'Explore the complete literary works of Surinder Singh Seerat: poetry, novels, stories, and scholarship from 1980 to 2025.',
+    images: ['/og-image.png'],
   },
 };
 
