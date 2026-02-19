@@ -21,14 +21,9 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  // Image domains for external images
+  // Image configuration - disable optimization for Netlify compatibility
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
+    unoptimized: true,
   },
 };
 
