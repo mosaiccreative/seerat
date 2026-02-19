@@ -1,8 +1,12 @@
 # Redirect www to non-www (canonical URL)
 https://www.surinderseerat.com/* https://surinderseerat.com/:splat 301!
 
+# Static files (must be before catch-all)
 /assets/*    /assets/:splat    200
 /images/*    /images/:splat    200
 /sitemap.xml /sitemap.xml      200
 /robots.txt  /robots.txt       200
+/yandex_*.html /yandex_:splat.html 200
+
+# SPA catch-all
 /*           /index.html       200
