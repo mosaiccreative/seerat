@@ -53,7 +53,11 @@ export const BookSpine = forwardRef<HTMLButtonElement, BookSpineProps>(
           scale: 1.02,
           transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] }
         } : undefined}
-        whileTap={motionEnabled ? { scale: 0.98 } : undefined}
+        whileTap={motionEnabled ? {
+          y: -12,
+          scale: 1.01,
+          transition: { duration: 0.15, ease: [0.16, 1, 0.3, 1] }
+        } : undefined}
         aria-label={`Open book details: ${title}, ${year}`}
         aria-pressed={isSelected}
         role="button"
@@ -64,7 +68,9 @@ export const BookSpine = forwardRef<HTMLButtonElement, BookSpineProps>(
             "absolute inset-0 rounded-sm overflow-hidden",
             "transition-all duration-300",
             isSelected ? "shadow-[0_8px_30px_-8px_hsl(var(--gold)/0.4)]" : "shadow-lg",
-            "group-hover:shadow-[0_8px_25px_-8px_hsl(var(--gold)/0.3)]"
+            // Lift shadow on hover and active/tap states
+            "group-hover:shadow-[0_12px_30px_-8px_hsl(var(--gold)/0.35)]",
+            "group-active:shadow-[0_10px_25px_-6px_hsl(var(--gold)/0.3)]"
           )}
         >
           {/* Cover image imprint */}
