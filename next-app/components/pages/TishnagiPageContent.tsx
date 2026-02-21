@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PageLayout } from '@/components/layout/PageLayout';
@@ -18,7 +18,7 @@ export function TishnagiPageContent() {
       {/* Hero Section */}
       <section className="py-16 md:py-20 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -39,7 +39,7 @@ export function TishnagiPageContent() {
             {/* Stream CTAs - Artsy Modern Design */}
             <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
               {/* YouTube */}
-              <motion.a
+              <m.a
                 href="https://www.youtube.com/@SurinderSinghSeerat"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -68,10 +68,10 @@ export function TishnagiPageContent() {
 
                   <ExternalLink size={14} className="text-muted-foreground/50 group-hover:text-gold transition-colors ml-2" />
                 </div>
-              </motion.a>
+              </m.a>
 
               {/* SoundCloud */}
-              <motion.a
+              <m.a
                 href="https://soundcloud.com/surinderseerat"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -100,16 +100,16 @@ export function TishnagiPageContent() {
 
                   <ExternalLink size={14} className="text-muted-foreground/50 group-hover:text-gold transition-colors ml-2" />
                 </div>
-              </motion.a>
+              </m.a>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Album Description */}
       <section className="py-12 md:py-16 px-6 md:px-12 bg-card">
         <div className="max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -152,14 +152,14 @@ export function TishnagiPageContent() {
                 <div className="absolute -inset-4 border border-gold/20 -z-10" />
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Theme of Longing - Burgundy Section */}
       <section className="py-16 md:py-20 px-6 md:px-12 bg-burgundy text-cream">
         <div className="max-w-3xl mx-auto text-center">
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -178,14 +178,14 @@ export function TishnagiPageContent() {
               longing becomes philosophical—a thirst not just for love, but for understanding, for meaning,
               for what lies beyond the reach of language.
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Understanding Tishnagi - Combined Section */}
       <section className="py-16 md:py-24 px-6 md:px-12 bg-card">
         <div className="max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -215,7 +215,7 @@ export function TishnagiPageContent() {
                   desc: 'Technical ghazal mastery serving emotional truth through melody'
                 },
               ].map((item, index) => (
-                <motion.div
+                <m.div
                   key={item.title}
                   className="p-6 border border-border/50 text-center"
                   initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
@@ -226,7 +226,7 @@ export function TishnagiPageContent() {
                   <item.icon className="w-8 h-8 text-gold mx-auto mb-4" />
                   <h3 className="font-display text-xl mb-3">{item.title}</h3>
                   <p className="text-muted-foreground text-sm">{item.desc}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
 
@@ -240,7 +240,7 @@ export function TishnagiPageContent() {
                 sourceUrl="https://www.surinderseerat.com/tishnagi/"
               />
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -248,7 +248,7 @@ export function TishnagiPageContent() {
       {/* CTA Section */}
       <section className="py-12 md:py-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -266,7 +266,7 @@ export function TishnagiPageContent() {
                 Understand the Form
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </PageLayout>

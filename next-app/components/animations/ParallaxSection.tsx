@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { m, useScroll, useTransform } from 'framer-motion';
 import { useRef, ReactNode } from 'react';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 
@@ -52,7 +52,7 @@ export function ParallaxSection({
   return (
     <section ref={ref} className={`relative overflow-hidden ${className}`}>
       {backgroundImage && (
-        <motion.div
+        <m.div
           className="absolute inset-0 -z-10"
           style={{
             backgroundImage: `url(${backgroundImage})`,
@@ -67,15 +67,15 @@ export function ParallaxSection({
               style={{ backgroundColor: `rgba(10, 10, 10, ${overlayOpacity})` }}
             />
           )}
-        </motion.div>
+        </m.div>
       )}
       
-      <motion.div 
+      <m.div 
         style={{ opacity: contentOpacity }}
         className={contentClassName}
       >
         {children}
-      </motion.div>
+      </m.div>
     </section>
   );
 }

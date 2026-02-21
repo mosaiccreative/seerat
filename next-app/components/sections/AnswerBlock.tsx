@@ -1,4 +1,4 @@
- import { motion } from 'framer-motion';
+ import { m } from 'framer-motion';
  import { useMotionPreference } from '@/hooks/useMotionPreference';
  import { ExternalLink } from 'lucide-react';
  
@@ -24,7 +24,7 @@ export function AnswerBlock({
   const { shouldAnimate } = useMotionPreference();
 
   return (
-    <motion.article
+    <m.article
       id={id}
       className={`scroll-mt-24 ${className}`}
       initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
@@ -69,6 +69,6 @@ export function AnswerBlock({
           <ExternalLink className="w-3 h-3" />
         </a>
       )}
-    </motion.article>
+    </m.article>
   );
 }

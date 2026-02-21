@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Image from 'next/image';
 import { Check } from 'lucide-react';
 import { ReadMoreLink } from './ReadMoreLink';
@@ -54,7 +54,7 @@ export function BookListCard({
   }, [coverImage, coverFailed]);
 
   return (
-    <motion.article
+    <m.article
       id={`book-card-${id}`}
       className={cn(
         "grid grid-cols-1 md:grid-cols-[280px_1fr] gap-6 md:gap-10",
@@ -180,6 +180,6 @@ export function BookListCard({
         {/* Read More Link */}
         <ReadMoreLink href={`/books/${id}`} className="mt-auto" />
       </div>
-    </motion.article>
+    </m.article>
   );
 }

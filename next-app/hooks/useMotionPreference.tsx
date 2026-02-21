@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, useRef, ReactNode } from 'react';
+import { LazyMotion, domAnimation } from 'framer-motion';
 
 interface MotionContextType {
   motionReduced: boolean;
@@ -51,7 +52,10 @@ export function MotionProvider({ children }: { children: ReactNode }) {
         shouldAnimate: !motionReduced
       }}
     >
-      {children}
+      {/* LazyMotion with domAnimation reduces bundle by ~60% */}
+      <LazyMotion features={domAnimation} strict>
+        {children}
+      </LazyMotion>
     </MotionContext.Provider>
   );
 }

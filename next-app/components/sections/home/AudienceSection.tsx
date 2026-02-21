@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { ArrowRight, BookOpen, Music, GraduationCap, Users } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { CinematicReveal } from '@/components/animations/CinematicReveal';
 import { StaggerReveal } from '@/components/animations/StaggerReveal';
@@ -54,7 +54,7 @@ export function AudienceSection() {
         
         <StaggerReveal className="grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.1}>
           {audienceItems.map((item) => (
-            <motion.article
+            <m.article
               key={item.audience}
               className="group relative p-8 md:p-10 border border-cream/10 hover:border-gold/30 transition-colors duration-500 focus-within:ring-2 focus-within:ring-gold"
               whileHover={shouldAnimate ? { y: -2 } : undefined}
@@ -79,7 +79,7 @@ export function AudienceSection() {
               >
                 {item.linkText} <ArrowRight size={12} />
               </Link>
-            </motion.article>
+            </m.article>
           ))}
         </StaggerReveal>
         

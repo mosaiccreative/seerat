@@ -1,12 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m, motion } from 'framer-motion';
 import Image from 'next/image';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 
-const seeratBookPng = '/images/seerat-book-cover.png';
+const seeratBookPng = '/images/seerat-book-cover.webp';
 
-// Create motion-compatible Image component
+// Create motion-compatible Image component (requires full motion import)
 const MotionImage = motion.create(Image);
 
 interface BookCoverProps {
@@ -18,7 +18,7 @@ export function BookCover({ onOpen, isOpening }: BookCoverProps) {
   const { shouldAnimate } = useMotionPreference();
 
   return (
-    <motion.div
+    <m.div
       className="fixed inset-0 z-[60] flex items-center justify-center cursor-pointer overflow-hidden"
       style={{ backgroundColor: 'hsl(var(--background))' }}
       initial={{ opacity: 1 }}
@@ -55,30 +55,30 @@ export function BookCover({ onOpen, isOpening }: BookCoverProps) {
       />
 
       {/* Call to action */}
-      <motion.div
+      <m.div
         className="absolute bottom-16 md:bottom-24 left-1/2 -translate-x-1/2 text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: isOpening ? 0 : 1, y: isOpening ? 20 : 0 }}
         transition={{ duration: 0.5, delay: isOpening ? 0 : 0.6 }}
       >
-        <motion.p
+        <m.p
           className="font-ui text-xs md:text-sm tracking-[0.4em] uppercase text-foreground/60 mb-4"
         >
           Open the book
-        </motion.p>
-        <motion.div
+        </m.p>
+        <m.div
           className="w-px h-10 mx-auto bg-gradient-to-b from-gold/60 to-transparent"
           animate={shouldAnimate ? { scaleY: [1, 1.15, 1] } : undefined}
           transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
         />
-      </motion.div>
+      </m.div>
 
       {/* Corner accents */}
       <div className="absolute top-8 left-8 w-16 h-16 border-l border-t border-gold/30" />
       <div className="absolute top-8 right-8 w-16 h-16 border-r border-t border-gold/30" />
       <div className="absolute bottom-8 left-8 w-16 h-16 border-l border-b border-gold/30" />
       <div className="absolute bottom-8 right-8 w-16 h-16 border-r border-b border-gold/30" />
-    </motion.div>
+    </m.div>
   );
 }
 

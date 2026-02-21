@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, Variants, Transition } from 'framer-motion';
+import { m, Variants, Transition } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { ReactNode } from 'react';
@@ -70,7 +70,7 @@ export function StaggeredList({
   }
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       variants={customContainerVariants}
       initial="hidden"
@@ -78,15 +78,15 @@ export function StaggeredList({
       className={className}
     >
       {items.map((item, index) => (
-        <motion.div 
+        <m.div 
           key={index} 
           variants={itemVariants} 
           transition={itemTransition}
           className={itemClassName}
         >
           {item}
-        </motion.div>
+        </m.div>
       ))}
-    </motion.div>
+    </m.div>
   );
 }

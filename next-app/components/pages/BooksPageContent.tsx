@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Link from 'next/link';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
@@ -221,7 +221,7 @@ export function BooksPageContent() {
       {/* Hero Section */}
       <section className="py-16 md:py-24 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -236,7 +236,7 @@ export function BooksPageContent() {
             <p className="text-muted-foreground/60 text-sm font-ui">
               From <em>Chhallan</em> (1980) to <em>Amrīkī Punjabi Kahāṇī</em> (2025)
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -255,7 +255,7 @@ export function BooksPageContent() {
       {/* Vertical Book Cards */}
       <section className="py-8 md:py-16 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 20 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -265,7 +265,7 @@ export function BooksPageContent() {
             <h2 className="font-display text-3xl md:text-4xl">
               Explore the <span className="text-gold">Collection</span>
             </h2>
-          </motion.div>
+          </m.div>
 
           {sortedBooks.map((book, index) => {
             const enhanced = enhancedBookData[book.id];
@@ -297,7 +297,7 @@ export function BooksPageContent() {
       {/* Literary Awards */}
       <section className="py-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -306,7 +306,7 @@ export function BooksPageContent() {
             <h2 className="font-display text-3xl md:text-4xl mb-10">
               Literary <span className="text-gold">Awards</span>
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
@@ -315,7 +315,7 @@ export function BooksPageContent() {
               { year: '1991', book: 'Kirchan', award: 'Best Book — JKAACL', note: '"Pure form ghazals"' },
               { year: '2014', book: 'Aroope Akhran da Aks', award: 'Professor Mohan Singh Award' },
             ].map((item, index) => (
-              <motion.div
+              <m.div
                 key={item.year}
                 className="p-5 border border-border/50 text-left hover:border-gold/50 hover:shadow-[0_0_15px_-5px_hsl(var(--gold)/0.3)] transition-all duration-300"
                 initial={shouldAnimate ? { opacity: 0, scale: 0.95 } : undefined}
@@ -329,7 +329,7 @@ export function BooksPageContent() {
                 {item.note && (
                   <p className="text-xs text-gold/80 mt-2 italic">{item.note}</p>
                 )}
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -338,7 +338,7 @@ export function BooksPageContent() {
       {/* Recommended Reading Paths */}
       <section className="py-16 px-6 md:px-12 bg-card">
         <div className="max-w-5xl mx-auto">
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 20 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -351,11 +351,11 @@ export function BooksPageContent() {
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Four approaches to discovering the collection
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {readingPaths.map((path, index) => (
-              <motion.div
+              <m.div
                 key={path.title}
                 className="p-6 md:p-8 border border-border/50 hover:border-gold/30 transition-colors"
                 initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
@@ -393,7 +393,7 @@ export function BooksPageContent() {
                     </li>
                   ))}
                 </ol>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -402,7 +402,7 @@ export function BooksPageContent() {
       {/* CTA Section */}
       <section className="py-20 md:py-28 px-6 md:px-12">
         <div className="max-w-3xl mx-auto text-center">
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -419,7 +419,7 @@ export function BooksPageContent() {
               Listen to Tishnagi
               <ArrowRight size={16} />
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </PageLayout>

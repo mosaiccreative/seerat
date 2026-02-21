@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
@@ -25,7 +25,7 @@ export function PoliciesPageContent() {
   return (
     <PageLayout>
       <section className="page-section">
-        <motion.div
+        <m.div
           className="max-w-3xl mx-auto"
           initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
           animate={{ opacity: 1, y: 0 }}
@@ -593,7 +593,7 @@ export function PoliciesPageContent() {
               </p>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </section>
     </PageLayout>
   );

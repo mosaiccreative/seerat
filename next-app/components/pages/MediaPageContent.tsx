@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
@@ -15,7 +15,7 @@ export function MediaPageContent() {
       {/* Hero Section */}
       <section className="page-section">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -27,14 +27,14 @@ export function MediaPageContent() {
             <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
               Coverage, interviews, and features from publications across India and beyond.
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Press Mentions */}
       <section className="py-24 px-6 md:px-12 bg-card">
         <div className="max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             className="text-center mb-16"
             initial={shouldAnimate ? { opacity: 0 } : undefined}
             whileInView={{ opacity: 1 }}
@@ -44,11 +44,11 @@ export function MediaPageContent() {
             <h2 className="font-display text-4xl md:text-5xl">
               Press & <span className="text-gold">Mentions</span>
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="space-y-4">
             {pressItems.map((item, index) => (
-              <motion.a
+              <m.a
                 key={item.id}
                 href={item.url}
                 target="_blank"
@@ -68,7 +68,7 @@ export function MediaPageContent() {
                   </h3>
                 </div>
                 <ExternalLink size={18} className="text-muted-foreground group-hover:text-gold transition-colors shrink-0 ml-4" />
-              </motion.a>
+              </m.a>
             ))}
           </div>
         </div>
@@ -77,7 +77,7 @@ export function MediaPageContent() {
       {/* Recordings */}
       <section className="page-section">
         <div className="max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             className="text-center mb-16"
             initial={shouldAnimate ? { opacity: 0 } : undefined}
             whileInView={{ opacity: 1 }}
@@ -87,10 +87,10 @@ export function MediaPageContent() {
             <h2 className="font-display text-4xl md:text-5xl">
               Recordings & <span className="text-gold">Appearances</span>
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <motion.a
+            <m.a
               href="https://www.youtube.com/@SurinderSeerat"
               target="_blank"
               rel="noopener noreferrer"
@@ -115,9 +115,9 @@ export function MediaPageContent() {
               <p className="text-muted-foreground leading-relaxed">
                 Watch poetry readings, interviews, and literary event coverage.
               </p>
-            </motion.a>
+            </m.a>
 
-            <motion.a
+            <m.a
               href="https://soundcloud.com/surinderseerat"
               target="_blank"
               rel="noopener noreferrer"
@@ -143,7 +143,7 @@ export function MediaPageContent() {
               <p className="text-muted-foreground leading-relaxed">
                 Listen to ghazal recitations and poetry audio recordings.
               </p>
-            </motion.a>
+            </m.a>
           </div>
         </div>
       </section>

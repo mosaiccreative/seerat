@@ -1,4 +1,4 @@
- import { motion } from 'framer-motion';
+ import { m } from 'framer-motion';
  import { ExternalLink } from 'lucide-react';
  import { useMotionPreference } from '@/hooks/useMotionPreference';
  
@@ -14,7 +14,7 @@
    const { shouldAnimate } = useMotionPreference();
  
    return (
-     <motion.a
+     <m.a
        href={url}
        target="_blank"
        rel="noopener noreferrer"
@@ -43,6 +43,6 @@
            className="text-muted-foreground group-hover:text-accent transition-colors shrink-0 mt-1" 
          />
        </div>
-     </motion.a>
+     </m.a>
    );
  }

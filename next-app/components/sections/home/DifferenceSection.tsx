@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { CinematicReveal } from '@/components/animations/CinematicReveal';
 import { StaggerReveal } from '@/components/animations/StaggerReveal';
@@ -40,7 +40,7 @@ export function DifferenceSection() {
         
         <StaggerReveal className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8" staggerDelay={0.12}>
           {differenceItems.map((item, index) => (
-            <motion.article
+            <m.article
               key={item.title}
               className="group relative p-8 md:p-10 border border-cream/10 hover:border-gold/30 transition-colors duration-500 focus-within:ring-2 focus-within:ring-gold focus-within:ring-offset-2 focus-within:ring-offset-burgundy"
               whileHover={shouldAnimate ? { y: -2 } : undefined}
@@ -63,7 +63,7 @@ export function DifferenceSection() {
                 className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
                 aria-hidden="true" 
               />
-            </motion.article>
+            </m.article>
           ))}
         </StaggerReveal>
       </div>

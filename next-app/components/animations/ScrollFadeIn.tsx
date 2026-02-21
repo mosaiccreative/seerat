@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { ReactNode } from 'react';
@@ -38,7 +38,7 @@ export function ScrollFadeIn({
   }
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       initial={{ opacity: 0, ...directionMap[direction] }}
       animate={inView ? { opacity: 1, x: 0, y: 0 } : {}}
@@ -46,6 +46,6 @@ export function ScrollFadeIn({
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

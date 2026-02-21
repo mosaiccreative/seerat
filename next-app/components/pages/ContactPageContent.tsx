@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Mail, ArrowRight, Loader2 } from 'lucide-react';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
@@ -103,7 +103,7 @@ export function ContactPageContent() {
         {/* Hero Section */}
         <section className="py-16 md:py-24 px-6 md:px-12 bg-white border-t-[3px] border-[#d4a84b]">
           <div className="max-w-4xl mx-auto text-center">
-            <motion.div
+            <m.div
               initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
@@ -115,14 +115,14 @@ export function ContactPageContent() {
               <p className="text-[#4a453f] text-lg md:text-xl max-w-2xl mx-auto font-body leading-relaxed">
                 For inquiries about events, readings, book purchases, or literary collaborations.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* Contact Form */}
         <section className="py-16 md:py-24 px-6 md:px-12 bg-[#faf8f4]">
           <div className="max-w-xl mx-auto">
-            <motion.form
+            <m.form
               onSubmit={handleSubmit}
               className="space-y-8 bg-white p-8 md:p-12 border border-[#e8e3d8] shadow-sm"
               initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
@@ -239,10 +239,10 @@ export function ContactPageContent() {
                   </>
                 )}
               </button>
-            </motion.form>
+            </m.form>
 
             {/* Alternative Contact */}
-            <motion.div
+            <m.div
               className="mt-16 pt-12 border-t border-[#d4a84b]/30 text-center"
               initial={shouldAnimate ? { opacity: 0 } : undefined}
               whileInView={{ opacity: 1 }}
@@ -256,7 +256,7 @@ export function ContactPageContent() {
                 <Mail size={18} className="group-hover:scale-110 transition-transform" />
                 <span className="font-ui text-sm tracking-wider">arz@surinderseerat.com</span>
               </a>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       </div>

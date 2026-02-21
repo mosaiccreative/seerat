@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { CinematicReveal } from '@/components/animations/CinematicReveal';
 import { StaggerReveal } from '@/components/animations/StaggerReveal';
@@ -34,7 +34,7 @@ export function BooksSection() {
           staggerDelay={0.08}
         >
           {books.slice(0, 8).map((book) => (
-            <motion.article
+            <m.article
               key={book.id}
               className="group relative overflow-hidden focus-within:ring-2 focus-within:ring-gold focus-within:ring-offset-2 focus-within:ring-offset-cream"
               whileHover={shouldAnimate ? { y: -4 } : undefined}
@@ -79,7 +79,7 @@ export function BooksSection() {
                 className="absolute inset-0 focus:outline-none"
                 aria-label={`View ${book.title}`}
               />
-            </motion.article>
+            </m.article>
           ))}
         </StaggerReveal>
         

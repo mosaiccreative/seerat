@@ -1,7 +1,7 @@
 'use client';
 
 import { forwardRef, useMemo, useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
@@ -32,7 +32,7 @@ export const BookSpine = forwardRef<HTMLButtonElement, BookSpineProps>(
     const _hueShift = (index * 15) % 45;
 
     return (
-      <motion.button
+      <m.button
         ref={ref}
         onClick={onSelect}
         className={cn(
@@ -130,7 +130,7 @@ export const BookSpine = forwardRef<HTMLButtonElement, BookSpineProps>(
           {year}
         </div>
         
-      </motion.button>
+      </m.button>
     );
   }
 );

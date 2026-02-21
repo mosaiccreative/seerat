@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 
 interface TimelineItem {
@@ -23,7 +23,7 @@ export function VerticalTimeline({ items }: VerticalTimelineProps) {
           const isLeft = index % 2 === 0;
           
           return (
-            <motion.div
+            <m.div
               key={item.year}
               className="relative"
               initial={shouldAnimate ? { opacity: 0, y: 20 } : undefined}
@@ -72,7 +72,7 @@ export function VerticalTimeline({ items }: VerticalTimelineProps) {
                   <span className="text-muted-foreground text-sm leading-relaxed">{item.event}</span>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           );
         })}
       </div>

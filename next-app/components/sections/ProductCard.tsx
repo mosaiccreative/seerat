@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
@@ -26,7 +26,7 @@ import { ShoppingCart } from 'lucide-react';
    const { shouldAnimate } = useMotionPreference();
  
    return (
-     <motion.div
+     <m.div
        className={`group relative overflow-hidden bg-card border border-border/50 ${className}`}
        initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
        whileInView={{ opacity: 1, y: 0 }}
@@ -72,6 +72,6 @@ import { ShoppingCart } from 'lucide-react';
            </Button>
          </div>
        </div>
-     </motion.div>
+     </m.div>
    );
  }

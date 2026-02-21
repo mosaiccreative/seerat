@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { Book } from '@/data/books';
 import { YearBadgeGold } from './YearBadgeGold';
@@ -76,7 +76,7 @@ export function OpenBookPanel({ book, onClose, motionEnabled, enhancedData }: Op
       {book && (
         <>
           {/* Backdrop */}
-          <motion.div
+          <m.div
             className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -86,7 +86,7 @@ export function OpenBookPanel({ book, onClose, motionEnabled, enhancedData }: Op
           />
 
           {/* Panel */}
-          <motion.div
+          <m.div
             ref={panelRef}
             className={cn(
               "fixed inset-4 md:inset-8 lg:inset-12 z-50",
@@ -121,7 +121,7 @@ export function OpenBookPanel({ book, onClose, motionEnabled, enhancedData }: Op
               {/* Book cover side */}
               <div className="lg:w-2/5 shrink-0 p-6 md:p-8 lg:p-12 flex items-center justify-center bg-muted/30">
                 {book.coverImage ? (
-                  <motion.img
+                  <m.img
                     src={book.coverImage}
                     alt={`Cover of ${book.title}`}
                     className="max-h-[50vh] lg:max-h-[70vh] w-auto object-contain shadow-2xl"
@@ -218,7 +218,7 @@ export function OpenBookPanel({ book, onClose, motionEnabled, enhancedData }: Op
             {/* Decorative corner accents */}
             <div className="absolute top-4 left-4 w-8 h-8 border-l border-t border-gold/30 pointer-events-none" aria-hidden="true" />
             <div className="absolute bottom-4 right-4 w-8 h-8 border-r border-b border-gold/30 pointer-events-none" aria-hidden="true" />
-          </motion.div>
+          </m.div>
         </>
       )}
     </AnimatePresence>

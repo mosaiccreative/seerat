@@ -1,4 +1,4 @@
- import { motion } from 'framer-motion';
+ import { m } from 'framer-motion';
  import { useMotionPreference } from '@/hooks/useMotionPreference';
  
  interface QuoteBlockProps {
@@ -11,7 +11,7 @@
    const { shouldAnimate } = useMotionPreference();
  
    return (
-     <motion.blockquote
+     <m.blockquote
        className="quote-block"
        initial={shouldAnimate ? { opacity: 0, x: -20 } : undefined}
        whileInView={{ opacity: 1, x: 0 }}
@@ -28,6 +28,6 @@
            {source && <cite className="not-italic">{source}</cite>}
          </footer>
        )}
-     </motion.blockquote>
+     </m.blockquote>
    );
  }

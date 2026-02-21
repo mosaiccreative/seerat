@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowLeft, Award, BookOpen, User } from 'lucide-react';
 import { PageLayout } from '@/components/layout/PageLayout';
@@ -68,7 +68,7 @@ export function BookDetailContent({ bookId }: BookDetailContentProps) {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Book Cover */}
-            <motion.div
+            <m.div
               className="relative max-w-md mx-auto lg:mx-0"
               initial={shouldAnimate ? { opacity: 0, x: -40 } : undefined}
               animate={{ opacity: 1, x: 0 }}
@@ -99,7 +99,7 @@ export function BookDetailContent({ bookId }: BookDetailContentProps) {
 
               {/* Award Badge */}
               {book.award && (
-                <motion.div
+                <m.div
                   className="absolute -top-4 -right-4 bg-gold text-ink px-4 py-2 flex items-center gap-2 shadow-lg"
                   initial={shouldAnimate ? { opacity: 0, scale: 0.8 } : undefined}
                   animate={{ opacity: 1, scale: 1 }}
@@ -107,12 +107,12 @@ export function BookDetailContent({ bookId }: BookDetailContentProps) {
                 >
                   <Award className="w-4 h-4" />
                   <span className="font-ui text-xs tracking-wide uppercase">Award Winner</span>
-                </motion.div>
+                </m.div>
               )}
-            </motion.div>
+            </m.div>
 
             {/* Book Details */}
-            <motion.div
+            <m.div
               initial={shouldAnimate ? { opacity: 0, x: 40 } : undefined}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -168,7 +168,7 @@ export function BookDetailContent({ bookId }: BookDetailContentProps) {
               <Link href="/store" className="btn-gold">
                 Get This Book
               </Link>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -177,7 +177,7 @@ export function BookDetailContent({ bookId }: BookDetailContentProps) {
       {relatedBooks.length > 0 && (
         <section className="py-24 px-6 md:px-12 bg-card">
           <div className="max-w-6xl mx-auto">
-            <motion.div
+            <m.div
               className="text-center mb-16"
               initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
               whileInView={{ opacity: 1, y: 0 }}
@@ -187,11 +187,11 @@ export function BookDetailContent({ bookId }: BookDetailContentProps) {
               <h2 className="font-display text-3xl md:text-4xl">
                 Related <span className="text-gold">Works</span>
               </h2>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedBooks.map((related, index) => (
-                <motion.div
+                <m.div
                   key={related.id}
                   initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -220,7 +220,7 @@ export function BookDetailContent({ bookId }: BookDetailContentProps) {
                       <h3 className="font-display text-xl mt-2">{related.title}</h3>
                     </div>
                   </Link>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>

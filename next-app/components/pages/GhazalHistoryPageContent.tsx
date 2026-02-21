@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Link from 'next/link';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
@@ -18,7 +18,7 @@ export function GhazalHistoryPageContent() {
         {/* Hero Section */}
         <section className="py-12 md:py-20 px-6 md:px-12">
           <div className="max-w-4xl mx-auto text-center">
-            <motion.div
+            <m.div
               initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
@@ -33,14 +33,14 @@ export function GhazalHistoryPageContent() {
               <p className="text-[#4a453f] text-lg mt-6 max-w-2xl mx-auto">
                 Understand the poetic form that shaped Indian cinema and continues to explore human longing
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* What is a Ghazal */}
         <section className="py-12 md:py-16 px-6 md:px-12 bg-white">
           <div className="max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -86,14 +86,14 @@ export function GhazalHistoryPageContent() {
                   </ul>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* Bollywood's Foundation */}
         <section className="py-12 md:py-16 px-6 md:px-12 bg-[#f7f3eb]">
           <div className="max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -123,14 +123,14 @@ export function GhazalHistoryPageContent() {
                   to established works as tribute</strong>, not plagiarism. This practice honored the original poet while extending their artistic vision.
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* Poet-Lyricist Legacy */}
         <section className="py-12 md:py-16 px-6 md:px-12 bg-white">
           <div className="max-w-5xl mx-auto">
-            <motion.div
+            <m.div
               initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -144,7 +144,7 @@ export function GhazalHistoryPageContent() {
               <p className="text-[#4a453f] mt-4 max-w-2xl mx-auto">
                 Bollywood&apos;s greatest lyricists weren&apos;t simply songwriters—they were poets first.
               </p>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
@@ -167,7 +167,7 @@ export function GhazalHistoryPageContent() {
                   works: '"Agar Tum Saath Ho", "Nadaan Parinde"'
                 },
               ].map((poet, index) => (
-                <motion.div
+                <m.div
                   key={poet.name}
                   className="p-6 bg-[#faf8f4] border border-[#e8e3d8] hover:border-[#d4a84b] transition-colors"
                   initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
@@ -179,7 +179,7 @@ export function GhazalHistoryPageContent() {
                   <span className="text-[#d4a84b] font-ui text-xs tracking-wider">{poet.born}</span>
                   <p className="text-[#4a453f] text-sm mt-4 mb-3">{poet.highlight}</p>
                   <p className="text-xs text-[#4a453f]/70 italic">{poet.works}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -188,7 +188,7 @@ export function GhazalHistoryPageContent() {
         {/* 2025 New Era */}
         <section className="py-12 md:py-16 px-6 md:px-12 bg-[#faf8f4]">
           <div className="max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -212,14 +212,14 @@ export function GhazalHistoryPageContent() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* Surinder's Place */}
         <section className="py-12 md:py-16 px-6 md:px-12 bg-white">
           <div className="max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -237,7 +237,7 @@ export function GhazalHistoryPageContent() {
                   { icon: Music, title: 'Musical Demonstration', desc: 'Tishnagi ghazal album shows cinematic potential' },
                   { icon: Users, title: 'Institutional Impact', desc: 'Founded two literary organizations preserving tradition abroad' },
                 ].map((item, index) => (
-                  <motion.div
+                  <m.div
                     key={item.title}
                     className="p-6 bg-[#faf8f4] border border-[#e8e3d8] flex gap-4 hover:border-[#d4a84b] transition-colors"
                     initial={shouldAnimate ? { opacity: 0, y: 20 } : undefined}
@@ -250,21 +250,21 @@ export function GhazalHistoryPageContent() {
                       <h3 className="font-display text-lg mb-2 text-[#1a1815]">{item.title}</h3>
                       <p className="text-[#4a453f] text-sm">{item.desc}</p>
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
 
               <p className="text-[#4a453f] text-lg italic text-center border-t border-[#e8e3d8] pt-8">
                 His work honors classical form while engaging contemporary questions—exactly what the tradition demands for continued relevance.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* For Creative Professionals */}
         <section className="py-12 md:py-16 px-6 md:px-12 bg-[#f7f3eb]">
           <div className="max-w-5xl mx-auto">
-            <motion.div
+            <m.div
               initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -303,7 +303,7 @@ export function GhazalHistoryPageContent() {
                 </div>
 
                 {/* Right Column - Elegant Card */}
-                <motion.div
+                <m.div
                   className="relative"
                   initial={shouldAnimate ? { opacity: 0, scale: 0.95 } : undefined}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -346,9 +346,9 @@ export function GhazalHistoryPageContent() {
                       Quality poetry transcends time. Seerat&apos;s ghazals await discovery.
                     </p>
                   </div>
-                </motion.div>
+                </m.div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
@@ -374,7 +374,7 @@ export function GhazalHistoryPageContent() {
         {/* CTA Section */}
         <section className="py-12 md:py-16 px-6 md:px-12 bg-[#faf8f4]">
           <div className="max-w-4xl mx-auto text-center">
-            <motion.div
+            <m.div
               initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -398,7 +398,7 @@ export function GhazalHistoryPageContent() {
                   Browse the Books
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       </div>

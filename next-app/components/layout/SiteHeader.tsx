@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { MotionToggle } from '@/components/ui/motion-toggle';
 
@@ -71,7 +71,7 @@ export function SiteHeader() {
       {/* Mobile Menu - Outside header for proper stacking */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0 } : false}
             animate={{ opacity: 1 }}
             exit={shouldAnimate ? { opacity: 0 } : undefined}
@@ -101,7 +101,7 @@ export function SiteHeader() {
                 <MotionToggle />
               </div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

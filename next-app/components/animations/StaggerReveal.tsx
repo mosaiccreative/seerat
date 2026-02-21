@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode, Children } from 'react';
-import { motion, type Easing } from 'framer-motion';
+import { m, type Easing } from 'framer-motion';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { useInView } from 'react-intersection-observer';
 
@@ -60,7 +60,7 @@ export function StaggerReveal({
   }
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       className={className}
       variants={container}
@@ -68,8 +68,8 @@ export function StaggerReveal({
       animate={inView ? 'visible' : 'hidden'}
     >
       {Children.map(children, (child) => (
-        <motion.div variants={item}>{child}</motion.div>
+        <m.div variants={item}>{child}</m.div>
       ))}
-    </motion.div>
+    </m.div>
   );
 }

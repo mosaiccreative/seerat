@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Clock, GraduationCap, Users, BookOpen } from 'lucide-react';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { EmailCapture } from '@/components/sections/EmailCapture';
@@ -44,7 +44,7 @@ export function CoursePageContent() {
           />
         </div>
 
-        <motion.div
+        <m.div
           className="relative z-10 text-center max-w-3xl mx-auto"
           initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
           animate={{ opacity: 1, y: 0 }}
@@ -65,12 +65,12 @@ export function CoursePageContent() {
             A comprehensive course on ghazals, free-verse, and the craft of meaningful poetry —
             taught by Surinder Seerat with five decades of literary experience.
           </p>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* Waitlist CTA */}
       <section className="py-16 px-6 md:px-12">
-        <motion.div
+        <m.div
           className="max-w-xl mx-auto text-center"
           initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
           whileInView={{ opacity: 1, y: 0 }}
@@ -83,13 +83,13 @@ export function CoursePageContent() {
             buttonText="Join Waitlist"
             showFirstName
           />
-        </motion.div>
+        </m.div>
       </section>
 
       {/* The Journey Section */}
       <section className="py-24 px-6 md:px-12 bg-card">
         <div className="max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             className="text-center mb-16"
             initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
@@ -99,10 +99,10 @@ export function CoursePageContent() {
             <h2 className="font-display text-3xl md:text-4xl">
               What You&apos;ll <span className="text-gold">Discover</span>
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <motion.div
+            <m.div
               className="p-8 border border-border/50"
               initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
               whileInView={{ opacity: 1, y: 0 }}
@@ -115,9 +115,9 @@ export function CoursePageContent() {
               <p className="text-muted-foreground text-sm">
                 Master the classical form, meters, and intellectual depth of ghazals—the most sophisticated poetic form.
               </p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               className="p-8 border border-border/50"
               initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
               whileInView={{ opacity: 1, y: 0 }}
@@ -131,10 +131,10 @@ export function CoursePageContent() {
               <p className="text-muted-foreground text-sm">
                 Break constraints while building poetic power and meaning without traditional confines.
               </p>
-            </motion.div>
+            </m.div>
           </div>
 
-          <motion.div
+          <m.div
             className="text-center"
             initial={shouldAnimate ? { opacity: 0, y: 20 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
@@ -143,14 +143,14 @@ export function CoursePageContent() {
             <p className="font-display text-2xl md:text-3xl italic text-muted-foreground">
               Finding Your Voice
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Choose Your Path */}
       <section className="py-24 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             className="text-center mb-16"
             initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
@@ -162,11 +162,11 @@ export function CoursePageContent() {
             <p className="text-muted-foreground">
               Two ways to experience the course.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Self-Paced */}
-            <motion.div
+            <m.div
               className="p-8 md:p-10 border border-border/50 flex flex-col"
               initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
               whileInView={{ opacity: 1, y: 0 }}
@@ -197,10 +197,10 @@ export function CoursePageContent() {
               >
                 Coming Soon
               </Button>
-            </motion.div>
+            </m.div>
 
             {/* Cohort */}
-            <motion.div
+            <m.div
               className="p-8 md:p-10 border-2 border-gold/50 relative flex flex-col"
               initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
               whileInView={{ opacity: 1, y: 0 }}
@@ -234,7 +234,7 @@ export function CoursePageContent() {
               >
                 Coming Soon
               </Button>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -242,7 +242,7 @@ export function CoursePageContent() {
       {/* FAQ */}
       <section className="py-24 px-6 md:px-12 bg-card">
         <div className="max-w-2xl mx-auto">
-          <motion.div
+          <m.div
             className="text-center mb-12"
             initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
@@ -251,7 +251,7 @@ export function CoursePageContent() {
             <h2 className="font-display text-3xl md:text-4xl">
               Common <span className="text-gold">Questions</span>
             </h2>
-          </motion.div>
+          </m.div>
 
           <FAQAccordion items={courseFAQ} />
         </div>

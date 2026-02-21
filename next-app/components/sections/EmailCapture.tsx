@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -167,7 +167,7 @@ export function EmailCapture({
 
   if (isSuccess) {
     return (
-      <motion.div 
+      <m.div 
         className={`text-center ${className}`}
         initial={shouldAnimate ? { opacity: 0, scale: 0.95 } : undefined}
         animate={{ opacity: 1, scale: 1 }}
@@ -175,7 +175,7 @@ export function EmailCapture({
         <CheckCircle className="w-12 h-12 text-gold mx-auto mb-4" />
         <p className="font-display text-2xl mb-2">Welcome!</p>
         <p className="text-muted-foreground">{successMessage}</p>
-      </motion.div>
+      </m.div>
     );
   }
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Clock, Package, BookOpen, Sparkles } from 'lucide-react';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { EmailCapture } from '@/components/sections/EmailCapture';
@@ -25,7 +25,7 @@ export function StorePageContent() {
           />
         </div>
 
-        <motion.div
+        <m.div
           className="relative z-10 text-center max-w-3xl mx-auto"
           initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
           animate={{ opacity: 1, y: 0 }}
@@ -52,13 +52,13 @@ export function StorePageContent() {
              buttonText="Notify Me"
              showFirstName
            />
-        </motion.div>
+        </m.div>
       </section>
 
       {/* Product Preview */}
       <section className="py-24 px-6 md:px-12 bg-card">
         <div className="max-w-6xl mx-auto">
-          <motion.div
+          <m.div
             className="text-center mb-16"
             initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
@@ -68,7 +68,7 @@ export function StorePageContent() {
             <h2 className="font-display text-3xl md:text-4xl">
               What&apos;s <span className="text-gold">Coming</span>
             </h2>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {books.slice(0, 4).map((book) => (
@@ -87,7 +87,7 @@ export function StorePageContent() {
       {/* Format Options */}
       <section className="py-24 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             className="text-center mb-16"
             initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
@@ -99,7 +99,7 @@ export function StorePageContent() {
             <p className="text-muted-foreground">
               Choose how you want to experience these works.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -119,7 +119,7 @@ export function StorePageContent() {
                 description: 'Collector\'s editions with personal inscriptions from the author.'
               }
             ].map((format, index) => (
-              <motion.div
+              <m.div
                 key={format.title}
                 className="p-8 border border-border/50 text-center"
                 initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
@@ -130,7 +130,7 @@ export function StorePageContent() {
                 <format.icon className="w-10 h-10 text-gold mx-auto mb-4" />
                 <h3 className="font-display text-xl mb-3">{format.title}</h3>
                 <p className="text-muted-foreground text-sm">{format.description}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

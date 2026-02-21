@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useCallback, useEffect, useMemo, useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import useEmblaCarousel from 'embla-carousel-react';
 import { Book } from '@/data/books';
 import { BookSpine } from './BookSpine';
@@ -121,7 +121,7 @@ export function BookshelfStage({ books, motionEnabled, onBookSelect, centered = 
         >
           <div className="flex items-end gap-2 md:gap-4">
             {books.map((book, index) => (
-              <motion.div
+              <m.div
                 key={book.id}
                 role="listitem"
                 className="flex-shrink-0"
@@ -146,7 +146,7 @@ export function BookshelfStage({ books, motionEnabled, onBookSelect, centered = 
                   coverImage={book.coverImage}
                   index={index}
                 />
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PageLayout } from '@/components/layout/PageLayout';
@@ -70,7 +70,7 @@ export function AboutPageContent() {
       {/* Hero Section */}
       <section className="py-16 md:py-24 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -83,14 +83,14 @@ export function AboutPageContent() {
               Poet, novelist, short story writer, critic and editor. First in his town to graduate university.
               Professor for 20 years. Founder of California&apos;s premier Punjabi literary organization.
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* The Beginning */}
       <section className="py-16 px-6 md:px-12 bg-card">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div
+          <m.div
             className="relative order-2 lg:order-1"
             initial={shouldAnimate ? { opacity: 0, x: -40 } : undefined}
             whileInView={{ opacity: 1, x: 0 }}
@@ -107,9 +107,9 @@ export function AboutPageContent() {
                 className="object-cover"
               />
             </div>
-          </motion.div>
+          </m.div>
 
-          <motion.article
+          <m.article
             className="order-1 lg:order-2"
             initial={shouldAnimate ? { opacity: 0, x: 40 } : undefined}
             whileInView={{ opacity: 1, x: 0 }}
@@ -132,14 +132,14 @@ export function AboutPageContent() {
                 tutoring other students to finance his education and earning full scholarships through academic excellence.
               </p>
             </div>
-          </motion.article>
+          </m.article>
         </div>
       </section>
 
       {/* The Scholar */}
       <section className="py-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -171,14 +171,14 @@ export function AboutPageContent() {
             <p className="text-muted-foreground italic text-center text-sm">
               But even as he taught the measurable universe, he was writing about what measurement cannot touch.
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* The Parallel Life */}
       <section className="py-16 px-6 md:px-12 bg-card">
         <div className="max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -210,7 +210,7 @@ export function AboutPageContent() {
                 { year: '1987', title: 'JKAACL Award', book: 'Bharam Bhullayan' },
                 { year: '1991', title: 'JKAACL Award', book: 'Kirchan' },
               ].map((award, index) => (
-                <motion.div
+                <m.div
                   key={award.year}
                   className="p-3 md:p-4 border border-gold/30 text-center"
                   initial={shouldAnimate ? { opacity: 0, y: 20 } : undefined}
@@ -221,17 +221,17 @@ export function AboutPageContent() {
                   <span className="text-gold font-ui text-xs tracking-wider">{award.year}</span>
                   <p className="font-display text-sm md:text-base mt-1">{award.title}</p>
                   <p className="text-muted-foreground text-xs italic mt-1">{award.book}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* The Immigrant */}
       <section className="py-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -257,14 +257,14 @@ export function AboutPageContent() {
                 And he did something more: he built the institutional foundations to preserve Punjabi literature in his new home.
               </p>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* The Builder */}
       <section className="py-16 px-6 md:px-12 bg-card">
         <div className="max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -294,14 +294,14 @@ export function AboutPageContent() {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Recognition Across Continents */}
       <section className="py-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             className="text-center mb-10"
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
@@ -314,7 +314,7 @@ export function AboutPageContent() {
             <p className="text-muted-foreground text-base">
               Seven major awards spanning 40 years—evidence of sustained literary excellence
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
@@ -326,7 +326,7 @@ export function AboutPageContent() {
               { year: '2017', title: 'Sahir Ludhianvi Award', book: 'Indian Poets Conference, Chandigarh' },
               { year: '2022', title: 'Sarv-Uttam Sahitkaar', book: 'VIPSA — Distinguished Writer' },
             ].map((award, index) => (
-              <motion.div
+              <m.div
                 key={award.year}
                 className="p-6 bg-card/50 rounded-lg"
                 initial={shouldAnimate ? { opacity: 0, y: 20 } : undefined}
@@ -337,7 +337,7 @@ export function AboutPageContent() {
                 <span className="text-gold font-ui text-sm tracking-wider">{award.year}</span>
                 <h3 className="font-display text-lg md:text-xl mt-1 mb-2">{award.title}</h3>
                 {award.book && <p className="text-muted-foreground text-sm">{award.book}</p>}
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -346,7 +346,7 @@ export function AboutPageContent() {
       {/* The Scientist-Poet Lens */}
       <section className="py-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -386,14 +386,14 @@ export function AboutPageContent() {
               Surinder did both—and his poetry reflects this epistemological tension:
               the desire to know confronting the unknowable.
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* FAQ Section */}
       <section className="py-16 px-6 md:px-12 bg-card">
         <div className="max-w-3xl mx-auto">
-          <motion.div
+          <m.div
             className="text-center mb-8"
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
@@ -403,22 +403,22 @@ export function AboutPageContent() {
             <h2 className="font-display text-2xl md:text-3xl">
               Frequently <span className="text-gold">Asked</span>
             </h2>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 20 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             <FAQAccordion items={faqItems} />
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Timeline */}
       <section className="py-16 px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             className="text-center mb-12"
             initial={shouldAnimate ? { opacity: 0 } : undefined}
             whileInView={{ opacity: 1 }}
@@ -428,7 +428,7 @@ export function AboutPageContent() {
             <h2 className="font-display text-2xl md:text-3xl">
               Key <span className="text-gold">Milestones</span>
             </h2>
-          </motion.div>
+          </m.div>
 
           <VerticalTimeline items={timelineItems} />
         </div>
@@ -437,7 +437,7 @@ export function AboutPageContent() {
       {/* CTA */}
       <section className="py-16 px-6 md:px-12 bg-card">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
+          <m.div
             initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -455,7 +455,7 @@ export function AboutPageContent() {
                 Listen to Tishnagi
               </Link>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </PageLayout>

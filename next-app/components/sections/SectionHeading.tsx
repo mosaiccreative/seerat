@@ -1,4 +1,4 @@
- import { motion } from 'framer-motion';
+ import { m } from 'framer-motion';
  import { useMotionPreference } from '@/hooks/useMotionPreference';
  
  interface SectionHeadingProps {
@@ -17,7 +17,7 @@
    const { shouldAnimate } = useMotionPreference();
  
    return (
-     <motion.header
+     <m.header
        className={`mb-16 ${centered ? 'text-center max-w-2xl mx-auto' : ''}`}
        initial={shouldAnimate ? { opacity: 0, y: 30 } : undefined}
        whileInView={{ opacity: 1, y: 0 }}
@@ -37,6 +37,6 @@
            {description}
          </p>
        )}
-     </motion.header>
+     </m.header>
    );
  }

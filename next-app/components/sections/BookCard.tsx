@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Image from 'next/image';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 
@@ -32,7 +32,7 @@ export function BookCard({
   }, [coverImage, coverFailed]);
 
   return (
-    <motion.article
+    <m.article
       className="card-book group"
       initial={shouldAnimate ? { opacity: 0, y: 40 } : undefined}
       whileInView={{ opacity: 1, y: 0 }}
@@ -83,6 +83,6 @@ export function BookCard({
           </p>
         )}
       </div>
-    </motion.article>
+    </m.article>
   );
 }

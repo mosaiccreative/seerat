@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { useInView } from 'react-intersection-observer';
 
@@ -40,7 +40,7 @@ export function CinematicReveal({
   }
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       className={className}
       initial={{
@@ -61,6 +61,6 @@ export function CinematicReveal({
       }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
