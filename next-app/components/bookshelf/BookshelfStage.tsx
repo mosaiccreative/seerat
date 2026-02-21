@@ -3,6 +3,7 @@
 import { useRef, useCallback, useEffect, useMemo, useState } from 'react';
 import { m } from 'framer-motion';
 import useEmblaCarousel from 'embla-carousel-react';
+import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 import { Book } from '@/data/books';
 import { BookSpine } from './BookSpine';
 import { cn } from '@/lib/utils';
@@ -47,7 +48,12 @@ export function BookshelfStage({ books, motionEnabled, onBookSelect, centered = 
     [isDesktop, books.length, centered]
   );
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(emblaOptions);
+  // Wheel gestures plugin for mouse wheel horizontal scrolling
+  const wheelGesturesPlugin = useMemo(() => WheelGesturesPlugin({
+    forceWheelAxis: 'x',
+  }), []);
+
+  const [emblaRef, emblaApi] = useEmblaCarousel(emblaOptions, [wheelGesturesPlugin]);
 
   useEffect(() => {
     // Ensure Embla recalculates alignment on breakpoint changes
@@ -95,16 +101,16 @@ export function BookshelfStage({ books, motionEnabled, onBookSelect, centered = 
       aria-label="Book collection - select a spine to scroll to details"
     >
       <div className="relative">
-        {/* Scroll fade indicators */}
-        <div 
-          className="absolute left-0 top-0 bottom-4 w-12 pointer-events-none z-10"
+        {/* Scroll fade indicators - hint that content is scrollable */}
+        <div
+          className="absolute left-0 top-0 bottom-10 w-16 md:w-20 pointer-events-none z-10"
           style={{
             background: 'linear-gradient(to right, hsl(var(--background)), transparent)'
           }}
           aria-hidden="true"
         />
-        <div 
-          className="absolute right-0 top-0 bottom-4 w-12 pointer-events-none z-10"
+        <div
+          className="absolute right-0 top-0 bottom-10 w-16 md:w-20 pointer-events-none z-10"
           style={{
             background: 'linear-gradient(to left, hsl(var(--background)), transparent)'
           }}
@@ -112,11 +118,12 @@ export function BookshelfStage({ books, motionEnabled, onBookSelect, centered = 
         />
         
         {/* Embla carousel container */}
-        <div 
+        <div
           ref={emblaRef}
           className={cn(
             "overflow-hidden cursor-grab active:cursor-grabbing",
-            "pt-8 pb-4 px-4 md:px-8"
+            // Extra bottom padding (pb-10) to accommodate year labels below spines
+            "pt-8 pb-10 px-4 md:px-8"
           )}
         >
           <div className="flex items-end gap-2 md:gap-4">

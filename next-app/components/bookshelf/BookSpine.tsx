@@ -122,11 +122,12 @@ export const BookSpine = forwardRef<HTMLButtonElement, BookSpineProps>(
           </div>
         </div>
         
-        {/* Year tick at bottom */}
+        {/* Year tick at bottom - always visible on mobile, hover on desktop */}
         <div className={cn(
           "absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full pt-2",
           "font-ui text-[10px] tracking-wider text-muted-foreground",
-          "opacity-0 group-hover:opacity-100 transition-opacity duration-300",
+          // Always visible on mobile (no hover), fade in on desktop hover
+          "opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300",
           isSelected && "opacity-100 text-gold"
         )}>
           {year}
