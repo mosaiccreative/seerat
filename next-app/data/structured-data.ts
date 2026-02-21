@@ -16,7 +16,7 @@ export const structuredData = {
       "url": "https://surinderseerat.com",
       "sameAs": [
         "https://www.youtube.com/@SurinderSeerat",
-        "https://soundcloud.com/surinder-seerat"
+        "https://soundcloud.com/surinderseerat"
       ],
       "knowsAbout": ["Punjabi Poetry", "Ghazal Form", "Free Verse", "Punjabi Literature", "Physics"],
       "award": [

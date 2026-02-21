@@ -189,12 +189,13 @@ export function CoursePageContent() {
                   <span className="text-gold">✓</span> Community access
                 </li>
               </ul>
-              <p className="font-display text-2xl mb-6">[PLACEHOLDER PRICE]</p>
+              <p className="font-display text-xl text-muted-foreground mb-6">Pricing announced at launch</p>
               <Button
                 variant="outline"
                 className="w-full border-gold/50 text-gold hover:bg-gold/10 hover:text-gold mt-auto"
+                disabled
               >
-                Learn More
+                Coming Soon
               </Button>
             </motion.div>
 
@@ -226,11 +227,12 @@ export function CoursePageContent() {
                   <span className="text-gold">✓</span> Certificate of completion
                 </li>
               </ul>
-              <p className="font-display text-2xl mb-6">[PLACEHOLDER PRICE]</p>
+              <p className="font-display text-xl text-muted-foreground mb-6">Pricing announced at launch</p>
               <Button
                 className="w-full bg-gold text-ink hover:bg-gold/90 mt-auto"
+                disabled
               >
-                Learn More
+                Coming Soon
               </Button>
             </motion.div>
           </div>

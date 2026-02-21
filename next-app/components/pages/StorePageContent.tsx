@@ -136,11 +136,13 @@ export function StorePageContent() {
         </div>
       </section>
 
-      {/* Trust */}
+      {/* Trust & Info */}
       <section className="py-16 px-6 md:px-12 border-t border-border/30">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-muted-foreground text-sm">
-            [PLACEHOLDER: Trust badges, secure checkout, shipping info]
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            Our collection of books, ebooks, and audiobooks is being curated for you.
+            Join the waitlist above to be the first to know when the store opens —
+            plus get exclusive early access and launch-day offers.
           </p>
         </div>
       </section>

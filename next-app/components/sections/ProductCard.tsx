@@ -17,7 +17,7 @@ import { ShoppingCart } from 'lucide-react';
  
  export function ProductCard({
    title,
-   price = '[PLACEHOLDER]',
+   price = 'Coming Soon',
    format = 'Paperback',
    image,
    available = false,

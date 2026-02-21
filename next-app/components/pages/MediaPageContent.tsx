@@ -118,7 +118,7 @@ export function MediaPageContent() {
             </motion.a>
 
             <motion.a
-              href="https://soundcloud.com/surinder-seerat"
+              href="https://soundcloud.com/surinderseerat"
               target="_blank"
               rel="noopener noreferrer"
               className="group block p-10 border border-border/50 hover:border-gold/50 transition-all duration-500"
