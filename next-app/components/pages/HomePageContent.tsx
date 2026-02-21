@@ -6,7 +6,7 @@ import { BookCover } from '@/components/BookCover';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { HeroSection } from '@/components/sections/home/HeroSection';
-import { HeroContent } from '@/components/sections/home/HeroContent';
+import { cn } from '@/lib/utils';
 
 // Below-the-fold sections lazy-loaded
 const StatsSection = lazy(() => import('@/components/sections/StatsSection').then(m => ({ default: m.StatsSection })));
@@ -47,29 +47,31 @@ export function HomePageContent() {
     }, shouldAnimate ? 2000 : 100);
   };
 
-  // Server-render lightweight hero content immediately for better LCP
-  // The bookshelf images and animations load after hydration
-  if (!mounted) {
-    return (
-      <div className="noise-overlay">
-        <PageLayout>
-          <HeroContent />
-        </PageLayout>
-      </div>
-    );
-  }
-
+  // Always render full content in DOM for SEO (crawlers can't click the book)
+  // Use CSS opacity to control visibility for users while keeping content indexable
   return (
     <div className="noise-overlay">
-      {/* Book Cover Intro */}
-      <AnimatePresence>
-        {!bookOpened && (
-          <BookCover onOpen={handleOpenBook} isOpening={isOpening} />
-        )}
-      </AnimatePresence>
+      {/* Book Cover Intro - overlay that fades out on click */}
+      {mounted && (
+        <AnimatePresence>
+          {!bookOpened && (
+            <BookCover onOpen={handleOpenBook} isOpening={isOpening} />
+          )}
+        </AnimatePresence>
+      )}
 
-      {/* Main Website Content */}
-      {showContent && (
+      {/* Main Website Content - ALWAYS in DOM for crawlers */}
+      {/* Uses CSS opacity (not display:none) so content remains indexable */}
+      <div
+        className={cn(
+          "transition-opacity duration-500",
+          // Before hydration or during book animation: hidden from users but in DOM for crawlers
+          // After book opened: fully visible
+          !mounted || showContent ? "opacity-100" : "opacity-0 pointer-events-none"
+        )}
+        // Ensure crawlers can still read content even when visually hidden
+        aria-hidden={mounted && !showContent ? "true" : undefined}
+      >
         <PageLayout>
           <HeroSection />
           <Suspense fallback={null}>
@@ -83,7 +85,7 @@ export function HomePageContent() {
             <NewsletterSection />
           </Suspense>
         </PageLayout>
-      )}
+      </div>
     </div>
   );
 }
