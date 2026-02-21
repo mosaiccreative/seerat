@@ -39,11 +39,11 @@ export function HeroSection() {
       <div className="flex-1 flex items-center w-full pt-20 md:pt-24 lg:pt-8 pb-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16">
           
-          {/* Left Column: Text Content */}
+          {/* Left Column: Text Content - CSS fallback ensures visibility before JS */}
           <m.div
-            className="flex flex-col justify-center text-center lg:text-left order-2 lg:order-1"
+            className="flex flex-col justify-center text-center lg:text-left order-2 lg:order-1 opacity-100"
             variants={shouldAnimate ? stagger : undefined}
-            initial={shouldAnimate ? "hidden" : undefined}
+            initial={shouldAnimate ? "hidden" : false}
             animate="visible"
           >
             {/* Stacked Headline */}

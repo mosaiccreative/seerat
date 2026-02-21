@@ -46,11 +46,14 @@ export function HomePageContent() {
     }, shouldAnimate ? 2000 : 100);
   };
 
-  // Show loading state while mounting on client
+  // Server-render the hero content immediately for better LCP
+  // The book cover and animations are progressive enhancements
   if (!mounted) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full animate-spin" />
+      <div className="noise-overlay">
+        <PageLayout>
+          <HeroSection />
+        </PageLayout>
       </div>
     );
   }

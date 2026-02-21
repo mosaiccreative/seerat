@@ -78,6 +78,8 @@ export const BookSpine = forwardRef<HTMLButtonElement, BookSpineProps>(
               className="object-cover opacity-60"
               style={{ objectPosition: 'center top' }}
               onError={() => setCoverFailed(true)}
+              priority={index < 5}
+              loading={index < 5 ? undefined : 'lazy'}
             />
           )}
 
