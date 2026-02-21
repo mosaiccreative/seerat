@@ -6,6 +6,7 @@ import { BookCover } from '@/components/BookCover';
 import { PageLayout } from '@/components/layout/PageLayout';
 import { useMotionPreference } from '@/hooks/useMotionPreference';
 import { HeroSection } from '@/components/sections/home/HeroSection';
+import { HeroContent } from '@/components/sections/home/HeroContent';
 
 // Below-the-fold sections lazy-loaded
 const StatsSection = lazy(() => import('@/components/sections/StatsSection').then(m => ({ default: m.StatsSection })));
@@ -46,13 +47,13 @@ export function HomePageContent() {
     }, shouldAnimate ? 2000 : 100);
   };
 
-  // Server-render the hero content immediately for better LCP
-  // The book cover and animations are progressive enhancements
+  // Server-render lightweight hero content immediately for better LCP
+  // The bookshelf images and animations load after hydration
   if (!mounted) {
     return (
       <div className="noise-overlay">
         <PageLayout>
-          <HeroSection />
+          <HeroContent />
         </PageLayout>
       </div>
     );
