@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s | Surinder Seerat",
   },
   description:
-    "Discover the literary world of Surinder Singh Seerat, award-winning Punjabi ghazal master with 13 published books spanning 45 years of poetry, novels, and scholarship.",
+    "Discover Surinder Singh Seerat, award-winning Punjabi ghazal master with 13 books spanning 45 years of poetry, novels, and scholarship.",
   authors: [{ name: "Surinder Singh Seerat" }],
   keywords: [
     "Surinder Singh Seerat",
