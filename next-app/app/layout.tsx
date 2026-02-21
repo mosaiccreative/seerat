@@ -5,10 +5,11 @@ import { Providers } from "@/components/providers";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { structuredData } from "@/data/structured-data";
 
+// Optimized font loading - reduced weights for performance
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600"],  // Reduced from 4 to 2 weights
   style: ["normal", "italic"],
   display: "swap",
 });
@@ -16,15 +17,15 @@ const playfair = Playfair_Display({
 const crimson = Crimson_Pro({
   variable: "--font-crimson",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
+  weight: ["400", "600"],  // Reduced from 4 to 2 weights
+  style: ["normal"],  // Removed italic (rarely used)
   display: "swap",
 });
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: ["400", "500"],  // Reduced from 3 to 2 weights
   display: "swap",
 });
 

@@ -33,9 +33,15 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  // Image configuration - disable optimization for Netlify compatibility
+  // Image configuration - use Netlify Image CDN for optimization
   images: {
-    unoptimized: true,
+    // Enable Next.js image optimization with Netlify's image CDN
+    loader: 'custom',
+    loaderFile: './lib/image-loader.ts',
+    // Specify allowed image sizes for responsive images
+    deviceSizes: [640, 750, 828, 1080, 1200],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+    formats: ['image/webp'],
   },
 };
 
