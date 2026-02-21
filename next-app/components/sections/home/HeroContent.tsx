@@ -3,8 +3,8 @@
 
 export function HeroContent() {
   return (
-    <section className="relative w-full bg-background overflow-hidden flex flex-col">
-      <div className="flex items-center w-full pt-24 md:pt-28 lg:pt-16 pb-8">
+    <section className="relative w-full bg-background overflow-hidden flex flex-col lg:min-h-screen">
+      <div className="flex-1 flex items-center w-full pt-24 md:pt-28 lg:pt-16 pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16">
 
           {/* Left Column: Text Content - visible immediately */}

@@ -34,9 +34,9 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative w-full bg-background overflow-hidden flex flex-col">
-      {/* Main content area - flows naturally without viewport-dependent min-height */}
-      <div className="flex items-center w-full pt-24 md:pt-28 lg:pt-16 pb-8">
+    <section className="relative w-full bg-background overflow-hidden flex flex-col lg:min-h-screen">
+      {/* Main content area - flows naturally on small screens, fills viewport on large screens */}
+      <div className="flex-1 flex items-center w-full pt-24 md:pt-28 lg:pt-16 pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16">
           
           {/* Left Column: Text Content - CSS fallback ensures visibility before JS */}
