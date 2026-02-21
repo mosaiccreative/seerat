@@ -1,0 +1,48 @@
+
+> next-app@0.1.0 build
+> next build
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/jazsingh/surinderseerat.com-lovable/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/jazsingh/surinderseerat.com-lovable/next-app/package-lock.json
+
+▲ Next.js 16.1.6 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.2s
+  Skipping validation of types
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/27) ...
+  Generating static pages using 7 workers (6/27) 
+  Generating static pages using 7 workers (13/27) 
+  Generating static pages using 7 workers (20/27) 
+✓ Generating static pages using 7 workers (27/27) in 184.6ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ○ /books
+├ ● /books/[id]
+│ ├ /books/amriki-punjabi-kahani
+│ ├ /books/jung-jaari-hai
+│ ├ /books/poorab-pacham-te-parvaas
+│ └ [+10 more paths]
+├ ○ /contact
+├ ○ /course
+├ ○ /ghazal-history
+├ ○ /media
+├ ○ /policies
+├ ○ /sitemap.xml
+├ ○ /store
+└ ○ /tishnagi
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
