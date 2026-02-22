@@ -77,8 +77,7 @@ export const BookSpine = forwardRef<HTMLButtonElement, BookSpineProps>(
           {effectiveCover && (
             <Image
               src={effectiveCover}
-              alt=""
-              aria-hidden
+              alt={`${title} book spine`}
               fill
               sizes="60px"
               className="object-cover opacity-60"

@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: BookPageProps): Promise<Metad
     };
   }
 
-  const pageTitle = `${book.title} (${book.year}) — ${book.type} by Surinder Seerat`;
+  const pageTitle = `${book.title} (${book.year}) — ${book.type}`;
   const pageDescription = book.description.length > 160
     ? book.description.substring(0, 157) + '...'
     : book.description;
